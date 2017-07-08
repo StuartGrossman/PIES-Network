@@ -11,7 +11,7 @@ web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
 var coinbase = web3.eth.coinbase;
 var balance = web3.eth.getBalance(coinbase, function(err, res){
   // console.log(balance)
-})
+});
 
 // web3.eth.register("0x407d73d8a49eeb85d32cf465507dd71d507100ca");
 var account = web3.eth.accounts[0];
