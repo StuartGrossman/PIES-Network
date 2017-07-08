@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js" ng-app="app">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -171,7 +171,7 @@
               </div>
               <div class="col-sm-12 col-md-6">
                   <div class="buttons-holder">
-                      <a href="#" class="ybtn ybtn-purple">Create Your Account</a><a href="#" class="ybtn ybtn-white ybtn-shadow">Contact Us</a>
+                      <a href="#" class="ybtn ybtn-purple">Create Your Account</a><a href="#" class="ybtn ybtn-white ybtn-shadow">White Paper</a>
                   </div>
               </div>
           </div>
@@ -559,10 +559,54 @@
           </div>
       </div>
   </div>
+
+
+
+
+
+
+
+  <br><br><br><br><br>
+  <div ng-controller="HomeController as vm">
+    <input ng-model="vm.text">
+    <button class="btn btn-lg btn-default" ng-click="vm.changeData()">Change Data</button>
+
+  <!-- {{vm.json}} -->
+    <div ng-repeat="n in vm.json track by $index">
+      <div>
+      <button class="btn btn-primary">{{n}}</button><button class="btn btn-warning" ng-click="vm.deleteAtIndex($index)"> - </button>
+
+     <!--    <button class="btn btn-primary">{{n.guid}}</button>
+        <hr>
+        <button class="btn btn-danger">{{n.eyeColor}}</button> -->
+      </div>
+    </div>
+
+    <br><br><br>
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+<script type="text/javascript" src="js/ng/angular.js"></script>
+<script type="text/javascript">
+            var myApp = angular.module('app', []);
+        </script>
+</body>
+<script type="text/javascript" src="/js/ng/factory/HomeFactory.js"></script>
+<script type="text/javascript" src="/js/ng/controller/HomeController.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/bootstrap-slider.min.js"></script>
 <script src="js/slick.min.js"></script>
 <script src="js/main.js"></script>
-</body>
+
+
 </html>
