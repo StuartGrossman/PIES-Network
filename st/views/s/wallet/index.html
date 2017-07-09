@@ -4,12 +4,60 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>JS Bin</title>
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+
+  <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+
 </head>
 <body>
 <div class="well">
   <div>
-    Wallet - 
+    Ethereum Wallet <input id="eth" class="form-control" />
+    <br />
+    <button class="btn btn-primary" onclick="submitEthAddress()">Submit</button>
   </div>
 </div>
 </body>
+<script>
+var config = {
+  apiKey: "AIzaSyBNyW7vjQSK2Gbrh4Mzox6G-uAG4gK1rgE",
+  authDomain: "adspace-9fe5c.firebaseapp.com",
+  databaseURL: "https://adspace-9fe5c.firebaseio.com",
+  projectId: "adspace-9fe5c",
+  storageBucket: "",
+  messagingSenderId: "129227170241"
+};
+
+firebase.initializeApp(config);
+var ref = firebase.database().ref('queue/tasks');
+
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if(user){
+    console.log(user)
+    // writeUserData(u)
+  }
+})
+
+function writeUserData(userId, name, email, imageUrl) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
+}
+
+
+function submitEthAddress(){
+  var ea = document.getElementById('eth').value;
+  console.log(ea);
+  if(eth){
+    //some logic to check for legit eth address
+    ref.push({'eth': ea});
+
+  }
+}
+
+</script>
+
 </html>

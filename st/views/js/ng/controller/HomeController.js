@@ -4,7 +4,7 @@
     HomeController.$inject = ['HomeFactory'];
 
     function HomeController(HomeFactory){
-        var vm = this;
+     var vm = this;
 		 vm.json = [
               "test"
 		        ]

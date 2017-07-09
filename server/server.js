@@ -4,12 +4,15 @@ var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 3000;
 var admin = require('firebase-admin')
-// var serviceAccount = require("./serviceAccountKey.json");
+var serviceAccount = require("./serviceAccountKey.json");
 var uuid = require('uuid');
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-//   databaseURL: "https://peoples-pack.firebaseio.com"
-// });
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://adspace-9fe5c.firebaseio.com"
+});
+var defaultAuth = admin.auth();
+var defaultDatabase = admin.database();
+
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -48,10 +51,11 @@ app.get('/', function(req, res){
 // app.get('/verdicts', function(req, res){
 // 	res.render('verdicts')
 // })
+// queues
 var chargeRoutes = require('./routes/contract');
-
+var queues = require('./routes/queues/queues');
 app.use('/contract', chargeRoutes);
-
+app.use('/queues', queues);
 // var billRoutes = require('./routes/bills');
 //
 // app.use('/bills', billRoutes);
