@@ -1,4 +1,4 @@
-(function() {
+(function(firebase) {
     'use strict';
     angular.module('app')
     .factory('HomeFactory', HomeFactory);
@@ -7,8 +7,8 @@
 
     function HomeFactory($http, $q, $rootScope) {
         var o = {};
-        
-    
+
+
         o.MailSender = function(mail){
             var q = $q.defer();
             console.log('sending mail from factory', mail)

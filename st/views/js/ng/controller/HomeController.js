@@ -6,7 +6,7 @@
     function HomeController(HomeFactory){
         var vm = this;
 		 vm.json = [
-
+              "test"
 		        ]
         console.log("angular is working!");
         var text = "hello";
