@@ -54,8 +54,10 @@ app.get('/', function(req, res){
 // queues
 var chargeRoutes = require('./routes/contract');
 var queues = require('./routes/queues/queues');
+var ipfs = require('./routes/ipfs');1
 app.use('/contract', chargeRoutes);
 app.use('/queues', queues);
+app.use('/ipfs', ipfs);
 // var billRoutes = require('./routes/bills');
 //
 // app.use('/bills', billRoutes);

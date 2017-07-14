@@ -3,29 +3,42 @@ var router = express.Router();
 var request = require('request');
 var Web3 = require('web3');
 var web3 = new Web3();
-var Eth = require('ethjs-query')
-var EthContract = require('ethjs-contract')
+// var Eth = require('ethjs-query1');
+var EthContract = require('ethjs-contract');
 var Queue = require('firebase-queue');
 var admin = require('firebase-admin');
 var db = admin.database();
-
-
-///EXAMPLE TO FOLLOW!
-//////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-var updateBillRef = db.ref('firebase-queue/bill-queue/'); //state the refernce with good var name, make sure your url is not already being used!
-var updateBillQueue = new Queue(updateBillRef,  function(data, progress, resolve, reject){
-///// STATE THE RULES
-  //UPDATE Bill QUEUE RULES
-    // User must be authenticated
-    // title must be at least 20 charecters no more than 80
-    // discription must be at least 30 charecters no more than 500
-    // body must be at least 100 charecters no more than 5000
-  db.
-  db.billRef().update(data.bill).than(function(){
-    resolve("Bill Updated");
-  });
-})
-
+var Web3 = require('web3');
+var web3 = new Web3();
+var Eth = require('ethjs-query');
+var EthContract = require('ethjs-contract');
+var HumanStandardToken = require('./contract.json');
+web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
+var coinbase = web3.eth.coinbase;
+var balance = web3.eth.getBalance(coinbase, function(err, res){
+  // console.log(balance)
+});
+// var web3_token = web3.eth.contract(HumanStandardToken).at('0xf5a058b428c04d6ebec97aa774cf65c528da4344');
+// var account = web3.eth.accounts[0];
+// console.log(account)
+// web3_token.totalSupply.call({from: account}, function(err, totalSupply) {
+//           console.log(totalSupply);
+//           // that.setState({totalSupply: totalSupply.toString()});
+//
+//           //a check that if the address returns 0 here, it's either invalid or not usable and user gets notified.
+//           if(totalSupply.toString() === "0") {
+//             that.setState({valid: false});
+//           }
+//       });
+//
+//       console.log(web3_token)
+// web3_token.transfer.call({"from": '0xc969238d0ec056847318e2e5164fa6c32984431b', "to": "0xf5a058b428c04d6ebec97aa774cf65c528da4344", "value": 1e18}, function(err, result){
+//   console.log(result)
+// })
+//eth_gasPrice
+//eth_estimateGas
+//getTransactionCount
+//eth_sendRawTransaction
 
 
 router.get('/', function(req, res){
@@ -50,16 +63,37 @@ router.get('/', function(req, res){
 var ref = admin.database().ref('queue');
 
 var queue = new Queue(ref, function(data, progress, resolve, reject) {
-// Read and process task data
-console.log(data);
+  // Read and process task data
+  console.log(data);
+  // curl -d '{"jsonrpc":"2.0","method":"eth_sendTransaction","params": [{"from":"0x52f273a06a420453aa5b33c4f175395c9a1fddd8", "to":"0x541e8e0b0f25f799f941932ddcb93bb83d254e64", "value": 1e18}], "id":1}' -X POST http://localhost:8545/
 
-// Do some work
-progress(50);
+  // Do some work
+  // progress(50);
 
-// Finish the task asynchronously
-setTimeout(function() {
-  resolve();
-}, 1000);
+    var postData = {"jsonrpc":"2.0","method":"eth_sendTransaction","params": [{"from":"0x52f273a06a420453aa5b33c4f175395c9a1fddd8", "to": data.eth, "value": 1e18}], "id":1}
+    var url = 'http://localhost:8545/'
+    var options = {
+      method: 'post',
+      body: postData,
+      json: true,
+      url: url
+    }
+    request(options, function (err, res, body) {
+      if (err) {
+        console.error('error posting json: ', err)
+        throw err
+      }
+      var headers = res.headers
+      var statusCode = res.statusCode
+      console.log('headers: ', headers)
+      console.log('statusCode: ', statusCode)
+      console.log('body: ', body)
+    })
+
+  // Finish the task asynchronously
+  setTimeout(function() {
+    resolve();
+  }, 3000);
 });
 
 module.exports = router;
