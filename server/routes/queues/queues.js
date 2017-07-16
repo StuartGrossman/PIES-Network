@@ -95,5 +95,9 @@ var queue = new Queue(ref, function(data, progress, resolve, reject) {
     resolve();
   }, 3000);
 });
+var ipfsRef = admin.database().ref('/queue/ipfs/');
+var queue = new Queue(ipfsRef, function(data, progress, resolve, reject) {
+  console.log(data);
+})
 
 module.exports = router;
