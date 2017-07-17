@@ -1,0 +1,18 @@
+ADVERTISER FLOW
+
+Max Ammount of Ads Per User 5
+
+Login -> Select Advertiser user Mode
+->
+
+  Create Ad -> Upload Ad
+
+    MP3 Video Input -> Firebase Queue -> NodeServer -> IPFS Upload
+    -> Save IPFS HASH in UserTable -> Send Hash to DOM -> ANGULAR updates VIDEO tag, for preview Approval
+     - User defines impression feedback, via multipul choice questions/basic question/links/description of product/website/links
+     - User Selects Tags and User Data for targeted Ad Selection -> Inpressions have a price based on complexity, age, income
+     - User approves the price per impression - Review Screen -> Submit
+
+  Active Ad -> User Selects Ad
+    -> Views each completed Impression with full data/feedback
+    -> Options to cancle Ad, Pause Ad, Review and contest legitiemnt user feedback

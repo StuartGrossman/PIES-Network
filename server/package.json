@@ -8,14 +8,22 @@
   },
   "license": "MIT",
   "dependencies": {
+    "aegir": "^11.0.2",
+    "bl": "^1.2.1",
     "body-parser": "^1.12.4",
+    "chai": "^4.1.0",
+    "detect-node": "^2.0.3",
+    "dirty-chai": "^2.0.1",
+    "download-file": "^0.1.5",
     "ejs": "^2.3.1",
     "ethjs": "^0.2.7",
     "express": "^4.12.4",
     "firebase": "^3.9.0",
     "firebase-admin": "^4.2.1",
     "firebase-queue": "^1.6.1",
+    "readable-stream": "^2.3.3",
     "sendgrid": "^1.9.2",
+    "through2": "^2.0.3",
     "uid": "0.0.2",
     "web3": "0.19.1"
   }
