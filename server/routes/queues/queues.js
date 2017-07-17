@@ -3,6 +3,9 @@ var router = express.Router();
 var request = require('request');
 var Web3 = require('web3');
 var web3 = new Web3();
+var http = require('http');
+var fs = require('fs');
+var download = require('download-file');
 // var Eth = require('ethjs-query1');
 var EthContract = require('ethjs-contract');
 var Queue = require('firebase-queue');
@@ -10,6 +13,8 @@ var admin = require('firebase-admin');
 var db = admin.database();
 var Web3 = require('web3');
 var web3 = new Web3();
+var exec = require('promise-exec');
+
 var Eth = require('ethjs-query');
 var EthContract = require('ethjs-contract');
 var HumanStandardToken = require('./contract.json');
@@ -41,8 +46,8 @@ var balance = web3.eth.getBalance(coinbase, function(err, res){
 //eth_sendRawTransaction
 
 
-router.get('/', function(req, res){
-  console.log("route being hit")
+// router.get('/', function(req, res){
+//   console.log("route being hit")
   // var postId = "2"
   // var starCountRef = admin.database().ref('users/' + postId + '/starCount');
   // starCountRef.on('value', function(snapshot) {
@@ -59,10 +64,14 @@ router.get('/', function(req, res){
   // };
 
 
-})
-var ref = admin.database().ref('queue');
+// })
+//
+//// queue refs
+var ethSetupRef = admin.database().ref('/queue/eth_setup');
+var ipfsRef = admin.database().ref('/queue/ipfs/');
+////
 
-var queue = new Queue(ref, function(data, progress, resolve, reject) {
+var queue = new Queue(ethSetupRef, function(data, progress, resolve, reject) {
   // Read and process task data
   console.log(data);
   // curl -d '{"jsonrpc":"2.0","method":"eth_sendTransaction","params": [{"from":"0x52f273a06a420453aa5b33c4f175395c9a1fddd8", "to":"0x541e8e0b0f25f799f941932ddcb93bb83d254e64", "value": 1e18}], "id":1}' -X POST http://localhost:8545/
@@ -95,9 +104,42 @@ var queue = new Queue(ref, function(data, progress, resolve, reject) {
     resolve();
   }, 3000);
 });
-var ipfsRef = admin.database().ref('/queue/ipfs/');
+
+var options = {
+    directory: "./temp",
+    filename: "temp.mp4"
+}
+
+
 var queue = new Queue(ipfsRef, function(data, progress, resolve, reject) {
   console.log(data);
+  download(data.downloadURL, options, function(err){
+      if (err){
+        throw err
+      }
+      console.log("success")
+
+      exec('ipfs add ./temp/temp.mp4' )
+        .then(function(result) {
+          console.log(result);
+          var r = result[0].split(' ')
+          var ipfsHash = r[1]
+          console.log(ipfsHash)
+          var ref = admin.database().ref('user/' + data.userId + '/ads/');
+          ref.push({
+            "ipfsHash": ipfsHash
+          })
+          //delete storage REF and PREVIEW REF in database
+          // var storageRef =
+        })
+        .catch(function(err) {
+          console.error(err);
+        });
+
+  })
+  setTimeout(function() {
+    resolve();
+  }, 1000);
 })
 
 module.exports = router;
