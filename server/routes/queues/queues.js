@@ -129,15 +129,11 @@ var queue = new Queue(ipfsRef, function(data, progress, resolve, reject) {
           ref.push({
             "ipfsHash": ipfsHash
           })
-          //delete storage REF and PREVIEW REF in database
-          // var storageRef =
         })
-        .catch(function(err) {
-          console.error(err);
-        });
-
+        
   })
   setTimeout(function() {
+
     resolve();
   }, 1000);
 })

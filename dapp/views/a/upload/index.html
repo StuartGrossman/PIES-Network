@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>AdSpace</title>
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+
+  <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+
+</head>
+<body>
+  <div class="well" id="uploadAdWindow">
+
+    <label for="video-upload" class="btn btn-white btn-lg btn-wide">
+       UPLOAD VIDEO
+   </label>
+
+    <input id="video" onchange="uploadVideo()" type="file" accept="video/*" name="video"/>
+    <button style="display: none" class="btn btn-primary" id="button" onclick="submitAd()">Next</button>
+  </div>
+
+  <div class="well" id="uploadAdPreview" style="display: none;">
+    <video controls="" autoplay="" name="media" id="video1" width="320" height="240"></video>
+    <div>
+      <button class="btn btn-primary" onclick="submit()" style="display: none;" id="submit">Submit</button>
+    </div>
+  </div>
+
+</body>
+
+
+<script>
+var uid = uuid();
+var previewUrl;
+var user;
+var duration;
+var config = {
+  apiKey: "AIzaSyBNyW7vjQSK2Gbrh4Mzox6G-uAG4gK1rgE",
+  authDomain: "adspace-9fe5c.firebaseapp.com",
+  databaseURL: "https://adspace-9fe5c.firebaseio.com",
+  projectId: "adspace-9fe5c",
+  storageBucket: "adspace-9fe5c.appspot.com",
+  messagingSenderId: "129227170241"
+};
+
+firebase.initializeApp(config);
+
+var ref = firebase.database().ref('queue/tasks');
+
+
+firebase.auth().onAuthStateChanged(function(userObj) {
+  if(userObj){
+    console.log(userObj)
+    // writeUserData(u)
+    user = userObj;
+  }
+})
+
+
+
+
+
+
+function uuid() {
+   return "" + s4() + s4() + "-" + s4() + "-" + s4() + s4() + "-" + s4() + s4();
+}
+
+function s4() {
+  return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+}
+
+function submit(){
+  queueRef = firebase.database().ref('queue/ipfs/tasks/');
+  console.log("hitting queue", duration)
+  queueRef.push(
+      {
+        "userId": user.uid,
+        "previewId": uid,
+        "duration": duration,
+        "downloadURL": previewUrl
+      }
+  ).then(function(){
+    window.location.href = '/s/ads';
+    
+  })
+
+
+}
+
+function uploadVideo(){
+  var storageRef = firebase.storage().ref();
+  var sbPathRecord = "/user/" + user.uid + "/preview/" + uid;
+  var dbPathRecord = "/user/" + user.uid + "/preview/" + uid;
+  var file = document.getElementById('video').files[0];
+  var duration = file.duration;
+
+  var uploadTask = storageRef.child(sbPathRecord).put(file).then(function(snapshot) {
+
+  // console.log('Uploaded a blob or file!', snapshot);
+
+  savePreview(snapshot, dbPathRecord);
+  })
+}
+
+function submitAd(){
+  var ad = document.getElementById("uploadAdWindow");
+
+  ad.style.display = "none"
+
+  var video = document.getElementById('video1');
+  var source = document.createElement('source');
+
+  source.setAttribute('src', previewUrl);
+
+  video.appendChild(source);
+  // video.load();
+  // var dur = video.duration;
+  //
+  // // video.play();
+  // console.log(dur)
+  play();
+
+}
+function play(){
+
+  var vid = document.getElementById("video1");
+  var div = document.getElementById('uploadAdPreview');
+  var sub = document.getElementById('submit');
+  div.style.display = "flex";
+  setTimeout(function() {
+    // console.log("looping")
+    // video.load();
+    // video.play();
+    // loop();
+    duration = vid.duration
+    sub.style.display = "flex"
+
+  }, 2000);
+}
+function savePreview(snapshot, dbPathRecord){
+  previewUrl = snapshot.metadata.downloadURLs[0];
+  // console.log(snap)
+  if(snapshot.state === "success"){
+    firebase.database().ref(dbPathRecord).set({
+            ts: firebase.database.ServerValue.TIMESTAMP,
+            uploadUrl: previewUrl,
+            name: snapshot.metadata.name,
+            storageUrl: snapshot.metadata.fullPath,
+            clientDate: Date.now(),
+            key: uid,
+            type: 'image'
+            }).then(function(){
+              var button = document.getElementById("button").style.display = "flex";
+
+            }, function(error) {
+              console.log(error);
+              return false;
+            })
+  }
+
+}
+
+
+
+</script>
+
+</html>
