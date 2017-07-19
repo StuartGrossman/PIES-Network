@@ -33,14 +33,22 @@
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
             <div class="navbar-header"> <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
-                <div class="top-left-part"><a class="logo" href="index.html"><b><!--This is dark logo icon--><img src="../sources/images/eliteadmin-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="../sources/images/eliteadmin-logo-dark.png" alt="home" class="light-logo" /></b><span class="hidden-xs"><!--This is dark logo text--><img src="../sources/images/eliteadmin-text.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="../sources/images/eliteadmin-text-dark.png" alt="home" class="light-logo" /></span></a></div>
+                <!-- <div class="top-left-part"><a class="logo" href="index.html"><b>
+                  <img src="../sources/images/eliteadmin-logo.png" alt="home" class="dark-logo" />
+                  <img src="../sources/images/eliteadmin-logo-dark.png" alt="home" class="light-logo" />
+                </b>
+                <span class="hidden-xs">
+                  <img src="../sources/images/eliteadmin-text.png" alt="home" class="dark-logo" />
+
+                  <img src="../sources/images/eliteadmin-text-dark.png" alt="home" class="light-logo" /></span></a>
+                </div> -->
                 <ul class="nav navbar-top-links navbar-left hidden-xs">
                     <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
-                    <li>
+                    <!-- <li>
                         <form role="search" class="app-search hidden-xs">
                             <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form>
                     </li>
-                </ul>
+                </ul> -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
                     <li class="dropdown"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"><i class="icon-envelope"></i>
           <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
@@ -230,7 +238,7 @@
             <div class="sidebar-nav navbar-collapse slimscrollsidebar">
                 <div class="user-profile">
                     <div class="dropdown user-pro-body">
-                        <div><img src="../sources/images/varun.jpg" alt="user-img" class="img-circle"></div> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Steave Gection <span class="caret"></span></a>
+                        <div><img id="userImage" alt="user-img" class="img-circle"></div> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="userName"><span class="caret"></span></a>
                         <ul class="dropdown-menu animated flipInY">
                             <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
                             <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
@@ -251,7 +259,7 @@
             </span> </div>
                         <!-- /input-group -->
                     </li>
-                    <li class="nav-small-cap m-t-10">--- Main Menu</li>
+                    <!-- <li class="nav-small-cap m-t-10"> Main Menu</li> -->
                     <li> <a href="index.html" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard <span class="fa arrow"></span> <span class="label label-rouded label-custom pull-right">4</span></span></a>
                         <ul class="nav nav-second-level">
                             <li> <a href="index.html">Minimalistic</a> </li>
@@ -260,7 +268,7 @@
                             <li> <a href="index4.html">Simpler</a> </li>
                         </ul>
                     </li>
-                    <li> <a href="javascript:void(0);" class="waves-effect"><i class="linea-icon linea-basic fa-fw text-danger" data-icon="7"></i> <span class="hide-menu text-danger"> Multipurpose <span class="fa arrow"></span> <span class="label label-rouded label-danger pull-right">HOT</span></span></a>
+                    <!-- <li> <a href="javascript:void(0);" class="waves-effect"><i class="linea-icon linea-basic fa-fw text-danger" data-icon="7"></i> <span class="hide-menu text-danger"> Multipurpose <span class="fa arrow"></span> <span class="label label-rouded label-danger pull-right">HOT</span></span></a>
                         <ul class="nav nav-second-level">
                             <li> <a href="../eliteadmin-hospital/index.html">Hospital Admin</a> </li>
                             <li> <a href="../eliteadmin-crm/index.html">CRM Admin</a> </li>
@@ -357,69 +365,9 @@
                             <li><a href="form-bootstrap-wysihtml5.html">Bootstrap wysihtml5</a></li>
                             <li><a href="form-tinymce-wysihtml5.html">Tinymce wysihtml5</a></li>
                         </ul>
-                    </li>
-                    <li class="nav-small-cap">--- Proffessional</li>
-                    <li> <a href="#" class="waves-effect"><i data-icon="&#xe008;" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Sample Pages<span class="fa arrow"></span><span class="label label-rouded label-purple pull-right">30</span></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="starter-page.html">Starter Page</a></li>
-                            <li><a href="blank.html">Blank Page</a></li>
-                            <li><a href="javascript:void(0)" class="waves-effect">Email Templates<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li> <a href="../email-templates/basic.html">Basic</a></li>
-                                    <li> <a href="../email-templates/alert.html">Alert</a></li>
-                                    <li> <a href="../email-templates/billing.html">Billing</a></li>
-                                    <li> <a href="../email-templates/password-reset.html">Reset Pwd</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="lightbox.html">Lightbox Popup</a></li>
-                            <li><a href="treeview.html">Treeview</a></li>
-                            <li><a href="search-result.html">Search Result</a></li>
-                            <li><a href="utility-classes.html">Utility Classes</a></li>
-                            <li><a href="custom-scroll.html">Custom Scrolls</a></li>
-                            <li><a href="login.html">Login Page</a></li>
-                            <li><a href="login2.html">Login v2</a></li>
-                            <li><a href="animation.html">Animations</a></li>
-                            <li><a href="profile.html">Profile</a></li>
-                            <li><a href="invoice.html">Invoice</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                            <li><a href="register.html">Register</a></li>
-                            <li><a href="register2.html">Register v2</a></li>
-                            <li><a href="register3.html">3 Step Registration</a></li>
-                            <li><a href="recoverpw.html">Recover Password</a></li>
-                            <li><a href="lock-screen.html">Lock Screen</a></li>
-                            <li><a href="400.html">Error 400</a></li>
-                            <li><a href="403.html">Error 403</a></li>
-                            <li><a href="404.html">Error 404</a></li>
-                            <li><a href="500.html">Error 500</a></li>
-                            <li><a href="503.html">Error 503</a></li>
-                        </ul>
-                    </li>
-                    <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Charts<span class="fa arrow"></span></span></a>
-                        <ul class="nav nav-second-level">
-                            <li> <a href="flot.html">Flot Charts</a> </li>
-                            <li><a href="morris-chart.html">Morris Chart</a></li>
-                            <li><a href="chart-js.html">Chart-js</a></li>
-                            <li><a href="peity-chart.html">Peity Charts</a></li>
-                            <li><a href="knob-chart.html">Knob Charts</a></li>
-                            <li><a href="sparkline-chart.html">Sparkline charts</a></li>
-                            <li><a href="extra-charts.html">Extra Charts</a></li>
-                        </ul>
-                    </li>
-                    <li> <a href="tables.html" class="waves-effect"><i data-icon="O" class="linea-icon linea-software fa-fw"></i> <span class="hide-menu">Tables<span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">7</span></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="basic-table.html">Basic Tables</a></li>
-                            <li><a href="table-layouts.html">Table Layouts</a></li>
-                            <li><a href="data-table.html">Data Table</a></li>
-                            <li class="hidden"><a href="crud-table.html">Crud Table</a></li>
-                            <li><a href="bootstrap-tables.html">Bootstrap Tables</a></li>
-                            <li><a href="responsive-tables.html">Responsive Tables</a></li>
-                            <li><a href="editable-tables.html">Editable Tables</a></li>
-                            <li><a href="foo-tables.html">FooTables</a></li>
-                            <li><a href="jsgrid.html">JsGrid Tables</a></li>
-                        </ul>
-                    </li>
+                    </li> -->
+                    <!-- <li class="nav-small-cap"> -> Proffessional</li> -->
+
                     <li> <a href="widgets.html" class="waves-effect"><i data-icon="P" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Widgets</span></a> </li>
                     <li> <a href="#" class="waves-effect"><i data-icon="7" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Icons<span class="fa arrow"></span></span></a>
                         <ul class="nav nav-second-level">
@@ -430,28 +378,12 @@
                             <li><a href="weather.html">Weather Icons</a></li>
                         </ul>
                     </li>
-                    <li> <a href="map-google.html" class="waves-effect"><i data-icon="Q" class="linea-icon linea-basic fa-fw"></i><span class="hide-menu" >Google Map</span></a> </li>
-                    <li> <a href="map-vector.html" class="waves-effect"><i data-icon="S" class="linea-icon linea-basic fa-fw"></i><span class="hide-menu" >Vector Map</span></a> </li>
-                    <li> <a href="calendar.html" class="waves-effect"><i data-icon="A" class="linea-icon linea-elaborate fa-fw"></i> <span class="hide-menu">Calendar</span></a></li>
-                    <li> <a href="javascript:void(0)" class="waves-effect"><i data-icon="F" class="linea-icon linea-software fa-fw"></i> <span class="hide-menu">Multi-Level Dropdown<span class="fa arrow"></span></span></a>
-                        <ul class="nav nav-second-level">
-                            <li> <a href="javascript:void(0)">Second Level Item</a> </li>
-                            <li> <a href="javascript:void(0)">Second Level Item</a> </li>
-                            <li> <a href="javascript:void(0)" class="waves-effect">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li> <a href="javascript:void(0)">Third Level Item</a> </li>
-                                    <li> <a href="javascript:void(0)">Third Level Item</a> </li>
-                                    <li> <a href="javascript:void(0)">Third Level Item</a> </li>
-                                    <li> <a href="javascript:void(0)">Third Level Item</a> </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+
                     <li><a href="login.html" class="waves-effect"><i class="icon-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
-                    <li class="nav-small-cap">--- Support</li>
+                    <!-- <li class="nav-small-cap">--- Support</li>
                     <li><a href="documentation.html" class="waves-effect"><i class="fa fa-circle-o text-danger"></i> <span class="hide-menu">Documentation</span></a></li>
                     <li><a href="gallery.html" class="waves-effect"><i class="fa fa-circle-o text-info"></i> <span class="hide-menu">Gallery</span></a></li>
-                    <li><a href="faq.html" class="waves-effect"><i class="fa fa-circle-o text-success"></i> <span class="hide-menu">Faqs</span></a></li>
+                    <li><a href="faq.html" class="waves-effect"><i class="fa fa-circle-o text-success"></i> <span class="hide-menu">Faqs</span></a></li> -->
                 </ul>
             </div>
         </div>
@@ -460,14 +392,14 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row bg-title">
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <!-- <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">Dashboard 1</h4> </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <a href="https://themeforest.net/item/elite-admin-responsive-dashboard-web-app-kit-/16750820" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Buy Now</a>
                         <ol class="breadcrumb">
                             <li><a href="#">Dashboard</a></li>
                             <li class="active">Dashboard 1</li>
                         </ol>
-                    </div>
+                    </div> -->
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
@@ -601,307 +533,17 @@
                     </div>
                 </div>
                 <!--row -->
-                <div class="row">
-                    <div class="col-md-12 col-lg-6 col-sm-12">
-                        <div class="white-box">
-                            <h3 class="box-title">Recent Comments</h3>
-                            <div class="comment-center">
-                                <div class="comment-body">
-                                    <div class="user-img"> <img src="../sources/images/pawandeep.jpg" alt="user" class="img-circle"></div>
-                                    <div class="mail-contnet">
-                                        <h5>Pavan kumar</h5> <span class="mail-desc">Donec ac condimentum massa. Etiam pellentesque pretium lacus. Phasellus ultricies dictum suscipit. Aenean commodo dui pellentesque molestie feugiat.</span> <span class="label label-rounded label-info">PENDING</span><a href="javacript:void(0)" class="action"><i class="ti-close text-danger"></i></a> <a href="javacript:void(0)" class="action"><i class="ti-check text-success"></i></a><span class="time pull-right">April 14, 2017</span></div>
-                                </div>
-                                <div class="comment-body">
-                                    <div class="user-img"> <img src="../sources/images/sonu.jpg" alt="user" class="img-circle"> </div>
-                                    <div class="mail-contnet">
-                                        <h5>Sonu Nigam</h5> <span class="mail-desc">Donec ac condimentum massa. Etiam pellentesque pretium lacus. Phasellus ultricies dictum suscipit. Aenean commodo dui pellentesque molestie feugiat.</span><span class="label label-rounded label-success">APPROVED</span><a href="javacript:void(0)" class="action"><i class="ti-close text-danger"></i></a> <a href="javacript:void(0)" class="action"><i class="ti-check text-success"></i></a><span class="time pull-right">April 14, 2017</span></div>
-                                </div>
-                                <div class="comment-body">
-                                    <div class="user-img"> <img src="../sources/images/arijit.jpg" alt="user" class="img-circle"> </div>
-                                    <div class="mail-contnet">
-                                        <h5>Arijit Sinh</h5> <span class="mail-desc">Donec ac condimentum massa. Etiam pellentesque pretium lacus. Phasellus ultricies dictum suscipit. Aenean commodo dui pellentesque molestie feugiat. </span><span class="label label-rounded label-danger">REJECTED</span><a href="javacript:void(0)" class="action"><i class="ti-close text-danger"></i></a> <a href="javacript:void(0)" class="action"><i class="ti-check text-success"></i></a><span class="time pull-right">April 14, 2017</span></div>
-                                </div>
-                                <div class="comment-body b-none">
-                                    <div class="user-img"> <img src="../sources/images/pawandeep.jpg" alt="user" class="img-circle"></div>
-                                    <div class="mail-contnet">
-                                        <h5>Pavan kumar</h5> <span class="mail-desc">Donec ac condimentum massa. Etiam pellentesque pretium lacus. Phasellus ultricies dictum suscipit. Aenean commodo dui pellentesque molestie feugiat.</span> <span class="label label-rounded label-info">PENDING</span> <a href="javacript:void(0)" class="action"><i class="ti-close text-danger"></i></a> <a href="javacript:void(0)" class="action"><i class="ti-check text-success"></i></a><span class="time pull-right">April 14, 2017</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-6 col-sm-12">
-                        <div class="white-box">
-                            <h3 class="box-title">Recent sales
-              <div class="col-md-3 col-sm-4 col-xs-6 pull-right">
-                <select class="form-control pull-right row b-none">
-                  <option>March 2017</option>
-                  <option>April 2017</option>
-                  <option>May 2017</option>
-                  <option>June 2017</option>
-                  <option>July 2017</option>
-                </select>
-              </div>
-            </h3>
-                            <div class="row sales-report">
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <h2>March 2017</h2>
-                                    <p>SALES REPORT</p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 ">
-                                    <h1 class="text-right text-success m-t-20">$3,690</h1> </div>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table ">
-                                    <thead>
-                                        <tr>
-                                            <th>NAME</th>
-                                            <th>STATUS</th>
-                                            <th>DATE</th>
-                                            <th>PRICE</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="txt-oflo">Elite admin</td>
-                                            <td><span class="label label-megna label-rounded">SALE</span> </td>
-                                            <td class="txt-oflo">April 18</td>
-                                            <td><span class="text-success">$24</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="txt-oflo">Real Homes</td>
-                                            <td><span class="label label-info label-rounded">EXTENDED</span></td>
-                                            <td class="txt-oflo">April 19</td>
-                                            <td><span class="text-info">$1250</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="txt-oflo">Medical Pro</td>
-                                            <td><span class="label label-danger label-rounded">TAX</span></td>
-                                            <td class="txt-oflo">April 20</td>
-                                            <td><span class="text-danger">-$24</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="txt-oflo">Hosting press</td>
-                                            <td><span class="label label-megna label-rounded">SALE</span></td>
-                                            <td class="txt-oflo">April 21</td>
-                                            <td><span class="text-success">$24</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="txt-oflo">Helping Hands</td>
-                                            <td><span class="label label-success label-rounded">MEMBER</span></td>
-                                            <td class="txt-oflo">April 22</td>
-                                            <td><span class="text-success">$24</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="txt-oflo">Digital Agency</td>
-                                            <td><span class="label label-megna label-rounded">SALE</span> </td>
-                                            <td class="txt-oflo">April 23</td>
-                                            <td><span class="text-danger">-$14</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="txt-oflo">Helping Hands</td>
-                                            <td><span class="label label-success label-rounded">MEMBER</span></td>
-                                            <td class="txt-oflo">April 22</td>
-                                            <td><span class="text-success">$64</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table> <a href="#">Check all the sales</a> </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
-                <!--row -->
-                <div class="row">
-                    <div class="col-md-12 col-lg-9 col-sm-12 col-xs-12 pull-right">
-                        <div class="white-box">
-                            <h3 class="box-title">Sales Difference</h3>
-                            <ul class="list-inline text-right">
-                                <li>
-                                    <h5><i class="fa fa-circle m-r-5" style="color: #00bfc7;"></i>Site A View</h5> </li>
-                                <li>
-                                    <h5><i class="fa fa-circle m-r-5" style="color: #fdc006;"></i>Site B View</h5> </li>
-                            </ul>
-                            <div id="morris-area-chart2" style="height: 370px;"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-3 col-sm-6 col-xs-12">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-12">
-                                <div class="white-box m-b-15">
-                                    <h3 class="box-title">Sales Difference</h3>
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-6 col-xs-6  m-t-30">
-                                            <h1 class="text-info">$647</h1>
-                                            <p class="text-muted">APRIL 2017</p>
-                                            <b>(150 Sales)</b> </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6">
-                                            <div id="sparkline2dash" class="text-center"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-12">
-                                <div class="white-box bg-purple m-b-15">
-                                    <h3 class="text-white box-title">VISIT STATASTICS</h3>
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-6 col-xs-6  m-t-30">
-                                            <h1 class="text-white">$347</h1>
-                                            <p class="light_op_text">APRIL 2017</p>
-                                            <b class="text-white">(150 Sales)</b> </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6">
-                                            <div id="sales1" class="text-center"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <!-- row -->
-                <div class="row">
-                    <div class="col-md-12 col-lg-4">
-                        <div class="white-box">
-                            <h3 class="box-title">To Do List</h3>
-                            <ul class="list-task list-group" data-role="tasklist">
-                                <li class="list-group-item" data-role="task">
-                                    <div class="checkbox checkbox-info">
-                                        <input type="checkbox" id="inputSchedule" name="inputCheckboxesSchedule">
-                                        <label for="inputSchedule"> <span>Schedule meeting</span> </label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item" data-role="task">
-                                    <div class="checkbox checkbox-info">
-                                        <input type="checkbox" id="inputCall" name="inputCheckboxesCall">
-                                        <label for="inputCall"> <span>Give Purchase report</span> <span class="label label-danger">Today</span> </label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item" data-role="task">
-                                    <div class="checkbox checkbox-info">
-                                        <input type="checkbox" id="inputBook" name="inputCheckboxesBook">
-                                        <label for="inputBook"> <span>Book flight for holiday</span> </label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item" data-role="task">
-                                    <div class="checkbox checkbox-info">
-                                        <input type="checkbox" id="inputForward" name="inputCheckboxesForward">
-                                        <label for="inputForward"> <span>Forward all tasks</span> <span class="label label-warning">2 weeks</span> </label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item" data-role="task">
-                                    <div class="checkbox checkbox-info">
-                                        <input type="checkbox" id="inputRecieve" name="inputCheckboxesRecieve">
-                                        <label for="inputRecieve"> <span>Recieve shipment</span> </label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item" data-role="task">
-                                    <div class="checkbox checkbox-info">
-                                        <input type="checkbox" id="inputForward2" name="inputCheckboxesd">
-                                        <label for="inputForward2"> <span>Important tasks</span> <span class="label label-success">2 weeks</span> </label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-4">
-                        <div class="white-box">
-                            <h3 class="box-title">You have 5 new messages</h3>
-                            <div class="message-center">
-                                <a href="#">
-                                    <div class="user-img"> <img src="../sources/images/pawandeep.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
-                                    <div class="mail-contnet">
-                                        <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span> </div>
-                                </a>
-                                <a href="#">
-                                    <div class="user-img"> <img src="../sources/images/sonu.jpg" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
-                                    <div class="mail-contnet">
-                                        <h5>Sonu Nigam</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span> </div>
-                                </a>
-                                <a href="#">
-                                    <div class="user-img"> <img src="../sources/images/arijit.jpg" alt="user" class="img-circle"> <span class="profile-status away pull-right"></span> </div>
-                                    <div class="mail-contnet">
-                                        <h5>Arijit Sinh</h5> <span class="mail-desc">I am a singer!</span> <span class="time">9:08 AM</span> </div>
-                                </a>
-                                <a href="#">
-                                    <div class="user-img"> <img src="../sources/images/genu.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
-                                    <div class="mail-contnet">
-                                        <h5>Genelia Deshmukh</h5> <span class="mail-desc">I love to do acting and dancing</span> <span class="time">9:08 AM</span> </div>
-                                </a>
-                                <a href="#" class="b-none">
-                                    <div class="user-img"> <img src="../sources/images/pawandeep.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
-                                    <div class="mail-contnet">
-                                        <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="white-box">
-                            <h3 class="box-title">Chat</h3>
-                            <div class="chat-box">
-                                <ul class="chat-list slimscroll" style="overflow: hidden;" tabindex="5005">
-                                    <li>
-                                        <div class="chat-image"> <img alt="male" src="../sources/images/sonu.jpg"> </div>
-                                        <div class="chat-body">
-                                            <div class="chat-text">
-                                                <h4>Sonu Nigam</h4>
-                                                <p> Hi, All! </p> <b>10.00 am</b> </div>
-                                        </div>
-                                    </li>
-                                    <li class="odd">
-                                        <div class="chat-image"> <img alt="Female" src="../sources/images/genu.jpg"> </div>
-                                        <div class="chat-body">
-                                            <div class="chat-text">
-                                                <h4>Genelia</h4>
-                                                <p> Hi, How are you Sonu? ur next concert? </p> <b>10.03 am</b> </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="chat-image"> <img alt="male" src="../sources/images/ritesh.jpg"> </div>
-                                        <div class="chat-body">
-                                            <div class="chat-text">
-                                                <h4>Ritesh</h4>
-                                                <p> Hi, Sonu and Genelia, </p> <b>10.05 am</b> </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Say something"> <span class="input-group-btn">
-                    <button class="btn btn-success" type="button">Send</button>
-                    </span> </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+
                 <!-- /.row -->
                 <!-- .right-sidebar -->
                 <div class="right-sidebar">
                     <div class="slimscrollright">
                         <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
                         <div class="r-panel-body">
-                            <ul>
-                                <li><b>Layout Options</b></li>
-                                <li>
-                                    <div class="checkbox checkbox-info">
-                                        <input id="checkbox1" type="checkbox" class="fxhdr">
-                                        <label for="checkbox1"> Fix Header </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="checkbox checkbox-warning">
-                                        <input id="checkbox2" type="checkbox" class="fxsdr">
-                                        <label for="checkbox2"> Fix Sidebar </label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="checkbox checkbox-success">
-                                        <input id="checkbox4" type="checkbox" class="open-close">
-                                        <label for="checkbox4"> Toggle Sidebar </label>
-                                    </div>
-                                </li>
-                            </ul>
+
                             <ul id="themecolors" class="m-t-20">
                                 <li><b>With Light sidebar</b></li>
                                 <li><a href="javascript:void(0)" theme="default" class="default-theme">1</a></li>
@@ -919,33 +561,7 @@
                                 <li><a href="javascript:void(0)" theme="purple-dark" class="purple-dark-theme">11</a></li>
                                 <li><a href="javascript:void(0)" theme="megna-dark" class="megna-dark-theme">12</a></li>
                             </ul>
-                            <ul class="m-t-20 chatonline">
-                                <li><b>Chat option</b></li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../sources/images/varun.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../sources/images/genu.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../sources/images/ritesh.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../sources/images/arijit.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../sources/images/govinda.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../sources/images/hritik.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../sources/images/john.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../sources/images/pawandeep.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
-                                </li>
-                            </ul>
+
                         </div>
                     </div>
                 </div>
@@ -956,6 +572,7 @@
         </div>
         <!-- /#page-wrapper -->
     </div>
+  </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
 
@@ -1012,6 +629,9 @@ var ref = firebase.database().ref('queue/tasks');
 firebase.auth().onAuthStateChanged(function(user) {
   if(user){
     console.log(user)
+    document.getElementById('userImage').src = user.photoURL;
+    document.getElementById('userName').innerHTML = user.displayName;
+
     // writeUserData(u)
   }
 })
