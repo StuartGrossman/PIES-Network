@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>AdSpace</title>
-  <link rel="stylesheet" type="text/css" href="./sources/css/bootstrap.min.css">
-  <link href="./sources/css/bootstrap-extension.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../sources/css/bootstrap.min.css">
+  <link href="../sources/css/bootstrap-extension.css" rel="stylesheet">
   <!-- animation CSS -->
-  <link href="./sources/css/animate.css" rel="stylesheet">
+  <link href="../sources/css/animate.css" rel="stylesheet">
   <!-- Custom CSS -->
-  <link href="./sources/css/style.css" rel="stylesheet">
+  <link href="../sources/css/style.css" rel="stylesheet">
   <!-- color CSS -->
-  <link href="./sources/css/default-dark.css" id="theme" rel="stylesheet">
+  <link href="../sources/css/default-dark.css" id="theme" rel="stylesheet">
 
 </head>
 <body>
@@ -53,21 +53,21 @@
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
 
-<script src="./sources/js/jquery.min.js"></script>
+<script src="../sources/js/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="./sources/js/tether.min.js"></script>
-<script src="./sources/js/bootstrap.min.js"></script>
-<script src="./sources/js/bootstrap-extension.min.js"></script>
+<script src="../sources/js/tether.min.js"></script>
+<script src="../sources/js/bootstrap.min.js"></script>
+<script src="../sources/js/bootstrap-extension.min.js"></script>
 <!-- Menu Plugin JavaScript -->
-<script src="./sources/js/sidebar-nav.min.js"></script>
+<script src="../sources/js/sidebar-nav.min.js"></script>
 <!--slimscroll JavaScript -->
-<script src="./sources/js/jquery.slimscroll.js"></script>
+<script src="../sources/js/jquery.slimscroll.js"></script>
 <!--Wave Effects -->
-<script src="./sources/js/waves.js"></script>
+<script src="../sources/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
-<script src="./sources/js/custom.min.js"></script>
+<script src="../sources/js/custom.min.js"></script>
 <!--Style Switcher -->
-<script src="./sources/js/jQuery.style.switcher.js"></script>
+<script src="../sources/js/jQuery.style.switcher.js"></script>
 <script>
 var config = {
   apiKey: "AIzaSyBNyW7vjQSK2Gbrh4Mzox6G-uAG4gK1rgE",
@@ -94,7 +94,7 @@ function ad(){
   userRef.update({
     userType: '99'
   }).then(function(){
-    window.location = "/a/dashboard"
+    window.location = "/a-dashboard"
   })
 }
 
@@ -102,7 +102,7 @@ function user(){
   userRef.update({
     userType: '10'
   }).then(function(){
-    window.location = "/v/dashboard"
+    window.location = "/v-dashboard"
   })
 }
 

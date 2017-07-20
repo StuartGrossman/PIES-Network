@@ -58,7 +58,7 @@ firebase.auth().onAuthStateChanged(function(user) {
             var video = document.getElementById('video' + i.toString());
             console.log(video)
             var source = document.createElement('source');
-            var previewUrl = 'http://localhost:8080/ipfs/' + adsArray[i]
+            var previewUrl = 'https://gateway.ipfs.io/ipfs/' + adsArray[i]
             source.setAttribute('src', previewUrl);
             video.appendChild(source);
             video.pause();

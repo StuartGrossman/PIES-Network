@@ -110,10 +110,12 @@ var queue = new Queue(ethSetupRef, function(data, progress, resolve, reject) {
 
 var queue = new Queue(ipfsRef, function(data, progress, resolve, reject) {
   var asyncWaitTime = (data.duration * 10) + 1000;
+  var file = data.userId  + '.mp4'
+  var ipfsDocker = 'fb1485f70c0e';
   console.log(asyncWaitTime)
   var options = {
       directory: "./temp",
-      filename: data.userId + ".mp4"
+      filename: file
   }
   console.log(data);
   download(data.downloadURL, options, function(err){
@@ -122,7 +124,8 @@ var queue = new Queue(ipfsRef, function(data, progress, resolve, reject) {
       }
       console.log("success", data.userId)
 
-      exec('ipfs add ./temp/' + data.userId  + '.mp4' )
+      exec('cd temp/; tar -cv * | docker exec -i fb1485f70c0e tar x -C /var/tmp/; docker exec -i fb1485f70c0e ipfs add /var/tmp/' + file)
+// 'cd temp/; tar -cv * | docker exec -i fb1485f70c0e tar x -C /var/tmp/; docker exec -i fb1485f70c0e ipfs add /var/tmp/' + file
         .then(function(result) {
           console.log(result);
           var r = result[0].split(' ')
