@@ -569,6 +569,9 @@
             </div>
             <!-- /.container-fluid -->
             <footer class="footer text-center"> 2017 &copy; Elite Admin brought to you by themedesigner.in </footer>
+            <div id='morris-area-chart2' class='morris-area-chart2' style="display:none">
+
+            </div>
         </div>
         <!-- /#page-wrapper -->
     </div>
@@ -623,7 +626,7 @@ var config = {
 };
 
 firebase.initializeApp(config);
-var ref = firebase.database().ref('queue/tasks');
+var ref;
 
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -631,11 +634,33 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log(user)
     document.getElementById('userImage').src = user.photoURL;
     document.getElementById('userName').innerHTML = user.displayName;
+    checkState(user);
 
     // writeUserData(u)
   }
+  else{
+    window.location = '/';
+  }
 })
 
+function checkState(user){
+  firebase.database().ref('user/' + user.uid).on('value', function(snapshot){
+    console.log(snapshot.val())
+    var userStatus = snapshot.val().userType;
+    if(userStatus){
+      console.log(userStatus)
+      if(userStatus == 99){
+        return;
+      }else if(userStatus == 10){
+        window.location = '/';
+      }else{
+        window.location = '/';
+      }
+    }else{
+      window.location = '/';
+    }
+  })
+}
 
 
 </script>
