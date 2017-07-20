@@ -109,23 +109,24 @@ var queue = new Queue(ethSetupRef, function(data, progress, resolve, reject) {
 
 
 var queue = new Queue(ipfsRef, function(data, progress, resolve, reject) {
-  var asyncWaitTime = (data.duration * 10) + 1000;
+  var asyncWaitTime = (data.duration * 100) + 1000;
   var file = data.userId  + '.mp4'
   var ipfsDocker = 'fb1485f70c0e';
-  console.log(asyncWaitTime)
   var options = {
       directory: "./temp",
       filename: file
   }
-  console.log(data);
+
+  // console.log(asyncWaitTime, "async wait time",  data.duration + " duration ")
+  // console.log(data.duration * 10)
+  // console.log(data);
+
   download(data.downloadURL, options, function(err){
       if (err){
         throw err
       }
-      console.log("success", data.userId)
 
       exec('cd temp/; tar -cv * | docker exec -i fb1485f70c0e tar x -C /var/tmp/; docker exec -i fb1485f70c0e ipfs add /var/tmp/' + file)
-// 'cd temp/; tar -cv * | docker exec -i fb1485f70c0e tar x -C /var/tmp/; docker exec -i fb1485f70c0e ipfs add /var/tmp/' + file
         .then(function(result) {
           console.log(result);
           var r = result[0].split(' ')
@@ -136,16 +137,21 @@ var queue = new Queue(ipfsRef, function(data, progress, resolve, reject) {
             "ipfsHash": ipfsHash
           })
 
+        }).then(function(res){
+          exec('docker exec -i fb1485f70c0e rm -rf /var/tmp/' + file).then(function(res){
+            console.log(res)
+          })
         })
 
   })
   setTimeout(function() {
-    exec('rm -rf ./temp/' + data.userId + ".mp4").then(function(res){
-      console.log("deleted file")
+    exec('rm -rf ./temp/' + file).then(function(res){
+      console.log(res);
+      console.log("queue resolved!")
       resolve();
 
     })
-    resolve();
+
   }, asyncWaitTime)
 })
 
