@@ -105,21 +105,24 @@ var queue = new Queue(ethSetupRef, function(data, progress, resolve, reject) {
   }, 3000);
 });
 
-var options = {
-    directory: "./temp",
-    filename: "temp.mp4"
-}
+
 
 
 var queue = new Queue(ipfsRef, function(data, progress, resolve, reject) {
+  var asyncWaitTime = (data.duration * 10) + 1000;
+  console.log(asyncWaitTime)
+  var options = {
+      directory: "./temp",
+      filename: data.userId + ".mp4"
+  }
   console.log(data);
   download(data.downloadURL, options, function(err){
       if (err){
         throw err
       }
-      console.log("success")
+      console.log("success", data.userId)
 
-      exec('ipfs add ./temp/temp.mp4' )
+      exec('ipfs add ./temp/' + data.userId  + '.mp4' )
         .then(function(result) {
           console.log(result);
           var r = result[0].split(' ')
@@ -129,13 +132,18 @@ var queue = new Queue(ipfsRef, function(data, progress, resolve, reject) {
           ref.push({
             "ipfsHash": ipfsHash
           })
+
         })
-        
+
   })
   setTimeout(function() {
+    exec('rm -rf ./temp/' + data.userId + ".mp4").then(function(res){
+      console.log("deleted file")
+      resolve();
 
+    })
     resolve();
-  }, 1000);
+  }, asyncWaitTime)
 })
 
 module.exports = router;
