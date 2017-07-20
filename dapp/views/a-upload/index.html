@@ -599,8 +599,8 @@ function submit(){
         "downloadURL": previewUrl
       }
   ).then(function(){
-    // window.location.href = '/a/ads';
-    console.log("success")
+    window.location.href = '/a-ads';
+    // console.log("success")
   })
 
 
@@ -645,7 +645,7 @@ function play(){
   var vid = document.getElementById("video1");
   var div = document.getElementById('uploadAdPreview');
   var sub = document.getElementById('submit');
-  div.style.display = "contents";
+  div.style.display = "block";
   setTimeout(function() {
     // console.log("looping")
     // video.load();
