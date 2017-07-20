@@ -3,23 +3,15 @@
 [debug] CLI Version:  3.6.1
 [debug] Platform:     darwin
 [debug] Node Version: v6.2.2
-[debug] Time:         Thu Jul 20 2017 02:45:38 GMT-0700 (PDT)
+[debug] Time:         Thu Jul 20 2017 02:58:50 GMT-0700 (PDT)
 [debug] ----------------------------------------------------------------------
 [debug] 
 [debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/lLgQDq67a680PQRy-TUnnyFglZ5B4BTWxM5gocbz79g',
-  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
-  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
-  grant_type: 'refresh_token',
-  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
- Thu Jul 20 2017 02:45:38 GMT-0700 (PDT)
-[debug] <<< HTTP RESPONSE 200
 [debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/adspace-9fe5c  
- Thu Jul 20 2017 02:45:39 GMT-0700 (PDT)
+ Thu Jul 20 2017 02:58:50 GMT-0700 (PDT)
 [debug] <<< HTTP RESPONSE 200
 [debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/adspace-9fe5c/tokens  
- Thu Jul 20 2017 02:45:40 GMT-0700 (PDT)
+ Thu Jul 20 2017 02:58:50 GMT-0700 (PDT)
 [debug] <<< HTTP RESPONSE 200
 [info] 
 [info] === Deploying to 'adspace-9fe5c'...
@@ -38,22 +30,22 @@
 [info] i  functions: ensuring necessary APIs are enabled...
 [info] i  runtimeconfig: ensuring necessary APIs are enabled...
 [debug] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/adspace-9fe5c?view=CONSUMER_VIEW  
- Thu Jul 20 2017 02:45:42 GMT-0700 (PDT)
+ Thu Jul 20 2017 02:58:52 GMT-0700 (PDT)
 [debug] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/adspace-9fe5c?view=CONSUMER_VIEW  
- Thu Jul 20 2017 02:45:42 GMT-0700 (PDT)
-[debug] <<< HTTP RESPONSE 200
-[info] ✔  runtimeconfig: all necessary APIs are enabled
+ Thu Jul 20 2017 02:58:52 GMT-0700 (PDT)
 [debug] <<< HTTP RESPONSE 200
 [info] ✔  functions: all necessary APIs are enabled
+[debug] <<< HTTP RESPONSE 200
+[info] ✔  runtimeconfig: all necessary APIs are enabled
 [debug] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/adspace-9fe5c  
- Thu Jul 20 2017 02:45:43 GMT-0700 (PDT)
+ Thu Jul 20 2017 02:58:53 GMT-0700 (PDT)
 [debug] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/adspace-9fe5c/apiKeys  
- Thu Jul 20 2017 02:45:43 GMT-0700 (PDT)
+ Thu Jul 20 2017 02:58:53 GMT-0700 (PDT)
 [debug] <<< HTTP RESPONSE 200
 [debug] <<< HTTP RESPONSE 200
 [info] i  functions: preparing functions directory for uploading...
 [debug] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/adspace-9fe5c/configs  
- Thu Jul 20 2017 02:45:45 GMT-0700 (PDT)
+ Thu Jul 20 2017 02:58:54 GMT-0700 (PDT)
 [debug] <<< HTTP RESPONSE 200
 [debug] > [functions] runtime config materialized as: {
   "firebase": {
@@ -65,5 +57,5 @@
 }
 [debug] > [functions] parsed triggers: []
 [info] i  hosting: preparing views directory for upload...
-[debug] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/adspace-9fe5c/uploads/-KpUNsIw4Um14p76I16V?fileCount=349&message=  
- Thu Jul 20 2017 02:45:47 GMT-0700 (PDT)
+[debug] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/adspace-9fe5c/uploads/-KpUQt5EgHoUhBm6X82U?fileCount=349&message=  
+ Thu Jul 20 2017 02:58:55 GMT-0700 (PDT)
