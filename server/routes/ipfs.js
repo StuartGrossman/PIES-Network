@@ -2,17 +2,17 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request');
-
-console.log("in promise exec");
-var exec = require('promise-exec');
-
-exec('ls -al')
-  .then(function(result) {
-    console.log(result);
-  })
-  .catch(function(err) {
-    console.error(err);
-  });
+// 
+// console.log("in promise exec");
+// var exec = require('promise-exec');
+//
+// exec('ls -al')
+//   .then(function(result) {
+//     console.log(result);
+//   })
+//   .catch(function(err) {
+//     console.error(err);
+//   });
 
 // promiseExec("test").then((output) => {
 //     return new Promise((resolve, reject) => {

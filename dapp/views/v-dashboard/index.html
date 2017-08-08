@@ -19,17 +19,17 @@
     <link href="../sources/css/admin-style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="../sources/css/default-dark.css" id="theme" rel="stylesheet">
-
+    <link href="../sources/css/spinners.css" />
 </head>
 
 
 
 
 <body>
-  <div class="preloader">
+  <!-- <div class="preloader">
         <div class="cssload-speeding-wheel"></div>
-    </div>
-    <div id="wrapper">
+    </div> -->
+    <div id="wrapper" class="main-container">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
             <div class="navbar-header"> <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
@@ -368,8 +368,8 @@
                     </li> -->
                     <!-- <li class="nav-small-cap"> -> Proffessional</li> -->
 
-                    <li> <a href="widgets.html" class="waves-effect"><i data-icon="P" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Widgets</span></a> </li>
-                    <li> <a href="#" class="waves-effect"><i data-icon="7" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Icons<span class="fa arrow"></span></span></a>
+                    <li> <a href="/v-settings" class="waves-effect"><i data-icon="P" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Settings</span></a> </li>
+                    <!-- <li> <a href="#" class="waves-effect"><i data-icon="7" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Icons<span class="fa arrow"></span></span></a> -->
                         <ul class="nav nav-second-level">
                             <li> <a href="fontawesome.html">Font awesome</a> </li>
                             <li> <a href="themifyicon.html">Themify Icons</a> </li>
@@ -410,12 +410,12 @@
                                 <div class="col-lg-3 col-sm-6 row-in-br">
                                     <div class="col-in row">
                                         <div class="col-md-6 col-sm-6 col-xs-6"> <i data-icon="E" class="linea-icon linea-basic"></i>
-                                            <h5 class="text-muted vb">MYNEW CLIENTS</h5> </div>
+                                            <h5 class="text-muted vb">Profile Completion</h5> </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6">
-                                            <h3 class="counter text-right m-t-15 text-danger">23</h3> </div>
+                                            <h3 class="counter text-right m-t-15 text-danger" id="p-completion-number">10</h3> </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <div class="progress">
-                                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span class="sr-only">40% Complete (success)</span> </div>
+                                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 10%"> <span class="sr-only">60% Complete (success)</span> </div>
                                             </div>
                                         </div>
                                     </div>
@@ -576,11 +576,36 @@
         <!-- /#page-wrapper -->
     </div>
   </div>
+  <div>
+    <section class="loaderSection" style="background-color:#404456;">
+        <div class="loader" >
+          <div class="box"></div>
+          <div class="hill"></div>
+        </div>
+    </section>
+  </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
 
 <!-- jQuery -->
     <script src="../sources/js/jquery.min.js"></script>
+    <script>
+      $( document ).ready(function() {
+        console.log("js script online")
+        var loadTime = Math.floor((Math.random() * 3000) + 500);
+        //////loader
+        $('.main-container').css("display", "none");
+        // $('#successMessage').hide();
+        setTimeout(function(){
+          $('.loader').hide();
+          $('.loaderSection').hide();
+          $('.main-container').css("display", "initial")
+        }, loadTime);
+
+      });
+
+
+    </script>
     <script src="../sources/js/tether.min.js"></script>
     <script src="../sources/js/bootstrap.min.js"></script>
     <script src="../sources/js/bootstrap-extension.min.js"></script>
@@ -631,14 +656,36 @@ var ref = firebase.database().ref('queue/tasks');
 
 firebase.auth().onAuthStateChanged(function(user) {
   if(user){
+    checkState(user);
     console.log(user)
     document.getElementById('userImage').src = user.photoURL;
     document.getElementById('userName').innerHTML = user.displayName;
 
     // writeUserData(u)
+
+  }else{
+    window.location = '/';
+
   }
 })
-
+function checkState(user){
+  firebase.database().ref('user/' + user.uid).on('value', function(snapshot){
+    console.log(snapshot.val())
+    var userStatus = snapshot.val().userType;
+    if(userStatus){
+      console.log(userStatus)
+      if(userStatus == 10){
+        return;
+      }else if(userStatus == 99){
+        window.location = '/a-dashboard';
+      }else{
+        window.location = '/';
+      }
+    }else{
+      window.location = '/';
+    }
+  })
+}
 
 
 </script>

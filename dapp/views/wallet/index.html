@@ -12,7 +12,7 @@
 <body>
 <div class="well">
   <div>
-
+    <button onclick="pop()">Qeueu</button>
   </div>
 </div>
 </body>
@@ -40,7 +40,14 @@ firebase.auth().onAuthStateChanged(function(user) {
     // check State of UserType and Redirect accordingly
   }
 })
-
+function pop(){
+  var ref = firebase.database().ref('/queue/eth_setup');
+  // ref.push({'foo': 'bar'});
+  ref.push({
+        "data" : "data"
+      })
+      console.log("queue hit")
+}
 
 </script>
 

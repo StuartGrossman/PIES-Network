@@ -65,7 +65,55 @@ var balance = web3.eth.getBalance(coinbase, function(err, res){
 
 
 // })
+var token = web3.eth.contract(HumanStandardToken).at('0x950528f83b69c28873246ecfa6c9f8868f037321');
+var account = web3.eth.accounts[0];
+var account2 = web3.eth.accounts[1];
+// var account = web3.personal.accounts[0];
+// main account '0x541e8e0b0f25f799f941932ddcb93bb83d254e64'
+console.log("this is the main account::" + account, "secount account " + account2)
+// web3_token.personal.unlockAccount(account,"password",15000); // unlock for a long time
 //
+function testTransaction(){
+  // web3.eth.defaultAccount = web3.eth.accounts[0]
+
+
+  // token.transfer(account2, 100);
+  totalSupply = token.totalSupply();
+  console.log(token + "this is the token", "total supply = " + totalSupply)
+
+
+  var callData = token.transferFrom.getData(account, account2, 100);
+  console.log(callData)
+  var postData = {"jsonrpc":"2.0","method":"eth_sendTransaction","params": [{"from": account, "to": '0xc969238d0eC056847318e2E5164fa6C32984431b', "data": callData}], "id":1}
+      var url = 'http://localhost:8545/'
+      var options = {
+        method: 'post',
+        body: postData,
+        json: true,
+        url: url
+      }
+      request(options, function (err, res, body) {
+        if (err) {
+          console.error('error posting json: ', err)
+          throw err
+        }
+        var headers = res.headers
+        var statusCode = res.statusCode
+        console.log('headers: ', headers)
+        console.log('statusCode: ', statusCode)
+        console.log('body: ', body)
+      })
+  // token.transfer(account2, 100, function(err, res){
+  //   console.log(err, res)
+  //   if(res){
+  //     console.log("success")
+  //
+  //   // }
+  // });
+  // console.log(token.balanceOf(account) + " tokens balance")
+  // console.log(token.balanceOf(account2) + " tokens balance of account2")
+}
+testTransaction();
 //// queue refs
 var ethSetupRef = admin.database().ref('/queue/eth_setup');
 var ipfsRef = admin.database().ref('/queue/ipfs/');
@@ -79,7 +127,7 @@ var queue = new Queue(ethSetupRef, function(data, progress, resolve, reject) {
   // Do some work
   // progress(50);
 
-    var postData = {"jsonrpc":"2.0","method":"eth_sendTransaction","params": [{"from":"0x52f273a06a420453aa5b33c4f175395c9a1fddd8", "to": data.eth, "value": 1e18}], "id":1}
+    var postData = {"jsonrpc":"2.0","method":"eth_sendTransaction","params": [{"from":"204b3339cba94ca7becb665e4a95aad293da98e0a521fa12d6e12c29788e934a", "to": '0xfaffb3ea092392a37eccd0625810a98f2b797ccf', "value": 1e18, "currency": " TNS"}], "id":1}
     var url = 'http://localhost:8545/'
     var options = {
       method: 'post',
@@ -111,7 +159,7 @@ var queue = new Queue(ethSetupRef, function(data, progress, resolve, reject) {
 var queue = new Queue(ipfsRef, function(data, progress, resolve, reject) {
   var asyncWaitTime = (data.duration * 100) + 1000;
   var file = data.userId  + '.mp4'
-  var ipfsDocker = 'fb1485f70c0e';
+  var ipfsDocker = ' 04f0f51384ee ';
   var options = {
       directory: "./temp",
       filename: file
@@ -119,14 +167,32 @@ var queue = new Queue(ipfsRef, function(data, progress, resolve, reject) {
 
   // console.log(asyncWaitTime, "async wait time",  data.duration + " duration ")
   // console.log(data.duration * 10)
-  // console.log(data);
+  console.log(data);
 
   download(data.downloadURL, options, function(err){
       if (err){
         throw err
       }
 
-      exec('cd temp/; tar -cv * | docker exec -i fb1485f70c0e tar x -C /var/tmp/; docker exec -i fb1485f70c0e ipfs add /var/tmp/' + file)
+      // exec('cd temp/; tar -cv * | docker exec -i' + ipfsDocker + 'tar x -C /var/tmp/; docker exec -i' + ipfsDocker + 'ipfs add /var/tmp/' + file)
+      //   .then(function(result) {
+      //     console.log(result);
+      //     var r = result[0].split(' ')
+      //     var ipfsHash = r[1]
+      //     console.log(ipfsHash)
+      //     var ref = admin.database().ref('user/' + data.userId + '/ads/');
+      //     ref.push({
+      //       "ipfsHash": ipfsHash
+      //     })
+      //
+      //   }).then(function(res){
+      //     exec('docker exec -i' + ipfsDocker + 'rm -rf /var/tmp/' + file).then(function(res){
+      //       console.log(res)
+      //     })
+      //   })
+
+      //LOCAL IMPLEMNTATION
+      exec('ipfs add temp/' + file)
         .then(function(result) {
           console.log(result);
           var r = result[0].split(' ')
@@ -138,19 +204,17 @@ var queue = new Queue(ipfsRef, function(data, progress, resolve, reject) {
           })
 
         }).then(function(res){
-          exec('docker exec -i fb1485f70c0e rm -rf /var/tmp/' + file).then(function(res){
-            console.log(res)
-          })
+          console.log("pushed hash" + ipfsHash)
         })
 
   })
   setTimeout(function() {
-    exec('rm -rf ./temp/' + file).then(function(res){
-      console.log(res);
+    // exec('rm -rf ./temp/' + file).then(function(res){
+      // console.log(res);
       console.log("queue resolved!")
       resolve();
 
-    })
+    // })
 
   }, asyncWaitTime)
 })
