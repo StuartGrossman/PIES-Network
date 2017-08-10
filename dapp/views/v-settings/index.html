@@ -284,9 +284,9 @@
 
                     <li><a href="login.html" class="waves-effect"><i class="icon-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
                     <!-- <li class="nav-small-cap">--- Support</li>
-                    <li><a href="documentation.html" class="waves-effect"><i class="fa fa-circle-o text-danger"></i> <span class="hide-menu">Documentation</span></a></li>
-                    <li><a href="gallery.html" class="waves-effect"><i class="fa fa-circle-o text-info"></i> <span class="hide-menu">Gallery</span></a></li>
-                    <li><a href="faq.html" class="waves-effect"><i class="fa fa-circle-o text-success"></i> <span class="hide-menu">Faqs</span></a></li> -->
+                    <!-- <li><a href="documentation.html" class="waves-effect"><i class="fa fa-circle-o text-danger"></i> <span class="hide-menu">Documentation</span></a></li> -->
+                    <li><a href="gallery.html" class="waves-effect"><i class="fa fa-circle-o text-info"></i> <span class="hide-menu" id="balance"></span></a></li>
+                    <!-- <li><a href="faq.html" class="waves-effect"><i class="fa fa-circle-o text-success"></i> <span class="hide-menu">Faqs</span></a></li> -->
                 </ul>
             </div>
         </div>
@@ -643,7 +643,7 @@ function addTag(){
 
 function Onload(){
   loadTags();
-
+  loadBalance();
   tagBox = document.getElementById('tagsBox');
   document.getElementById("tag").addEventListener("keyup", function(event) {
       event.preventDefault();
@@ -752,7 +752,22 @@ function submitEthAddress(){
   console.log(ethAddress.value.length)
   if(ethAddress.value.length > 41 && ethAddress.value.length < 43){
     // console.log(ethAddress.value)
-    firebase.database().ref('queue/myEthAddress').push({"data": ethAddress.value});
+    firebase.database().ref('queue/myEthAddress/tasks').push({"ethAddress": ethAddress.value, "userId": userObject.uid});
+  }
+}
+
+function loadBalance(){
+  var userRef = firebase.database().ref('user/' + userObject.uid);
+  var data;
+  userRef.on('value', function(snapshot){
+    data = snapshot.val();
+    if(data.ethAddress){
+      firebase.database().ref('queue/myEthBalance/tasks').push({"ethAddress": data.ethAddress, "userId": userObject.uid});
+
+    }
+  })
+  if(data.myBalance){
+    document.getElementById('balance').innerHTML = 'PIES ' + data.myBalance;
   }
 }
 </script>

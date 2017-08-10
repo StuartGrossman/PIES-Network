@@ -55,8 +55,20 @@ function sendToken(address, ammount){
 
 
 var ethRef = admin.database().ref('/queue/myEthAddress/');
-
+var balanceRef = admin.database().ref('/queue/myEthBalance/');
 var queue = new Queue(ethRef, function(data, progress, resolve, reject) {
   console.log(data)
+  db.ref('user/' + data.userId ).update({'ethAddress': data.ethAddress}).then(function(res, err){
+    resolve();
+  });
+})
+
+var queue = new Queue(balanceRef, function(data, progress, resolve, reject) {
+  console.log(data)
+  var balance = token.balanceOf(data.ethAddress)
+  db.ref('user/' + data.userId ).update({'myBalance': balance}).then(function(res, err){
+    resolve();
+  });
+
 })
 module.exports = router;
