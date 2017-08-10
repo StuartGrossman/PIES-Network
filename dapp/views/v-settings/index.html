@@ -383,25 +383,29 @@
                             <div id="morris-area-chart" style="height: 340px;"></div>
                         </div>
                     </div> -->
-                    <!-- <div class="col-md-5 col-lg-3 col-sm-6 col-xs-12">
+                    <div class="col-md-5 col-lg-3 col-sm-6 col-xs-12">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="bg-theme-dark m-b-15">
                                     <div class="row weather p-20">
                                         <div class="col-md-6 col-xs-6 col-lg-6 col-sm-6 m-t-40">
                                             <h3>&nbsp;</h3>
-                                            <h1>73<sup>°F</sup></h1>
-                                            <p class="text-white">AHMEDABAD, INDIA</p>
+                                            <h1>My <sup>Ethereum Address</sup></h1>
+                                            <p class="text-white">
+                                               Please double check address before submission
+                                            </p></p>
                                         </div>
                                         <div class="col-md-6 col-xs-6 col-lg-6 col-sm-6 text-right"> <i class="wi wi-day-cloudy-high"></i>
                                             <br/>
                                             <br/>
-                                            <b class="text-white">SUNNEY DAY</b>
-                                            <p class="w-title-sub">April 14</p>
+                                            <!-- <b class="text-white">SUNNEY DAY</b> -->
+                                            <input class="form-contorl" placeholder="My Ethereum Address" id="myEthAddress"/>
+                                            <button onclick="submitEthAddress()" class="btn btn-warning">Submit</button>
+                                            <!-- <p class="w-title-sub">April 14</p> -->
                                         </div>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
                             <div class="col-md-12">
                                 <div class="bg-theme m-b-15">
                                     <div id="myCarouse2" class="carousel vcarousel slide p-20">
@@ -497,14 +501,6 @@
 
 <!-- jQuery -->
     <script src="../sources/js/jquery.min.js"></script>
-    <script>
-      $( document ).ready(function() {
-
-
-      });
-
-
-    </script>
     <script src="../sources/js/tether.min.js"></script>
     <script src="../sources/js/bootstrap.min.js"></script>
     <script src="../sources/js/bootstrap-extension.min.js"></script>
@@ -520,33 +516,38 @@
     <script src="../sources/js/dashboard1.js"></script>
     <script src="../sources/js/jquery.charts-sparkline.js"></script>
     <script src="../sources/js/jquery.toast.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-      // console.log("js script online")
-      var loadTime = Math.floor((Math.random() * 3000) + 500);
-      //////loader
-      $('.main-container').css("display", "none");
-      // $('#successMessage').hide();
-      setTimeout(function(){
-        $('.loader').hide();
-        $('.loaderSection').hide();
-        $('.main-container').css("display", "initial")
-      }, loadTime);
-        $.toast({
-            heading: 'Welcome to Pies',
-            text: 'Loading your pecies now!',
-            position: 'top-right',
-            loaderBg: '#ff6849',
-            icon: 'info',
-            hideAfter: loadTime,
-            stack: 6
-        })
-    });
-    </script>
-    <!--Style Switcher -->
     <script src="../sources/js/jQuery.style.switcher.js"></script>
 
 
+
+
+
+
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  // console.log("js script online")
+  var loadTime = Math.floor((Math.random() * 3000) + 500);
+  //////loader
+  $('.main-container').css("display", "none");
+  // $('#successMessage').hide();
+  setTimeout(function(){
+    $('.loader').hide();
+    $('.loaderSection').hide();
+    $('.main-container').css("display", "initial")
+  }, loadTime);
+    $.toast({
+        heading: 'Welcome to Pies',
+        text: 'Loading your pecies now!',
+        position: 'top-right',
+        loaderBg: '#ff6849',
+        icon: 'info',
+        hideAfter: loadTime,
+        stack: 6
+    })
+  });
+</script>
 
 
 <script>
@@ -583,16 +584,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 
   }
 })
-
-// function asyncWait(){
-//   setTimeout(function(){
-//     if(userObject){
-//       console.log(userObject)
-//
-//     }
-//   }, 1000);
-// }
-
 
 function checkState(user){
   console.log('checking State', user)
@@ -638,7 +629,7 @@ function addTag(){
   // console.log(tag, userObject)
   var tempValue = inputEl.value;
   inputEl.value = '';
-  var tagsRef = firebase.database().ref('user/' + userObject.uid + '/tags/');
+  var tagsRef = firebase.database().ref('tags/' + userObject.uid + '/');
   if(typeof tempValue === "string"){
     tempValue = tempValue.toLowerCase();
     tagsRef.push({"data": tempValue}).then(function(){
@@ -683,7 +674,6 @@ function loadTags(){
         // console.log(tagsArray)
       }
       var tagsListAmmount = tagsArray.length;
-      console.log(tagAmmount, tagProgress)
       tagAmmount.innerHTML = tagsListAmmount;
       if(tagsListAmmount > 100){
         var progress = 100;
@@ -703,12 +693,13 @@ function loadTags(){
           var tagEl = document.createElement('span');
           var space = document.createElement('div');
           var button = document.createElement('button');
-
+          tagBox.style.display = "inline-flex"
+          tagBox.className = "col-md-12"
           button.className = 'btn delTag';
           button.setAttribute('onclick', 'deleteAt(' + i + ')')
           button.innerHTML = 'delete';
           space.innerHTML = '&nbsp';
-          tagEl.style.display = 'block';
+          tagEl.className =  'indvTag'
           tagEl.style.color = 'black';
           tagEl.setAttribute('id', idInfo);
           tagEl.innerHTML = tagsArray[i].data;
@@ -724,7 +715,7 @@ function loadTags(){
 }
 
 function deleteAt(index){
-  console.log(index);
+  // console.log(index);
   tagsRef = firebase.database().ref('user/' + userObject.uid + '/tags/');
   tagsRef.on('value', function(snapshot){
     var count = 0
@@ -734,7 +725,7 @@ function deleteAt(index){
         tagsRef.off();
 
         removeItem(k);
-        console.log("removed tag " + k, "count is " + count)
+        // console.log("removed tag " + k, "count is " + count)
         // count += 1;
 
       }
@@ -743,6 +734,7 @@ function deleteAt(index){
     }
   })
 }
+
 function removeItem(k){
   var dataRef =  firebase.database().ref('user/' + userObject.uid + '/tags/' + k );
   dataRef.set({"data": null}).then(function(err, res){
@@ -751,6 +743,17 @@ function removeItem(k){
 
   });
 
+}
+
+function submitEthAddress(){
+  var ethAddress = document.getElementById('myEthAddress');
+  // var testAccount = '0x541E8E0b0F25f799F941932dDcB93bB83d254E64'
+  // testAccount = testAccount.split('');
+  console.log(ethAddress.value.length)
+  if(ethAddress.value.length > 41 && ethAddress.value.length < 43){
+    // console.log(ethAddress.value)
+    firebase.database().ref('queue/myEthAddress').push({"data": ethAddress.value});
+  }
 }
 </script>
 

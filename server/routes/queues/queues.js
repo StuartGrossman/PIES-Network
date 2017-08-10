@@ -65,7 +65,7 @@ var balance = web3.eth.getBalance(coinbase, function(err, res){
 
 
 // })
-var token = web3.eth.contract(HumanStandardToken).at('0x950528f83b69c28873246ecfa6c9f8868f037321');
+var token = web3.eth.contract(HumanStandardToken).at('0x7d205a1C6F4CD650E89eE3A3E200153EFbf4442E');
 var account = web3.eth.accounts[0];
 var account2 = web3.eth.accounts[1];
 // var account = web3.personal.accounts[0];
@@ -84,7 +84,7 @@ function testTransaction(){
 
   var callData = token.transferFrom.getData(account, account2, 100);
   console.log(callData)
-  var postData = {"jsonrpc":"2.0","method":"eth_sendTransaction","params": [{"from": account, "to": '0xc969238d0eC056847318e2E5164fa6C32984431b', "data": callData}], "id":1}
+  var postData = {"jsonrpc":"2.0","method":"eth_call","params": [{"from": account, "to": '0xc969238d0eC056847318e2E5164fa6C32984431b', "data": callData}], "id":1}
       var url = 'http://localhost:8545/'
       var options = {
         method: 'post',
@@ -110,8 +110,8 @@ function testTransaction(){
   //
   //   // }
   // });
-  // console.log(token.balanceOf(account) + " tokens balance")
-  // console.log(token.balanceOf(account2) + " tokens balance of account2")
+  console.log(token.balanceOf(account) + " tokens balance")
+  console.log(token.balanceOf(account2) + " tokens balance of account2")
 }
 testTransaction();
 //// queue refs
@@ -218,5 +218,10 @@ var queue = new Queue(ipfsRef, function(data, progress, resolve, reject) {
 
   }, asyncWaitTime)
 })
+// var dB = admin.database()
+// function linkUsers(tagListArray){
+//   var userRef = db.ref('/user/')
+//   userRef.on()
+// }
 
 module.exports = router;
