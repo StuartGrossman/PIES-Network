@@ -252,7 +252,7 @@
     top: -20%;
     width: 100%;
     height: 108%;
-    background-image: url(../images/headbg-38.svg);
+    background-image: url(../images/headbg.svg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-color: #756DE7;
@@ -598,7 +598,7 @@ svg.logo text{
     padding-left: 15%;
     padding-right: 15%;
     margin-bottom: 30px;
-    font-size: 22px;
+    font-size: 15px;
     font-weight: 300;
     color: #3f3d59;
 }

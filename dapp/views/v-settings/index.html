@@ -45,15 +45,19 @@
                 </div> -->
                 <ul class="nav navbar-top-links navbar-left hidden-xs">
                     <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
-                    <!-- <li>
-                        <form role="search" class="app-search hidden-xs">
-                            <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form>
+                    <li>
+                        <!-- <form role="search" class="app-search hidden-xs"> -->
+                            <!-- <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form> -->
+                            <li><a href="gallery.html" class="waves-effect"><i class="fa fa-circle-o text-info"></i> <span class="hide-menu" id="balance"></span></a></li>
+
                     </li>
-                </ul> -->
+                </ul>
                 <ul class="nav navbar-top-links navbar-right pull-right">
-                    <li class="dropdown"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"><i class="icon-envelope"></i>
-          <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
-          </a>
+                    <li class="dropdown"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="/a-ads"><i class="icon-envelope"></i>
+                                              <div class="notify"><span class="heartbit">
+                                                </span><span class="point"></span>
+                                              </div>
+                                          </a>
                         <ul class="dropdown-menu mailbox animated bounceInDown">
                             <li>
                                 <div class="drop-title">You have 4 new messages</div>
@@ -89,7 +93,7 @@
                         <!-- /.dropdown-messages -->
                     </li>
                     <!-- /.dropdown -->
-                    <li class="dropdown"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"><i class="icon-note"></i>
+                    <li class="dropdown"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="/a-upload"><i class="icon-note"></i>
           <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
           </a>
                         <ul class="dropdown-menu dropdown-tasks animated slideInUp">
@@ -283,9 +287,8 @@
                     </li>
 
                     <li><a href="login.html" class="waves-effect"><i class="icon-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
-                    <!-- <li class="nav-small-cap">--- Support</li>
+                    <!-- <li class="nav-small-cap"> Support</li> -->
                     <!-- <li><a href="documentation.html" class="waves-effect"><i class="fa fa-circle-o text-danger"></i> <span class="hide-menu">Documentation</span></a></li> -->
-                    <li><a href="gallery.html" class="waves-effect"><i class="fa fa-circle-o text-info"></i> <span class="hide-menu" id="balance"></span></a></li>
                     <!-- <li><a href="faq.html" class="waves-effect"><i class="fa fa-circle-o text-success"></i> <span class="hide-menu">Faqs</span></a></li> -->
                 </ul>
             </div>
@@ -767,8 +770,13 @@ function loadBalance(){
     }
   })
   if(data.myBalance){
-    document.getElementById('balance').innerHTML = 'PIES ' + data.myBalance;
+    var balance = numberWithCommas(data.myBalance);
+    document.getElementById('balance').innerHTML = 'Balance: ' + balance + ' <i><b>PIES</b></i>';
   }
+}
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 </script>
 
