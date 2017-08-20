@@ -13,6 +13,7 @@
     "express": "^4.12.4",
     "firebase": "^3.9.0",
     "firebase-admin": "^4.2.1",
+    "firebase-functions": "^0.6.1",
     "firebase-queue": "^1.6.1",
     "sendgrid": "^1.9.2",
     "uid": "0.0.2"

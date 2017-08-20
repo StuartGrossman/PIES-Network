@@ -69,7 +69,7 @@ function saveUserInfo(user){
             var uid = user.uid;
 
             var providerData = user.providerData;
-            redirectUrl = "/usertype"
+            redirectUrl = "/phone"
             // console.log(user, uid, email)
 
             writeUserData(uid, displayName, email, photoURL, redirectUrl);

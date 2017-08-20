@@ -55,11 +55,13 @@ app.get('/', function(req, res){
 var chargeRoutes = require('./routes/contract');
 var queues = require('./routes/queues/linkUsers');
 var ipfs = require('./routes/ipfs');
+var phoneCheck = require('./routes/queues/phoneCheck');
 var deployContract = require('./routes/queues/deployContract')
 app.use('/contract', chargeRoutes);
 app.use('/queues', queues);
 app.use('/ipfs', ipfs);
 app.use('/deployContract', deployContract);
+app.use('/phoneCheck', phoneCheck)
 
 // var billRoutes = require('./routes/bills');
 //

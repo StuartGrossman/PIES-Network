@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>AdSpace</title>
+  <link rel="stylesheet" type="text/css" href="../sources/css/bootstrap.min.css">
+  <link href="../sources/css/bootstrap-extension.css" rel="stylesheet">
+  <!-- animation CSS -->
+  <link href="../sources/css/animate.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="../sources/css/style.css" rel="stylesheet">
+  <!-- color CSS -->
+  <link href="../sources/css/default-dark.css" id="theme" rel="stylesheet">
+
+</head>
+<body>
+  <div class="preloader">
+      <div class="cssload-speeding-wheel"></div>
+  </div>
+  <section id="wrapper" class="login-register" >
+      <div class="login-box">
+          <div class="white-box" id="box" style="height: 150px;">
+                <div>
+                  <span style="display: inline;">+1 UNITED STATES ONLY</span>
+                  <input class="form-control data-mask" placeholder="(xxx)-xxx-xxxx" id="number"/>
+                  <span id="warning" style="display: none"><h6 style="color: red;">Please enter a valid 10 digit phone number</h6></span>
+                  <br />
+                </div>
+                <button class="btn btn-success" onclick="phone()">Submit</button> <hr /> <button id="resend" onclick="phone()" class="btn btn-danger" style="display: none;">re-send</button>
+                <div id="code-box" style="display: none;">
+                  <hr /> <br />
+                  <input class="form-control" placeholder="code" id="code" /><br />
+                  <span id="code-warning" style="display: none"><h6 style="color: red;">Incorrect code! please try again</h6></span>
+
+                  <button id="confirm" class="btn btn-sm btn-primary" onclick="confirm()">Confirm</button>
+                </div>
+          </div>
+      </div>
+  </section>
+
+</body>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+
+<script src="../sources/js/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../sources/js/tether.min.js"></script>
+<script src="../sources/js/bootstrap.min.js"></script>
+<script src="../sources/js/bootstrap-extension.min.js"></script>
+<!-- Menu Plugin JavaScript -->
+<script src="../sources/js/sidebar-nav.min.js"></script>
+<!--slimscroll JavaScript -->
+<script src="../sources/js/jquery.slimscroll.js"></script>
+<!--Wave Effects -->
+<script src="../sources/js/waves.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="../sources/js/custom.min.js"></script>
+<!--Style Switcher -->
+<script src="../sources/js/jQuery.style.switcher.js"></script>
+<script>
+var config = {
+  apiKey: "AIzaSyBNyW7vjQSK2Gbrh4Mzox6G-uAG4gK1rgE",
+  authDomain: "adspace-9fe5c.firebaseapp.com",
+  databaseURL: "https://adspace-9fe5c.firebaseio.com",
+  projectId: "adspace-9fe5c",
+  storageBucket: "",
+  messagingSenderId: "129227170241"
+};
+
+firebase.initializeApp(config);
+var userId;
+var userRef;
+firebase.auth().onAuthStateChanged(function(user) {
+  if(user){
+    console.log(user)
+    // writeUserData(u)
+    userId = user.uid;
+    userRef = firebase.database().ref('/user/' + userId);
+    // firebase.database().ref()
+  }
+})
+function phone(){
+  var number = document.getElementById('number').value;
+  console.log(number, number.length);
+  if(number.length === 10){
+    firebase.database().ref('/queue/phone/tasks').push({"phone": number, 'uid': userId}).then(function(){
+      document.getElementById('box').style.height = '410px';
+      document.getElementById('code-box').style.display = "block";
+      document.getElementById('resend').style.display = "block";
+    })
+  }else{
+    document.getElementById('warning').style.display = 'block';
+    document.getElementById('code-box').style.display = 'none';
+    document.getElementById('box').style.height = '180px';
+
+  }
+}
+
+function confirm(){
+  var code = document.getElementById('code').value;
+  firebase.database().ref('/user/' + userId + '/phone/').on('value', function(snapshot){
+    // console.log(snapshot.val(), code, code.toString(), snapshot.val().code.toString())
+
+    if(snapshot.val().code.toString() == code.toString()){
+      firebase.database().ref('/user/' + userId + '/phone/confirmed').update({'phone': true}).then(function(){
+        window.location = "/usertype";
+      })
+    }else{
+      document.getElementById('code-warning').style.display = 'block';
+
+    }
+  })
+}
+
+</script>
+
+</html>

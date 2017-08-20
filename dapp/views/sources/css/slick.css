@@ -115,3 +115,188 @@
 .slick-arrow.slick-hidden {
     display: none;
 }
+/**!---------- 35. MODALS ----------*/*/
+.foundry_modal {
+  overflow-y: auto;
+  max-height: 100%;
+  max-width: 50%;
+  width: 50%;
+  position: fixed;
+  padding: 80px 48px;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  top: 50%;
+  left: 50%;
+  background: #fff;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  z-index: -1;
+}
+.foundry_modal.no-bg {
+  background: none;
+  box-shadow: none !important;
+}
+.modal-screen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #292929;
+  opacity: 0;
+  z-index: 9998;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+}
+.modal-screen.reveal-modal {
+  opacity: .8;
+  visibility: visible;
+}
+.foundry_modal.reveal-modal {
+  opacity: 1;
+  visibility: visible;
+  z-index: 9999;
+  transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+}
+.foundry_modal .close-modal {
+  z-index: 4;
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  cursor: pointer;
+  font-size: 18px;
+}
+.foundry_modal *:not(.background-image-holder):not(.close-modal) {
+  z-index: 4;
+  position: relative;
+}
+.foundry_modal.image-bg .close-modal,
+.foundry_modal.no-bg .close-modal {
+  color: #fff;
+}
+.foundry_modal iframe {
+  width: 100%;
+  min-height: 400px;
+}
+@media all and (min-width: 1500px) {
+  .foundry_modal {
+    max-width: 45%;
+    width: 45%;
+  }
+}
+@media all and (max-width: 1190px) {
+  .foundry_modal {
+    max-width: 70%;
+    width: 70%;
+    padding: 64px 32px;
+  }
+}
+@media all and (max-width: 990px) {
+  .foundry_modal {
+    max-width: 80%;
+    width: 80%;
+    padding: 64px 32px;
+  }
+}
+@media all and (max-width: 767px) {
+  .foundry_modal {
+    max-width: 90%;
+    width: 90%;
+    padding: 48px 15px;
+    transform: translateX(0%) translateY(50%);
+    -webkit-transform: translateX(0%) translateY(50%);
+  }
+  .foundry_modal .close-modal {
+    right: 18px;
+  }
+}
+.iframe-modal {
+  width: 90%;
+  height: 90%;
+  max-width: 90%;
+  padding: 0;
+}
+.iframe-modal .close-modal {
+  z-index: 9999;
+}
+.iframe-modal iframe {
+  width: 100%;
+  height: 100%;
+}
+.modal-strip {
+  padding: 18px 0;
+  position: fixed;
+  bottom: 1%;
+  z-index: 200;
+  width: 98%;
+  margin: 0 1%;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transform: translate3d(0, 100px, 0);
+  -webkit-transform: translate3d(0, 100px, 0);
+  -moz-transform: translate3d(0, 100px, 0);
+  opacity: 0;
+}
+.modal-strip.reveal-modal {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+.modal-strip .close-modal {
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  cursor: pointer;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+.modal-strip i.close-modal {
+  font-size: 18px;
+}
+.modal-strip .icon + p {
+  padding-left: 32px;
+  position: relative;
+  top: 3px;
+}
+.modal-strip p + .btn {
+  margin-left: 24px;
+}
+@media all and (max-width: 1024px) {
+  .modal-strip {
+    margin: 0;
+    width: 100%;
+    bottom: 0;
+  }
+}
+@media all and (max-width: 767px) {
+  .modal-strip .close-modal {
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 15px;
+    transform: none !important;
+    -webkit-transform: none !important;
+    margin-top: 16px;
+  }
+  .modal-strip .icon {
+    display: none;
+  }
+  .modal-strip .icon + p {
+    padding-left: 0;
+    top: 0;
+  }
+}
