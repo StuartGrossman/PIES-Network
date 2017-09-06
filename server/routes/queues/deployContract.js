@@ -19,6 +19,7 @@ var HumanStandardToken = require('./contract.json');
 
 web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
 
+
 var token = web3.eth.contract(HumanStandardToken).at('0xCf94cE2B6623dE5bD48849A3A3e813643c59b7C1');
 var testAccount = '0x541E8E0b0F25f799F941932dDcB93bB83d254E64'
 
@@ -50,6 +51,7 @@ function sendToken(address, ammount){
         return;
       })
 }
+// sendToken(testAccount, 1000)
 
 
 var ethRef = admin.database().ref('/queue/myEthAddress/');
@@ -62,8 +64,11 @@ var queue = new Queue(ethRef, function(data, progress, resolve, reject) {
 })
 
 var queue = new Queue(balanceRef, function(data, progress, resolve, reject) {
-  console.log(data)
+  console.log(data.ethAddress)
   var balance = token.balanceOf(data.ethAddress)
+  console.log(balance, "balance");
+  // console.log(balance.plus(21).toString(10));
+  // console.log(token, token.balanceOf(data.ethAddress))
   db.ref('user/' + data.userId ).update({'myBalance': balance}).then(function(res, err){
     resolve();
   });

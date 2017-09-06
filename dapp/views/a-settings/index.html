@@ -602,15 +602,15 @@ function checkState(user){
     var userStatus = snapshot.val().userType;
     if(userStatus && statusState){
       // console.log(userStatus)
-      if(userStatus == 10){
+      if(userStatus == 99){
         console.log("Usere Status is Go, hitting Onload Function");
         // userRef.off();
 
         Onload();
         statusState = false;
         return;
-      }else if(userStatus == 99){
-        window.location = '/a-dashboard';
+      }else if(userStatus == 10){
+        window.location = '/v-dashboard';
         userRef.off();
 
       }else{
