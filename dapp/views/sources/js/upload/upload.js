@@ -27,7 +27,7 @@ firebase.auth().onAuthStateChanged(function(userObj) {
     document.getElementById('userName').innerHTML = user.displayName;
     loadBalance();
 
-    // checkState(user);
+    checkState(user);
 
 
   }
