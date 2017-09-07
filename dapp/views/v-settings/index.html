@@ -16,9 +16,11 @@
     <!-- animation CSS -->
     <link href="../sources/css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../sources/css/admin-style.css" rel="stylesheet">
+    <!-- <link href="../sources/css/admin-style.css" rel="stylesheet"> -->
     <!-- color CSS -->
-    <link href="../sources/css/default-dark.css" id="theme" rel="stylesheet">
+    <link href="../sources/css/viewer.css" id="theme" rel="stylesheet">
+
+    <link href="../sources/css/default.css" id="theme" rel="stylesheet">
     <link href="../sources/css/spinners.css" />
     <link href="../sources/css/custom.css" rel="stylesheet" />
 </head>
@@ -243,7 +245,9 @@
             <div class="sidebar-nav navbar-collapse slimscrollsidebar">
                 <div class="user-profile">
                     <div class="dropdown user-pro-body">
-                        <div><img id="userImage" alt="user-img" class="img-circle"></div> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="userName"><span class="caret"></span></a>
+
+                      <div>
+                        <img id="userImage" alt="user-img" class="img-circle"></div> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="userName"><span class="caret"></span></a>
                         <ul class="dropdown-menu animated flipInY">
                             <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
                             <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
@@ -269,8 +273,8 @@
                         <ul class="nav nav-second-level">
                             <!-- <li> <a href="index.html">Minimalistic</a> </li>
                             <!-- <li> <a href="index2.html">Demographical</a> </li> -->
-                            <li> <a href="/a-upload">Upload</a> </li>
-                            <li> <a href="/content">Content</a> </li>
+                            <!-- <li> <a href="/a-upload"></a> </li> -->
+                            <li> <a href="/content">My Content</a> </li>
                         </ul>
                     </li>
 
@@ -302,8 +306,8 @@
                         <!-- <h4 class="page-title">Settings</h4> </div> -->
                     <!-- <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <a href="https://themeforest.net/item/elite-admin-responsive-dashboard-web-app-kit-/16750820" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Buy Now</a> -->
                         <ol class="breadcrumb">
-                            <li><a href="#">Dashboard</a></li>
-                            <li class="active">Settings</li>
+                            <!-- <li><a href="#">Settings</a></li> -->
+                            <!-- <li class="active">Settings</li> -->
                         </ol>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -413,7 +417,7 @@
 
                       </div>
                       <div class="row weather p-20" id="editEth">
-                        <div class="col-md-12 col-xs-6 col-lg-12 col-sm-6">
+                        <div class="col-md-12 col-xs-6 col-lg-12 col-sm-6" id="ethHolder">
                           <p class="text-white">
                              Please double check address before submission
                           </p></p>
@@ -579,8 +583,8 @@ var statusState = true;
 firebase.auth().onAuthStateChanged(function(user) {
   if(user){
     userObject = user;
-    checkState(userObject);
-
+    // checkState(userObject);
+    Onload()
     // asyncWait();
     // console.log(user)
     document.getElementById('userImage').src = user.photoURL;
@@ -653,7 +657,7 @@ function addTag(){
 function Onload(){
   document.getElementById('editEth').style.display = "none";
 
-  loadTags();
+  // loadTags();
   setTimeout(function(){
     loadBalance();
 
@@ -678,94 +682,94 @@ function Onload(){
 
 }
 
-function loadTags(){
-  // console.log("wtf its hitting")
- var tagsArray = [];
+// function loadTags(){
+//   // console.log("wtf its hitting")
+//  var tagsArray = [];
+//
+//  if(document.getElementById('tagsBox')){
+//    document.getElementById('tagsBox').outerHTML = "";
+//
+//  }
+//   // console.log("loading Tags")
+//   var tagsRef = firebase.database().ref('user/' + userObject.uid + '/tags');
+//   tagsRef.on('value', function(snapshot){
+//     if(snapshot.val()){
+//       var tags = snapshot.val();
+//       for(var k in tags){
+//         tagsArray.push(tags[k]);
+//         // console.log(tagsArray)
+//       }
+//       var tagsListAmmount = tagsArray.length;
+//       tagAmmount.innerHTML = tagsListAmmount;
+//       if(tagsListAmmount > 100){
+//         var progress = 100;
+//       }else{
+//         var progress = tagsListAmmount;
+//       }
+//       progress = progress.toString();
+//       tagProgress.style.width = progress + '%';
+//       if(tagsListAmmount > 0){
+//         for(var i = 0; i < tagsListAmmount; i++){
+//           var outerEl = document.getElementById('outerEl')
+//           var idInfo = 'tagData' + i.toString();
+//           var tagData = document.createElement('div')
+//           tagData.setAttribute('id', 'tagsBox');
+//           outerEl.appendChild(tagData);
+//           var tagBox = document.getElementById('tagsBox');
+//           var tagEl = document.createElement('span');
+//           var space = document.createElement('div');
+//           var button = document.createElement('button');
+//           tagBox.style.display = "inline-flex"
+//           tagBox.className = "col-md-12"
+//           button.className = 'btn delTag';
+//           button.setAttribute('onclick', 'deleteAt(' + i + ')')
+//           button.innerHTML = 'delete';
+//           space.innerHTML = '&nbsp';
+//           tagEl.className =  'indvTag'
+//           tagEl.style.color = 'black';
+//           tagEl.setAttribute('id', idInfo);
+//           tagEl.innerHTML = tagsArray[i].data;
+//           tagBox.appendChild(tagEl);
+//           tagEl.appendChild(button)
+//           tagBox.appendChild(space)
+//         }
+//         tagsRef.off();
+//
+//       }
+//     }
+//   })
+// }
 
- if(document.getElementById('tagsBox')){
-   document.getElementById('tagsBox').outerHTML = "";
+// function deleteAt(index){
+//   // console.log(index);
+//   tagsRef = firebase.database().ref('user/' + userObject.uid + '/tags/');
+//   tagsRef.on('value', function(snapshot){
+//     var count = 0
+//     for(k in snapshot.val()){
+//       if(count === index){
+//         // console.log(k)
+//         tagsRef.off();
+//
+//         removeItem(k);
+//         // console.log("removed tag " + k, "count is " + count)
+//         // count += 1;
+//
+//       }
+//       count += 1;
+//
+//     }
+//   })
+// }
 
- }
-  // console.log("loading Tags")
-  var tagsRef = firebase.database().ref('user/' + userObject.uid + '/tags');
-  tagsRef.on('value', function(snapshot){
-    if(snapshot.val()){
-      var tags = snapshot.val();
-      for(var k in tags){
-        tagsArray.push(tags[k]);
-        // console.log(tagsArray)
-      }
-      var tagsListAmmount = tagsArray.length;
-      tagAmmount.innerHTML = tagsListAmmount;
-      if(tagsListAmmount > 100){
-        var progress = 100;
-      }else{
-        var progress = tagsListAmmount;
-      }
-      progress = progress.toString();
-      tagProgress.style.width = progress + '%';
-      if(tagsListAmmount > 0){
-        for(var i = 0; i < tagsListAmmount; i++){
-          var outerEl = document.getElementById('outerEl')
-          var idInfo = 'tagData' + i.toString();
-          var tagData = document.createElement('div')
-          tagData.setAttribute('id', 'tagsBox');
-          outerEl.appendChild(tagData);
-          var tagBox = document.getElementById('tagsBox');
-          var tagEl = document.createElement('span');
-          var space = document.createElement('div');
-          var button = document.createElement('button');
-          tagBox.style.display = "inline-flex"
-          tagBox.className = "col-md-12"
-          button.className = 'btn delTag';
-          button.setAttribute('onclick', 'deleteAt(' + i + ')')
-          button.innerHTML = 'delete';
-          space.innerHTML = '&nbsp';
-          tagEl.className =  'indvTag'
-          tagEl.style.color = 'black';
-          tagEl.setAttribute('id', idInfo);
-          tagEl.innerHTML = tagsArray[i].data;
-          tagBox.appendChild(tagEl);
-          tagEl.appendChild(button)
-          tagBox.appendChild(space)
-        }
-        tagsRef.off();
-
-      }
-    }
-  })
-}
-
-function deleteAt(index){
-  // console.log(index);
-  tagsRef = firebase.database().ref('user/' + userObject.uid + '/tags/');
-  tagsRef.on('value', function(snapshot){
-    var count = 0
-    for(k in snapshot.val()){
-      if(count === index){
-        // console.log(k)
-        tagsRef.off();
-
-        removeItem(k);
-        // console.log("removed tag " + k, "count is " + count)
-        // count += 1;
-
-      }
-      count += 1;
-
-    }
-  })
-}
-
-function removeItem(k){
-  var dataRef =  firebase.database().ref('user/' + userObject.uid + '/tags/' + k );
-  dataRef.set({"data": null}).then(function(err, res){
-    dataRef.off
-    loadTags();
-
-  });
-
-}
+// function removeItem(k){
+//   var dataRef =  firebase.database().ref('user/' + userObject.uid + '/tags/' + k );
+//   dataRef.set({"data": null}).then(function(err, res){
+//     dataRef.off
+//     loadTags();
+//
+//   });
+//
+// }
 
 function editEthAddress(){
   if(document.getElementById('editEth').style.display == "none"){
@@ -776,13 +780,17 @@ function editEthAddress(){
 }
 
 function submitEthAddress(){
+  console.log('submitting address')
   var ethAddress = document.getElementById('myEthAddress');
   // var testAccount = '0x541E8E0b0F25f799F941932dDcB93bB83d254E64'
   // testAccount = testAccount.split('');
   console.log(ethAddress.value.length)
   if(ethAddress.value.length > 41 && ethAddress.value.length < 43){
     // console.log(ethAddress.value)
-    firebase.database().ref('queue/myEthAddress/tasks').push({"ethAddress": ethAddress.value, "userId": userObject.uid});
+    document.getElementById('ethHolder').className = 'animated fadeOut';
+    firebase.database().ref('queue/myEthAddress/tasks').push({"ethAddress": ethAddress.value, "userId": userObject.uid}).then(function(){
+      loadBalance();
+    });
   }
 }
 
@@ -793,16 +801,19 @@ function loadBalance(){
     data = snapshot.val();
     if(data.ethAddress){
       firebase.database().ref('queue/myEthBalance/tasks').push({"ethAddress": data.ethAddress, "userId": userObject.uid});
+      if(data.myBalance){
 
+        var balance = numberWithCommas(data.myBalance);
+        document.getElementById('balance').innerHTML = 'Balance: ' + balance + ' <i><b>PIES</b></i>';
+        document.getElementById('p-completion-number').innerHTML = balance;
+
+        document.getElementById('myAddress').innerHTML = data.ethAddress;
+        document.getElementById('ethHolder').className = 'animated fadeIn';
+
+      }
     }
   })
-  if(data.myBalance){
-    var balance = numberWithCommas(data.myBalance);
-    document.getElementById('balance').innerHTML = 'Balance: ' + balance + ' <i><b>PIES</b></i>';
-    document.getElementById('p-completion-number').innerHTML = balance;
 
-    document.getElementById('myAddress').innerHTML = data.ethAddress;
-  }
 }
 
 function numberWithCommas(x) {

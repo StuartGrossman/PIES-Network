@@ -656,7 +656,7 @@ var ref = firebase.database().ref('queue/tasks');
 
 firebase.auth().onAuthStateChanged(function(user) {
   if(user){
-    checkState(user);
+    // checkState(user);
     console.log(user)
     document.getElementById('userImage').src = user.photoURL;
     document.getElementById('userName').innerHTML = user.displayName;
