@@ -280,7 +280,7 @@
                 <div class="col-md-5 col-lg-3 col-sm-6 col-xs-12">
                     <div class="row">
                         <div class="col-md-12">
-                          <button onclick="addContent()" class="btn btn-lg btn-primary" id="addContent" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Publish Content</button>
+                          <button class="btn btn-lg btn-primary" id="addContent" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Publish Content</button>
                         </div>
 
                     </div>
@@ -341,7 +341,7 @@
                                    </div>
                                    <div class="modal-footer">
                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                       <button type="button" class="btn btn-primary" data-dismiss="modal" id="step2">Next</button>
+                                       <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addContent1()" id="step2">Next</button>
                                    </div>
                                </div>
                            </div>
@@ -374,7 +374,7 @@
                                    <div class="modal-body">
                                      <div class="row">
                                        <div class="col-md-6" style="color:white; font-size: 22px;">
-                                         Price Per Impression:
+                                         Define target Audience:
 
                                        </div>
                                        <div class="col-md-1">
@@ -498,10 +498,10 @@
                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                <h4 class="modal-title" id="exampleModal2Label1">Upload Content</h4> </div>
                                            <div class="modal-body">
-                                                 <div class="white-box">
+                                                 <!-- <div class="white-box">
                                                      <h3 class="box-title">File Upload</h3>
                                                      <label for="input-file-max-fs">Max Size 30mb</label>
-                                                     <input type="file" id="input-file-max-fs" class="dropify" data-max-file-size="30M" /> </div>
+                                                     <input type="file" id="input-file-max-fs" class="dropify" data-max-file-size="30M" /> </div> -->
                                            </div>
                                            <div class="modal-footer">
                                                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Back</button> -->
@@ -604,6 +604,9 @@
   $('#step3').on('click', function(e){
     $('#exampleModal3').modal();
   })
+  $('#step4').on('click', function(e){
+    $('#exampleModal4').modal();
+  })
 
 
   $('.dropify').dropify();
@@ -645,7 +648,15 @@
 
 });
 </script>
-
+<script>
+var adObject = {};
+function addContent1(){
+  adObject.contentName = document.getElementById('contentName').value;
+  adObject.website = document.getElementById('website').value;
+  adObject.descritpion = document.getElementById('description').value;
+  console.log(adObject)
+}
+</script>
 
 
 

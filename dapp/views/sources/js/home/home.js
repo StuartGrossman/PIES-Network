@@ -52,10 +52,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 function saveUserInfo(user){
   var redirectUrl;
-  var userRef = firebase.database().ref('users/' + user.uid);
+  var userRef = firebase.database().ref('user/' + user.uid);
         userRef.on('value', function(snapshot) {
           var data = snapshot.val();
-          // console.log(data)
+          console.log(data)
           if(!data && user){
             // User is signed in.
             var displayName = user.displayName;
@@ -79,9 +79,12 @@ function saveUserInfo(user){
           } else if(data.userType){
 
             //logic
-            console.log("user Already exits")
+            console.log("user Already exits", data.phone.confirmed)
+            if(data.phone.confirmed.phone === false){
+              console.log("new user, verify phone")
+              window.location = "/phone";
 
-            // window.location = "/";
+            }
 
             // document.getElementById('name').innerHTML = displayName;
           }

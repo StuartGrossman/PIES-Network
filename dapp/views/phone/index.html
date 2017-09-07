@@ -109,18 +109,21 @@ function phone(){
 
 function confirm(){
   var code = document.getElementById('code').value;
-  firebase.database().ref('/user/' + userId + '/phone/').on('value', function(snapshot){
-    // console.log(snapshot.val(), code, code.toString(), snapshot.val().code.toString())
+  var queue = firebase.database().ref('/queue/confirmPhone/tasks');
 
-    if(snapshot.val().code.toString() == code.toString()){
-      firebase.database().ref('/user/' + userId + '/phone/confirmed').update({'phone': true}).then(function(){
-        window.location = "/usertype";
-      })
-    }else{
-      document.getElementById('code-warning').style.display = 'block';
-
-    }
-  })
+  queue.push({'code': code, 'uid': userId});
+  // firebase.database().ref('/user/' + userId + '/phone/').on('value', function(snapshot){
+  //   // console.log(snapshot.val(), code, code.toString(), snapshot.val().code.toString())
+  //
+  //   if(snapshot.val().code.toString() == code.toString()){
+  //     firebase.database().ref('/user/' + userId + '/phone/confirmed').update({'phone': true}).then(function(){
+  //       window.location = "/usertype";
+  //     })
+  //   }else{
+  //     document.getElementById('code-warning').style.display = 'block';
+  //
+  //   }
+  // })
 }
 
 </script>
