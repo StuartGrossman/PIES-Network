@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>AdSpace</title>
+  <link rel="stylesheet" type="text/css" href="../sources/css/bootstrap.min.css">
+  <!-- Bootstrap Core CSS -->
+    <link href="../sources/css/bootstrap-extension.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="../sources/css/sidebar-nav.min.css" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="../sources/css/jquery.toast.css" rel="stylesheet">
+    <!-- morris CSS -->
+    <link href="../sources/css/morris.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="../sources/css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../sources/css/admin-style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="../sources/css/default-dark.css" id="theme" rel="stylesheet">
+    <link href="../sources/css/spinners.css" />
+    <link href="../sources/css/custom.css" rel="stylesheet" />
+    <link href="../sources/css/flipclock.css" rel="stylesheet" />
+
+</head>
+
+
+
+<body>
+  <div class="clock" style="margin:2em;"></div>
+	<div class="message"></div>
+
+
+
+
+
+</body>
+
+<!-- jQuery -->
+    <script src="../sources/js/jquery.min.js"></script>
+    <script src="../sources/js/tether.min.js"></script>
+    <script src="../sources/js/bootstrap.min.js"></script>
+    <script src="../sources/js/flipclock.min.js"></script>
+    <script src="../sources/js/bootstrap-extension.min.js"></script>
+    <script src="../sources/js/sidebar-nav.min.js"></script>
+    <script src="../sources/js/jquery.slimscroll.js"></script>
+    <script src="../sources/js/waves.js"></script>
+    <script src="../sources/js/jquery.waypoints.min.js"></script>
+    <script src="../sources/js/jquery.counterup.min.js"></script>
+    <script src="../sources/js/raphael-min.js"></script>
+    <script src="../sources/js/morris.js"></script>
+    <script src="../sources/js/custom.min.js"></script>
+    <script src="../sources/js/jquery.sparkline.min.js"></script>
+    <script src="../sources/js/dashboard1.js"></script>
+    <script src="../sources/js/jquery.charts-sparkline.js"></script>
+    <script src="../sources/js/jquery.toast.js"></script>
+    <script src="../sources/js/jQuery.style.switcher.js"></script>
+
+
+
+    <script type="text/javascript">
+      var clock;
+
+      $(document).ready(function() {
+        var clock;
+
+        clock = $('.clock').FlipClock({
+              clockFace: 'DailyCounter',
+              autoStart: false,
+              callbacks: {
+                stop: function() {
+                  $('.message').html('The clock has stopped!')
+                }
+              }
+          });
+
+          clock.setTime(220880);
+          clock.setCountdown(true);
+          clock.start();
+
+      });
+    </script>
+
+
+
+
+
+
+</html>

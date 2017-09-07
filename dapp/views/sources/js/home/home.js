@@ -52,10 +52,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 function saveUserInfo(user){
   var redirectUrl;
-  var userRef = firebase.database().ref('users/' + user.uid );
+  var userRef = firebase.database().ref('users/' + user.uid);
         userRef.on('value', function(snapshot) {
-          // console.log(snapshot.val());
-          if(!snapshot.val() && user){
+          var data = snapshot.val();
+          // console.log(data)
+          if(!data && user){
             // User is signed in.
             var displayName = user.displayName;
 
@@ -71,15 +72,16 @@ function saveUserInfo(user){
 
             var providerData = user.providerData;
             redirectUrl = "/phone"
-            // console.log(user, uid, email)
+            console.log('new user located')
 
             writeUserData(uid, displayName, email, photoURL, redirectUrl);
 
-          } else if(snapshot.val()){
+          } else if(data.userType){
 
             //logic
-            window.location = "/";
             console.log("user Already exits")
+
+            // window.location = "/";
 
             // document.getElementById('name').innerHTML = displayName;
           }
@@ -88,12 +90,20 @@ function saveUserInfo(user){
 
 function writeUserData(userId, name, email, photoURL, redirectUrl) {
   console.log("writing user data!")
-  firebase.database().ref('user/' + userId).set({
-    username: name,
-    email: email,
-    profile_picture : photoURL,
-    subscribed : false,
-    usertype: 0
-  });
-  window.location = redirectUrl;
+   var userRef = firebase.database().ref('user/' + userId)
+   userRef.on('value', function(snapshot){
+     console.log(snapshot.val())
+   })
+  //  userRef.set({
+  //   username: name,
+  //   email: email,
+  //   profile_picture : photoURL,
+  //   subscribed : false,
+  //   userType: 0,
+  //   phone: {'confirmed':{
+  //     'phone': false
+  //   }}
+  // });
+
+  // window.location = redirectUrl;
 }
