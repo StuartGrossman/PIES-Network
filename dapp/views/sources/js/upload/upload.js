@@ -22,7 +22,7 @@ var user;
 
 firebase.auth().onAuthStateChanged(function(userObj) {
   if(userObj){
-    console.log(userObj)
+    // console.log(userObj)
     userObject = userObj;
     // writeUserData(u)
     user = userObj
@@ -39,10 +39,10 @@ firebase.auth().onAuthStateChanged(function(userObj) {
 
 function checkState(user){
   firebase.database().ref('user/' + user.uid).on('value', function(snapshot){
-    console.log(snapshot.val())
+    // console.log(snapshot.val())
     var userStatus = snapshot.val().userType;
     if(userStatus){
-      console.log(userStatus)
+      // console.log(userStatus)
       if(userStatus == 99){
         return;
       }else if(userStatus == 10){
@@ -60,7 +60,7 @@ function getDefaultTags(user){
 
   var tagsRef = firebase.database().ref('/tag/' + user.uid + '/default/');
   tagsRef.on('value', function(snapshot){
-    console.log(snapshot.val())
+    // console.log(snapshot.val())
     var data = [];
     for(var i  in snapshot.val()){
 
@@ -87,7 +87,7 @@ function loadBalance(){
   var data;
   userRef.on('value', function(snapshot){
     data = snapshot.val();
-    console.log(data);
+    // console.log(data);
     if(data.ethAddress){
       firebase.database().ref('queue/myEthBalance/tasks').push({"ethAddress": data.ethAddress, "userId": userObject.uid});
       if(data.myBalance){
@@ -287,8 +287,8 @@ window.addEventListener('load', function() {
     var provider = web3.currentProvider
 
     web3.eth.defaultAccount = web3.eth.accounts[0]
-    console.log(web3.eth.accounts[0])
-    console.log(provider)
+    // console.log(web3.eth.accounts[0])
+    // console.log(provider)
   } else {
     console.log('No web3? You should consider trying MetaMask!')
   }
@@ -306,7 +306,7 @@ function initContract(contract, eth){
   // var token = web3.eth.contract(HumanStandardToken).at(contractAddress);
   var token = contract(HumanStandardToken).at(contractAddress)
 
-  console.log(token)
+  // console.log(token)
   var address = '0x541E8E0b0F25f799F941932dDcB93bB83d254E64'
   var address2 = '0x20c38C5F0aC3B78f89f16B3D35E582D1EBda894B'
   // var callData = token.transferFrom.getData(address, address2, 100);
@@ -349,4 +349,12 @@ async function waitForTxToBeMined (txHash, eth) {
   }
   // indicateSuccess()
   alert('success')
+}
+
+var adObject = {};
+function addContent1(){
+  adObject.contentName = document.getElementById('contentName').value;
+  adObject.website = document.getElementById('website').value;
+  adObject.descritpion = document.getElementById('description').value;
+  console.log(adObject)
 }

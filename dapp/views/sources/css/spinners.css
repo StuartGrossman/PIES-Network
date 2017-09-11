@@ -45,6 +45,9 @@
 .loaderSection {
   padding-top: 500px;
 }
+.loadingBox{
+  height: 350px;
+}
 .loader {
   position: absolute;
   top: 50%;

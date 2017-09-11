@@ -12,7 +12,11 @@ admin.initializeApp({
 });
 var defaultAuth = admin.auth();
 var defaultDatabase = admin.database();
-
+if(defaultDatabase){
+  console.log(
+    'Firebase Database Admin Connected!'
+  )
+}
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -76,5 +80,5 @@ app.use('/upload', upload);
 
 var server = app.listen(port, function() {
 	var host = server.address().address;
-	console.log('Example app listening at http://localhost:' + port);
+	console.log('Server is listening at http://localhost:' + port);
 });

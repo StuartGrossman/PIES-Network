@@ -19,6 +19,7 @@ var Eth = require('ethjs-query');
 var EthContract = require('ethjs-contract');
 var HumanStandardToken = require('./contract.json');
 web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
+
 var coinbase = web3.eth.coinbase;
 var balance = web3.eth.getBalance(coinbase, function(err, res){
   // console.log(balance)
