@@ -327,11 +327,12 @@
                                        <form>
                                            <div class="form-group">
                                                <label for="recipient-name" class="control-label">Name of Content:</label>
-                                               <input type="text" class="form-control" id="contentName" maxlength="40">
+                                               <input type="text" class="form-control" id="contentName" maxlength="40" id="name">
                                            </div>
                                            <div class="form-group">
-                                               <label for="recipient-name" class="control-label">Link to product or website</label>
-                                               <input type="text" class="form-control" id="website"  maxlength="200" >
+                                               <label for="recipient-name" class="control-label">Website Url</label>
+                                               <input type="text" class="form-control" id="website"  maxlength="200" id="website" >
+                                               <h6 style="color: red; display: none;" id="websiteError">Required</h6>
                                            </div>
                                            <div class="form-group">
                                                <label for="message-text" class="control-label">Description of Content:</label>
@@ -341,7 +342,7 @@
                                    </div>
                                    <div class="modal-footer">
                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                       <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addContent1()" id="step2">Next</button>
+                                       <button type="button" class="btn btn-primary" onclick="addContent1()" id="step2">Next</button>
                                    </div>
                                </div>
                            </div>
@@ -360,7 +361,7 @@
                                    </div>
                                    <div class="modal-footer">
                                        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Back</button> -->
-                                       <button type="button" class="btn btn-primary" data-dismiss="modal"  onclick="submit()" id="step3">Next</button>
+                                       <button type="button" class="btn btn-primary" data-dismiss="modal" id="step3">Next</button>
                                    </div>
                                </div>
                            </div>
@@ -373,16 +374,10 @@
                                        <h4 class="modal-title" id="exampleModal3Label1">Specifications</h4> </div>
                                    <div class="modal-body">
                                      <div class="row">
-                                       <div class="col-md-6" style="color:white; font-size: 22px;">
-                                         Define target Audience:
+                                       <div class="col-md-12" style="color:white; font-size: 16px;">
+                                         Leave fields blank if you wish to not specify for that specific category
+                                       </div>
 
-                                       </div>
-                                       <div class="col-md-1">
-
-                                       </div>
-                                       <div class="col-md-5">
-                                         <span style="color:white; font-size: 25px;" id="ppi"><span style="font-size: 25px;">$</span>0.00</span>
-                                       </div>
                                      </div>
                                      <hr />
                                      <form class="floating-labels">
@@ -391,8 +386,8 @@
                                            <div class="btn-group bootstrap-select">
 
                                               <select class="selectpicker" data-style="form-control" tabindex="-98">
-                                              <option>Avg Income</option>
-                                              <option> All incomes</option>
+                                              <option>Income</option>
+                                              <option> All</option>
                                               <option>> $10,000</option>
                                               <option>$10,000 - $35,000</option>
                                               <option>$35,000 - $50,000</option>
@@ -414,7 +409,7 @@
 
                                               <select class="selectpicker" data-style="form-control" tabindex="-98">
                                               <option>Gender</option>
-                                              <option> All genders</option>
+                                              <option>All</option>
                                               <option>Male</option>
                                               <option>Female</option>
                                               <option>Other</option>
@@ -422,19 +417,59 @@
                                             </div>
                                          </div>
                                        </div>
+                                       <br /><br />
+                                       <div class="row">
+                                         <div class="col-md-6">
+                                           <div class="btn-group bootstrap-select">
+
+                                              <select class="selectpicker" data-style="form-control" tabindex="-98">
+                                              <option>Race</option>
+                                              <option>All</option>
+                                              <option>White</option>
+                                              <option>Black or African American</option>
+                                              <option>Asian / Pacific Islander</option>
+
+                                              <option>Hispanic or Latino</option>
+
+                                              <option>Native American or American Indian</option>
+                                              <option>Other</option>
+
+
+
+
+                                              </select>
+                                            </div>
+                                         </div>
+                                         <div class="col-md-6">
+                                           <div class="btn-group bootstrap-select">
+
+                                              <select class="selectpicker" data-style="form-control" tabindex="-98">
+                                              <option>Sexuality</option>
+                                              <option>All</option>
+                                              <option>Straight</option>
+                                              <option>LGBTQ</option>
+                                              <option>Other</option>
+                                              </select>
+                                            </div>
+                                         </div>
+                                       </div>
+
 
 
                                         <br /><br />
                                         <div class="row">
                                           <div class="col-md-5">
                                             <div class="form-group has-success m-b-40">
-                                                 <input type="text" class="form-control" id="input11" required=""><span class="highlight"></span> <span class="bar"></span>
+                                                 <input type="number" class="form-control" id="input11" required=""><span class="highlight"></span> <span class="bar"></span>
                                                  <label for="input11">Start Age</label>
                                             </div>
+
                                           </div>
+
+
                                           <div class="col-md-5">
                                             <div class="form-group has-success m-b-40">
-                                                 <input type="text" class="form-control" id="input12" required=""><span class="highlight"></span> <span class="bar"></span>
+                                                 <input type="number" class="form-control" id="input12" required=""><span class="highlight"></span> <span class="bar"></span>
                                                  <label for="input11">End Age</label>
                                             </div>
                                           </div>
@@ -445,69 +480,143 @@
                                             </div>
                                           </div>
                                         </div>
-                                         <br /><hr />
-                                        <div class="row">
+                                         <br />
+                                         <h4 style="color:white">
+                                           Enter tags relating to your content.
+
+                                         </h4>
+                                         <hr />
+                                        <div class="row" id="tagsHolder">
                                           <div class="col-md-12">
                                             <div class="bs-example">
-                                                Enter tags relating to your content. Your default tags are already applied.
+                                              <h6>Your default tags are applied free of charge</h6>
                                               <br />
-                                              <hr />
-                                                <input type="text" id="tags" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" style="display: none;">
+                                                <input type="text" id="tags" value="" data-role="tagsinput" style="display: none;">
                                             </div>
                                           </div>
                                         </div>
 
 
                                      </form>
-
+                                     <hr />
                                      <div>
                                        <br /><br />
                                        <div class="row">
                                          <div class="col-md-4">
                                            <div class="checkbox checkbox-success checkbox-circle">
-                                             <input id="checkbox-11" type="checkbox" checked="" onclick="checkbox11()">
+                                             <input id="checkbox-11" type="checkbox" checked="true" onclick="checkbox11()">
                                              <label for="checkbox-11">Require Website Visit</label>
                                            </div>
                                          </div>
                                          <div class="col-md-4">
                                            <div class="checkbox checkbox-success checkbox-circle">
                                              <input id="checkbox-12" type="checkbox" onclick="checkbox12()">
-                                             <label for="checkbox-12"> Require Feedback</label>
+                                             <label for="checkbox-12"> Require Comment</label>
                                            </div>
                                          </div>
                                          <div class="col-md-4">
                                            <div class="checkbox checkbox-success checkbox-circle">
-                                             <input id="checkbox-13" type="checkbox" onclick="checkbox13()">
+                                             <input id="checkbox-13" type="checkbox" onclick="checkBox13()">
                                              <label for="checkbox-13"> Custom Feedback</label>
                                            </div>
                                          </div>
                                        </div>
+                                       <div id="customFeedBack" style="display: none;">
+                                         <hr />
+
+                                         <div class="row">
+                                           <div class="col-md-12">
+                                             <div class="form-group has-success m-b-40">
+                                                  <input type="text" class="form-control" id="input11" required=""><span class="highlight"></span> <span class="bar"></span>
+                                                  <label for="input11">Answer 1</label>
+                                             </div>
+                                             <div class="form-group has-success m-b-40">
+                                                  <input type="text" class="form-control" id="input11" required=""><span class="highlight"></span> <span class="bar"></span>
+                                                  <label for="input11">Answer 2</label>
+                                             </div>
+                                             <div class="form-group has-success m-b-40">
+                                                  <input type="text" class="form-control" id="input11" required=""><span class="highlight"></span> <span class="bar"></span>
+                                                  <label for="input11">Answer 3</label>
+                                             </div>
+                                             <div class="form-group has-success m-b-40">
+                                                  <input type="text" class="form-control" id="input11" required=""><span class="highlight"></span> <span class="bar"></span>
+                                                  <label for="input11">Answer 4</label>
+                                             </div>
+
+                                           </div>
+
+
+                                         </div>
+
+                                       </div>
+
 
                                      </div>
 
                                    </div>
+
                                    <div class="modal-footer">
-                                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                       <button type="button" class="btn btn-primary" onclick="step4()" id="step4">Next</button>
+
+                                     <div class="row">
+                                       <button type="button" class="btn btn-primary" data-dismiss="modal" id="step4">Next</button>
+
+                                     </div>
+                                       <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                                    </div>
                                </div>
-                               <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label1">
-                                   <div class="modal-dialog" role="document">
-                                       <div class="modal-content">
-                                           <div class="modal-header">
-                                               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                               <h4 class="modal-title" id="exampleModal2Label1">Upload Content</h4> </div>
-                                           <div class="modal-body">
-                                                 <!-- <div class="white-box">
-                                                     <h3 class="box-title">File Upload</h3>
-                                                     <label for="input-file-max-fs">Max Size 30mb</label>
-                                                     <input type="file" id="input-file-max-fs" class="dropify" data-max-file-size="30M" /> </div> -->
-                                           </div>
-                                           <div class="modal-footer">
-                                               <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Back</button> -->
-                                               <button type="button" class="btn btn-primary" data-dismiss="modal"  onclick="submit()" id="complete">Next</button>
-                                           </div>
+
+                           </div>
+
+                       </div>
+                       <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModal4Label1">
+                           <div class="modal-dialog" role="document">
+                               <div class="modal-content">
+                                   <div class="modal-header">
+                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                       <h4 class="modal-title" id="exampleModal4Label1">Preivew Content</h4> </div>
+                                   <div class="modal-body" id="videoModal">
+                                     <div class="row">
+                                       <div class="col-md-12">
+                                         <video id="previewVideoCage" width="100%" height="240" controls>
+
+                                         </video>
                                        </div>
+
+                                     </div>
+
+                                     <div class="row">
+                                       <div class="col-md-12">
+
+                                         <h2>Trello</h2>
+                                         <hr />
+                                         <h6 style="overflow: hidden;">https://trello.com/b/SZdpbG7P/lifehttps://trello.com/b/SZdpbG7P/life</h6>
+                                         <h5>Up to this point, I've successfully been able to read from and write to the firebase database, creating a reference to the database with var db = admin.database(), then var ref = db.ref("/")... So I know I've configured Firebase and firebase-database correctly. But I'm stuck on  storage, and have tried both admin.storage().ref() and firebase.storage().ref(), and firebase.storage().ref("/") with the same error message.</h5>
+
+
+                                       </div>
+                                     </div>
+
+                                   </div>
+                                   <div class="modal-footer">
+                                       <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Back</button> -->
+                                       <button type="button" class="btn btn-primary" data-dismiss="modal"  onclick="submit()" id="complete">Next</button>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModal5Label1">
+                           <div class="modal-dialog" role="document">
+                               <div class="modal-content">
+                                   <div class="modal-header">
+                                       <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                       <h4 class="modal-title" id="exampleModal5Label1">Preivew Content</h4> </div> -->
+                                   <div class="modal-body" id="videoModal">
+
+
+                                   </div>
+                                   <div class="modal-footer">
+                                       <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Back</button> -->
+                                       <button type="button" class="btn btn-primary" data-dismiss="modal"  onclick="submit()" id="complete">Next</button>
                                    </div>
                                </div>
                            </div>
@@ -522,7 +631,7 @@
 
             </div>
 
-
+          </div>
             <!-- /.container-fluid -->
             <footer class="footer text-center"> 2017 &copy; PIES NETWORK </footer>
             <!-- <div id='morris-area-chart2' class='morris-area-chart2' style="display:block"> -->
@@ -563,13 +672,14 @@
     <script src="../sources/js/jquery.charts-sparkline.js"></script>
     <script src="../sources/js/jquery.toast.js"></script>
     <script src="../sources/js/jQuery.style.switcher.js"></script>
-    <script src="../sources/js/upload/upload.js"></script>
     <script src="../sources/js/dropify.min.js"></script>
     <script src="../sources/js/bootstrap-select.min.js"></script>
     <script src="../sources/js/switchery.min.js"></script>
 
+    <script src="../sources/js/ethjs-query.min.js"></script>
 
-
+    <script src="../sources/js/ethjs-contract.min.js"></script>
+    <script src="../sources/js/upload/upload.js"></script>
 
 
 
@@ -578,6 +688,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
   // console.log("js script online")
+
   var loadTime = Math.floor((Math.random() * 3000) + 500);
   //////loader
   $('.main-container').css("display", "none");
@@ -599,7 +710,19 @@
 
 
   $('#step2').on('click', function(e){
-    $('#exampleModal2').modal();
+    var websiteURL = $('#website').val();
+    console.log(websiteURL)
+    if(websiteURL){
+        $('#exampleModal').modal('hide');
+
+        $('#exampleModal2').modal();
+
+
+    }else{
+      console.log("working")
+      $('#websiteError').css('display', 'block')
+      $('#websiteError').addClass('animate fadeIn')
+    }
   })
   $('#step3').on('click', function(e){
     $('#exampleModal3').modal();
@@ -640,7 +763,13 @@
           drDestroy.init();
       }
   })
+  setTimeout(function(){
+    console.log(DefaultTagData)
+    for(var i = 0 ; i < DefaultTagData.length ; i++){
+      $('#tags').tagsinput('add', DefaultTagData[i])
 
+    }
+  }, 2000)
   // $('#checkbox-10').after().click(function () {
   //
   // });

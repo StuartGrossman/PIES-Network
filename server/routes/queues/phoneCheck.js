@@ -23,7 +23,7 @@ function getRandomInt(min, max) {
 }
 
 var phoneRef = admin.database().ref('/queue/phone/');
-var confirmPhoneRef = firebase.database().ref('/queue/confirmPhone/tasks');
+var confirmPhoneRef = admin.database().ref('/queue/confirmPhone/tasks');
 
 var queue = new Queue(phoneRef, function(data, progress, resolve, reject) {
   var code = getRandomInt(1000, 9999)
