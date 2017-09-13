@@ -328,7 +328,7 @@ function initContract(contract, eth){
   // web3.eth.sendTransaction({data: callData}, function(err, res){
   //   console.log(res, err)
   // })
-  token.transfer(address2, 1000, {from: address}).then(function (txHash) {
+  token.transfer(address2, 100, {from: address}).then(function (txHash) {
       console.log('Transaction sent', txHash)
       console.dir(txHash)
       waitForTxToBeMined(txHash, eth)
@@ -337,24 +337,43 @@ function initContract(contract, eth){
 
 }
 async function waitForTxToBeMined (txHash, eth) {
-  let txReceipt
+
   while (!txReceipt) {
     try {
       txReceipt = await eth.getTransactionReceipt(txHash)
+      saveTxReceipt(txReceipt)
       console.log(txReceipt)
     } catch (err) {
       console.log(err)
       // return indicateFailure(err)
     }
   }
-  // indicateSuccess()
-  alert('success')
+  publishSuccess()
+  loadReceipt()
+  // alert('success')
 }
 
-var adObject = {};
-function addContent1(){
+function saveTxReceipt(txHash){
+
+}
+function loadReceipt(){
+
+}
+
+var adObject = {
+  cotentName: '',
+  website: '',
+  descrition: '',
+  income: '',
+  tags: [],
+  age: 99,
+  race: 'none'
+};
+
+function addContent(){
   adObject.contentName = document.getElementById('contentName').value;
   adObject.website = document.getElementById('website').value;
   adObject.descritpion = document.getElementById('description').value;
+  adObject.income = document.getElementById('income').options[document.getElementById('income').selectedIndex].dataset.number;
   console.log(adObject)
 }

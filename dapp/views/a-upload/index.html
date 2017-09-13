@@ -32,24 +32,40 @@
     <div id="wrapper" class="main-container">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
-            <div class="navbar-header"> <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
+            <div class="navbar-header">
+               <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
+                 <a class="logo" href="/">
+                   <b>
+                     <img src="../sources/images/content-logo.png" style="width:150%" />
+                   </b>
+                 </a>
 
                 <ul class="nav navbar-top-links navbar-left hidden-xs">
                     <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
                     <li>
                         <!-- <form role="search" class="app-search hidden-xs"> -->
                             <!-- <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form> -->
-                            <li><a href="gallery.html" class="waves-effect"><i class="fa fa-circle-o text-info"></i> <span class="hide-menu" id="balance"></span></a></li>
 
                     </li>
+
                 </ul>
                 <ul class="nav navbar-top-links navbar-right pull-right">
-                    <li class="dropdown"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="/a-ads"><i class="icon-envelope"></i>
-                                              <div class="notify"><span class="heartbit">
-                                                </span><span class="point"></span>
-                                              </div>
-                                          </a>
-                        <ul class="dropdown-menu mailbox animated bounceInDown">
+                  <li><a href="/a-transactions" class="waves-effect"><i class="fa fa-circle-o text-info"></i>
+                    <span class="hide-menu" id="balance"></span>
+                    <div class="notify"><span class="heartbit">
+                      </span><span class="point"></span>
+                    </div></a>
+                  </li>
+
+                    <li class="dropdown">
+                       <!-- <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="/a-ads"><i class="icon-envelope">
+                       </i>
+                            <div class="notify"><span class="heartbit">
+                              </span><span class="point"></span>
+                            </div>
+                        </a> -->
+
+                        <!-- <ul class="dropdown-menu mailbox animated bounceInDown">
                             <li>
                                 <div class="drop-title">You have 4 new messages</div>
                             </li>
@@ -80,7 +96,7 @@
                             <li>
                                 <a class="text-center" href="javascript:void(0);"> <strong>See all notifications</strong> <i class="fa fa-angle-right"></i> </a>
                             </li>
-                        </ul>
+                        </ul> -->
                         <!-- /.dropdown-messages -->
                     </li>
                     <!-- /.dropdown -->
@@ -149,7 +165,7 @@
                 <div class="user-profile">
                     <div class="dropdown user-pro-body">
                         <div><img id="userImage" alt="user-img" class="img-circle"></div> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="userName"><span class="caret"></span></a>
-                        <ul class="dropdown-menu animated flipInY">
+                        <!-- <ul class="dropdown-menu animated flipInY">
                             <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
                             <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
                             <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
@@ -157,36 +173,57 @@
                             <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="login.html"><i class="fa fa-power-off"></i> Logout</a></li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
                 <ul class="nav" id="side-menu">
                     <li class="sidebar-search hidden-sm hidden-md hidden-lg">
                         <!-- input-group -->
-                        <div class="input-group custom-search-form">
+                        <!-- <div class="input-group custom-search-form">
                             <input type="text" class="form-control" placeholder="Search..."> <span class="input-group-btn">
                               <button class="btn btn-default" type="button"> <i class="fa fa-search"></i> </button>
-                            </span> </div>
+                            </span> </div> -->
                         <!-- /input-group -->
                     </li>
                     <!-- <li class="nav-small-cap m-t-10"> Main Menu</li> -->
-                    <li> <a href="index.html" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard <span class="fa arrow"></span> <span class="label label-rouded label-custom pull-right" id="alerts">4</span></span></a>
+                    <li>
+                      <a href="index.html" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v">
+                      </i>
+                      <span class="hide-menu"> Content <span class="fa arrow"></span>
+                      <span class="label label-rouded label-custom pull-right" id="contentNumber">0</span>
+                    </a>
                         <ul class="nav nav-second-level">
 
-                            <li> <a href="/a-upload">Upload</a> </li>
-                            <li> <a href="/content">My Content</a> </li>
+
+
                         </ul>
                     </li>
-
-
-                    <li> <a href="/a-settings" class="waves-effect"><i data-icon="P" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Settings</span></a> </li>
+                    <li>
+                      <a href="/content" class="waves-effect"><i data-icon="&#xe006;" class="linea-icon linea-basic fa-fw"></i>
+                        <span class="hide-menu">Analytics</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/transactions" class="waves-effect"><i data-icon="&#xe011;" class="linea-icon linea-basic fa-fw"></i>
+                        <span class="hide-menu">Transactions</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/a-settings" class="waves-effect"><i data-icon="P" class="linea-icon linea-basic fa-fw"></i>
+                        <span class="hide-menu">Settings</span>
+                      </a>
+                    </li>
                     <!-- <li> <a href="#" class="waves-effect"><i data-icon="7" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Icons<span class="fa arrow"></span></span></a> -->
-                        <ul class="nav nav-second-level">
+                        <!-- <ul class="nav nav-second-level">
 
                         </ul>
-                    </li>
+                    </li> -->
 
-                    <li><a href="login.html" class="waves-effect"><i class="icon-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
+                    <li>
+                      <a href="login.html" class="waves-effect"><i class="icon-logout fa-fw"></i>
+                        <span class="hide-menu">Log out</span>
+                      </a>
+                    </li>
 
                 </ul>
             </div>
@@ -196,8 +233,8 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <ol class="breadcrumb">
-                            <li><a href="#">Dashboard</a></li>
+                        <ol class="breadcrumb" style="float: left;">
+                            <!-- <li><a href="#">Dashboard</a></li> -->
                             <li class="active">Upload</li>
                         </ol>
                     </div>
@@ -210,7 +247,7 @@
                                 <div class="col-lg-3 col-sm-6 row-in-br">
                                     <div class="col-in row">
                                         <div class="col-md-6 col-sm-6 col-xs-6"> <i data-icon="E" class="linea-icon linea-basic"></i>
-                                            <h5 class="text-muted vb">Total PIES balance</h5> </div>
+                                            <h5 class="text-muted vb">PIES Spent</h5> </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <h3 class="counter text-right m-t-15 text-danger" id="p-completion-number"></h3> </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -223,7 +260,7 @@
                                 <div class="col-lg-3 col-sm-6 row-in-br  b-r-none">
                                     <div class="col-in row">
                                         <div class="col-md-6 col-sm-6 col-xs-6"> <i class="linea-icon linea-basic" data-icon="&#xe01b;"></i>
-                                            <h5 class="text-muted vb"></h5>Total PIES waiting for views</div>
+                                            <h5 class="text-muted vb">PIES in Escrow</h5> </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <h3 class="counter text-right m-t-15 text-megna">169</h3> </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -236,7 +273,7 @@
                                 <div class="col-lg-3 col-sm-6 row-in-br">
                                     <div class="col-in row">
                                         <div class="col-md-6 col-sm-6 col-xs-6"> <i class="linea-icon linea-basic" data-icon="&#xe00b;"></i>
-                                            <h5 class="text-muted vb">Total PIES spent</h5> </div>
+                                            <h5 class="text-muted vb">Impressions Filled</h5> </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <h3 class="counter text-right m-t-15 text-primary" id="tagAmmount"></h3> </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -246,10 +283,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-sm-6 row-in-br  b-r-none">
+                                <div class="col-lg-3 col-sm-6  b-0">
                                     <div class="col-in row">
                                         <div class="col-md-6 col-sm-6 col-xs-6"> <i class="linea-icon linea-basic" data-icon="&#xe016;"></i>
-                                            <h5 class="text-muted vb">Total Content Views</h5> </div>
+                                            <h5 class="text-muted vb">Unforfilled Impressions</h5> </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <h3 class="counter text-right m-t-15 text-success">431</h3> </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -263,361 +300,438 @@
                         </div>
                     </div>
                 </div>
-
+                <hr />
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div class="white-box">
+                            <div class="row row-in">
+                                <div class="col-lg-3 col-sm-6 row-in-br">
+                                    <div class="col-in row">
+                                        <div class="col-md-6 col-sm-6 col-xs-6"> <i data-icon="E" class="linea-icon linea-basic"></i>
+                                            <h5 class="text-muted vb">PIES Spent</h5> </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <h3 class="counter text-right m-t-15 text-danger" id="p-completion-number"></h3> </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 10%"> <span class="sr-only">60% Complete (success)</span> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-sm-6 row-in-br  b-r-none">
+                                    <div class="col-in row">
+                                        <div class="col-md-6 col-sm-6 col-xs-6"> <i class="linea-icon linea-basic" data-icon="&#xe01b;"></i>
+                                            <h5 class="text-muted vb">PIES in Escrow</h5> </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <h3 class="counter text-right m-t-15 text-megna">169</h3> </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-megna" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span class="sr-only">40% Complete (success)</span> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-sm-6 row-in-br">
+                                    <div class="col-in row">
+                                        <div class="col-md-6 col-sm-6 col-xs-6"> <i class="linea-icon linea-basic" data-icon="&#xe00b;"></i>
+                                            <h5 class="text-muted vb">Impressions Filled</h5> </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <h3 class="counter text-right m-t-15 text-primary" id="tagAmmount"></h3> </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%" id="tagProgress"> <span class="sr-only">40% Complete (success)</span> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-sm-6  b-0">
+                                    <div class="col-in row">
+                                        <div class="col-md-6 col-sm-6 col-xs-6"> <i class="linea-icon linea-basic" data-icon="&#xe016;"></i>
+                                            <h5 class="text-muted vb">Unforfilled Impressions</h5> </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <h3 class="counter text-right m-t-15 text-success">431</h3> </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span class="sr-only">40% Complete (success)</span> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                    <div class="row">
+                    <div class="row" style="margin-top: 10%;">
                         <div class="col-md-12">
                           <button class="btn btn-lg btn-primary" id="addContent" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Publish Content</button>
+                          <button class="btn btn-lg btn-default" id="addContent" style="margin-left: 50%;" data-toggle="modal" data-target="#FAQModal" data-whatever="@mdo">Start Guide & FAQ</button><span style="color:white; font-size: 10px; margin-left: 5%;">* Please read before use!</span>
+
                         </div>
                         <br /><br />
-                        <hr />
 
                     </div>
                 </div>
 
-               <div class="col-md-4">
+                <div class="col-md-4">
                    <div class="">
-                       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
-                           <div class="modal-dialog" role="document">
-                               <div class="modal-content">
-                                   <div class="modal-header">
-                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                       <h4 class="modal-title" id="exampleModalLabel1">New Content</h4> </div>
-                                   <div class="modal-body">
-                                       <form>
-                                           <div class="form-group">
-                                               <label for="recipient-name" class="control-label">Name of Content:</label>
-                                               <input type="text" class="form-control" id="contentName" maxlength="40" id="name">
-                                           </div>
-                                           <div class="form-group">
-                                               <label for="recipient-name" class="control-label">Website Url</label>
-                                               <input type="text" class="form-control" id="website"  maxlength="200" id="website" >
-                                               <h6 style="color: red; display: none;" id="websiteError">Required</h6>
-                                           </div>
-                                           <div class="form-group">
-                                               <label for="message-text" class="control-label">Description of Content:</label>
-                                               <textarea class="form-control" id="description" placeholder="150 characters max" maxlength="150"></textarea>
-                                           </div>
-                                       </form>
-                                   </div>
-                                   <div class="modal-footer">
-                                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                       <button type="button" class="btn btn-primary" onclick="addContent1()" id="step2">Next</button>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                       <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label1">
-                           <div class="modal-dialog" role="document">
-                               <div class="modal-content">
-                                   <div class="modal-header">
-                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                       <h4 class="modal-title" id="exampleModal2Label1">Upload Content</h4> </div>
-                                   <div class="modal-body">
-                                         <div class="white-box">
-                                             <h3 class="box-title">File Upload</h3>
-                                             <label for="input-file-max-fs">Max Size 30mb</label>
-                                             <input type="file" id="input-file-max-fs" onchange="uploadVideo()" class="dropify" data-max-file-size="30M" /> </div>
-                                   </div>
-                                   <div class="modal-footer">
-                                       <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Back</button> -->
-                                       <button type="button" class="btn btn-primary" data-dismiss="modal" id="step3">Next</button>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                       <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label1">
-                           <div class="modal-dialog" role="document">
-                               <div class="modal-content">
-                                   <div class="modal-header">
-                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                       <h4 class="modal-title" id="exampleModal3Label1">Specifications</h4> </div>
-                                   <div class="modal-body">
-                                     <div class="row">
-                                       <div class="col-md-12" style="color:white; font-size: 16px;">
-                                         Leave fields blank if you wish to not specify for that specific input
-                                       </div>
-
+                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+                             <div class="modal-dialog" role="document">
+                                 <div class="modal-content">
+                                     <div class="modal-header">
+                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                         <h4 class="modal-title" id="exampleModalLabel1">New Content</h4> </div>
+                                     <div class="modal-body">
+                                         <form>
+                                             <div class="form-group">
+                                                 <label for="recipient-name" class="control-label">Name of Content:</label>
+                                                 <input type="text" class="form-control" id="contentName" maxlength="40" id="name">
+                                             </div>
+                                             <div class="form-group">
+                                                 <label for="recipient-name" class="control-label">Website Url</label>
+                                                 <input type="text" class="form-control" id="website"  maxlength="200" id="website" >
+                                                 <h6 style="color: red; display: none;" id="websiteError">Required</h6>
+                                             </div>
+                                             <div class="form-group">
+                                                 <label for="message-text" class="control-label">Description of Content:</label>
+                                                 <textarea class="form-control" id="description" placeholder="150 characters max" maxlength="150"></textarea>
+                                             </div>
+                                         </form>
                                      </div>
-                                     <hr />
-                                     <form class="floating-labels">
+                                     <div class="modal-footer">
+                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                         <button type="button" class="btn btn-primary" onclick="addContent()" id="step2">Next</button>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label1">
+                             <div class="modal-dialog" role="document">
+                                 <div class="modal-content">
+                                     <div class="modal-header">
+                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                         <h4 class="modal-title" id="exampleModal2Label1">Upload Content</h4> </div>
+                                     <div class="modal-body">
+                                           <div class="white-box">
+                                               <h3 class="box-title">File Upload</h3>
+                                               <label for="input-file-max-fs">Max Size 30mb</label>
+                                               <input type="file" id="input-file-max-fs" onchange="uploadVideo()" class="dropify" data-max-file-size="30M" /> </div>
+                                     </div>
+                                     <div class="modal-footer">
+                                         <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Back</button> -->
+                                         <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addContent()" id="step3">Next</button>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label1">
+                             <div class="modal-dialog" role="document">
+                                 <div class="modal-content">
+                                     <div class="modal-header">
+                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                         <h4 class="modal-title" id="exampleModal3Label1">Specifications</h4> </div>
+                                     <div class="modal-body">
                                        <div class="row">
-                                         <div class="col-md-6 col-sm-6">
-                                           <div class="btn-group bootstrap-select">
-
-                                              <select class="selectpicker" data-style="form-control" tabindex="-98">
-                                              <option>Income</option>
-                                              <option> All</option>
-                                              <option>> $10,000</option>
-                                              <option>$10,000 - $35,000</option>
-                                              <option>$35,000 - $50,000</option>
-
-                                              <option>$50,000 - $100,000</option>
-
-                                              <option>$100,000 - $250,000</option>
-
-                                              <option>$250,000 - $500,000</option>
-                                              <option> < $500,000 </option>
-
-
-
-                                              </select>
-                                            </div>
+                                         <div class="col-md-12" style="color:white; font-size: 16px;">
+                                           Leave an input blank will apply it to 'all'
                                          </div>
-                                         <div class="col-md-6 col-sm-6">
-                                           <div class="btn-group bootstrap-select">
-
-                                              <select class="selectpicker" data-style="form-control" tabindex="-98">
-                                              <option>Gender</option>
-                                              <option>All</option>
-                                              <option>Male</option>
-                                              <option>Female</option>
-                                              <option>Other</option>
-                                              </select>
-                                            </div>
-                                         </div>
-                                       </div>
-                                       <br /><br />
-                                       <div class="row">
-                                         <div class="col-md-6 col-sm-6">
-                                           <div class="btn-group bootstrap-select">
-
-                                              <select class="selectpicker" data-style="form-control" tabindex="-98">
-                                              <option>Race</option>
-                                              <option>All</option>
-                                              <option>White</option>
-                                              <option>Black or African American</option>
-                                              <option>Asian / Pacific Islander</option>
-
-                                              <option>Hispanic or Latino</option>
-
-                                              <option>Native American or American Indian</option>
-                                              <option>Other</option>
-
-
-
-
-                                              </select>
-                                            </div>
-                                         </div>
-                                         <div class="col-md-6 col-sm-6">
-                                           <div class="btn-group bootstrap-select">
-
-                                              <select class="selectpicker" data-style="form-control" tabindex="-98">
-                                              <option>Sexuality</option>
-                                              <option>All</option>
-                                              <option>Straight</option>
-                                              <option>LGBTQ</option>
-                                              <option>Other</option>
-                                              </select>
-                                            </div>
-                                         </div>
-                                       </div>
-
-
-
-                                        <br /><br />
-                                        <div class="row">
-                                          <div class="col-md-5 col-sm-5">
-                                            <div class="form-group has-success m-b-40">
-                                                 <input type="number" class="form-control" id="input11" required=""><span class="highlight"></span> <span class="bar"></span>
-                                                 <label for="input11">Start Age</label>
-                                            </div>
-
-                                          </div>
-
-
-                                          <div class="col-md-5 col-sm-5">
-                                            <div class="form-group has-success m-b-40">
-                                                 <input type="number" class="form-control" id="input12" required=""><span class="highlight"></span> <span class="bar"></span>
-                                                 <label for="input11">End Age</label>
-                                            </div>
-                                          </div>
-                                          <div class="col-md-2 col-sm-2">
-                                            <div class="checkbox checkbox-success checkbox-circle">
-                                              <input id="checkbox-10" type="checkbox" onclick="checkBox10()">
-                                              <label id="checkbox-10-label" for="checkbox-10"> All ages</label>
-                                            </div>
-                                          </div>
-                                        </div>
-                                         <br />
-                                         <h4 style="color:white">
-                                           Enter tags relating to your content.
-
-                                         </h4>
-                                         <hr />
-                                        <div class="row" id="tagsHolder">
-                                          <div class="col-md-12">
-                                            <div class="bs-example">
-                                              <h6>Your default tags are applied free of charge</h6>
-                                              <br />
-                                                <input type="text" id="tags" value="" data-role="tagsinput" style="display: none;">
-                                            </div>
-                                          </div>
-                                        </div>
-
-
-                                     </form>
-                                     <hr />
-
-
-                                   </div>
-
-                                   <div class="modal-footer">
-
-                                     <div class="row">
-                                       <button type="button" class="btn btn-primary" data-dismiss="modal" id="step4">Next</button>
-
-                                     </div>
-                                       <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                                   </div>
-                               </div>
-
-                           </div>
-
-                       </div>
-                       <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModal4Label1">
-                           <div class="modal-dialog" role="document">
-                               <div class="modal-content">
-                                   <div class="modal-header">
-                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                       <h4 class="modal-title" id="exampleModal4Label1">Preivew Content</h4> </div>
-                                   <div class="modal-body" id="videoModal">
-                                     <div class="row">
-                                       <div class="col-md-12">
-                                         <video id="previewVideoCage" width="100%" height="240" controls>
-
-                                         </video>
-                                       </div>
-
-                                     </div>
-
-                                     <div class="row">
-                                       <div class="col-md-12">
-
-                                         <h2>Trello</h2>
-                                         <hr />
-                                         <h6 style="overflow: hidden;">https://trello.com/b/SZdpbG7P/lifehttps://trello.com/b/SZdpbG7P/life</h6>
-                                         <h5>Up to this point, I've successfully been able to read from and write to the firebase database, creating a reference to the database with var db = admin.database(), then var ref = db.ref("/")... So I know I've configured Firebase and firebase-database correctly. But I'm stuck on  storage, and have tried both admin.storage().ref() and firebase.storage().ref(), and firebase.storage().ref("/") with the same error message.</h5>
-
 
                                        </div>
-                                     </div>
-
-                                   </div>
-                                   <div>
-                                     <br /><br />
-                                     <div class="row">
-                                       <div class="col-md-4 col-sm-4 col-xm-4">
-                                         <div class="checkbox checkbox-success checkbox-circle">
-                                           <input id="checkbox-11" type="checkbox" checked="true" onclick="checkbox11()">
-                                           <label for="checkbox-11">Require Website Visit</label>
-                                         </div>
-                                       </div>
-                                       <div class="col-md-4 col-sm-4 col-xm-4">
-                                         <div class="checkbox checkbox-success checkbox-circle">
-                                           <input id="checkbox-12" type="checkbox" onclick="checkbox12()">
-                                           <label for="checkbox-12"> Require Comment</label>
-                                         </div>
-                                       </div>
-                                       <div class="col-md-4 col-sm-4 col-xm-4">
-                                         <div class="checkbox checkbox-success checkbox-circle">
-                                           <input id="checkbox-13" type="checkbox" onclick="checkBox13()">
-                                           <label for="checkbox-13"> Custom Feedback</label>
-                                         </div>
-                                       </div>
-                                     </div>
-                                     <div id="customFeedBack" style="display: none;">
                                        <hr />
+                                       <form class="floating-labels">
+                                         <div class="row">
+                                           <div class="col-md-6 col-sm-6">
+                                             <div class="btn-group bootstrap-select">
+
+                                                <select class="selectpicker" data-style="form-control" tabindex="-98" id="income">
+                                                <option>Income</option>
+                                                <option data-number="">All</option>
+                                                <option> $10,000</option>
+                                                <option>$10,000 - $35,000</option>
+                                                <option>$35,000 - $50,000</option>
+
+                                                <option>$50,000 - $100,000</option>
+
+                                                <option>$100,000 - $250,000</option>
+
+                                                <option>$250,000 - $500,000</option>
+                                                <option>< $500,000 </option>
+
+
+
+                                                </select>
+                                              </div>
+                                           </div>
+                                           <div class="col-md-6 col-sm-6">
+                                             <div class="btn-group bootstrap-select">
+
+                                                <select class="selectpicker" data-style="form-control" tabindex="-98">
+                                                <option>Gender</option>
+                                                <option>All</option>
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                                <option>Other</option>
+                                                </select>
+                                              </div>
+                                           </div>
+                                         </div>
+                                         <br /><br />
+                                         <div class="row">
+                                           <div class="col-md-6 col-sm-6">
+                                             <div class="btn-group bootstrap-select">
+
+                                                <select class="selectpicker" data-style="form-control" tabindex="-98">
+                                                <option>Race</option>
+                                                <option>All</option>
+                                                <option>White</option>
+                                                <option>Black or African American</option>
+                                                <option>Asian / Pacific Islander</option>
+
+                                                <option>Hispanic or Latino</option>
+
+                                                <option>Native American or American Indian</option>
+                                                <option>Other</option>
+
+
+
+
+                                                </select>
+                                              </div>
+                                           </div>
+                                           <div class="col-md-6 col-sm-6">
+                                             <div class="btn-group bootstrap-select">
+
+                                                <select class="selectpicker" data-style="form-control" tabindex="-98">
+                                                <option>Sexuality</option>
+                                                <option>All</option>
+                                                <option>Straight</option>
+                                                <option>LGBTQ</option>
+                                                <option>Other</option>
+                                                </select>
+                                              </div>
+                                           </div>
+                                         </div>
+
+
+
+                                          <br /><br />
+                                          <div class="row">
+                                            <div class="col-md-5 col-sm-5">
+                                              <div class="form-group has-success m-b-40">
+                                                   <input type="number" class="form-control" id="input11" required=""><span class="highlight"></span> <span class="bar"></span>
+                                                   <label for="input11">Start Age</label>
+                                              </div>
+
+                                            </div>
+
+
+                                            <div class="col-md-5 col-sm-5">
+                                              <div class="form-group has-success m-b-40">
+                                                   <input type="number" class="form-control" id="input12" required=""><span class="highlight"></span> <span class="bar"></span>
+                                                   <label for="input11">End Age</label>
+                                              </div>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2">
+                                              <div class="checkbox checkbox-success checkbox-circle">
+                                                <input id="checkbox-10" type="checkbox" onclick="checkBox10()">
+                                                <label id="checkbox-10-label" for="checkbox-10"> All ages</label>
+                                              </div>
+                                            </div>
+                                          </div>
+                                           <br />
+                                           <h4 style="color:white">
+                                             Enter content related data tags.
+                                           </h4>
+                                           <hr />
+                                          <div class="row" id="tagsHolder">
+                                            <div class="col-md-12">
+                                              <div class="bs-example">
+                                                <h6 style="font-size: 10px;">Default data tags are applied free of charge.</h6>
+                                                <br />
+                                                  <input type="text" id="tags" value="" data-role="tagsinput" style="display: none;">
+                                              </div>
+                                            </div>
+                                          </div>
+
+
+                                       </form>
+
+
+                                     </div>
+
+                                     <div class="modal-footer">
+
+                                       <div class="row">
+                                         <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addContent()" id="step4">Next</button>
+
+                                       </div>
+                                         <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                                     </div>
+                                 </div>
+
+                             </div>
+
+                         </div>
+                         <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModal4Label1">
+                             <div class="modal-dialog" role="document">
+                                 <div class="modal-content">
+                                     <div class="modal-header">
+                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                         <h4 class="modal-title" id="exampleModal4Label1">Preivew Content</h4> </div>
+                                     <div class="modal-body" id="videoModal">
+                                       <div class="row">
+                                         <div class="col-md-12">
+                                           <video id="previewVideoCage" width="100%" height="240" controls>
+
+                                           </video>
+                                         </div>
+
+                                       </div>
 
                                        <div class="row">
                                          <div class="col-md-12">
-                                           <div class="form-group has-success m-b-40">
-                                                <input type="text" class="form-control" id="input11" required=""><span class="highlight"></span> <span class="bar"></span>
-                                                <label for="input11">Answer 1</label>
-                                           </div>
-                                           <div class="form-group has-success m-b-40">
-                                                <input type="text" class="form-control" id="input11" required=""><span class="highlight"></span> <span class="bar"></span>
-                                                <label for="input11">Answer 2</label>
-                                           </div>
-                                           <div class="form-group has-success m-b-40">
-                                                <input type="text" class="form-control" id="input11" required=""><span class="highlight"></span> <span class="bar"></span>
-                                                <label for="input11">Answer 3</label>
-                                           </div>
-                                           <div class="form-group has-success m-b-40">
-                                                <input type="text" class="form-control" id="input11" required=""><span class="highlight"></span> <span class="bar"></span>
-                                                <label for="input11">Answer 4</label>
-                                           </div>
+
+                                           <h2>Trello</h2>
+                                           <hr />
+                                           <h6 style="overflow: hidden;">https://trello.com/b/SZdpbG7P/lifehttps://trello.com/b/SZdpbG7P/life</h6>
+                                           <h5>Up to this point, I've successfully been able to read from and write to the firebase database, creating a reference to the database with var db = admin.database(), then var ref = db.ref("/")... So I know I've configured Firebase and firebase-database correctly. But I'm stuck on  storage, and have tried both admin.storage().ref() and firebase.storage().ref(), and firebase.storage().ref("/") with the same error message.</h5>
+
 
                                          </div>
-
-
                                        </div>
 
                                      </div>
-
-
-                                   </div>
-                                   <div class="modal-footer">
-                                       <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Back</button> -->
-                                       <button type="button" class="btn btn-primary" data-dismiss="modal" id="step5">Next</button>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                       <div class="modal fade" id="exampleModal5" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModal5Label1">
-                           <div class="modal-dialog" role="document">
-                               <div class="modal-content" style="background: white;">
-                                   <div class="modal-header">
-                                      <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
-                                       <h4 class="modal-title" id="exampleModal5Label1">Waiting for to transaction to process</h4>
-                                  </div>
-                                   <div class="modal-body" style="height: 350px;">
                                      <div>
-                                       <section class="loaderBox" style="background: white">
-                                           <div class="loader" id="loader">
-                                             <div class="box"></div>
-                                             <div class="hill"></div>
+                                       <br /><br />
+                                       <div class="row">
+                                         <div class="col-md-4 col-sm-4 col-xm-4">
+                                           <div class="checkbox checkbox-success checkbox-circle">
+                                             <input id="checkbox-11" type="checkbox" checked="true" onclick="checkbox11()">
+                                             <label for="checkbox-11">Require Website Visit</label>
                                            </div>
-                                       </section>
+                                         </div>
+                                         <div class="col-md-4 col-sm-4 col-xm-4">
+                                           <div class="checkbox checkbox-success checkbox-circle">
+                                             <input id="checkbox-12" type="checkbox" onclick="checkbox12()">
+                                             <label for="checkbox-12"> Require Comment</label>
+                                           </div>
+                                         </div>
+                                         <div class="col-md-4 col-sm-4 col-xm-4">
+                                           <div class="checkbox checkbox-success checkbox-circle">
+                                             <input id="checkbox-13" type="checkbox" onclick="checkBox13()">
+                                             <label for="checkbox-13"> Custom Feedback</label>
+                                           </div>
+                                         </div>
+                                       </div>
+                                       <div id="customFeedBack" style="display: none;">
+                                         <hr />
+
+                                         <div class="row">
+                                           <div class="col-md-12">
+                                             <div class="form-group has-success m-b-40">
+                                                  <input type="text" class="form-control" id="input11" required=""><span class="highlight"></span> <span class="bar"></span>
+                                                  <label for="input11">Answer 1</label>
+                                             </div>
+                                             <div class="form-group has-success m-b-40">
+                                                  <input type="text" class="form-control" id="input11" required=""><span class="highlight"></span> <span class="bar"></span>
+                                                  <label for="input11">Answer 2</label>
+                                             </div>
+                                             <div class="form-group has-success m-b-40">
+                                                  <input type="text" class="form-control" id="input11" required=""><span class="highlight"></span> <span class="bar"></span>
+                                                  <label for="input11">Answer 3</label>
+                                             </div>
+                                             <div class="form-group has-success m-b-40">
+                                                  <input type="text" class="form-control" id="input11" required=""><span class="highlight"></span> <span class="bar"></span>
+                                                  <label for="input11">Answer 4</label>
+                                             </div>
+
+                                           </div>
+
+
+                                         </div>
+
+                                       </div>
+
+
                                      </div>
+                                     <div class="modal-footer">
+                                         <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Back</button> -->
+                                         <button type="button" class="btn btn-primary" data-dismiss="modal" id="step5">Next</button>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="modal fade" id="exampleModal5" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModal5Label1">
+                             <div class="modal-dialog" role="document">
+                                 <div class="modal-content" style="background: white;">
+                                     <div class="modal-header">
+                                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+                                         <h4 class="modal-title" id="exampleModal5Label1">Waiting for to transaction to process</h4>
+                                    </div>
+                                     <div class="modal-body" style="height: 350px;">
+                                       <div>
+                                         <section class="loaderBox" style="background: white">
+                                             <div class="loader" id="loader">
+                                               <div class="box"></div>
+                                               <div class="hill"></div>
+                                             </div>
+                                         </section>
+                                       </div>
 
-                                   </div>
-                                   <!-- <div class="modal-footer"> -->
-                                       <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Back</button> -->
-                                       <!-- <button type="button" class="btn btn-primary" data-dismiss="modal"  id="step6" id="complete">Next</button> -->
-                                   <!-- </div> -->
-                               </div>
-                           </div>
-                       </div>
-                       <div class="modal fade" id="exampleModal6" tabindex="-1" role="dialog" aria-labelledby="exampleModal6Label1">
-                           <div class="modal-dialog" role="document">
-                               <div class="modal-content" style="background: white;">
-                                   <div class="modal-header">
-                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                      <h4 class="modal-title" id="exampleModal5Label1">Content Published!</h4>
-                                  </div>
-                                   <div class="modal-body">
+                                     </div>
+                                     <!-- <div class="modal-footer"> -->
+                                         <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Back</button> -->
+                                         <!-- <button type="button" class="btn btn-primary" data-dismiss="modal"  id="step6" id="complete">Next</button> -->
+                                     <!-- </div> -->
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="modal fade" id="exampleModal6" tabindex="-1" role="dialog" aria-labelledby="exampleModal6Label1">
+                             <div class="modal-dialog" role="document">
+                                 <div class="modal-content" style="background: white;">
+                                     <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="exampleModal5Label1">Content Published!</h4>
+                                    </div>
+                                     <div class="modal-body">
 
-                                   </div>
-                                   <!-- <div class="modal-footer"> -->
-                                       <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Back</button> -->
-                                       <!-- <button type="button" class="btn btn-primary" data-dismiss="modal"  id="step6" id="complete">Next</button> -->
-                                   <!-- </div> -->
-                               </div>
-                           </div>
-                       </div>
+                                     </div>
+                                     <!-- <div class="modal-footer"> -->
+                                         <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Back</button> -->
+                                         <!-- <button type="button" class="btn btn-primary" data-dismiss="modal"  id="step6" id="complete">Next</button> -->
+                                     <!-- </div> -->
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="modal fade" id="FAQmodal" tabindex="-1" role="dialog" aria-labelledby="FAQmodal">
+                             <div class="modal-dialog" role="document">
+                                 <div class="modal-content" style="background: white;">
+                                     <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="FAQmodal">Content Published!</h4>
+                                    </div>
+                                     <div class="modal-body">
+
+                                     </div>
+                                     <!-- <div class="modal-footer"> -->
+                                         <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Back</button> -->
+                                         <!-- <button type="button" class="btn btn-primary" data-dismiss="modal"  id="step6" id="complete">Next</button> -->
+                                     <!-- </div> -->
+                                 </div>
+                             </div>
+                         </div>
                    </div>
+                </div>
 
             </div>
-
-          </div>
             <footer class="footer text-center"> 2017 &copy; PIES NETWORK </footer>
 
-            </div>
-        </div>
+          </div>
+
     </div>
   </div>
+</div>
 
   <!-- Loader -->
   <div>
@@ -717,7 +831,12 @@
     // modal.attr
     modal.modal();
   });
+  var publishSuccess = function(){
+    $('#exampleModal5').modal('hide');
 
+    $('#exampleModal5').modal();
+
+  }
 
   $('.dropify').dropify();
   // Translated
