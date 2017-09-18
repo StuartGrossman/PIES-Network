@@ -6,7 +6,6 @@ var web3 = new Web3();
 var http = require('http');
 var fs = require('fs');
 var download = require('download-file');
-// var Eth = require('ethjs-query1');
 var EthContract = require('ethjs-contract');
 var Queue = require('firebase-queue');
 var admin = require('firebase-admin');

@@ -8,6 +8,7 @@ var config = {
 };
 firebase.initializeApp(config);
 var provider = new firebase.auth.GoogleAuthProvider();
+var userObj;
 function writeUserData(userId, name, email, imageUrl, database) {
   console.log(data, userId, "inside writeUserData");
   database().ref('users/' + userId).set({
@@ -16,26 +17,42 @@ function writeUserData(userId, name, email, imageUrl, database) {
    profile_picture : imageUrl
   });
 }
-function login(){
-firebase.auth().signInWithPopup(provider).then(function(result) {
-  // This gives you a Google Access Token. You can use it to access the Google API.
-  var token = result.credential.accessToken;
-  // The signed-in user info.
-  var user = result.user;
-  // console.log("inside login Function", user.email)
-  saveUserInfo(user);
 
-  }).catch(function(error) {
-   // Handle Errors here.
-   var errorCode = error.code;
-   var errorMessage = error.message;
-   // The email of the user's account used.
-   var email = error.email;
-   // The firebase.auth.AuthCredential type that was used.
-   var credential = error.credential;
-   console.log(errorCode, errorMessage, email, credential)
-   // ...
-  });
+function login(){
+  //user already logged in
+  if(userObj.uid){
+    firebase.database().ref('/phone/' + userObj.uid).on('value', function(snapshot){
+      if(snapshot.val()){
+        console.log(snapshot.val(), 'userType is avil')
+
+      }
+    })
+    firebase.database().ref('/userType/' + userObj.uid).on('value', function(snapshot){
+      if(snapshot.val()){
+        console.log(snapshot.val(), 'userType is avil')
+
+      }
+    })
+  }
+  // firebase.auth().signInWithPopup(provider).then(function(result) {
+  //   // This gives you a Google Access Token. You can use it to access the Google API.
+  //   var token = result.credential.accessToken;
+  //   // The signed-in user info.
+  //   var user = result.user;
+  //   // console.log("inside login Function", user.email)
+  //   saveUserInfo(user);
+  //
+  //   }).catch(function(error) {
+  //    // Handle Errors here.
+  //    var errorCode = error.code;
+  //    var errorMessage = error.message;
+  //    // The email of the user's account used.
+  //    var email = error.email;
+  //    // The firebase.auth.AuthCredential type that was used.
+  //    var credential = error.credential;
+  //    console.log(errorCode, errorMessage, email, credential)
+  //    // ...
+  //   });
 }
 function logout(){
   firebase.auth().signOut().then(function() {
@@ -47,6 +64,7 @@ function logout(){
 firebase.auth().onAuthStateChanged(function(user) {
   if(user){
    console.log(user)
+   userObj = user;
   }
 })
 

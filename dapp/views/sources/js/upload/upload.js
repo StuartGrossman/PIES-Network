@@ -212,15 +212,7 @@ function step1(){
 
 }
 function step4(){
-  var input = document.getElementById('tags')
 
-  var data = input.value;
-  data = data.split(',');
-  for(var i = 0; i < data.length ; i++){
-    data[i] = data[i].toLowerCase();
-
-  }
-  console.log(data);
 }
 
 var checkbox10 = 0;
@@ -364,10 +356,13 @@ var adObject = {
   cotentName: '',
   website: '',
   descrition: '',
-  income: '',
+  income: 'all',
+  education: 'all',
+  sexuality: 'all',
+  webSpending: 'all',
+  race: 'all',
   tags: [],
   age: 99,
-  race: 'none'
 };
 
 function addContent(){
@@ -375,5 +370,21 @@ function addContent(){
   adObject.website = document.getElementById('website').value;
   adObject.descritpion = document.getElementById('description').value;
   adObject.income = document.getElementById('income').options[document.getElementById('income').selectedIndex].dataset.number;
+  adObject.gender = document.getElementById('gender').options[document.getElementById('gender').selectedIndex].dataset.gender;
+  adObject.race = document.getElementById('race').options[document.getElementById('race').selectedIndex].dataset.race;
+  adObject.education = document.getElementById('education').options[document.getElementById('education').selectedIndex].dataset.education;
   console.log(adObject)
+}
+function addTags(){
+  var input = document.getElementById('tags')
+
+  var data = input.value;
+  data = data.split(',');
+  for(var i = 0; i < data.length ; i++){
+    data[i] = data[i].toLowerCase();
+
+  }
+  adObject.tags = data;
+  console.log(adObject)
+  return;
 }

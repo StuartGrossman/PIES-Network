@@ -49,33 +49,18 @@ app.get('/', function(req, res){
 	res.render('index')
 })
 
-// app.get('/about', function(req, res){
-// 	res.render('about')
-// })
-// app.get('/verdicts', function(req, res){
-// 	res.render('verdicts')
-// })
-// queues
-var chargeRoutes = require('./routes/contract');
-var queues = require('./routes/queues/linkUsers');
-var ipfs = require('./routes/ipfs');
-var phoneCheck = require('./routes/queues/phoneCheck');
-var deployContract = require('./routes/queues/deployContract');
-var upload = require('./routes/queues/upload');
-app.use('/contract', chargeRoutes);
+
+var queues = require('./routes/tasks/linkUsers');
+var ipfs = require('./routes/ipfs/ipfs');
+var phone = require('./routes/queue/phone');
+var contract = require('./routes/contract/contract');
+var upload = require('./routes/queue/upload');
 app.use('/queues', queues);
 app.use('/ipfs', ipfs);
-app.use('/deployContract', deployContract);
-app.use('/phoneCheck', phoneCheck);
+app.use('/deployContract', contract);
+app.use('/phone', phone);
 app.use('/upload', upload);
 
-// var billRoutes = require('./routes/bills');
-//
-// app.use('/bills', billRoutes);
-//
-// var userQueues = require('./queues/users');
-//
-// app.use('/queues', userQueues)
 
 
 var server = app.listen(port, function() {

@@ -301,7 +301,7 @@
                     </div>
                 </div>
                 <hr />
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12">
                         <div class="white-box">
                             <div class="row row-in">
@@ -361,18 +361,21 @@
                         </div>
                     </div>
                 </div>
-                <hr />
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <hr /> -->
+                <!-- <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12"> -->
                     <div class="row" style="margin-top: 10%;">
-                        <div class="col-md-12">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
                           <button class="btn btn-lg btn-primary" id="addContent" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Publish Content</button>
-                          <button class="btn btn-lg btn-default" id="addContent" style="margin-left: 50%;" data-toggle="modal" data-target="#FAQModal" data-whatever="@mdo">Start Guide & FAQ</button><span style="color:white; font-size: 10px; margin-left: 5%;">* Please read before use!</span>
+
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                          <button class="btn btn-lg btn-default" id="addContent" style="" data-toggle="modal" data-target="#FAQModal" data-whatever="@mdo">Start Guide & FAQ</button><span style="color:white; font-size: 10px; margin-left: 5%;">* Please read before use!</span>
 
                         </div>
                         <br /><br />
 
                     </div>
-                </div>
+                <!-- </div> -->
 
                 <div class="col-md-4">
                    <div class="">
@@ -381,20 +384,20 @@
                                  <div class="modal-content">
                                      <div class="modal-header">
                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                         <h4 class="modal-title" id="exampleModalLabel1">New Content</h4> </div>
+                                         <h4 class="modal-title" id="exampleModalLabel1">Basic Info</h4> </div>
                                      <div class="modal-body">
                                          <form>
                                              <div class="form-group">
-                                                 <label for="recipient-name" class="control-label">Name of Content:</label>
+                                                 <label for="recipient-name" class="control-label">Header</label>
                                                  <input type="text" class="form-control" id="contentName" maxlength="40" id="name">
                                              </div>
                                              <div class="form-group">
-                                                 <label for="recipient-name" class="control-label">Website Url</label>
+                                                 <label for="recipient-name" class="control-label">URL</label>
                                                  <input type="text" class="form-control" id="website"  maxlength="200" id="website" >
                                                  <h6 style="color: red; display: none;" id="websiteError">Required</h6>
                                              </div>
                                              <div class="form-group">
-                                                 <label for="message-text" class="control-label">Description of Content:</label>
+                                                 <label for="message-text" class="control-label">Description</label>
                                                  <textarea class="form-control" id="description" placeholder="150 characters max" maxlength="150"></textarea>
                                              </div>
                                          </form>
@@ -430,68 +433,68 @@
                                  <div class="modal-content">
                                      <div class="modal-header">
                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                         <h4 class="modal-title" id="exampleModal3Label1">Specifications</h4> </div>
+                                         <h4 class="modal-title" id="exampleModal3Label1">Specifications for catagories</h4> </div>
                                      <div class="modal-body">
                                        <div class="row">
-                                         <div class="col-md-12" style="color:white; font-size: 16px;">
-                                           Leave an input blank will apply it to 'all'
+                                         <div class="col-md-12" style="color:white; font-size: 12px;">
+                                           All Feilds Required
                                          </div>
 
                                        </div>
                                        <hr />
                                        <form class="floating-labels">
                                          <div class="row">
-                                           <div class="col-md-6 col-sm-6">
+                                           <div class="col-md-6 col-sm-6 col-xs-6">
                                              <div class="btn-group bootstrap-select">
 
                                                 <select class="selectpicker" data-style="form-control" tabindex="-98" id="income">
                                                 <option>Income</option>
-                                                <option data-number="">All</option>
-                                                <option> $10,000</option>
-                                                <option>$10,000 - $35,000</option>
-                                                <option>$35,000 - $50,000</option>
+                                                <option data-number="All">All</option>
+                                                <option data-number="10,000">$10,000</option>
+                                                <option data-number="35,000">$10,000 - $35,000</option>
+                                                <option data-number="35,000">$35,000 - $50,000</option>
 
-                                                <option>$50,000 - $100,000</option>
+                                                <option data-number="50,000">$50,000 - $100,000</option>
 
-                                                <option>$100,000 - $250,000</option>
+                                                <option data-number="100,000">$100,000 - $250,000</option>
 
-                                                <option>$250,000 - $500,000</option>
-                                                <option>< $500,000 </option>
+                                                <option data-number="250,000">$250,000 - $500,000</option>
+                                                <option data-number="500,000">< $500,000 </option>
 
 
 
                                                 </select>
                                               </div>
                                            </div>
-                                           <div class="col-md-6 col-sm-6">
+                                           <div class="col-md-6 col-sm-6 col-xs-6">
                                              <div class="btn-group bootstrap-select">
 
-                                                <select class="selectpicker" data-style="form-control" tabindex="-98">
-                                                <option>Gender</option>
-                                                <option>All</option>
-                                                <option>Male</option>
-                                                <option>Female</option>
-                                                <option>Other</option>
+                                                <select class="selectpicker" data-style="form-control" tabindex="-98" id="gender">
+                                                <option >Gender</option>
+                                                <option data-gender="All">All</option>
+                                                <option data-gender="male">Male</option>
+                                                <option data-gender="female">Female</option>
+                                                <option data-gender="other">Other</option>
                                                 </select>
                                               </div>
                                            </div>
                                          </div>
                                          <br /><br />
                                          <div class="row">
-                                           <div class="col-md-6 col-sm-6">
+                                           <div class="col-md-6 col-sm-6 col-xs-6">
                                              <div class="btn-group bootstrap-select">
 
-                                                <select class="selectpicker" data-style="form-control" tabindex="-98">
+                                                <select class="selectpicker" data-style="form-control" tabindex="-98" id="race">
                                                 <option>Race</option>
-                                                <option>All</option>
-                                                <option>White</option>
-                                                <option>Black or African American</option>
-                                                <option>Asian / Pacific Islander</option>
+                                                <option data-race="All">All</option>
+                                                <option data-race="W">White</option>
+                                                <option data-race="BA">Black or African American</option>
+                                                <option data-race="AP">Asian / Pacific Islander</option>
 
-                                                <option>Hispanic or Latino</option>
+                                                <option data-race="HL">Hispanic or Latino</option>
 
-                                                <option>Native American or American Indian</option>
-                                                <option>Other</option>
+                                                <option data-race="NANI">Native American or American Indian</option>
+                                                <option data-race="other">Other</option>
 
 
 
@@ -499,7 +502,7 @@
                                                 </select>
                                               </div>
                                            </div>
-                                           <div class="col-md-6 col-sm-6">
+                                           <div class="col-md-6 col-sm-6 col-xs-6">
                                              <div class="btn-group bootstrap-select">
 
                                                 <select class="selectpicker" data-style="form-control" tabindex="-98">
@@ -512,7 +515,44 @@
                                               </div>
                                            </div>
                                          </div>
+                                         <br /><br />
+                                         <div class="row">
+                                           <div class="col-md-6 col-sm-6 col-xs-6">
+                                             <div class="btn-group bootstrap-select">
 
+                                                <select class="selectpicker" data-style="form-control" tabindex="-98">
+                                                <option>Web Spending /m</option>
+                                                <option>All</option>
+                                                <option>> $50</option>
+                                                <option>$50 - $200</option>
+                                                <option>$200 - $500</option>
+
+                                                <option>$500 - $1000</option>
+
+                                                <option>$1000 - $5000</option>
+                                                <option>$5000 ></option>
+
+
+
+
+                                                </select>
+                                              </div>
+                                           </div>
+                                           <div class="col-md-6 col-sm-6 col-xs-6">
+                                             <div class="btn-group bootstrap-select">
+
+                                                <select class="selectpicker" data-style="form-control" tabindex="-98">
+                                                <option>Education</option>
+                                                <option>All</option>
+                                                <option>Highschool or less</option>
+                                                <option>4 year degree or less</option>
+                                                <option>
+                                                  4 year degree or greater
+                                                </option>
+                                                </select>
+                                              </div>
+                                           </div>
+                                         </div>
 
 
                                           <br /><br />
@@ -540,19 +580,7 @@
                                             </div>
                                           </div>
                                            <br />
-                                           <h4 style="color:white">
-                                             Enter content related data tags.
-                                           </h4>
-                                           <hr />
-                                          <div class="row" id="tagsHolder">
-                                            <div class="col-md-12">
-                                              <div class="bs-example">
-                                                <h6 style="font-size: 10px;">Default data tags are applied free of charge.</h6>
-                                                <br />
-                                                  <input type="text" id="tags" value="" data-role="tagsinput" style="display: none;">
-                                              </div>
-                                            </div>
-                                          </div>
+
 
 
                                        </form>
@@ -576,7 +604,46 @@
                          <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModal4Label1">
                              <div class="modal-dialog" role="document">
                                  <div class="modal-content">
-                                     <div class="modal-header">
+                                   <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                      <h4 class="modal-title" id="exampleModal5Label1">Specify Tags</h4>
+                                  </div>
+                                   <div class="modal-body">
+                                    <h4 style="color:white; font-size: 12px;">
+                                       Enter content related data tags
+                                     </h4>
+                                     <hr />
+                                    <div class="row" id="tagsHolder">
+                                      <div class="col-md-12">
+                                        <div class="bs-example">
+                                          <h6 style="font-size: 10px;">Default data tags are applied free of charge.</h6>
+                                          <br />
+                                            <input type="text" id="tags" value="" data-role="tagsinput" style="display: none;">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- <div class="row" id="tagsHolder">
+                                      <div class="row">
+                                        <div class="col-md-6 col-sm-6">
+                                          <div class="form-group has-success m-b-40">
+                                               <input type="number" class="form-control" id="input11" required=""><span class="highlight"></span> <span class="bar"></span>
+                                               <label for="input11">Min Matching Tags</label>
+                                          </div>
+
+                                        </div>
+
+
+                                        <div class="col-md-6 col-sm-6">
+                                          <div class="form-group has-success m-b-40">
+                                               <input type="number" class="form-control" id="input12" required=""><span class="highlight"></span> <span class="bar"></span>
+                                               <label for="input11">End Age</label>
+                                          </div>
+                                        </div>
+                                    </div> -->
+                                   </div>
+
+
+                                     <!-- <div class="modal-header">
                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                          <h4 class="modal-title" id="exampleModal4Label1">Preivew Content</h4> </div>
                                      <div class="modal-body" id="videoModal">
@@ -649,15 +716,15 @@
                                            </div>
 
 
-                                         </div>
+                                         </div> -->
 
-                                       </div>
+                                       <!-- </div> -->
 
 
-                                     </div>
+                                     <!-- </div> -->
                                      <div class="modal-footer">
                                          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Back</button> -->
-                                         <button type="button" class="btn btn-primary" data-dismiss="modal" id="step5">Next</button>
+                                         <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addTags()" id="step5">Next</button>
                                      </div>
                                  </div>
                              </div>

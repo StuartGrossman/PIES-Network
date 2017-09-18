@@ -87,14 +87,24 @@ firebase.auth().onAuthStateChanged(function(user) {
     // writeUserData(u)
     userId = user.uid;
     userRef = firebase.database().ref('/user/' + userId);
+    phoneRef = firebase.database().ref('/phone/' + userId);
+    phoneRef.once('value', function(snapshot){
+      if(snapshot.val()){
+        if(snapshot.val().confirmed === true){
+          window.location = "/";
+        }
+      }
+    })
     // firebase.database().ref()
+  }else{
+    window.location = "/";
   }
 })
 function phone(){
   var number = document.getElementById('number').value;
   console.log(number, number.length);
   if(number.length === 10){
-    firebase.database().ref('/queue/phone/tasks').push({"phone": number, 'uid': userId}).then(function(){
+    firebase.database().ref('/queue/phone/tasks').push({'phone': number, 'userId': userId}).then(function(){
       document.getElementById('box').style.height = '410px';
       document.getElementById('code-box').style.display = "block";
       document.getElementById('resend').style.display = "block";
@@ -111,14 +121,19 @@ function confirm(){
   var code = document.getElementById('code').value;
   var queue = firebase.database().ref('/queue/confirmPhone/tasks');
 
-  queue.push({'code': code, 'uid': userId});
+  queue.push({'code': code, 'userId': userId}).then(function(){
+    firebase.database().ref('/phone/' + userId).once('value', function(snapshot){
+      if(snapshot.val().confimred === true){
+        window.location = "/usertype";
+
+      }
+    })
+  });
   // firebase.database().ref('/user/' + userId + '/phone/').on('value', function(snapshot){
   //   // console.log(snapshot.val(), code, code.toString(), snapshot.val().code.toString())
   //
   //   if(snapshot.val().code.toString() == code.toString()){
-  //     firebase.database().ref('/user/' + userId + '/phone/confirmed').update({'phone': true}).then(function(){
-  //       window.location = "/usertype";
-  //     })
+  //
   //   }else{
   //     document.getElementById('code-warning').style.display = 'block';
   //
