@@ -50,16 +50,20 @@ app.get('/', function(req, res){
 })
 
 
-var queues = require('./routes/tasks/linkUsers');
+var linkUsers = require('./routes/tasks/linkUsers');
 var ipfs = require('./routes/ipfs/ipfs');
 var phone = require('./routes/queue/phone');
 var contract = require('./routes/contract/contract');
 var upload = require('./routes/queue/upload');
-app.use('/queues', queues);
+var queues = require('./routes/queue/queues');
+
+app.use('/linkUsers', linkUsers);
 app.use('/ipfs', ipfs);
 app.use('/deployContract', contract);
 app.use('/phone', phone);
 app.use('/upload', upload);
+app.use('/queues', queues);
+
 
 
 

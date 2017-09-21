@@ -29,15 +29,15 @@
   <div class="preloader">
       <div class="cssload-speeding-wheel"></div>
   </div>
-  <div id="types">
+  <div id="types" style="display: none;">
     <section id="wrapper" class="login-register">
         <div class="login-box">
             <div class="white-box" style="height: 280px; background: white;">
-                    <h3 class="box-title m-b-20" style="color: black;">What kind of user are you?</h3>
+                    <h3 class="box-title m-b-20" style="color: black;">Are you a</h3>
 
                     <div class="form-group text-center m-t-20">
                         <div class="col-xs-12">
-                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" style="color: black;"  onclick="ad()">Advertiser</button>
+                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" style="color: white;"  onclick="ad()">Content Publisher?</button>
 
                         </div>
                     </div>
@@ -45,14 +45,14 @@
                     <div class="form-group text-center m-t-20">
                         <div class="col-xs-12">
 
-                          <h3 class="box-title m-b-20" style="color:black;">or</h3>
+                          <h3 class="box-title m-b-20" style="color:black;">or a</h3>
 
                         </div>
                     </div>
                     <br />
                     <div class="form-group text-center m-t-20">
                         <div class="col-xs-12">
-                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" style="color: black;" onclick="user()">Viewer</button>
+                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" style="color: white;" onclick="user()">Viewer?</button>
 
                         </div>
                     </div>
@@ -70,9 +70,8 @@
                     <h3 class="box-title m-b-20" style="color:black;">Terms and Service Agreement</h3>
 
                     <div>
-                      <textarea id="Policy" class="marketing-textarea policy-textarea" data-gramm="true" spellcheck="false" data-gramm_editor="true" cols="40" style="z-index: auto; position: relative; line-height: normal; font-size: 14px; transition: none; background: transparent !important; height: 362px; width: 358px;">TERMS OF SERVICE
+                      <textarea id="Policy" class="marketing-textarea policy-textarea" data-gramm="true" spellcheck="false" data-gramm_editor="true" cols="40" style="z-index: auto; position: relative; line-height: normal; font-size: 10px; transition: none; background: transparent !important; height: 362px; width: 358px;">TERMS OF SERVICE
 
-    ----
 
     OVERVIEW
 
@@ -254,8 +253,14 @@
 
 
             </div>
-            <div>
-              <button class="btn btn-sm btn-success" onclick="signed()">I Accept</button>
+            <div class="row">
+              <div class="col-sm-6 col-md-9">
+
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <button class="btn btn-success" onclick="signed()">I Accept</button>
+
+              </div>
             </div>
         </div>
     </section>
@@ -296,35 +301,76 @@ var userRef;
 firebase.auth().onAuthStateChanged(function(user) {
   if(user){
     console.log(user)
-    // writeUserData(u)
     userId = user.uid;
-    userRef = firebase.database().ref('/user/' + userId);
+    userRef = firebase.database().ref('/usertype/' + userId);
+    //makes sure phone number has been confirmed
+    checkPhoneStatus();
   }
 })
 
+function checkPhoneStatus(){
+  firebase.database().ref('/phone/' + userId).on('value', function(snapshot){
+    if(snapshot.val()){
+      if(snapshot.val().confirmed === true){
+        return;
+      }
+      else{
+        window.location = "/phone";
+      }
+    }
+  })
+}
+
 function ad(){
-  userRef.update({
-    userType: '99'
+  firebase.database().ref('/queue/usertype99/tasks').push({
+    'userId': userId,
+    'type': '99'
   }).then(function(){
-    window.location = "/a-dashboard"
+    window.location = "/a-settings"
   })
 }
 
 function user(){
-  userRef.update({
-    userType: '10'
+  firebase.database().ref('/queue/usertype10/tasks').push({
+    'userId': userId,
+    'type': '10'
   }).then(function(){
-    window.location = "/v-dashboard"
+    window.location = "/v-settings"
   })
 }
+
 function signed(){
   var terms = document.getElementById('terms')
-  console.log(terms)
-  terms.className = 'animated fadeOut';
-  var userTypes = document.getElementById('types');
-  userTypes.style.display = 'block';
-  terms.style.display = 'none';
-  userTypes.className = 'animated fadeIn';
+  var termTask = termsTask();
+  if(termTask){
+    terms.className = 'animated fadeOut';
+    var userTypes = document.getElementById('types');
+    userTypes.style.display = 'block';
+    terms.style.display = 'none';
+    userTypes.className = 'animated fadeIn';
+  }
+}
+
+// function redirect(){
+//   firebase.database().ref('/usertype/' + userId).once('value', function(snapshot){
+//     var data = snapshot.val()
+//     if(data){
+//       if(!data.type){
+//         return;
+//       }
+//       if(data.type == '99'){
+//         window.location = '/a-dashboard';
+//       }
+//       if(data.type == '10'){
+//         window.location = '/v-dashboard';
+//       }
+//
+//     }
+//   })
+// }
+function termsTask(){
+  firebase.database().ref('/queue/terms/tasks').push({'signed': true, 'userId': userId});
+  return true;
 }
 
 </script>

@@ -9,122 +9,162 @@ var config = {
 firebase.initializeApp(config);
 var provider = new firebase.auth.GoogleAuthProvider();
 var userObj;
-function writeUserData(userId, name, email, imageUrl, database) {
-  console.log(data, userId, "inside writeUserData");
-  database().ref('users/' + userId).set({
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if(user){
+   console.log(user)
+   userObj = user;
+   if(userObj.uid){
+     document.getElementById('login').style.display = 'none';
+     document.getElementById('dashboard').style.display = 'block';
+     document.getElementById('logout').style.display = 'block';
+
+   }else{
+     ///
+   }
+  }
+})
+
+
+
+function login(){
+  //user already logged in
+  // if(userObj.uid){
+  //   firebase.database().ref('/phone/' + userObj.uid).on('value', function(snapshot){
+  //     if(snapshot.val()){
+  //       console.log(snapshot.val(), 'userType is avil')
+  //
+  //     }
+  //   })
+  //   firebase.database().ref('/userType/' + userObj.uid).on('value', function(snapshot){
+  //     if(snapshot.val()){
+  //       console.log(snapshot.val(), 'userType is avil')
+  //
+  //     }
+  //   })
+  // }
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    var token = result.credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+    // console.log("inside login Function", user.email)
+    setTimeout(function(){
+      console.log(userObj)
+      checkUserInfo();
+
+    }, 1000)
+
+    }).catch(function(error) {
+     // Handle Errors here.
+     var errorCode = error.code;
+     var errorMessage = error.message;
+     // The email of the user's account used.
+     var email = error.email;
+     // The firebase.auth.AuthCredential type that was used.
+     var credential = error.credential;
+    //  console.log(errorCode, errorMessage, email, credential, error)
+     // ...
+    });
+}
+
+
+
+
+function dashboard(){
+  firebase.database().ref('/phone/' + userObj.uid).on('value', function(snapshot){
+    if(snapshot.val()){
+      console.log(snapshot.val(), 'userType is avil');
+      if(snapshot.val().confirmed === true){
+        console.log(snapshot.val().confirmed);
+        firebase.database().ref('/usertype/' + userObj.uid).on('value', function(snapshot2){
+          if(snapshot2.val()){
+            console.log(snapshot2.val(), 'userType is avil');
+            var usertype = snapshot2.val().type;
+            if(usertype === 99){
+              window.location = "/a-settings";
+
+            }
+            if(usertype === 10){
+              window.location = "/v-settings";
+
+            }
+          }else{
+            window.location = "/usertype";
+          }
+        })
+      }
+    }
+    else{
+      window.location = "/phone";
+
+    }
+  })
+}
+
+function checkUserInfo(){
+  var redirectUrl;
+  console.log("hitting check user info function")
+
+  firebase.database().ref('user/' + userObj.uid).on('value', function(snapshot) {
+    var data = snapshot.val();
+    console.log(data)
+    if(data){
+      firebase.database().ref('/phone/' + userObj.uid).on('value', function(snapshot){
+          if(snapshot.val().confirmed){
+              firebase.database().ref('/usertype/' + userObj.uid).on('value', function(snapshot){
+                console.log(snapshot.val().type)
+                if(snapshot.val().type){
+
+                  if(snapshot.val().type == "99"){
+                    window.location = "/a-settings";
+                  }
+
+                  if(snapshot.val().type == "10"){
+                    window.location = "/v-settings";
+                  }
+
+                }else{
+                  window.location = "/usertype";
+                }
+              })
+            }else{
+              window.location = "/phone"
+            }
+          })
+      }
+      else{
+      console.log("First time user data saving")
+      var displayName = userObj.displayName;
+      var email = userObj.email;
+      var emailVerified = userObj.emailVerified;
+      var photoURL = userObj.photoURL;
+      var isAnonymous = userObj.isAnonymous;
+      var uid = userObj.uid;
+      var providerData = userObj.providerData;
+      redirectUrl = "/phone"
+
+      writeUserData(uid, displayName, email, photoURL, redirectUrl);
+
+    }
+  })
+}
+function writeUserData(userId, name, email, imageUrl) {
+  console.log(userId, "inside writeUserData");
+  firebase.database().ref('user/' + userId).set({
    username: name,
    email: email,
    profile_picture : imageUrl
   });
 }
 
-function login(){
-  //user already logged in
-  if(userObj.uid){
-    firebase.database().ref('/phone/' + userObj.uid).on('value', function(snapshot){
-      if(snapshot.val()){
-        console.log(snapshot.val(), 'userType is avil')
-
-      }
-    })
-    firebase.database().ref('/userType/' + userObj.uid).on('value', function(snapshot){
-      if(snapshot.val()){
-        console.log(snapshot.val(), 'userType is avil')
-
-      }
-    })
-  }
-  // firebase.auth().signInWithPopup(provider).then(function(result) {
-  //   // This gives you a Google Access Token. You can use it to access the Google API.
-  //   var token = result.credential.accessToken;
-  //   // The signed-in user info.
-  //   var user = result.user;
-  //   // console.log("inside login Function", user.email)
-  //   saveUserInfo(user);
-  //
-  //   }).catch(function(error) {
-  //    // Handle Errors here.
-  //    var errorCode = error.code;
-  //    var errorMessage = error.message;
-  //    // The email of the user's account used.
-  //    var email = error.email;
-  //    // The firebase.auth.AuthCredential type that was used.
-  //    var credential = error.credential;
-  //    console.log(errorCode, errorMessage, email, credential)
-  //    // ...
-  //   });
-}
 function logout(){
   firebase.auth().signOut().then(function() {
-   // Sign-out successful.
+    document.getElementById('login').style.display = 'block';
+    document.getElementById('dashboard').style.display = 'none';
+    document.getElementById('logout').style.display = 'none';
+
   }).catch(function(error) {
-   // An error happened.
+    // An error happened.
   });
-}
-firebase.auth().onAuthStateChanged(function(user) {
-  if(user){
-   console.log(user)
-   userObj = user;
-  }
-})
-
-function saveUserInfo(user){
-  var redirectUrl;
-  var userRef = firebase.database().ref('user/' + user.uid);
-        userRef.on('value', function(snapshot) {
-          var data = snapshot.val();
-          console.log(data)
-          if(!data && user){
-            // User is signed in.
-            var displayName = user.displayName;
-
-            var email = user.email;
-
-            var emailVerified = user.emailVerified;
-
-            var photoURL = user.photoURL;
-
-            var isAnonymous = user.isAnonymous;
-
-            var uid = user.uid;
-
-            var providerData = user.providerData;
-            redirectUrl = "/phone"
-            console.log('new user located')
-
-            writeUserData(uid, displayName, email, photoURL, redirectUrl);
-
-          } else if(data.userType){
-
-            //logic
-            console.log("user Already exits", data.phone.confirmed)
-            if(data.phone.confirmed.phone === false){
-              console.log("new user, verify phone")
-              window.location = "/phone";
-
-            }
-
-            // document.getElementById('name').innerHTML = displayName;
-          }
-        })
-}
-
-function writeUserData(userId, name, email, photoURL, redirectUrl) {
-  console.log("writing user data!")
-   var userRef = firebase.database().ref('user/' + userId)
-   userRef.on('value', function(snapshot){
-     console.log(snapshot.val())
-   })
-  //  userRef.set({
-  //   username: name,
-  //   email: email,
-  //   profile_picture : photoURL,
-  //   subscribed : false,
-  //   userType: 0,
-  //   phone: {'confirmed':{
-  //     'phone': false
-  //   }}
-  // });
-
-  // window.location = redirectUrl;
 }
