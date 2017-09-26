@@ -90,7 +90,7 @@
   setTimeout(function(){
     $('.loader').hide();
     $('.loaderSection').hide();
-    $('.main-container').css("display", "initial")
+    $('#main-container').css("display", "block")
   }, loadTime);
 
 
@@ -167,14 +167,21 @@ function confirm(){
   var code = document.getElementById('code').value;
   var queue = firebase.database().ref('/queue/confirmPhone/tasks');
 
-  queue.push({'code': code, 'userId': userId}).then(function(){
-    firebase.database().ref('/phone/' + userId).once('value', function(snapshot){
-      if(snapshot.val().confimred === true){
-        window.location = "/usertype";
+  queue.push({'code': code, 'userId': userId})
 
-      }
-    })
-  });
+  setTimeout(function(){
+    firebase.database().ref('/phone/' + userId).once('value', function(snapshot){
+
+        if(snapshot.val().confirmed === true){
+          // setTimeout(function(){})
+          console.log(snapshot.val())
+          window.location = "/usertype";
+
+        }
+     });
+
+    }, 3500);
+
   // firebase.database().ref('/user/' + userId + '/phone/').on('value', function(snapshot){
   //   // console.log(snapshot.val(), code, code.toString(), snapshot.val().code.toString())
   //

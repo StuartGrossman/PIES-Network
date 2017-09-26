@@ -1,6 +1,155 @@
 {
   "rules": {
-    ".read": true,
-    ".write": true
+    ".read": false,
+    ".write": false,
+    "user": {
+      ".read": false,
+      ".write": false,
+      "$user_id": {
+        // grants write access to the owner of this user account
+        // whose uid must exactly match the key ($user_id)
+        ".write": "$user_id === auth.uid",
+        ".read": "$user_id === auth.uid"
+
+      }
+    },
+    "usertype": {
+      ".read": false,
+    	".write": false,
+      "$user_id": {
+        // grants write access to the owner of this user account
+        // whose uid must exactly match the key ($user_id)
+        ".write": "$user_id === auth.uid",
+        ".read": "$user_id === auth.uid"
+
+      }
+    },
+    "terms": {
+      ".read": false,
+      ".write": false
+    },
+    "tag": {
+      ".read": false,
+      ".write": false
+    },
+    "catagory":{
+      ".read": false,
+      ".write": false
+    },
+    "esgrow": {
+      ".read": false,
+      ".write": false
+    },
+    "phone": {
+      ".read": false,
+      ".write": false,
+        "$user_id": {
+        // grants write access to the owner of this user account
+        // whose uid must exactly match the key ($user_id)
+        ".write": false,
+        ".read": "$user_id === auth.uid"
+      }
+    },
+    "activecontent": {
+      ".read": false,
+      ".write": false
+    },
+    "viewercontent":{
+      ".read": false,
+      ".write": false
+    },
+    "preview": {
+      ".read": true,
+      ".write": true
+    },
+    "balance": {
+      ".read": true,
+      ".write": false
+    },
+
+
+    ////// QUEUES
+    "queue": {
+      "myEthBalance": {
+       "tasks": {
+       ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val()",
+           ".write": "auth.uid == newData.child('userId').val()"
+
+          }
+        }
+      },
+      "myEthAddress": {
+       "tasks": {
+       ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val()"
+          }
+        }
+      },
+      "phone": {
+       "tasks": {
+         ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val()",
+           ".write": "auth.uid == newData.child('userId').val()"
+          }
+        }
+      },
+      "confirmPhone": {
+       "tasks": {
+         ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val()",
+           ".write": "auth.uid == newData.child('userId').val()"
+
+          }
+        }
+      },
+      "confirmCode": {
+       "tasks": {
+         ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".read": false,
+      		 ".write": false
+          }
+        }
+      },
+      "ipfs": {
+       "tasks": {
+         ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val()"
+          }
+        }
+      },
+      "terms": {
+       "tasks": {
+         ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val()",
+           ".write": "auth.uid == newData.child('userId').val()"
+
+          }
+        }
+      },
+      "uploadContent": {
+       "tasks": {
+         ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val()"
+          }
+        }
+      }
+    }
   }
 }

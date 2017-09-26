@@ -37,7 +37,7 @@ var confirmCodeRef = admin.database().ref('/queue/confirmCode/');
 var queue = new Queue(phoneRef, function(data, progress, resolve, reject) {
   var code = getRandomInt(1000, 9999)
   console.log('hitting phone Ref', data)
-  db.ref('phone/' + data.userId).set({'code': code});
+  db.ref('phone/' + data.userId).set({'code': code, 'phone': data.phone});
   client.messages.create({
       body: 'Hello from PIES Network, your code is ' + code,
       to: '+1' + data.phone,  // Text this number

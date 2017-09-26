@@ -111,6 +111,7 @@ function checkUserInfo(){
     console.log(data)
     if(data){
       firebase.database().ref('/phone/' + userObj.uid).on('value', function(snapshot){
+        if(snapshot.val()){
           if(snapshot.val().confirmed){
               firebase.database().ref('/usertype/' + userObj.uid).on('value', function(snapshot){
                 console.log(snapshot.val().type)
@@ -131,7 +132,8 @@ function checkUserInfo(){
             }else{
               window.location = "/phone"
             }
-          })
+          }
+       })
       }
       else{
       console.log("First time user data saving")
@@ -155,7 +157,9 @@ function writeUserData(userId, name, email, imageUrl) {
    username: name,
    email: email,
    profile_picture : imageUrl
-  });
+ }).then(function(){
+   window.location = "/phone"
+ })
 }
 
 function logout(){

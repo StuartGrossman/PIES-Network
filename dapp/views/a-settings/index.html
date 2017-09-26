@@ -49,7 +49,7 @@
               </ul>
               <ul class="nav navbar-top-links navbar-right pull-right">
                 <li><a href="/a-transactions" class="waves-effect"><i class="fa fa-circle-o text-info"></i>
-                  <span class="hide-menu" id="balance"></span>
+                  <span class="hide-menu" id="balance"><i>none</i></span>
                   <div class="notify"><span class="heartbit">
                     </span><span class="point"></span>
                   </div></a>
@@ -636,9 +636,13 @@ window.addEventListener('load', function() {
 
     web3.eth.defaultAccount = web3.eth.accounts[0]
     console.log(web3.eth.accounts[0])
-    if(web3.eth.accounts[0]){
-      loadBalance(web3.eth.accounts[0]);
-    }
+    setTimeout(function(){
+      if(web3.eth.accounts[0]){
+        loadBalance(web3.eth.accounts[0]);
+      }
+    }, 1000)
+
+
     // console.log(provider)
   } else {
     console.log('No web3? You should consider trying MetaMask!')

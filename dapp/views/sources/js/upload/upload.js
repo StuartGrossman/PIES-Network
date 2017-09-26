@@ -38,17 +38,15 @@ firebase.auth().onAuthStateChanged(function(userObj) {
 })
 
 function checkState(user){
-  firebase.database().ref('user/' + user.uid).on('value', function(snapshot){
+  firebase.database().ref('usertype/' + user.uid).on('value', function(snapshot){
     // console.log(snapshot.val())
-    var userStatus = snapshot.val().userType;
+    var userStatus = snapshot.val().type;
     if(userStatus){
       // console.log(userStatus)
-      if(userStatus == 99){
+      if(userStatus == '99'){
         return;
-      }else if(userStatus == 10){
-        window.location = '/';
-      }else{
-        window.location = '/';
+      }else if(userStatus == '10'){
+        window.location = '/v-settings';
       }
     }else{
       window.location = '/';
@@ -89,7 +87,7 @@ function loadBalance(){
     data = snapshot.val();
     // console.log(data);
     if(data.ethAddress){
-      firebase.database().ref('queue/myEthBalance/tasks').push({"ethAddress": data.ethAddress, "userId": userObject.uid});
+      firebase.database().ref('queue/myEthBalance/tasks').push({"ethAddress": data.ethAddress, "userId": userObj.uid});
       if(data.myBalance){
         var balance = numberWithCommas(data.myBalance);
         document.getElementById('balance').innerHTML = 'Balance: ' + balance + ' <i><b>PIES</b></i>';
