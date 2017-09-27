@@ -40,6 +40,16 @@
       ".read": false,
       ".write": false
     },
+    "phoneAttempts": {
+      ".read": false,
+      ".write": false,
+      "$user_id": {
+        // grants write access to the owner of this user account
+        // whose uid must exactly match the key ($user_id)
+        // ".write": "$user_id === auth.uid",
+        ".read": "$user_id === auth.uid"
+      }
+    },
     "phone": {
       ".read": false,
       ".write": false,
@@ -101,6 +111,28 @@
         }
       },
       "confirmPhone": {
+       "tasks": {
+         ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val()",
+           ".write": "auth.uid == newData.child('userId').val()"
+
+          }
+        }
+      },
+      "usertype10": {
+       "tasks": {
+         ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val()",
+           ".write": "auth.uid == newData.child('userId').val()"
+
+          }
+        }
+      },
+      "usertype99": {
        "tasks": {
          ".indexOn": ["_state"],
          "$task": {

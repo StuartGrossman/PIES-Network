@@ -12,7 +12,7 @@ var userObj;
 
 firebase.auth().onAuthStateChanged(function(user) {
   if(user){
-   console.log(user)
+   console.log("you are logged in!")
    userObj = user;
    if(userObj.uid){
      document.getElementById('login').style.display = 'none';
@@ -167,7 +167,7 @@ function logout(){
     document.getElementById('login').style.display = 'block';
     document.getElementById('dashboard').style.display = 'none';
     document.getElementById('logout').style.display = 'none';
-
+    console.log('you are logged out!')
   }).catch(function(error) {
     // An error happened.
   });

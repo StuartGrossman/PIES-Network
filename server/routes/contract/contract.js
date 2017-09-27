@@ -70,7 +70,7 @@ var queue = new Queue(balanceRef, function(data, progress, resolve, reject) {
   console.log(balance, "balance");
   // console.log(balance.plus(21).toString(10));
   // console.log(token, token.balanceOf(data.ethAddress))
-  db.ref('user/' + data.userId ).update({'myBalance': balance}).then(function(res, err){
+  db.ref('balance/' + data.userId ).update({'balance': balance}).then(function(res, err){
     resolve();
   });
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>AdSpace</title>
+  <title>PIES</title>
   <link rel="stylesheet" type="text/css" href="../sources/css/bootstrap.min.css">
   <!-- Bootstrap Core CSS -->
     <link href="../sources/css/bootstrap-extension.css" rel="stylesheet">
@@ -21,13 +21,15 @@
     <link href="../sources/css/default-dark.css" id="theme" rel="stylesheet">
     <link href="../sources/css/spinners.css" />
     <link href="../sources/css/custom.css" rel="stylesheet" />
+    <link rel="icon" href="./sources/images/pieslogo.png">
+
 </head>
 
 
 
 
 <body>
-  <div id="wrapper" class="main-container">
+  <div id="wrapper" class="main-container" style="display:none;">
       <!-- Navigation -->
       <nav class="navbar navbar-default navbar-static-top m-b-0">
           <div class="navbar-header">
@@ -49,7 +51,7 @@
               </ul>
               <ul class="nav navbar-top-links navbar-right pull-right">
                 <li><a href="/a-transactions" class="waves-effect"><i class="fa fa-circle-o text-info"></i>
-                  <span class="hide-menu" id="balance"><i>none</i></span>
+                  <span class="hide-menu" id="balance"><i>0</i></span>
                   <div class="notify"><span class="heartbit">
                     </span><span class="point"></span>
                   </div></a>
@@ -228,7 +230,9 @@
       </div>
       <!-- Page Content -->
       <div id="page-wrapper">
+
           <div class="container-fluid">
+
               <div class="row bg-title">
                   <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                       <ol class="breadcrumb" style="float: left;">
@@ -237,95 +241,107 @@
                       </ol>
                   </div>
               </div>
-              <!-- /.row -->
-
-
 
               <div class="col-md-12">
-                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                    <div class="row">
-                        <div class="col-md-12">
 
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-md-12">
+                <div class="col-md-12" id="metaMaskFound" style="display: none;">
                   <div class="bg-theme-dark m-b-15">
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-6 col-lg-12 col-sm-6">
                               <h3>&nbsp;</h3>
-                              <h1>My Ethereum Address </h1><h2 id="myAddress"></h2><button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button>
+                              <h1>My Ethereum Address </h1><h2 id="myAddress"></h2>
+                              <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
+                              <h6>MetaMask working, hitting selected account!</h6>
 
 
                           </div>
 
 
                       </div>
-                      <div class="row weather p-20" id="editEth">
+                      <!-- <div class="row weather p-20" id="editEth">
                         <div class="col-md-12 col-xs-6 col-lg-12 col-sm-6">
                           <p class="text-white">
                              Please double check address before submission
                           </p></p>
-                          <input class="form-control" placeholder="My Ethereum Address" id="myEthAddress"/>
+                          <input class="form-control" placeholder="My Ethereum Address" id="myEthAddress"/> -->
                           <!-- <button onclick="submitEthAddress()" class="btn btn-warning">Submit</button> -->
-                        </div>
-                      </div>
+                        <!-- </div>
+                      </div> -->
 
                   </div>
-                    <div class="bg-theme m-b-15">
-                        <div id="myCarouse2" class="carousel vcarousel slide p-20">
-                            <!-- Carousel items -->
-                            <div class="carousel-inner ">
-                                <div class="active item" id="outerEl">
-                                    <h3 class="text-white">Please enter your<span class="font-bold"> intererests</span>, what you love, what you buy, what you want.</h3>
-                                    <h5 class="text-white">Enter as many as you can<span class="font-bold"> every bit helps</span>, and makes you more valuable!</h5>
-
-                                    <!-- <div class="twi-user"><img src="../sources/images/hritik.jpg" alt="user" class="img-circle img-responsive pull-left"> -->
-                                        <input class="form-control" id="tag"/><hr />
-                                        <br />
 
 
-
-                                </div>
-                                <!-- <div class="item">
-                                    <h3 class="text-white">My Acting blown <span class="font-bold">Your Mind</span> and you also laugh at the moment</h3>
-                                    <div class="twi-user"><img src="../sources/images/genu.jpg" alt="user" class="img-circle img-responsive pull-left">
-                                        <h4 class="text-white m-b-0">Govinda</h4>
-                                        <p class="text-white">Actor</p>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <h3 class="text-white">My Acting blown <span class="font-bold">Your Mind</span> and you also laugh at the moment</h3>
-                                    <div class="twi-user"><img src="../sources/images/ritesh.jpg" alt="user" class="img-circle img-responsive pull-left">
-                                        <h4 class="text-white m-b-0">Govinda</h4>
-                                        <p class="text-white">Actor</p>
-                                    </div>
-                                </div> -->
-                            </div>
-                        </div>
-                    </div>
 
 
                 </div>
+
+                <div class="col-md-12" id="noMetaMaskFound" style="display: none;">
+                  <div class="bg-theme-dark m-b-15">
+                      <div class="row weather p-20">
+                          <div class="col-md-6 col-xs-6 col-lg-6 col-sm-6">
+                              <h3>Not using Google Chrome?</h3>
+                              <h3>Need MetaMask? MetaMask is a google chrome exstension for your browser that allows you to interact with our token. </h3>
+                              <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
+                              <h6>Once installed refresh this page and request your inital tokens on your wallet page! </h6>
+
+
+                          </div>
+                          <div class="col-md-6 col-xs-6 col-lg-6 col-sm-6">
+                              <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
+                              <a target="_blank" href="https://www.google.com/chrome/browser/desktop/index.html"><button class="btn btn-primary">Download Google Chrome</button></a>
+                              <br />
+                              <br />
+                              <br />
+                              <a target="_blank" href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en"><button class="btn btn-primary">Download MetaMask</button></a>
+
+
+                          </div>
+
+
+                      </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-12" id="metaMaskNotLoggedIn" style="display: none;">
+                  <div class="bg-theme-dark m-b-15">
+                      <div class="row weather p-20">
+                          <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
+                              <h3>MetaMask is found please make sure you are logged in!</h3>
+                              <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
+
+
+                          </div>
+
+
+
+                      </div>
+
+                  </div>
+                </div>
+
               </div>
 
+
+              <footer class="footer text-center">
+                2017 &copy; PIES NETWORK
+              </footer>
+
           </div>
-          <footer class="footer text-center"> 2017 &copy; PIES NETWORK </footer>
 
-        </div>
+      </div>
 
 
   </div>
 
-  <div>
-    <section class="loaderSection" style="background: white">
-        <div class="loader" >
-          <div class="box"></div>
-          <div class="hill"></div>
-        </div>
-    </section>
-  </div>
+<!-- Loader -->
+  <section class="loaderSection" style="background: white">
+      <div class="loader" >
+        <div class="box"></div>
+        <div class="hill"></div>
+      </div>
+  </section>
+
 
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
@@ -348,7 +364,7 @@
     <script src="../sources/js/jquery.charts-sparkline.js"></script>
     <script src="../sources/js/jquery.toast.js"></script>
     <script src="../sources/js/jQuery.style.switcher.js"></script>
-
+    <script src="../sources/js/bootstrap-tagsinput.min.js"></script>
 
 
 
@@ -361,27 +377,81 @@
   // console.log("js script online")
   var loadTime = Math.floor((Math.random() * 3000) + 500);
   //////loader
-  $('.main-container').css("display", "none");
+  // $('.main-container').css("display", "none");
   // $('#successMessage').hide();
+  $.toast({
+      heading: 'Welcome back to Pies',
+      text: 'Loading your pieces now!',
+      position: 'top-right',
+      loaderBg: '#ff6849',
+      icon: 'info',
+      hideAfter: loadTime,
+      stack: 6
+  })
   setTimeout(function(){
     $('.loader').hide();
     $('.loaderSection').hide();
+
+
     $('.main-container').css("display", "initial")
+
   }, loadTime);
-    $.toast({
-        heading: 'Welcome to Pies',
-        text: 'Loading your pecies now!',
-        position: 'top-right',
-        loaderBg: '#ff6849',
-        icon: 'info',
-        hideAfter: loadTime,
-        stack: 6
-    })
+
   });
 </script>
 
 
 <script>
+window.addEventListener('load', function() {
+
+  // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+  if (typeof web3 !== 'undefined') {
+
+    // Use the browser's ethereum provider
+    var provider = web3.currentProvider
+
+    web3.eth.defaultAccount = web3.eth.accounts[0]
+    console.log(web3.eth.accounts[0])
+
+    setTimeout(function(){
+      if(!web3.eth.accounts[0]){
+        document.getElementById('metaMaskNotLoggedIn').style.display = 'block';
+
+      }
+      if(web3.eth.accounts[0]){
+        loadBalance(web3.eth.accounts[0]);
+        // document.getElementById('noMetaMaskFound').style.display ='none';
+        document.getElementById('metaMaskNotLoggedIn').style.display = 'none';
+
+        document.getElementById('metaMaskFound').style.display = 'block';
+        document.getElementById('metaMaskFound').style.display = 'block';
+
+
+      }else{
+
+      }
+    }, 2000)
+
+
+    // console.log(provider)
+  } else {
+
+    setTimeout(function(){
+      document.getElementById('noMetaMaskFound').style.display = 'block';
+
+    }, 1000)
+
+  }
+  //  startApp()
+  setTimeout(function(){
+      // const eth = new Eth(web3.currentProvider)
+      // const contract = new EthContract(eth)
+      // initContract(contract, eth)
+
+  }, 2000)
+  //  testTransaction()
+})
+
 var config = {
   apiKey: "AIzaSyBNyW7vjQSK2Gbrh4Mzox6G-uAG4gK1rgE",
   authDomain: "adspace-9fe5c.firebaseapp.com",
@@ -449,24 +519,6 @@ function checkState(user){
 
 
 
-function addTag(){
-  var inputEl = document.getElementById('tag')
-  // var tag =
-  // console.log(tag, userObject)
-  var tempValue = inputEl.value;
-  inputEl.value = '';
-  var tagsRef = firebase.database().ref('tags/' + userObject.uid + '/');
-  if(typeof tempValue === "string"){
-    tempValue = tempValue.toLowerCase();
-    tagsRef.push({"data": tempValue}).then(function(){
-      loadTags();
-      tempValue = null;
-    });
-    tagsRef.off();
-
-  }
-}
-
 function Onload(){
   document.getElementById('editEth').style.display = "none";
 
@@ -495,84 +547,8 @@ function Onload(){
 
 }
 
-function loadTags(){
-  // console.log("wtf its hitting")
- var tagsArray = [];
 
- if(document.getElementById('tagsBox')){
-   document.getElementById('tagsBox').outerHTML = "";
 
- }
-  // console.log("loading Tags")
-  var tagsRef = firebase.database().ref('user/' + userObject.uid + '/tags');
-  tagsRef.on('value', function(snapshot){
-    if(snapshot.val()){
-      var tags = snapshot.val();
-      for(var k in tags){
-        tagsArray.push(tags[k]);
-        // console.log(tagsArray)
-      }
-      var tagsListAmmount = tagsArray.length;
-      tagAmmount.innerHTML = tagsListAmmount;
-      if(tagsListAmmount > 100){
-        var progress = 100;
-      }else{
-        var progress = tagsListAmmount;
-      }
-      progress = progress.toString();
-      tagProgress.style.width = progress + '%';
-      if(tagsListAmmount > 0){
-        for(var i = 0; i < tagsListAmmount; i++){
-          var outerEl = document.getElementById('outerEl')
-          var idInfo = 'tagData' + i.toString();
-          var tagData = document.createElement('div')
-          tagData.setAttribute('id', 'tagsBox');
-          outerEl.appendChild(tagData);
-          var tagBox = document.getElementById('tagsBox');
-          var tagEl = document.createElement('span');
-          var space = document.createElement('div');
-          var button = document.createElement('button');
-          tagBox.style.display = "inline-flex"
-          tagBox.className = "col-md-12"
-          button.className = 'btn delTag';
-          button.setAttribute('onclick', 'deleteAt(' + i + ')')
-          button.innerHTML = 'delete';
-          space.innerHTML = '&nbsp';
-          tagEl.className =  'indvTag'
-          tagEl.style.color = 'black';
-          tagEl.setAttribute('id', idInfo);
-          tagEl.innerHTML = tagsArray[i].data;
-          tagBox.appendChild(tagEl);
-          tagEl.appendChild(button)
-          tagBox.appendChild(space)
-        }
-        tagsRef.off();
-
-      }
-    }
-  })
-}
-
-function deleteAt(index){
-  // console.log(index);
-  tagsRef = firebase.database().ref('user/' + userObject.uid + '/tags/');
-  tagsRef.on('value', function(snapshot){
-    var count = 0
-    for(k in snapshot.val()){
-      if(count === index){
-        // console.log(k)
-        tagsRef.off();
-
-        removeItem(k);
-        // console.log("removed tag " + k, "count is " + count)
-        // count += 1;
-
-      }
-      count += 1;
-
-    }
-  })
-}
 
 function removeItem(k){
   var dataRef =  firebase.database().ref('user/' + userObject.uid + '/tags/' + k );
@@ -584,78 +560,47 @@ function removeItem(k){
 
 }
 
-function editEthAddress(){
-  if(document.getElementById('editEth').style.display == "none"){
-    document.getElementById('editEth').style.display = "block";
-  }else{
-    document.getElementById('editEth').style.display = "none";
-  }
-}
-
-function submitEthAddress(){
-  var ethAddress = document.getElementById('myEthAddress');
-  // var testAccount = '0x541E8E0b0F25f799F941932dDcB93bB83d254E64'
-  // testAccount = testAccount.split('');
-  console.log(ethAddress.value.length)
-  if(ethAddress.value.length > 41 && ethAddress.value.length < 43){
-    // console.log(ethAddress.value)
-    firebase.database().ref('queue/myEthAddress/tasks').push({"ethAddress": ethAddress.value, "userId": userObject.uid});
-  }
-}
+// function submitEthAddress(){
+//   var ethAddress = document.getElementById('myEthAddress');
+//   // var testAccount = '0x541E8E0b0F25f799F941932dDcB93bB83d254E64'
+//   // testAccount = testAccount.split('');
+//   console.log(ethAddress.value.length)
+//   if(ethAddress.value.length > 41 && ethAddress.value.length < 43){
+//     // console.log(ethAddress.value)
+//     firebase.database().ref('queue/myEthAddress/tasks').push({"ethAddress": ethAddress.value, "userId": userObject.uid});
+//   }
+// }
 
 function loadBalance(ethAddress){
+    document.getElementById('myAddress').innerHTML = ethAddress;
+
+  console.log('hitting function', userObject)
   var userRef = firebase.database().ref('user/' + userObject.uid);
   var data;
-  userRef.on('value', function(snapshot){
-    data = snapshot.val();
-    if(data.ethAddress){
-      firebase.database().ref('queue/myEthBalance/tasks').push({"ethAddress": ethAddress, "userId": userObject.uid});
+  // userRef.on('value', function(snapshot){
+  //   data = snapshot.val();
+  //   if(data.ethAddress){
+      var balanceObject = {"ethAddress": ethAddress, "userId": userObject.uid};
+      console.log('success', balanceObject);
+      firebase.database().ref('queue/myEthBalance/tasks').push(balanceObject).then(function(res){
+        console.log(res);
+        firebase.database().ref('balance/' + userObject.uid).on('value', function(snapshot){
+          var data = snapshot.val();
+          if(data){
+            if(data.balance){
+              document.getElementById('balance').innerHTML = 'Balance: ' + data.balance + ' <i><b>PIES</b></i>';
 
-    }
-  })
-  if(data.myBalance){
-    var balance = numberWithCommas(data.myBalance);
-    document.getElementById('balance').innerHTML = 'Balance: ' + balance + ' <i><b>PIES</b></i>';
-    document.getElementById('p-completion-number').innerHTML = balance;
-
-    document.getElementById('myAddress').innerHTML = data.ethAddress;
-  }
+            }
+          }
+        })
+      });
 }
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-window.addEventListener('load', function() {
 
-  // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-  if (typeof web3 !== 'undefined') {
-
-    // Use the browser's ethereum provider
-    var provider = web3.currentProvider
-
-    web3.eth.defaultAccount = web3.eth.accounts[0]
-    console.log(web3.eth.accounts[0])
-    setTimeout(function(){
-      if(web3.eth.accounts[0]){
-        loadBalance(web3.eth.accounts[0]);
-      }
-    }, 1000)
-
-
-    // console.log(provider)
-  } else {
-    console.log('No web3? You should consider trying MetaMask!')
-  }
-  //  startApp()
-  setTimeout(function(){
-      // const eth = new Eth(web3.currentProvider)
-      // const contract = new EthContract(eth)
-      // initContract(contract, eth)
-
-  }, 2000)
-  //  testTransaction()
-})
 </script>
 
 </html>
