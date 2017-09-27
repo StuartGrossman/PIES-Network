@@ -90,8 +90,9 @@ var queue = new Queue(phoneRef, function(data, progress, resolve, reject) {
         lastItem = currentData[i];
         // console.log(lastItem)
       }
-      console.log(temp, "this is the ammount of phone attempts")
-      if(temp <= 3){
+      if(temp <= 1){
+        console.log(temp, "this is the ammount of phone attempts")
+
         console.log('hitting less than 3 attempts')
 
         db.ref('phoneAttempts/' + data.userId).push({'time': new Date().getTime() / 1000});
@@ -107,7 +108,9 @@ var queue = new Queue(phoneRef, function(data, progress, resolve, reject) {
           resolve();
         });
       }
-      else if(temp >= 3){
+      else if(temp >= 1){
+        console.log(temp, "this is the ammount of phone attempts")
+        
         //if attempts are over 3, check the last timestamp against current time
         console.log(lastItem, 'this is being passed to the checkTime function')
         var time = checkTime(lastItem, data.userId);

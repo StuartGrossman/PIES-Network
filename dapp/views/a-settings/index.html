@@ -6,7 +6,7 @@
   <title>PIES</title>
   <link rel="stylesheet" type="text/css" href="../sources/css/bootstrap.min.css">
   <!-- Bootstrap Core CSS -->
-    <link href="../sources/css/bootstrap-extension.css" rel="stylesheet">
+    <!-- <link href="../sources/css/bootstrap-extension.css" rel="stylesheet"> -->
     <!-- Menu CSS -->
     <link href="../sources/css/sidebar-nav.min.css" rel="stylesheet">
     <!-- toast CSS -->
@@ -21,6 +21,8 @@
     <link href="../sources/css/default-dark.css" id="theme" rel="stylesheet">
     <link href="../sources/css/spinners.css" />
     <link href="../sources/css/custom.css" rel="stylesheet" />
+    <link href="../sources/css/bootstrap-tagsinput.css" rel="stylesheet" />
+
     <link rel="icon" href="./sources/images/pieslogo.png">
 
 </head>
@@ -33,7 +35,9 @@
       <!-- Navigation -->
       <nav class="navbar navbar-default navbar-static-top m-b-0">
           <div class="navbar-header">
-             <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
+               <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse">
+                 <i class="ti-menu"></i>
+               </a>
                <a class="logo" href="/">
                  <b>
                    <img src="../sources/images/content-logo.png" style="width:150%" />
@@ -100,8 +104,13 @@
                       <!-- /.dropdown-messages -->
                   </li>
                   <!-- /.dropdown -->
-                  <li class="dropdown"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="/a-upload"><i class="icon-note"></i>
-                  <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
+                  <li class="dropdown">
+                    <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="/a-upload">
+                    <i class="icon-note"></i>
+                  <div class="notify">
+                    <span class="heartbit"></span>
+                    <span class="point"></span>
+                  </div>
                   </a>
                       <ul class="dropdown-menu dropdown-tasks animated slideInUp">
                           <li>
@@ -199,6 +208,11 @@
                       </ul>
                   </li>
                   <li>
+                    <a href="/a-upload" class="waves-effect"><i data-icon="&#xe004;" class="linea-icon linea-basic fa-fw"></i>
+                      <span class="hide-menu">Publish</span>
+                    </a>
+                  </li>
+                  <li>
                     <a href="/content" class="waves-effect"><i data-icon="&#xe006;" class="linea-icon linea-basic fa-fw"></i>
                       <span class="hide-menu">Analytics</span>
                     </a>
@@ -220,8 +234,8 @@
                   </li> -->
 
                   <li>
-                    <a href="login.html" class="waves-effect"><i class="icon-logout fa-fw"></i>
-                      <span class="hide-menu">Log out</span>
+                    <a onclick="logout()" href="/" class="waves-effect"><i class="icon-logout fa-fw"></i>
+                      <span class="hide-menu">Logout</span>
                     </a>
                   </li>
 
@@ -248,10 +262,12 @@
                   <div class="bg-theme-dark m-b-15">
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-6 col-lg-12 col-sm-6">
-                              <h3>&nbsp;</h3>
-                              <h1>My Ethereum Address </h1><h2 id="myAddress"></h2>
+                              <!-- <h3>&nbsp;</h3> -->
+                              <h1>My Ethereum Address </h1>
+                              <h6>MetaMask working!</h6>
+
+                              <h2 id="myAddress"></h2>
                               <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
-                              <h6>MetaMask working, hitting selected account!</h6>
 
 
                           </div>
@@ -279,8 +295,9 @@
                   <div class="bg-theme-dark m-b-15">
                       <div class="row weather p-20">
                           <div class="col-md-6 col-xs-6 col-lg-6 col-sm-6">
-                              <h3>Not using Google Chrome?</h3>
-                              <h3>Need MetaMask? MetaMask is a google chrome exstension for your browser that allows you to interact with our token. </h3>
+                              <h1>Not using Google Chrome?</h1>
+                              <h1>Need MetaMask?</h1>
+                              <h3> MetaMask is a google chrome exstension for your browser that allows you to interact with our token. </h3>
                               <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
                               <h6>Once installed refresh this page and request your inital tokens on your wallet page! </h6>
 
@@ -288,11 +305,11 @@
                           </div>
                           <div class="col-md-6 col-xs-6 col-lg-6 col-sm-6">
                               <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
-                              <a target="_blank" href="https://www.google.com/chrome/browser/desktop/index.html"><button class="btn btn-primary">Download Google Chrome</button></a>
+                              <a target="_blank" href="https://www.google.com/chrome/browser/desktop/index.html"><button class="btn btn-lg btn-primary">Download Google Chrome</button></a>
                               <br />
                               <br />
                               <br />
-                              <a target="_blank" href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en"><button class="btn btn-primary">Download MetaMask</button></a>
+                              <a target="_blank" href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en"><button class="btn btn-lg btn-primary">Download MetaMask</button></a>
 
 
                           </div>
@@ -320,7 +337,54 @@
                   </div>
                 </div>
 
+
+                <div class="col-md-12" id="tagsHolder" style="display: none;">
+                      <div class="bg-theme-dark m-b-15">
+                          <div class="row weather p-20">
+                              <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
+                                  <h1>Default Tags</h1>
+                                  <h6>Limited to 5 default tags</h6>
+                                  <div class="row" id="">
+                                    <div class="col-md-12">
+                                      <div class="bs-example">
+                                        <br />
+                                          <input onchange="addTags()" type="text" id="tags" value="" data-role="tagsinput" style="display: none;">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <h4>These tags will be automatically applied to any content you publish free of charge</h4>
+                                  <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
+
+
+                              </div>
+
+
+
+                          </div>
+
+                      </div>
+                </div>
+
+
+                <!-- <div class="col-md-12">
+                    <div class="bg-theme-dark m-b-15">
+                        <div class="row weather p-20">
+                            <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
+                                <h3>MetaMask is found please make sure you are logged in!</h3>
+
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </div> -->
+
+
               </div>
+
 
 
               <footer class="footer text-center">
@@ -374,34 +438,48 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-  // console.log("js script online")
-  var loadTime = Math.floor((Math.random() * 3000) + 500);
-  //////loader
-  // $('.main-container').css("display", "none");
-  // $('#successMessage').hide();
-  $.toast({
-      heading: 'Welcome back to Pies',
-      text: 'Loading your pieces now!',
-      position: 'top-right',
-      loaderBg: '#ff6849',
-      icon: 'info',
-      hideAfter: loadTime,
-      stack: 6
-  })
-  setTimeout(function(){
-    $('.loader').hide();
-    $('.loaderSection').hide();
+    // console.log("js script online")
+    var loadTime = Math.floor((Math.random() * 3000) + 500);
+    //////loader
+    // $('.main-container').css("display", "none");
+    // $('#successMessage').hide();
+    $.toast({
+        heading: 'Welcome back to PIES Network',
+        text: 'Loading your pieces now!',
+        position: 'top-right',
+        loaderBg: '#ff6849',
+        icon: 'info',
+        hideAfter: loadTime,
+        stack: 6
+    })
+    setTimeout(function(){
+      $('.loader').hide();
+      $('.loaderSection').hide();
 
 
-    $('.main-container').css("display", "initial")
+      $('.main-container').css("display", "initial")
 
-  }, loadTime);
+    }, loadTime);
+    setTimeout(function(){
+      console.log(DefaultTagData)
+      // $('#tags').tagsinput({
+      //   maxTags: 3,
+      //   maxChars: 15,
+      //   trimValue: true
+      // });
+      for(var i = 0 ; i < DefaultTagData.length ; i++){
+        $('#tags').tagsinput('add', DefaultTagData[i].data)
+      }
+      $('#tagsHolder').css("display", "initial")
+
+    }, 3000);
 
   });
 </script>
 
 
 <script>
+
 window.addEventListener('load', function() {
 
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
@@ -411,11 +489,12 @@ window.addEventListener('load', function() {
     var provider = web3.currentProvider
 
     web3.eth.defaultAccount = web3.eth.accounts[0]
-    console.log(web3.eth.accounts[0])
+    // console.log(web3.eth.accounts[0])
 
     setTimeout(function(){
       if(!web3.eth.accounts[0]){
         document.getElementById('metaMaskNotLoggedIn').style.display = 'block';
+
 
       }
       if(web3.eth.accounts[0]){
@@ -425,6 +504,7 @@ window.addEventListener('load', function() {
 
         document.getElementById('metaMaskFound').style.display = 'block';
         document.getElementById('metaMaskFound').style.display = 'block';
+
 
 
       }else{
@@ -439,17 +519,11 @@ window.addEventListener('load', function() {
     setTimeout(function(){
       document.getElementById('noMetaMaskFound').style.display = 'block';
 
+
     }, 1000)
 
   }
-  //  startApp()
-  setTimeout(function(){
-      // const eth = new Eth(web3.currentProvider)
-      // const contract = new EthContract(eth)
-      // initContract(contract, eth)
 
-  }, 2000)
-  //  testTransaction()
 })
 
 var config = {
@@ -477,7 +551,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     // console.log(user)
     document.getElementById('userImage').src = user.photoURL;
     document.getElementById('userName').innerHTML = user.displayName;
-
+    getDefaultTags(userObject);
     // writeUserData(u)
 
   }else{
@@ -548,8 +622,6 @@ function Onload(){
 }
 
 
-
-
 function removeItem(k){
   var dataRef =  firebase.database().ref('user/' + userObject.uid + '/tags/' + k );
   dataRef.set({"data": null}).then(function(err, res){
@@ -572,33 +644,86 @@ function removeItem(k){
 // }
 
 function loadBalance(ethAddress){
-    document.getElementById('myAddress').innerHTML = ethAddress;
+  document.getElementById('myAddress').innerHTML = ethAddress;
 
-  console.log('hitting function', userObject)
+  // console.log('hitting function', userObject)
   var userRef = firebase.database().ref('user/' + userObject.uid);
   var data;
   // userRef.on('value', function(snapshot){
   //   data = snapshot.val();
   //   if(data.ethAddress){
-      var balanceObject = {"ethAddress": ethAddress, "userId": userObject.uid};
-      console.log('success', balanceObject);
-      firebase.database().ref('queue/myEthBalance/tasks').push(balanceObject).then(function(res){
-        console.log(res);
-        firebase.database().ref('balance/' + userObject.uid).on('value', function(snapshot){
-          var data = snapshot.val();
-          if(data){
-            if(data.balance){
-              document.getElementById('balance').innerHTML = 'Balance: ' + data.balance + ' <i><b>PIES</b></i>';
+  var balanceObject = {"ethAddress": ethAddress, "userId": userObject.uid};
+  // console.log('success', balanceObject);
+  firebase.database().ref('queue/myEthBalance/tasks').push(balanceObject).then(function(res){
+    // console.log(res);
+    firebase.database().ref('balance/' + userObject.uid).on('value', function(snapshot){
+      var data = snapshot.val();
+      if(data){
+        if(data.balance){
+          document.getElementById('balance').innerHTML = 'Balance: ' + data.balance + ' <i><b>PIES</b></i>';
 
-            }
-          }
-        })
-      });
+        }
+      }
+    })
+  });
 }
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+
+var DefaultTagData;
+function getDefaultTags(user){
+
+  var tagsRef = firebase.database().ref('/tag/' + user.uid);
+  tagsRef.once('value', function(snapshot){
+    // console.log(snapshot.val())
+    var data = [];
+    for(var i  in snapshot.val()){
+
+      data.push(snapshot.val()[i])
+    }
+
+    DefaultTagData = data;
+
+
+  })
+
+}
+
+function addTags(){
+  var input = document.getElementById('tags')
+
+  var data = input.value;
+  data = data.split(',');
+  for(var i = 0; i < data.length ; i++){
+    var tempData = data[i].toLowerCase();
+  }
+  saveTags(tempData);
+
+
+  return;
+}
+
+function saveTags(data){
+  firebase.database().ref('/queue/addTags/tasks').push({'data': data, 'userId': userObject.uid}).then(function(res){
+    console.log(res);
+  })
+}
+
+
+
+function logout(){
+  firebase.auth().signOut().then(function() {
+    // console.log('you are logged out!')
+    window.location = "/"
+  }).catch(function(error) {
+    // An error happened.
+  });
+}
+
+
 
 
 </script>

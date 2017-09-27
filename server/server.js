@@ -56,6 +56,8 @@ var phone = require('./routes/queue/phone');
 var contract = require('./routes/contract/contract');
 var upload = require('./routes/queue/upload');
 var queues = require('./routes/queue/queues');
+var tags = require('./routes/queue/tags');
+
 
 app.use('/linkUsers', linkUsers);
 app.use('/ipfs', ipfs);
@@ -63,6 +65,8 @@ app.use('/deployContract', contract);
 app.use('/phone', phone);
 app.use('/upload', upload);
 app.use('/queues', queues);
+app.use('/tags', tags);
+
 
 
 

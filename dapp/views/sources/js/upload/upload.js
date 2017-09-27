@@ -373,6 +373,7 @@ function addContent(){
   adObject.education = document.getElementById('education').options[document.getElementById('education').selectedIndex].dataset.education;
   console.log(adObject)
 }
+
 function addTags(){
   var input = document.getElementById('tags')
 

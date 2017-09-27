@@ -30,7 +30,19 @@
     },
     "tag": {
       ".read": false,
-      ".write": false
+    	".write": false,
+      "$user_id": {
+        "$id" : {
+          "data": {
+        	".write": "!data.exists()"
+          }
+        },
+        // grants write access to the owner of this user account
+        // whose uid must exactly match the key ($user_id)
+        // ".write": "$user_id === auth.uid",
+        ".read": "$user_id === auth.uid"
+
+      }
     },
     "catagory":{
       ".read": false,
@@ -97,6 +109,16 @@
          "$task": {
            ".indexOn": ["_state"],
            ".validate": "auth.uid == newData.child('userId').val()"
+          }
+        }
+      },
+      "addTags": {
+       "tasks": {
+       ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val() && newData.child('data').val().length != 0",
+           ".write": "auth.uid == newData.child('userId').val()"
           }
         }
       },

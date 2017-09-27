@@ -29,7 +29,7 @@
 
 <body>
 
-    <div id="wrapper" class="main-container">
+    <div id="wrapper" class="main-container" style="display: none;">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
             <div class="navbar-header">
@@ -221,7 +221,7 @@
 
                     <li>
                       <a href="login.html" class="waves-effect"><i class="icon-logout fa-fw"></i>
-                        <span class="hide-menu">Log out</span>
+                        <span class="hide-menu">Logout</span>
                       </a>
                     </li>
 
@@ -844,7 +844,7 @@
   $(document).ready(function() {
   var loadTime = Math.floor((Math.random() * 3000) + 500);
   //////loader
-  $('.main-container').css("display", "none");
+  // $('.main-container').css("display", "none");
   // $('#successMessage').hide();
   setTimeout(function(){
     $('.loader').hide();
@@ -859,8 +859,8 @@
   }, 2000);
 
   $.toast({
-      heading: 'Welcome to Pies',
-      text: 'Loading your pecies now!',
+      heading: 'Welcome back to PIES Network',
+      text: 'Loading your pieces now!',
       position: 'top-right',
       loaderBg: '#ff6849',
       icon: 'info',
