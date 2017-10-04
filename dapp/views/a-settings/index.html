@@ -467,9 +467,14 @@
       //   maxChars: 15,
       //   trimValue: true
       // });
-      for(var i = 0 ; i < DefaultTagData.length ; i++){
-        $('#tags').tagsinput('add', DefaultTagData[i].data)
-      }
+      // for(var i = 0 ; i < DefaultTagData.length ; i++){
+      //   $('#tags').tagsinput('add', DefaultTagData[i].data)
+      // }
+      $('#tags').on('beforeItemRemove', function(event) {
+        // event.item: contains the item
+        // event.cancel: set to true to prevent the item getting removed
+      });
+      // $("#tags").tagsinput(DefaultTagData[0].data);
       $('#tagsHolder').css("display", "initial")
 
     }, 3000);
@@ -691,7 +696,7 @@ function getDefaultTags(user){
   })
 
 }
-
+var tagAmmoun = 0;
 function addTags(){
   var input = document.getElementById('tags')
 
@@ -700,7 +705,7 @@ function addTags(){
   for(var i = 0; i < data.length ; i++){
     var tempData = data[i].toLowerCase();
   }
-  saveTags(tempData);
+  // saveTags(tempData);
 
 
   return;
