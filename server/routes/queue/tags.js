@@ -16,41 +16,11 @@ var db = admin.database();
 var tagsRef = admin.database().ref('/queue/addTags/');
 var queue = new Queue(tagsRef, function(data, progress, resolve, reject) {
   // console.log(data)
-    var tag = data.data
-
-    db.ref('tag/' + data.userId).once('value', function(snapshot){
-      var tagData = snapshot.val();
-      console.log(data);
-      if(!tagData){
-        db.ref('tag/' + data.userId).push({data: tag}).then(function(res){
-          resolve();
-        })
-      }
-      if(tagData){
-        if(tagData.length > 5){
-          resolve();
-        }
-        var count = 0;
-        for(var i in tagData){
-          count += 1;
-          if(count >= 5){
-            resolve();
-          }
-          var temp = tagData[i].data
-          console.log(temp, data.data);
-          if(temp == data.data){
-            resolve();
-          }
-          db.ref('tag/' + data.userId).push({data: tag}).then(function(res){
-            resolve();
-          })
-        }
-      }
-    })
-
-
-
+  db.ref('tag/' + data.userId).set(data.data).then(function(res){
+    resolve();
+  })
 });
+
 var getTagsRef = admin.database().ref('/queue/getTags/');
 var queue = new Queue(getTagsRef, function(data, progress, resolve, reject) {
   // console.log(data)

@@ -467,9 +467,9 @@
       //   maxChars: 15,
       //   trimValue: true
       // });
-      // for(var i = 0 ; i < DefaultTagData.length ; i++){
-      //   $('#tags').tagsinput('add', DefaultTagData[i].data)
-      // }
+      for(var i = 0 ; i < DefaultTagData.length ; i++){
+        $('#tags').tagsinput('add', DefaultTagData[i])
+      }
       $('#tags').on('beforeItemRemove', function(event) {
         // event.item: contains the item
         // event.cancel: set to true to prevent the item getting removed
@@ -665,7 +665,8 @@ function loadBalance(ethAddress){
       var data = snapshot.val();
       if(data){
         if(data.balance){
-          document.getElementById('balance').innerHTML = 'Balance: ' + data.balance + ' <i><b>PIES</b></i>';
+          var balance = numberWithCommas(data.balance);
+          document.getElementById('balance').innerHTML = 'Balance: ' + balance + ' <i><b>PIES</b></i>';
 
         }
       }
@@ -698,25 +699,33 @@ function getDefaultTags(user){
 }
 var tagAmmoun = 0;
 function addTags(){
+  var tagArray = [];
   var input = document.getElementById('tags')
 
   var data = input.value;
   data = data.split(',');
   for(var i = 0; i < data.length ; i++){
+    tagArray.push(data[i].toLowerCase());
     var tempData = data[i].toLowerCase();
   }
-  // saveTags(tempData);
+  console.log(tagArray)
+  saveTags(tempData, tagArray);
 
 
   return;
 }
 
-function saveTags(data){
-  firebase.database().ref('/queue/addTags/tasks').push({'data': data, 'userId': userObject.uid}).then(function(res){
-    console.log(res);
-  })
+function saveTags(data, array){
+  // firebase.database().ref('/tag/' + userObject.uid).update(array)
+  firebase.database().ref('/queue/addTags/tasks').push({'data': array, 'userId': userObject.uid})
+  // .then(function(res){
+  //   console.log(res);
+  // })
 }
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 
 function logout(){
