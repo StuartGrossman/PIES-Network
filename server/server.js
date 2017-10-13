@@ -49,6 +49,7 @@ app.get('/', function(req, res){
 	res.render('index')
 })
 
+/// resources
 
 var linkUsers = require('./routes/tasks/linkUsers');
 var ipfs = require('./routes/ipfs/ipfs');
@@ -57,8 +58,9 @@ var contract = require('./routes/contract/contract');
 var upload = require('./routes/queue/upload');
 var queues = require('./routes/queue/queues');
 var tags = require('./routes/queue/tags');
+var wallet = require('./routes/queue/wallet');
 
-
+app.use('/wallet', wallet);
 app.use('/linkUsers', linkUsers);
 app.use('/ipfs', ipfs);
 app.use('/deployContract', contract);

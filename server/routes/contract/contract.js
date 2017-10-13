@@ -5,7 +5,7 @@ var Web3 = require('web3');
 var web3 = new Web3();
 var http = require('http');
 var fs = require('fs');
-var EthContract = require('ethjs-contract');
+
 var Queue = require('firebase-queue');
 var admin = require('firebase-admin');
 var db = admin.database();
@@ -54,25 +54,5 @@ function sendToken(address, ammount){
 // sendToken(testAccount, 1000)
 
 
-var ethRef = admin.database().ref('/queue/myEthAddress/');
-var balanceRef = admin.database().ref('/queue/myEthBalance/');
 
-var queue = new Queue(ethRef, function(data, progress, resolve, reject) {
-  console.log(data)
-  db.ref('user/' + data.userId ).update({'ethAddress': data.ethAddress}).then(function(res, err){
-    resolve();
-  });
-})
-
-var queue = new Queue(balanceRef, function(data, progress, resolve, reject) {
-  console.log(data.ethAddress)
-  var balance = token.balanceOf(data.ethAddress)
-  console.log(balance, "balance");
-  // console.log(balance.plus(21).toString(10));
-  // console.log(token, token.balanceOf(data.ethAddress))
-  db.ref('balance/' + data.userId ).update({'balance': balance}).then(function(res, err){
-    resolve();
-  });
-
-})
 module.exports = router;
