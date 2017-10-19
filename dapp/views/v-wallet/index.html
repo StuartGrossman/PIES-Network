@@ -310,14 +310,14 @@
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                               <h3>&nbsp;</h3>
-                              <h1>My Internal Balance</h1>
+                              <h1>My Internal Token Balance</h1>
                               <h5 style="color:white;">Tokens Avaliable for withdrawl</h5>
                           </div>
 
                       </div>
                       <div class="row weather p-20">
                         <div class="col-md-8 col-xs-10 col-lg-6 col-sm-10">
-                          <span style="color:white; font-size: 20px;" id="internalBalance"></span>
+                          <span style="color:orange; font-size: 30px;" id="internalBalance"></span>
 
                         </div>
                         <div class="col-md-4 col-xs-2 col-lg-6 col-sm-2">
@@ -333,7 +333,7 @@
                   <div class="m-b-15" style="background-color: #4f5467">
                     <div id="outBalanceMatrix">
                       <div class="row weather p-20">
-                          <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" style="margin-bottom: 10px">
+                          <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                               <h3>&nbsp;</h3>
                               <h1>My External Token Balance</h1>
                               <h5 style="color:white;">Tokens I already own</h5>
@@ -341,8 +341,8 @@
 
                       </div>
                       <div class="row weather p-20">
-                        <div class="col-md-8 col-xs-10 col-lg-6 col-sm-10">
-                          <span style="color:white; font-size: 20px;" id="balance"></span>
+                        <div class="col-md-12 col-xs-10 col-lg-12 col-sm-10">
+                          <span style="color:orange; font-size: 30px;" id="balance"></span>
                         </div>
                         <div class="col-md-4 col-xs-2 col-lg-6 col-sm-2">
 
@@ -366,7 +366,7 @@
                       </div>
                       <div class="row weather p-20">
                         <div class="col-md-8 col-xs-10 col-lg-6 col-sm-10">
-                          <span style="font-size: 18px; color:white;" id="myAddress" style="color: white">No Ethereum address selected</span>
+                          <span style="font-size: 18px; color:orange;" id="myAddress">No Ethereum address selected</span>
 
                         </div>
                         <div class="col-md-4 col-xs-2 col-lg-6 col-sm-2">
@@ -438,21 +438,36 @@
                             <div class="modal-body">
                               <h6 style="color: red">Please make sure all information is correct, once tokens are withdrawn we will be unable to issue refunds</h6>
                                  <div class="white-box">
-                                   <span style="font-size: 18px;" id="ammountForWithdrawl"></span> <br /><hr />
-                                   <span style="font-size: 15px;">to:</span><br /> <hr />
-                                   <span style="font-size: 18px;" id="ethAddressForWithdrawl"></span><br /> <hr />
-                                   <span style="font-size: 15px;">fee:</span><br /> <hr />
 
-                                   <span style="font-size: 18px;" id="fee"></span><br /> <hr />
-                                   <span style="font-size: 15px;">total:</span><br /> <hr />
+                                   <span style="font-size: 12px;">Ammount:</span>
 
-                                   <span style="font-size: 18px;" id="totalWithdrawlAmmount"></span>
+                                   <span style="font-size: 18px; color:orange;" id="ammountForWithdrawl"></span>
+                                   <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span>
+
+                                   <br /><hr />
+                                   <span style="font-size: 12px;">To:</span>
+
+                                   <span style="font-size: 18px; color:orange;" id="ethAddressForWithdrawl"></span>
+                                   <br /> <hr />
+
+                                   <span style="font-size: 12px;">Fee:</span>
+
+                                   <span style="font-size: 18px; color:orange;" id="fee"></span>
+                                   <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span>
+
+                                   <br /> <hr />
+
+                                   <span style="font-size: 12px;">Total:</span>
+
+                                   <span style="font-size: 18px; color:orange;" id="totalWithdrawlAmmount"></span>
+                                   <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span>
+
                                  </div>
                                  <input type="number" placeholder="Confirmation Code" id="confirmationCode" class="form-control"></input>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="sendCode()">Send Code</button>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="confirmWithdrawl()" id="step3">Confirm</button>
+                                <button type="button" class="btn btn-default" onclick="sendCode()">Send Code</button>
+                                <button type="button" class="btn btn-primary" onclick="confirmWithdrawl()" id="step3">Confirm</button>
                             </div>
                         </div>
                     </div>
@@ -590,7 +605,7 @@ var config = {
 firebase.initializeApp(config);
 var ref = firebase.database().ref('queue/tasks');
 var userObject, tagBox;
-var totalWithdrawlAmmount;
+var totalWithdrawlAmmount, tokenFeeAmmount, withdrawlEthAddress;
 var tagAmmount = document.getElementById('tagAmmount');
 var tagProgress = document.getElementById('tagProgress');
 var statusState = true;
@@ -648,7 +663,22 @@ function checkState(user){
   })
 }
 
-function openWithdrawWindow(){
+function sendCode(){
+  firebase.database().ref('/queue/withdrawPhoneCheck/tasks').push({'userId': userObject.uid});
+}
+
+function confirmWithdrawl(){
+  var code = document.getElementById('confirmationCode').value;
+  // get internalBalance before change
+  firebase.database().ref('/phone/' + userObject.uid).once('value', function(snapshot){
+    if(snapshot.val()){
+      if(snapshot.val().code == code){
+        firebase.database().ref('/queue/withdrawlAmmount/tasks').push({'userId': userObject.uid, 'ammount': totalWithdrawlAmmount, 'fee':  tokenFeeAmmount, 'ethAddress': withdrawlEthAddress}).then(function(res){
+          //check internalBalance vs withdrawl ammount
+        })
+      }
+    }
+  })
 
 }
 
@@ -674,7 +704,7 @@ function Onload(){
 function calculateFee(){
   //sets innerHTML of confirmation window
   document.getElementById('ethAddressForWithdrawl').innerHTML = withdrawlEthAddress;
-  document.getElementById('ammountForWithdrawl').innerHTML = numberWithCommas(withdrawlAmmount) + ' PIES Tokens';
+  document.getElementById('ammountForWithdrawl').innerHTML = numberWithCommas(withdrawlAmmount);
 
   console.log(withdrawlEthAddress, withdrawlAmmount);
   firebase.database().ref('/fee').once('value', function(snapshot){
@@ -683,9 +713,9 @@ function calculateFee(){
 
     tokenFeeAmmount = Math.ceil(fee / data.tokenPrice);
     console.log(fee, tokenFeeAmmount);
-    document.getElementById('fee').innerHTML = tokenFeeAmmount  + ' PIES Tokens';
+    document.getElementById('fee').innerHTML = tokenFeeAmmount;
     totalWithdrawlAmmount = numberWithCommas(withdrawlAmmount - tokenFeeAmmount);
-    document.getElementById('totalWithdrawlAmmount').innerHTML = totalWithdrawlAmmount + ' PIES Tokens';
+    document.getElementById('totalWithdrawlAmmount').innerHTML = totalWithdrawlAmmount;
   })
 }
 
@@ -764,16 +794,18 @@ function loadBalance(){
       firebase.database().ref('queue/myEthBalance/tasks').push({"ethAddress": data.ethAddress, "userId": userObject.uid}).then(function(res){
         setTimeout(function(){
           firebase.database().ref('balance/' + userObject.uid).once('value', function(snapshot){
-            var balance = snapshot.val().balance;
-            console.log(balance)
+            if(snapshot.val()){
+              var balance = snapshot.val().balance;
+              console.log(balance)
 
-            if(balance){
-              var balance = numberWithCommas(balance);
-              document.getElementById('balance').innerHTML = balance + ' PIES Tokens';
-              // document.getElementById('p-completion-number').innerHTML = balance;
+              if(balance){
+                var balance = numberWithCommas(balance);
+                document.getElementById('balance').innerHTML = balance + ' PIES Tokens';
+                // document.getElementById('p-completion-number').innerHTML = balance;
 
-              document.getElementById('ethHolder').className = 'animated fadeIn';
+                document.getElementById('ethHolder').className = 'animated fadeIn';
 
+              }
             }
           })
         }, 1000)

@@ -24,13 +24,34 @@ function getRandomInt(min, max) {
 
 //sends code
 var phoneRef = admin.database().ref('/queue/phone/');
-
+var withdrawPhoneCheckRef
 //checks code
 var checkPhoneCodeRef = admin.database().ref('/queue/confirmPhone/');
-
+var withdrawPhoneCheckRef = admin.database().ref('/queue/withdrawPhoneCheck/');
 //confirms code
 
 var confirmCodeRef = admin.database().ref('/queue/confirmCode/');
+
+
+var queue = new Queue(withdrawPhoneCheckRef, function(data, progress, resolve, reject) {
+  db.ref('phone/' + data.userId).once('value', function(snapshot){
+    var phone = snapshot.val().phone
+    // console.log(code, data.code)
+    if(phone){
+      db.ref('/queue/phone/tasks').push({'userId': data.userId, 'phone': phone, 'message': 'Your PIES Token withdrawl code is '});
+    }
+  })
+
+  .then(function(message){
+    resolve();
+  });
+})
+
+
+
+
+
+// function for checking server time aginst last phone send. This function is to disable any one user from sending to many phone request to the server
 
 function checkTime(item, userId){
   db.ref('phoneAttempts/' + userId + '/serverTime').set({'time': new Date().getTime() / 1000}).then(function(res){
@@ -65,15 +86,25 @@ var queue = new Queue(phoneRef, function(data, progress, resolve, reject) {
       console.log('hitting no data in attempts')
       db.ref('phoneAttempts/' + data.userId).push({'time': new Date().getTime() / 1000});
       db.ref('phone/' + data.userId).update({'code': code, 'phone': data.phone});
-      client.messages.create({
-          body: 'Welcome to PIES Network, your code is ' + code,
-          to: '+1' + data.phone,  // Text this number
-          from: '+14157636376 ' // From a valid Twilio number
-      })
-      .then(function(message){
-      //   console.log(message.sid)
-        resolve();
-      });
+      if(data.message){
+        client.messages.create({
+            body: data.message + code,
+            to: '+1' + data.phone,  // Text this number
+            from: '+14157636376 ' // From a valid Twilio number
+        }).then(function(message){
+        //   console.log(message.sid)
+          resolve();
+        });
+      }else{
+        client.messages.create({
+            body: 'Welcome to PIES Network, your code is ' + code,
+            to: '+1' + data.phone,  // Text this number
+            from: '+14157636376 ' // From a valid Twilio number
+        }).then(function(message){
+        //   console.log(message.sid)
+          resolve();
+        });
+      }
     }
     // console.log(data)
     if(currentData){
@@ -98,19 +129,30 @@ var queue = new Queue(phoneRef, function(data, progress, resolve, reject) {
         db.ref('phoneAttempts/' + data.userId).push({'time': new Date().getTime() / 1000});
         //adds Timestamp for code Send
         db.ref('phone/' + data.userId).update({'code': code, 'phone': data.phone});
-        client.messages.create({
-            body: 'Welcome to PIES Network, your code is ' + code,
-            to: '+1' + data.phone,  // Text this number
-            from: '+14157636376 ' // From a valid Twilio number
-        })
-        .then(function(message){
-          console.log(message.sid)
-          resolve();
-        });
+        if(data.message){
+          client.messages.create({
+              body: data.message + code,
+              to: '+1' + data.phone,  // Text this number
+              from: '+14157636376 ' // From a valid Twilio number
+          }).then(function(message){
+            console.log(message.sid)
+            resolve();
+          });
+        }else{
+          client.messages.create({
+              body: 'Welcome to PIES Network, your code is ' + code,
+              to: '+1' + data.phone,  // Text this number
+              from: '+14157636376 ' // From a valid Twilio number
+          }).then(function(message){
+            console.log(message.sid)
+            resolve();
+          });
+        }
+
       }
       else if(temp >= 1){
         console.log(temp, "this is the ammount of phone attempts")
-        
+
         //if attempts are over 3, check the last timestamp against current time
         console.log(lastItem, 'this is being passed to the checkTime function')
         var time = checkTime(lastItem, data.userId);
@@ -142,6 +184,10 @@ var queue = new Queue(phoneRef, function(data, progress, resolve, reject) {
 
 })
 
+
+
+
+
 //Checks Phone Code
 var queue = new Queue(checkPhoneCodeRef, function(data, progress, resolve, reject) {
   db.ref('phone/' + data.userId).once('value', function(snapshot){
@@ -168,5 +214,9 @@ var queue = new Queue(confirmCodeRef, function(data, progress, resolve, reject) 
     resolve();
   });
 })
+
+
+
+
 
 module.exports = router;

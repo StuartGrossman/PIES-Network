@@ -32,11 +32,7 @@
       ".read": false,
     	".write": false,
       "$user_id": {
-        "$id" : {
-          "data": {
-        	".write": "!data.exists()"
-          }
-        },
+
         // grants write access to the owner of this user account
         // whose uid must exactly match the key ($user_id)
         // ".write": "$user_id === auth.uid",
@@ -88,6 +84,14 @@
       ".read": true,
       ".write": false
     },
+    "internalBalance": {
+      ".read": true,
+      ".write": false
+    },
+    "fee": {
+      ".read": true,
+      ".write": false
+    },
 
 
     ////// QUEUES
@@ -108,7 +112,8 @@
        ".indexOn": ["_state"],
          "$task": {
            ".indexOn": ["_state"],
-           ".validate": "auth.uid == newData.child('userId').val()"
+           ".validate": "auth.uid == newData.child('userId').val()",
+           ".write": "auth.uid == newData.child('userId').val()"
           }
         }
       },
@@ -117,7 +122,7 @@
        ".indexOn": ["_state"],
          "$task": {
            ".indexOn": ["_state"],
-           ".validate": "auth.uid == newData.child('userId').val() && newData.child('data').val().length != 0",
+           ".validate": "auth.uid == newData.child('userId').val()",
            ".write": "auth.uid == newData.child('userId').val()"
           }
         }
