@@ -36,5 +36,62 @@ var queue = new Queue(getTagsRef, function(data, progress, resolve, reject) {
 
 });
 
+var getBrandTags = admin.database().ref('/queue/addBrandTags/');
+var queue = new Queue(getBrandTags, function(data, progress, resolve, reject) {
+  // console.log(data)
+
+  // query tag/id/brands
+  admin.database().ref('/tag/' + data.userId + '/brands/').once('value', function(snapshot){
+    if(snapshot.val()){
+      console.log(data)
+      // if the data exists do check
+      var matchFlag = false;
+      var tagKey;
+      snapshot.forEach(function(childSnapshot) {
+        var childKey = childSnapshot.key;
+        var childData = childSnapshot.val();
+        // console.log(childKey, childData)
+        // ...
+        if(childData == data.data){
+          tagKey = childKey;
+          matchFlag = true;
+          // console.log('hitting delete')
+        }
+      });
+      if(matchFlag){
+        db.ref('tag/' + data.userId + '/brands/' + tagKey).remove();
+        resolve('deleted Brand');
+      }else{
+        db.ref('tag/' + data.userId + '/brands/')
+        .push(data.data)
+        .then(function(result){
+          resolve('added New Brand');
+        });
+      }
+      // setTimeout(function(){
+      //   console.log('wtf')
+      //   db.ref('tag/' + data.userId + '/brands/').push(data.data).then(function(result){
+      //      resolve();
+      //   })
+      // }, 1000)
+
+    }else{
+        //NO data found at url so add brand
+        db.ref('tag/' + data.userId + '/brands/').push(data.data).then(function(result){
+           resolve('no datafound added new brand');
+        })
+      }
+  })
+  // run loop on data and check every brand against data.data
+  // if the brand already exists remove it
+  // if the brand does not exist add it
+  // resolve
+
+
+
+  // db.ref('tag/' + data.userId + '/brands/').push(data.data).then(function(result){
+  //   resolve();
+  // })
+});
 
 module.exports = router;

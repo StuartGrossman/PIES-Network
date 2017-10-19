@@ -5,7 +5,7 @@ var app = express();
 var port = process.env.PORT || 3000;
 var admin = require('firebase-admin')
 var serviceAccount = require("./serviceAccountKey.json");
-var uuid = require('uuid');
+var uuid = require('uid');
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://adspace-9fe5c.firebaseio.com"

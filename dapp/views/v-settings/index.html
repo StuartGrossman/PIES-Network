@@ -418,6 +418,57 @@
 
                 </div>
 
+                <!-- ------- -->
+
+                <div class="col-md-12">
+
+                  <div class=" m-b-15" style="background-color: #4f5467">
+
+
+                      <div class="row weather p-20">
+                          <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
+                            <h3>&nbsp;</h3>
+                            <h1>Personally Purchased Brands </h1>
+                            <h4>Enter a collection of consumer brands you have purchased:</h4>
+                            <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="BrandHolder">
+                             <!-- <input class="form-control" placeholder="List Brands" id="Brands"/> -->
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Puma" onclick="addBrand('Puma')">Puma</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Adidas" onclick="addBrand('Adidas')">Adidas</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Apple" onclick="addBrand('Apple')">Apple</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Nike" onclick="addBrand('Nike')">Nike</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Samsung" onclick="addBrand('Samsung')">Samsung</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Sony" onclick="addBrand('Sony')">Sony</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Microsoft" onclick="addBrand('Microsoft')">Microsoft</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Target" onclick="addBrand('Target')">Target</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Amazon" onclick="addBrand('Amazon')">Amazon</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Google" onclick="addBrand('Google')">Google</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Wal-Mart" onclick="addBrand('Wal-Mart')">Wal-Mart</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Nintendo" onclick="addBrand('Nintendo')">Nintendo</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Coca-Cola" onclick="addBrand('Coca-Cola')">Coca-Cola</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Forever 21" onclick="addBrand('Forever 21')">Forever 21</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Jordan" onclick="addBrand('Jordan')">Jordan</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Pepsi" onclick="addBrand('Pepsi')">Pepsi</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Starbucks" onclick="addBrand('Starbucks')">Starbucks</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="American Eagle" onclick="addBrand('American Eagle')">American Eagle</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Converse" onclick="addBrand('Converse')">Converse</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Ford" onclick="addBrand('Ford')">Ford</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="LG" onclick="addBrand('LG')">LG</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Disney" onclick="addBrand('Disney')">Disney</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Old Navy" onclick="addBrand('Old Navy')">Old Navy</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Hot Topic" onclick="addBrand('Hot Topic')">Hot Topic</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Kohls" onclick="addBrand('Kohls')">Kohls</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Victorias Secret" onclick="addBrand('Victorias Secret')">Victorias Secret</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Hollister" onclick="addBrand('Hollister')">Hollister</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Vans" onclick="addBrand('Vans')">Vans</button>
+                               <!--
+                              <button id="Nike" onclick="Click('Nike')">Nike</button>
+                              <button id="Apple" onclick="Click('Apple')">Apple</button> -->
+                              <!-- <button onclick="submitEthAddress()" class="btn btn-warning">Submit</button> -->
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
             </div>
         </div>
         <!-- /#page-wrapper -->
@@ -570,18 +621,74 @@ function checkState(user){
   })
 }
 
+function addBrand(data){
+  // firebase.database().ref('/')
+  // btn-success btn-rounded
+  // var b = document.getElementByClassNamexx("btn").classList.toggle("blue");
+  // var brandTag = document.getElementById(data).innerHTML;
+  // console.log(brandTag, userObject.uid)
+  var brandTagReference = '/queue/addBrandTags/tasks';
+  // firebase.database().ref(brandTagReference).push(brandTag).then(function(res){
+  //   console.log(res);
+  // })
+  firebase.database().ref(brandTagReference).push({'data': data, 'userId': userObject.uid}).then(function(res){
+    // if class 1 exists do something
+    var ele = document.getElementById(data);
+    if(ele.classList.contains('btn-default')){
+      removeClass(data);
+    }else{
+      addClass(data);
+    }
+    // if class 2 exists do something
 
+
+    console.log(res);
+  });
+
+  // $("btn")toggleClass("green");
+  // console.log(data)
+};
+function addClass(id){
+  var ele = document.getElementById(id)
+  ele.classList.remove('btn-success');
+  ele.className = "btn btn-default"
+}
+function removeClass(id){
+  var ele = document.getElementById(id)
+  ele.classList.remove('btn-default');
+  ele.className = "btn-success"
+}
+// removeClass('Puma')
 
 function Onload(){
+  checkBrands();
   document.getElementById('editEth').style.display = "none";
 
   // loadTags();
   setTimeout(function(){
     loadBalance();
-
   }, 1000)
+}
 
-
+function checkBrands(){
+  //Tags are equal to the Brand Name
+  var brandTagArray = ['Puma', 'Adidas','Apple','Nike','Samsung','Sony','Microsoft','Target','Amazon','Google','Wal-Mart','Nintendo','Coca-Cola','Forever 21','Jordan','Pepsi','Starbucks',
+  'American Eagle','Converse','Ford','LG','Disney','Old Navy','Kohls','Victorias Secret','Hollister','Vans'];
+  firebase.database().ref('/tag/' + userObject.uid + '/brands').once('value', function(snapshot){
+    if(snapshot.val()){
+      snapshot.forEach(function(childSnapshot) {
+        var childKey = childSnapshot.key
+        var childData = childSnapshot.val();
+        // console.log(childKey, childData);
+        for(var i = 0; i < brandTagArray.length; i++){
+          if(brandTagArray[i] == childData){
+            // console.log(brandTagArray[i].length)
+            removeClass(childData);
+          }
+        }
+      })
+    }
+  })
 }
 
 
