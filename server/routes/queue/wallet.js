@@ -88,9 +88,9 @@ function withdrawFunds(ammount, withdrawlAddress){
     }
     // var headers = res.headers
     // var statusCode = res.statusCode
-    // console.log('headers: ', headers)
-    // console.log('statusCode: ', statusCode)
-    // console.log('body: ', body)
+    console.log('headers: ', headers)
+    console.log('statusCode: ', statusCode)
+    console.log('body: ', body)
     console.log(token.balanceOf(mainAccount) + " tokens balance")
     // admin.database().ref('internalBalance/' + )
     return true;
