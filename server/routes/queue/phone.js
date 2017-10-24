@@ -51,31 +51,8 @@ var queue = new Queue(withdrawPhoneCheckRef, function(data, progress, resolve, r
 
 
 
-// function for checking server time aginst last phone send. This function is to disable any one user from sending to many phone request to the server
 
-function checkTime(item, userId){
-  db.ref('phoneAttempts/' + userId + '/serverTime').set({'time': new Date().getTime() / 1000}).then(function(res){
-    setTimeout(function(){
-      db.ref('phoneAttempts/' + userId + '/serverTime').once('value', function(snapshot){
-        if(snapshot.val()){
-          var serverTime = snapshot.val().time
-          var differnce = serverTime - item.time
-          console.log(serverTime, item.time)
-          console.log(differnce)
-          if(differnce > 600){
-            return true;
-          }
-        }
-        else{
-          return false;
-        }
-      })
 
-    }, 1000)
-
-  })
-
-}
 
 var queue = new Queue(phoneRef, function(data, progress, resolve, reject) {
   var code = getRandomInt(10000, 99999)
@@ -113,8 +90,9 @@ var queue = new Queue(phoneRef, function(data, progress, resolve, reject) {
       var temp = 0;
 
       var lastItem;
-
+      // currentData is equal to the ammount of requests sent to the server for phone codes
       for(var i in currentData){
+        //loops through data
         temp += 1
         //temp is equal to the number of attempts to send code
         //sets lastItem to lastItem in timestet of Data
@@ -155,28 +133,41 @@ var queue = new Queue(phoneRef, function(data, progress, resolve, reject) {
 
         //if attempts are over 3, check the last timestamp against current time
         console.log(lastItem, 'this is being passed to the checkTime function')
-        var time = checkTime(lastItem, data.userId);
-        setTimeout(function(){
-          if(time){
-            console.log('attempts maxed out but time is true')
 
-            //if time resloves to true than differnce of time stamps is sufficent to send new text
-            db.ref('phone/' + data.userId).update({'code': code, 'phone': data.phone});
-            client.messages.create({
-                body: 'Welcome to PIES Network, your code is ' + code,
-                to: '+1' + data.phone,  // Text this number
-                from: '+14157636376 ' // From a valid Twilio number
+        // var time = checkTime(lastItem, data.userId);
+        db.ref('phoneAttempts/' + data.userId + '/serverTime').set({'time': new Date().getTime() / 1000}).then(function(res){
+          setTimeout(function(){
+            db.ref('phoneAttempts/' + data.userId + '/serverTime').once('value', function(snapshot){
+              if(snapshot.val()){
+                var serverTime = snapshot.val().time
+                var differnce = serverTime - lastItem.time
+                console.log(serverTime, lastItem.time)
+                console.log(differnce)
+                if(differnce > 600){
+                  console.log('attempts maxed out but time is true')
+
+                  //if time resloves to true than differnce of time stamps is sufficent to send new text
+                  db.ref('phone/' + data.userId).update({'code': code, 'phone': data.phone});
+                  client.messages.create({
+                      body: 'Welcome to PIES Network, your code is ' + code,
+                      to: '+1' + data.phone,  // Text this number
+                      from: '+14157636376 ' // From a valid Twilio number
+                  })
+                  .then(function(message){
+                    console.log(message.sid)
+                    resolve();
+                  });
+                }
+              }
+              else{
+                resolve();
+              }
             })
-            .then(function(message){
-              console.log(message.sid)
-              resolve();
-            });
-          }else{
-            // console.log('server must wait before sending new text!')
-            //if its false resolve the queue
-            resolve();
-          }
-        }, 1000);
+
+          }, 1000)
+
+        })
+
       }
 
     }
