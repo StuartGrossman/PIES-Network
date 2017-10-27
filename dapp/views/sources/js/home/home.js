@@ -27,6 +27,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 
 
+
 function login(){
   //user already logged in
   // if(userObj.uid){
