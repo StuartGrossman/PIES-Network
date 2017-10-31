@@ -56,7 +56,7 @@ body {
   display: none;
 }
 .navbar-header {
-  background: #656a7b;
+  background: slategray;
 }
 .navbar-top-links > li > a {
   color: #ffffff;
