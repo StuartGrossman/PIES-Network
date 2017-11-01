@@ -23,7 +23,7 @@ $(window).load(function() {
             ],
 
             // Delay beetween slides in milliseconds.
-            delay: 5000,
+            delay: 10000,
 
             // Chose your transition effect (See the documentation provided in your download pack)
             transition: 'fade'

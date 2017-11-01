@@ -51,11 +51,14 @@
 
 			<div class="content">
 
-				<h1 class="text-intro animated-middle fadeInUp"><span id="title" src="PIES">PIES</span> ICO launches in
-					<div id="getting-started">62 Days 11h 44m 46s</div>
+				<h1 class="text-intro animated-middle fadeInUp"><span id="title" src="PIES">(PCS) Token Sale</span>
+        <span style="font-size: 15px; color:white;">
+            starts in
+        </span>
+					<div id="getting-started"></div>
 				</h1>
 
-				<h2 class="text-intro animated-middle fadeInUp" id="description" src="This ICO will be awesome!">This ICO will be awesome!</h2>
+				<h2 class="text-intro animated-middle fadeInUp" id="description" src="This ICO will be awesome!">Get your piece of PIES Network before its too late. Apply now!</h2>
 
 				<nav>
 					<ul>
@@ -64,13 +67,13 @@
 						</li>-->
 
 						<li>
-							<a href="http://www.proofsuite.com/i/#" id="open-more-info" data-target="right-side" class="light-btn text-intro editThis animated-middle fadeInUp">Edit This</a>
+							<a href="https://docs.google.com/forms/d/1pZVSZ-_-jWOt7pMx6ssU0zuCPziehE0w8kwZVzCghZY/prefill" target="_blank" id="open-more-info" data-target="right-side" class="light-btn text-intro editThis animated-middle fadeInUp">Apply Now!</a>
 
 
 						</li>
 
 						<li>
-							<a data-dialog="somedialog" id="whenCloses" class="action-btn trigger text-intro animated-middle fadeInUp">Notify Me!</a>
+							<!-- <a data-dialog="somedialog" id="whenCloses" class="action-btn trigger text-intro animated-middle fadeInUp">Notify Me!</a> -->
 						</li>
 					</ul>
 				</nav>
@@ -84,12 +87,12 @@
 			<!-- Social icons -->
 			<div class="social-icons">
 
-				<a href="http://www.proofsuite.com/i/" target="_blank" id="facebookLink" style="display: none;"><i class="fa fa-facebook"></i></a>
+				<!-- <a href="http://www.proofsuite.com/i/" target="_blank" id="facebookLink" style="display: none;"><i class="fa fa-facebook"></i></a>
 				<a href="http://www.proofsuite.com/i/" target="_blank" id="twitterLink" style="display: none;"><i class="fa fa-twitter"></i></a>
 
-				<a href="http://www.proofsuite.com/i/" target="_blank" id="linkedInLink" style="display: none;"><i class="fa fa-linkedin"></i></a>
+				<a href="http://www.proofsuite.com/i/" target="_blank" id="linkedInLink" style="display: none;"><i class="fa fa-linkedin"></i></a> -->
 
-				<a href="http://www.proofsuite.com/voteicos" target="_blank" style="width:200px">Browse Generated ICOs</a>
+				<a href="/" style="width:200px">PIES Network</a>
 
 			</div>
 
@@ -171,6 +174,9 @@
     <!-- \\\\\\\\\\\\\\\\\\\/////////////////// -->
 
 	<!-- * Libraries jQuery, Easing and Bootstrap - Be careful to not remove them * -->
+  <script>
+   var vegasDone = false;
+  </script>
 	<script src="../token/files/jquery.min.js"></script>
 	<script src="../token/files/jquery.easings.min.js"></script>
 	<script src="../token/files/bootstrap.min.js"></script>
@@ -213,648 +219,38 @@
 	<!-- Countdown plugin -->
 	<script src="../token/files/jquery.countdown.js"></script>
 
-	<script>
-	editOn = false;
-	theHash= 'ico1';
-	hasPage = false;
-	vegasDone= false;
 
 
-	function loadICO(){
 
-		if(window.location.href.indexOf('s=') !=-1){
 
-			$('.editThis').show();
-			theSecret = window.location.href.split('s=')[1].split('&')[0].replace('#','');
-			editOn = true;
-		}
 
-		else{
+  <script>
+    $( document ).ready(function() {
+      console.log('hiting code')
+      // $("#getting-started")
+      //   // Year/Month/Day Hour:Minute:Second
+      //   .countdown("2017/08/24 15:30:30", function(event) {
+      //     $(this).text(
+      //       event.strftime('%D Days %Hh %Mm %Ss')
+      //     );
+      // })
+      // $('#getting-started').countdown("2017/11/29", function(event) {
+      //   var totalHours = event.offset.totalDays * 24 + event.offset.hours;
+      //   $(this).html(event.strftime(totalHours + ' hr %M min %S sec'));
+      // });
+      $('#getting-started').countdown('2017/11/31').on('update.countdown', function(event) {
+        var $this = $(this).html(event.strftime(''
+          + '<span>%-w</span> <span style="font-size:15px; color:white;">week%!w</span> '
+          + '<span>%-d</span> <span style="font-size:15px; color:white;">day%!d</span> '
+          + '<span>%H</span> <span style="font-size:15px; color:white;">hr</span> '
+          + '<span>%M</span> <span style="font-size:15px; color:white;">min</span> '
+          + '<span>%S</span> <span style="font-size:15px; color:white;">sec</span>'));
+      });
 
+    });
 
-			editOn  = false;
 
-		}
-
-
-		if(window.location.href.indexOf('o=') !=-1){
-
-			if(window.location.href.indexOf('s=') ==-1){
-					$('.editThis').remove();
-			}
-
-
-			theHash = window.location.href.split('o=')[1].split('&')[0]
-			hasPage = true;
-		}
-
-
-
-		$.ajax({
-
-			url:'http://www.proofdashboard.com/cloud/api/beta/getICOInfo.php?hash='+theHash,
-			complete:function(transport){
-				pI= $.parseJSON(transport.responseText)[0];
-
-				$('#fbTitle').attr('content', pI['title']);
-				$('#fbDesc').attr('content', pI['description']);
-				$('#fbUrl').attr('content', window.location.href);
-
-				setTimeout(function(){
-					if(pI['endDate'] !=""){
-					$('#yourCrowdSale').show();
-
-				}
-				else{
-					$('#yourCrowdSale').hide();
-				}
-				}, 3000);
-
-
-				for(i in pI){
-
-					if(editOn==true){
-
-						$("#edit-"+i).val(pI[i]);
-
-						$.ajax({
-							url:'http://www.proofdashboard.com/cloud/api/beta/getICOEmails.php?secret='+theSecret,
-
-							complete:function(transport){
-
-								resi = $.parseJSON(transport.responseText);
-								$('#theEmails').show().html("<br><br><p style='font-size:23px; color:black'><b>E-mail Sign-ups</b></span><br><br><p style='font-size:20px; color:grey'></p>");
-								$('#seeEmailSigns').show();
-
-								if(resi==null){
-									$('#theEmails').html('No one has signed up for your ICO yet');
-								}
-								else{
-									for(t in resi){
-										$('#theEmails p:nth(1)').append(resi[t]['email'] + '<hr>');
-									}
-								}
-
-							}
-						})
-
-					}
-
-
-
-					if(i.indexOf('Link')!=-1){
-						$("#"+i).attr('href', pI[i]);
-						continue;
-					}
-					$("#"+i).html(pI[i]);
-					$("#"+i).attr('src', pI[i]);
-
-				}
-
-
-
-if(pI['video'].indexOf('youtube.c')!=-1){
-						setTimeout(function(){
-							addVideo(pI['video']);
-
-						}, 2000);
-					}
-
-if(pI['video'].indexOf('http')!=-1){
-						setTimeout(function(){
-							addWhitepaper(pI['whitepaper']);
-
-						}, 2000);
-					}
-
-
-if(pI['sideBarDesc'] !='' && theHash !="ico1" && editOn ==false){
-
-	$('.editThis').show().html('Learn More')
-	$('#editPage').html(pI['sideBarDesc']).css({'color':'#000', 'min-height':screen.height+"px"})
-	$('footer').hide();
-}
-
-
-
-
-				$("#getting-started")
-		// Year/Month/Day Hour:Minute:Second
-		.countdown(pI['startDate'], function(event) {
-			$(this).text(
-				event.strftime('%D Days %Hh %Mm %Ss')
-			);
-	});
-
-
-		setTimeout(function(){
-
-			if($('#getting-started').html()=="00 Days 00h 00m 00s"){
-				$('.text-intro:nth(0)').html("The ICO has started!");
-				$('.text-intro:nth(1)').html("");
-
-				$('#whenCloses').text("Participate").attr('href', pI['assetLink']).removeAttr('data-dialog').attr('target', '_blank').on('click', function(){
-
-						setTimeout(function(){
-					 $('.dialog__overlay').click()
-				},500)
-				});
-
-
-			}
-		}, 500)
-
-
-		if(window.location.href.indexOf('o=') !=-1){
-			vegasDone = true;
-			$('body').vegas('destroy');
-				 $('body').vegas({
-           				 slides: [
-		                { src: pI['bg1'] },
-		                { src: pI['bg2'] },
-		                { src: pI['bg3']},
-		            ],
-
-		            // Delay beetween slides in milliseconds.
-		            delay: 5000,
-
-		            // Chose your transition effect (See the documentation provided in your download pack)
-		            transition: 'fade'
-       			 });
-
-		}
-
-		if(pI['linkedInLink']==""){
-			$('#linkedInLink').hide();
-		}
-		if(pI['twitterLink']==""){
-			$('#twitterLink').hide();
-		}
-		if(pI['facebookLink']==""){
-			$('#facebookLink').hide();
-		}
-
-
-
-			}
-		})
-	}
-
-
-
-	function listenEdits(){
-
-
-		$('#edit-sideBarDesc').on('keyup', function(){
-			if($(this).val() !=''){
-				$('.editThis').show().html('Learn More');
-
-			}
-			else{
-				$('.editThis').hide();
-			}
-		});
-
-		$('#edit-startDate').on('change',function(){
-					$("#getting-started")
-		// Year/Month/Day Hour:Minute:Second
-		.countdown($(this).val() + " 00:00:00", function(event) {
-			$(this).text(
-				event.strftime('%D Days %Hh %Mm %Ss')
-			);
-	});
-		})
-
-		$('#editPage input').on('keyup', function(){
-
-
-			theId = '#'+$(this).attr('id').split('-')[1];
-			if(theId == "#startDate"){
-				return;
-			}
-
-			if(theId.indexOf('bg') !=-1){
-
-				$('body').vegas('destroy');
-				 $('body').vegas({
-           				 slides: [
-		                { src: $('#edit-bg1').val() },
-		                { src: $('#edit-bg2').val() },
-		                { src: $('#edit-bg3').val()},
-		            ],
-
-		            // Delay beetween slides in milliseconds.
-		            delay: 5000,
-
-		            // Chose your transition effect (See the documentation provided in your download pack)
-		            transition: 'fade'
-       			 });
-
-				return;
-			}
-
-			if(theId.indexOf('Link')!=-1){
-				$(theId).attr('href', $(this).val())
-				return;
-			}
-
-			$(theId).html($(this).val())
-			$(theId).attr('src', $(this).val())
-
-
-		})
-
-	}
-
-
-
-	loadICO();
-
-
-
-	listenEdits();
-
-
-	seeIfDeposits();
-
-workingTrans = false;
-
-function approvePending(){
-
-	$("#loadingDiv").fadeIn();
-	if(workingTrans==true){
-		return;
-	}
-	workingTrans=true;
-
-	$('#approveEm').html('Working....');
-
-	$.ajax({
-					url:'http://www.proofdashboard.com/cloud/api/beta/sendMoney.php?secret='+theSecret,
-					complete:function(transport){
-						$("#loadingDiv").fadeOut();
-						workingTrans=false;
-						approveResp = $.parseJSON(transport.responseText);
-						$('#approveEm').html('Complete')
-						alert(approveResp['msg']);
-						setTimeout(function(){
-							$('#approveEm').html('Process Again');
-						}, 5000)
-
-					}
-				});
-
-}
-
-		function seeIfDeposits(){
-			$.ajax({
-					url:'http://www.proofdashboard.com/cloud/api/beta/getDeposits.php?hash='+theHash,
-					complete:function(transport){
-						if(theHash =="ico1"){
-							return;
-						}
-						theDepos = $.parseJSON(transport.responseText);
-
-						if(theDepos['status'] =="success"){
-							$('#theWallets').show();
-
-							for(i in theDepos['data'] ){
-								$('#walletList').append(theDepos['data'][i]['address']+"<br>");
-
-							}
-
-						}
-					}
-		});
-		}
-
-
-		function saveThis(){
-
-			if(($('#edit-startDate').val().indexOf('-') ==-1 && $('#edit-startDate').val().indexOf('/') == -1)   || $('#edit-startDate').val().indexOf('mm') != -1 || $('#edit-startDate').val() == "" ){
-				alert("Please select a valid start date from the date drop down");
-				return;
-			}
-
-			if($('#edit-endDate').val() !=""){
-				if(($('#edit-endDate').val().indexOf('-') ==-1 && $('#edit-endDate').val().indexOf('/') == -1)   || $('#edit-endDate').val().indexOf('mm') != -1 || $('#edit-endDate').val() == "" ){
-				alert("Please select a valid end date from the date drop down");
-				return;
-
-
-			}
-
-			if($('#edit-pricePerToken').val() == ""){
-				alert("Please set a sell price for your token during the ICO");
-				return;
-			}
-
-			if($('#edit-bitcoinAddress').val() == "" && $('#edit-ethereumAddress').val() =="" ){
-				alert("Please set either a bitcoin or ethereum deposit address");
-				return;
-			}
-
-
-
-			}
-
-			if($('#edit-endDate').val() !=""){
-
-				$('#yourCrowdSale').show();
-			}
-			else{
-				$('#yourCrowdSale').hide();
-			}
-
-			$('#saveIt').html("Saving...");
-
-
-
-			dataJSON = {};
-
-
-
-			$('#editPage input, #editPage textarea').each(function(){
-				theId = $(this).attr('id').split('-')[1];
-				if($(this).attr('id')=="edit-pricePerToken" || $(this).attr('id')=="edit-cap"){
-					newVal = parseFloat($(this).val().replace(/,|\$|€|₩| /g, "" ));
-					$(this).val(newVal);
-
-				}
-
-
-				dataJSON[theId]=$(this).val().replace(/'/g, '`');
-
-
-			});
-
-
-			if($('#edit-startDate').val() == ""){
-
-					dataJSON['startDate']='2018/08/24 15:30:30';
-
-			}
-
-			if($('#edit-description').val() == ""){
-					dataJSON['description']='This ICO will be awesome!';
-			}
-
-
-
-
-			if(window.location.href.indexOf('s=') !=-1){
-
-
-				pageSecret= window.location.href.split('s=')[1].split('&')[0].replace('#',"");
-
-				dataJSON['superSecret'] = pageSecret;
-
-				//alert('updating??? yeah');
-
-
-				$.ajax({
-					url:'http://www.proofdashboard.com/cloud/api/beta/saveICO.php',
-					data:dataJSON,
-					complete:function(transport){
-
-
-
-
-						res = $.parseJSON(transport.responseText);
-
-						if(res['status'] =="fail"){
-							alert("There was an issue saving your ICO. Please check your changes and try again.");
-
-							$('#saveIt').show().html("Try Again");
-						}
-
-						else{
-
-								$('#saveIt').show().text('Saved!');
-
-								setTimeout(function(){
-
-									$('#saveIt').html('Update');
-								}, 3000);
-							$('#hiddenInfo').show('slow');
-							$('#secretSq').val('http://www.proofsuite.com/i?o='+res['data']['hash']+'&s='+res['data']['secret']);
-							$('#hashSq').val('http://www.proofsuite.com/i/'+res['data']['hash']);
-							$('#crowdInput').val('http://www.proofsuite.com/crowdsale/?o='+res['data']['hash']);
-
-
-
-
-
-
-						embedScript = '<html><body><script src="http://www.proofsuite.com/i/js/jquery.min.js"></sc'+''+'ript><script src="http://www.proofsuite.com/i/js/icoembed.js"></sc'+''+'ript><meta property="og:type" content="'+pI['title'].replace(/"/g, '`').replace(/'/g, '`')+'"><meta property="og:description" content="'+pI['description'].replace(/"/g, '`').replace(/'/g, '`')+'"><meta property="og:image" content="'+pI['bg1'].replace(/"/g, '')+'"></body><script>makePage("'+res['data']['hash']+'"); </sc'+""+'ript></html>';
-
-							$('#embedScript').val(embedScript);
-
-
-						}
-					}
-				})
-
-
-
-			}
-
-			else{
-				$.ajax({
-					url:'http://www.proofdashboard.com/cloud/api/beta/saveICO.php',
-					data:dataJSON,
-					complete:function(transport){
-
-
-						$('#saveIt').hide();
-
-						res = $.parseJSON(transport.responseText);
-
-
-
-
-						if(res['status'] =="fail"){
-							alert("There was an issue saving your ICO. Please check your changes and try again.");
-
-							$('#saveIt').show().html("Try Again");
-						}
-
-						else{
-
-
-
-
-					if($('#edit-endDate').val() !=""){
-					$('#yourCrowdSale').show();
-
-				}
-				else{
-					$('#yourCrowdSale').hide();
-				}
-
-
-
-							$('#hiddenInfo').show('slow');
-							$('#secretSq').val('http://www.proofsuite.com/i?o='+res['data']['hash']+'&s='+res['data']['secret']);
-							$('#hashSq').val('http://www.proofsuite.com/i/'+res['data']['hash']);
-
-								$('#crowdInput').val('http://www.proofsuite.com/crowdsale/?o='+res['data']['hash']);
-
-							embedScript = '<html><body><script src="http://www.proofsuite.com/i/js/jquery.min.js"></sc'+''+'ript><script src="http://www.proofsuite.com/i/js/icoembed.js"></sc'+''+'ript><meta property="og:type" content="'+pI['title'].replace(/"/g, '`').replace(/'/g, '`')+'"><meta property="og:description" content="'+pI['description'].replace(/"/g, '`').replace(/'/g, '`')+'"><meta property="og:image" content="'+pI['bg1'].replace(/"/g, '')+'"></body><script>makePage("'+res['data']['hash']+'"); </sc'+""+'ript></html>';
-
-							$('#embedScript').val(embedScript);
-
-
-
-						}
-					}
-				})
-
-			}
-		}
-
-
-		function showAdvanced(){
-
-			$('.theAdvanced').show();
-
-
-		}
-
-	/*
-	$("#getting-started")
-		// Year/Month/Day Hour:Minute:Second
-		.countdown("2017/08/24 15:30:30", function(event) {
-			$(this).text(
-				event.strftime('%D Days %Hh %Mm %Ss')
-			);
-	});*/
-	</script>
-
-	<!-- Main JS File -->
-	<script src="../token/files/main.js"></script>
-
-
-<div id="loadingDiv" style="width:100%; height:100%; position:fixed; left:0px; z-index:1000000; top:0px; background-color:#fff; opacity:.86; padding-top:20%; font-size:20; color:#5593CA; text-align:center; display:none">
-
-	<b>Processing transactions and attempting to send to your master wallet...<br><br> This may take a while.<br></b>
-	<img src="../token/files/loading.gif" style="width:10%; margin-top:30px;" class="mCS_img_loaded">
-
-
-</div>
-
-
-
-<script>
-
-$(document).ready(function(){
-	moreFeatures();
-})
-
-
-function moreFeatures(){
-
-	$('#open-more-info').on('click', function(){
-		$('#theVideo').hide();
-		$('#theWhitepaper').hide();
-	})
-
-	$('.ion-ios-close-outline').on('click', function(){
-			$('#theVideo').show();
-			$('#theWhitepaper').show();
-
-	})
-
-	$(window).on('resize', function(){
-
-		leftSide = parseInt($('body').css('width'));
-
-	if(leftSide >1024){
-		isBig=true;
-	}
-	else{
-		isBig=false;
-	}
-
-
-	if(isBig){
-			$('#theVideo').show();
-			$('#whereMobileVidGoes').hide();
-			$('#theWhitepaper').show();
-			$('#whitePaperMobile').hide()
-	}
-	else{
-		$('#theVideo').hide('slow');
-		$('#whereMobileVidGoes').show();
-		$('#theWhitepaper').hide()
-		$('#whitePaperMobile').show()
-	}
-
-	})
-	isBig = false;
-	leftSide = parseInt($('body').css('width'));
-
-	if(leftSide >1024){
-		isBig=true;
-	}
-	else{
-		isBig=false;
-	}
-
-
-
-}
-
-function addVideo(theContent){
-
-	if(theContent.indexOf('v=')){
-		theContentCode  = theContent.split('v=')[1].split('?')[0];
-		theContent = 'https://www.youtube.com/embed/'+theContentCode;
-
-	}
-	if(theHash =='ico1'){
-		explainerSec='Your video goes here'
-	}
-	else{
-		explainerSec='Explainer Video'
-	}
-	if(isBig ==true){
-		$('body').append('<div id="theVideo" style="position:absolute; right:0px; width:45%; height:100%; text-align:center; top:0px; padding-top:100px; "><h3 id="videoHeader" style="font-size:25px;">'+explainerSec+'</h3><iframe width="400" height="224" src="'+theContent+'" frameborder="0" allowfullscreen ></iframe></div>');
-
-		$('#whereMobileVidGoes').html('<br><br><center><h3 style="font-size:25px;" id="videoHeader">Your video goes here</h3</center><br><br><iframe width="400" height="224" src="'+theContent+'" frameborder="0" allowfullscreen ></iframe></div>').hide();
-
-	}
-	else{
-		$('#whereMobileVidGoes').html('<br><br><center><h3 style="font-size:25px;" id="videoHeader">Your video goes here</h3</center><br><br><iframe width="400" height="224" src="'+theContent+'" frameborder="0" allowfullscreen ></iframe></div>');
-
-		$('body').append('<div id="theVideo" style="position:absolute; display:none; right:0px; width:45%; height:100%; text-align:center; top:0px; padding-top:0px; "><h3 id="videoHeader" style="font-size:25px;">Your video goes here</h3><iframe width="400" height="224" src="'+theContent+'" frameborder="0" allowfullscreen ></iframe></div>');
-
-	}
-}
-
-function addWhitepaper(theContent){
-	if(isBig){
-
-		$('body').append('<div id="theWhitepaper" style="position:absolute; right:0px; width:45%; height:auto; text-align:center; top:400px; z-index:2; padding-top:0px; "><center><a id="whenCloses11" class="action-btn" style="float:none !important; width:300px" href="'+theContent+'" data-lity>Your Whitepaper</a></center></div>');
-
-		$('#whereMobileVidGoes').append('<br><center><a id="whitePaperMobile" class="action-btn" style="float:none !important; display:none; width:300px" href="'+theContent+'" data-lity>Your Whitepaper</a></center>');
-
-	}
-	else{
-
-		$('body').append('<div id="theWhitepaper" style="position:absolute; right:0px; width:45%; height:auto; text-align:center; top:400px; z-index:2; padding-top:0px; display:none "><center><a id="whenCloses11" class="action-btn" style="float:none !important; width:300px" href="'+theContent+'" data-lity>Your Whitepaper</a></center></div>');
-
-
-		$('#whereMobileVidGoes').append('<br><center><a id="whitePaperMobile" class="action-btn" style="float:none !important; width:300px" href="'+theContent+'" data-lity>Your Whitepaper</a></center>');
-	}
-
-}
-
-function addLongForm(theContent){
-
-}
-
-</script>
+  </script>
 
 		<link href="../token/files/lity.css" rel="stylesheet">
 
@@ -863,5 +259,5 @@ function addLongForm(theContent){
 	<!--[if lt IE 10]><script type="text/javascript" src="js/placeholder.js"></script><![endif]-->
 
 
-
-</div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; display: block; height: 173px; max-height: 582px; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></body></html>
+</body>
+</html>
