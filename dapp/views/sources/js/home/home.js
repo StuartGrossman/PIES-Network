@@ -164,7 +164,8 @@ function writeUserData(userId, name, email, imageUrl) {
 
 function logout(){
   firebase.auth().signOut().then(function() {
-    document.getElementById('login').style.display = 'block';
+    console.log("logout occured")
+    // document.getElementById('login').style.display = 'block';
     document.getElementById('dashboard').style.display = 'none';
     document.getElementById('logout').style.display = 'none';
     console.log('you are logged out!')
