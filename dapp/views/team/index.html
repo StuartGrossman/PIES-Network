@@ -2,24 +2,46 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Foundry Multi-purpose HTML Template</title>
+        <title>Team</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="../sources/foundry/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="../sources/foundry/css/themify-icons.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="../sources/foundry/css/flexslider.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="../sources/foundry/css/lightbox.min.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="../sources/foundry/css/ytplayer.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="../sources/foundry/css/theme.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="../sources/foundry/css/custom.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="../sources/css/animate.css" rel="stylesheet" type="text/css" media="all" />
-
+        <link href="./sources/foundry/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="./sources/foundry/css/themify-icons.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="./sources/foundry/css/flexslider.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="./sources/foundry/css/lightbox.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="./sources/foundry/css/ytplayer.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="./sources/foundry/css/theme.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="./sources/foundry/css/custom.css" rel="stylesheet" type="text/css" media="all" />
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
+
+        <link rel="shortcut icon" type="image/png" href="../sources/images/logo/favicon.ico"/>
+        <link rel="apple-touch-icon" sizes="57x57" href="../sources/images/logo/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="../sources/images/logo/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="../sources/images/logo/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="../sources/images/logo/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="../sources/images/logo/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="../sources/images/logo/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="../sources/images/logo/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="../sources/images/logo/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="../sources/images/logo/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="../sources/images/logo/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../sources/images/logo/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="../sources/images/logo/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../sources/images/logo/favicon-16x16.png">
+        <link rel="manifest" href="../sources/images/logo/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="../sources/images/logo/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
     </head>
     <body class="scroll-assist">
         <div class="nav-container">
             <a id="top"></a>
             <nav>
                 <div class="nav-utility">
+                   <div class="module left">
+                     <span><img src="../sources/images/logo/favicon-32x32.png" /></span>
+                      <!-- <i class="ti-location-arrow">&nbsp;</i> -->
+                      <!-- <span class="sub">San Francisco, CA</span> -->
+                   </div>
                     <div class="module left">
                         <i class="ti-location-arrow">&nbsp;</i>
                         <span class="sub">San Francisco, CA</span>
@@ -29,11 +51,15 @@
                         <span class="sub">pies.network@gmail.com</span>
                     </div>
                     <div class="module right">
+                        <!-- <a class="btn btn-sm hidden-xs hidden-sm hidden-md" href="variant/builder.html">Test Network</a> -->
+                        <a onclick="dashboard()" class="btn btn-sm btn-filled" href="#">PIES network (beta)</a>
+                    </div>
+                    <!-- <div class="module right">
                         <a class="btn btn-sm hidden-xs hidden-sm hidden-md" href="variant/builder.html">Try Builder</a>
                         <a class="btn btn-sm btn-filled" href="#">Buy Now</a>
-                    </div>
+                    </div> -->
                 </div>
-                <div class="nav-bar">
+                <!-- <div class="nav-bar">
                     <div class="module left">
                         <a href="index.html">
                             <img class="logo logo-light" alt="Foundry" src="../sources/foundry/img/logo-light.png" />
@@ -583,7 +609,7 @@
                             </ul>
                         </div>
                         <!--end of menu module-->
-                        <div class="module widget-handle search-widget-handle left">
+                        <!-- <div class="module widget-handle search-widget-handle left">
                             <div class="search">
                                 <i class="ti-search"></i>
                                 <span class="title">Search Site</span>
@@ -632,9 +658,9 @@
                                             <span class="number">$289.40</span>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!--end of widget-->
-                            </div>
+                            <!-- </div>
                         </div>
                         <div class="module widget-handle language left">
                             <ul class="menu">
@@ -651,15 +677,15 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                     <!--end of module group-->
-                </div>
+                <!-- </div> -->
             </nav>
         </div>
         <div class="main-container">
             <section class="page-title page-title-1 image-bg overlay parallax">
                 <div class="background-image-holder">
-                    <img alt="Background Image" class="background-image" src="../sources/foundry/img/cover11.jpg" />
+                    <img alt="Background Image" class="background-image" src="../sources/foundry/img/sf1.jpg" />
                 </div>
                 <div class="container">
                     <div class="row">
@@ -670,7 +696,7 @@
                     <!--end of row-->
                 </div>
                 <!--end of container-->
-                <ol class="breadcrumb breadcrumb-2">
+                <!-- <ol class="breadcrumb breadcrumb-2">
                     <li>
                         <a href="#">Home</a>
                     </li>
@@ -678,27 +704,27 @@
                         <a href="#">Pages</a>
                     </li>
                     <li class="active">About Us</li>
-                </ol>
+                </ol> -->
             </section>
             <section>
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4">
-                            <h2 class="number">2008</h2>
+                            <h2 class="number">2017</h2>
                             <p>
-                                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
+                                The idea for the PIES Network was proposed at the start of the year and we've been hard at work since.
                             </p>
                         </div>
                         <div class="col-sm-4">
-                            <h2 class="number">150+</h2>
+                            <h2 class="number">2+</h2>
                             <p>
-                                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
+                                Sweet and small - with plans to scale appropriately to match community interest.
                             </p>
                         </div>
                         <div class="col-sm-4">
-                            <h2>Millions</h2>
+                            <h2>Believe</h2>
                             <p>
-                                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
+                                We do.
                             </p>
                         </div>
                     </div>
@@ -716,29 +742,28 @@
                             </h5>
                         </div>
                         <div class="col-md-3 col-sm-6 mb64 mb-xs-24">
-                            <p class="mb0">Strive for the perfect balance
-                                <br /> between form and function.</p>
+                            <p class="mb0">Reclaim the value of digital advertising.</p>
                         </div>
                         <div class="col-md-3 col-sm-6 mb64 mb-xs-24">
-                            <p class="mb0">Communicate with clarity, be complex
-                                <br /> but never complicated.</p>
+                            <p class="mb0">Build symbiotic connections between businesses and people.
+                                <!-- <br /> but never complicated.</p> -->
                         </div>
                         <div class="col-md-3 col-sm-6 mb64 mb-xs-24">
-                            <p class="mb0">Constructive collegiality is key
-                                <br /> to the stimulation of ideas.</p>
+                            <p class="mb0">Stimulate constructive thought and turn creative ideas into reality.
+                                <!-- <br /> to the stimulation of ideas.</p> -->
                         </div>
-                        <div class="col-md-3 col-sm-6 col-md-offset-3 mb-xs-24">
-                            <p class="mb0">Question standard norms before
+                        <!-- <div class="col-md-3 col-sm-6 col-md-offset-3 mb-xs-24">
+                            <p class="mb0">Reach relevent individuals in the community.
                                 <br /> choosing to obey them.</p>
-                        </div>
-                        <div class="col-md-3 col-sm-6 mb-xs-24">
-                            <p class="mb0">Embrace the difficult decision
+                        </div> -->
+                        <!-- <div class="col-md-3 col-sm-6 mb-xs-24">
+                            <p class="mb0">
                                 <br /> that drive creativity forward.</p>
                         </div>
                         <div class="col-md-3 col-sm-6">
-                            <p class="mb0">Trust in collaboration
+                            <p class="mb0">
                                 <br /> the hallmark of our work.</p>
-                        </div>
+                        </div> -->
                     </div>
                     <!--end of row-->
                 </div>
@@ -755,11 +780,11 @@
                         </div>
                         <div class="col-md-9 col-sm-12 mb40 mb-xs-24 p0">
                             <div class="col-sm-7 mb64 mb-xs-24">
-                                <img alt="Pic" src="../sources/foundry/img/team-1.jpg" />
+                                <img alt="Pic" src="../sources/images/stuart-mug.png" />
                             </div>
                             <div class="col-sm-5 mb64 mb-xs-24">
-                                <h5 class="uppercase mb0">Sally Marsh</h5>
-                                <span class="inline-block mb40 mb-xs-24">Creative Director</span>
+                                <h5 class="uppercase mb0">Stuart Grossman</h5>
+                                <span class="inline-block mb40 mb-xs-24">Title</span>
                                 <p>
                                     Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est.
                                 </p>
@@ -767,11 +792,11 @@
                         </div>
                         <div class="col-md-9 col-md-push-3 col-sm-12 mb40 mb-xs-24 p0">
                             <div class="col-sm-7 mb64 mb-xs-24">
-                                <img alt="Pic" src="../sources/foundry/img/team-2.jpg" />
+                                <img alt="Pic" src="../sources/images/eg.png" />
                             </div>
                             <div class="col-sm-5 mb64 mb-xs-24">
-                                <h5 class="uppercase mb0">Tim Foley</h5>
-                                <span class="inline-block mb40 mb-xs-24">Brand Director</span>
+                                <h5 class="uppercase mb0">Eugene Grossman</h5>
+                                <span class="inline-block mb40 mb-xs-24">Title</span>
                                 <p>
                                     Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est.
                                 </p>
@@ -800,7 +825,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <h5 class="uppercase">
-                                <strong>Life At Foundry</strong>
+                                <strong>Advisors</strong>
                             </h5>
                         </div>
                         <div class="col-md-9">
@@ -903,18 +928,18 @@
                 <a class="btn btn-sm fade-half back-to-top inner-link" href="#top">Top</a>
             </footer>
         </div>
-        <script src="../sources/foundry/js/jquery.min.js"></script>
-        <script src="../sources/foundry/js/bootstrap.min.js"></script>
-        <script src="../sources/foundry/js/flickr.js"></script>
-        <script src="../sources/foundry/js/flexslider.min.js"></script>
-        <script src="../sources/foundry/js/lightbox.min.js"></script>
-        <script src="../sources/foundry/js/masonry.min.js"></script>
-        <script src="../sources/foundry/js/twitterfetcher.min.js"></script>
-        <script src="../sources/foundry/js/spectragram.min.js"></script>
-        <script src="../sources/foundry/js/ytplayer.min.js"></script>
-        <script src="../sources/foundry/js/countdown.min.js"></script>
-        <script src="../sources/foundry/js/smooth-scroll.min.js"></script>
-        <script src="../sources/foundry/js/parallax.js"></script>
-        <script src="../sources/foundry/js/scripts.js"></script>
+        <script src="./sources/foundry/js/jquery.min.js"></script>
+        <script src="./sources/foundry/js/bootstrap.min.js"></script>
+        <script src="./sources/foundry/js/flickr.js"></script>
+        <script src="./sources/foundry/js/flexslider.min.js"></script>
+        <script src="./sources/foundry/js/lightbox.min.js"></script>
+        <script src="./sources/foundry/js/masonry.min.js"></script>
+        <script src="./sources/foundry/js/twitterfetcher.min.js"></script>
+        <script src="./sources/foundry/js/spectragram.min.js"></script>
+        <script src="./sources/foundry/js/ytplayer.min.js"></script>
+        <script src="./sources/foundry/js/countdown.min.js"></script>
+        <script src="./sources/foundry/js/smooth-scroll.min.js"></script>
+        <script src="./sources/foundry/js/parallax.js"></script>
+        <script src="./sources/foundry/js/scripts.js"></script>
     </body>
 </html>
