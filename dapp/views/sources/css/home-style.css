@@ -87,7 +87,7 @@
     text-align: center;
     font-size: 25px;
     font-weight: 300;
-    color: #ee53f8;
+    color: #6400FF;
     position: relative;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -97,7 +97,7 @@
     content: "";
     width: 58px;
     height: 2px;
-    background-color: #ee53f8;
+    background-color: #6400FF;
     left: 50%;
     margin-left: -29px;
     bottom: -8px;
@@ -1574,9 +1574,9 @@ svg.logo text{
     transform: scale(1);
 }
 #more-features .mfeature-box .mfeature-icon .htfy{
-    color: #8ce73c;
+    color: #5d9cec;
     font-size: 50px;
-    text-shadow: 0 5px 16px rgba(140, 231, 60, 0.68);
+    text-shadow: 0 5px 16px #5d9cec;
 }
 #more-features .mfeature-box .mfeature-icon .fa{
     color: #8ce73c;
