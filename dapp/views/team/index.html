@@ -39,10 +39,13 @@
             <a id="top"></a>
             <nav>
                 <div class="nav-utility">
+
                    <div class="module left">
-                     <span><img src="../sources/images/logo/favicon-32x32.png" /></span>
-                      <!-- <i class="ti-location-arrow">&nbsp;</i> -->
-                      <!-- <span class="sub">San Francisco, CA</span> -->
+                     <a href="/">
+                       <i class="ti-home">&nbsp;</i>
+                       <span class="sub">PIES</span>
+                     </a>
+
                    </div>
                     <div class="module left">
                         <i class="ti-location-arrow">&nbsp;</i>
@@ -53,9 +56,9 @@
                         <span class="sub">pies.network@gmail.com</span>
                     </div>
                     <div class="module right">
-                        <!-- <a class="btn btn-sm hidden-xs hidden-sm hidden-md" href="variant/builder.html">Test Network</a> -->
-                        <a onclick="login()" style="display:none;" class="btn btn-sm btn-filled" href="#" id="login">PIES network (beta)</a>
-                        <a onclick="dashboard()" style="display:none;" class="btn btn-sm btn-filled" href="#" id="dashboard">Dashboard</a>
+                        <!-- <a class="btn btn-sm hidden-xs hidden-sm hidden-md btn-filled" href="variant/builder.html">Test Network</a> -->
+                        <a class="btn btn-sm btn-filled" onclick="login()" style="display:none;" href="#" id="login">PIES network (beta)</a>
+                        <a class="btn btn-sm btn-filled" onclick="dashboard()" style="display:none;"href="#" id="dashboard">Dashboard</a>
 
                     </div>
                     <!-- <div class="module right">
@@ -287,8 +290,8 @@
                 var user = result.user;
                 // console.log("inside login Function", user.email)
                 setTimeout(function(){
-                  console.log(userObj)
-                  // checkUserInfo();
+                  // console.log(userObj)
+                  dashboard();
 
                 }, 1000)
 
