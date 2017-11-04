@@ -8,9 +8,13 @@
   <link rel="stylesheet" type="text/css" href="./sources/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="./sources/css/slick.css">
   <link rel="stylesheet" type="text/css" href="./sources/css/home-style.css">
-  <link rel="icon" href="./sources/images/pieslogo.png">
+  <link rel="stylesheet" type="text/css" href="./sources/css/bootstrap-social.css">
+  <link rel="stylesheet" type="text/css" href="./sources/css/animate.css">
+
+
+  <link rel="icon" href="./sources/images/darklogo.png">
   <meta name="google-site-verification" content="H3vsDSHhe1n0avNVL9K5Spu9zWjAg29GhXwnDhFpHfc" />
-  <title>PIES</title>
+  <title>PIES Network</title>
   <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
 
 </head>
@@ -24,14 +28,20 @@
                   <div class="row">
                       <div class="col-md-12">
                           <div class="navbar-header">
+                            <div>
+                              <!-- <a class="logo-holder" href="/" style="width:38%;">
+                                    <img src="./sources/images/logo4.png" class="img-responsive" />
+                              </a> -->
+                              <a class="logo-holder" href="index.html">
+                                <div class="logo" style="width:62px;height:18px"></div>
+                              </a>
+                            </div>
                               <button aria-expanded="false" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs">
                                   <span class="icon-bar"></span>
                                   <span class="icon-bar"></span>
                                   <span class="icon-bar"></span>
                               </button>
-                              <!-- <a class="logo-holder" href="index.html">
-                                  <div class="logo" style="width:62px;height:18px"></div>
-                              </a> -->
+
                           </div>
                           <div style="height: 1px;" role="main" aria-expanded="false" class="navbar-collapse collapse" id="bs">
                               <ul class="nav navbar-nav navbar-right">
@@ -47,12 +57,30 @@
                                   <!-- <li><a href="about.html">Company FAQ</a></li> -->
 
 
-                                  <li><a target="_blank" href="https://docs.google.com/forms/d/1pZVSZ-_-jWOt7pMx6ssU0zuCPziehE0w8kwZVzCghZY/prefill">Token Sale</a></li>
                                   <!-- <li><a target="_blank" href="./sources/documents/whitepaper.pdf" href="/whitePaper">White Paper</a></li> -->
-                                  <li><a href="contact.html">Team</a></li>
-                                  <li><a onclick="login()" class="login-button" id="login">Login</a></li>
-                                  <li><a onclick="dashboard()" class="login-button" id="dashboard" style="display: none;">Dashboard</a></li>
+                                  <li><a href="/team">Team</a></li>
+                                  <li><a href="#email">Contact</a></li>
+                                  <li><a target="_blank" href="/token">(PCS) Token Sale</a></li>
+
+                                  <!-- <li> -->
+                                    <!-- <a onclick="login()" class="btn-google" id="login">Login</a> -->
+                                    <!-- <a class="btn btn-social-icon btn-google">
+                                      <span class="fa fa-google"></span>
+                                    </a>
+                                  </li> -->
+
+                                  <!-- <li><a class="support-button" id="dashboard" style="display: none;">Dashboard</a></li> -->
+                                  <li class="support-button-holder support-dropdown animated bounceIn">
+                                      <a class="support-button" onclick="dashboard()" style="display: none;" id="dashboard">Dashboard</a>
+                                      <!-- <ul class="dropdown-menu">
+                                        <li><a href="#"><i class="fa fa-phone"></i>Toll-Free  08-197-435-01</a></li>
+                                        <li><a href="#"><i class="fa fa-comments"></i>Start a Live Chat</a></li>
+                                        <li><a href="#"><i class="fa fa-ticket"></i>Open a ticket</a></li>
+                                        <li><a href="#"><i class="fa fa-book"></i>Knowledge base</a></li>
+                                      </ul> -->
+                                  </li>
                                   <li><a onclick="logout()" class="login-button" id="logout" style="display: none;">Logout</a></li>
+
 
 
                                   <!-- <li class="support-button-holder support-dropdown">  -->
@@ -71,18 +99,41 @@
               </div>
           </div>
       </nav>
-      <div id="top-content" class="container-fluid">
+      <div id="top-content" class="container-fluid" style="padding-top: 150px;">
           <div class="container">
               <div class="row">
                   <div class="col-md-12">
-                      <div class="big-title">
-                        PIES Network
-                        <br>
-                      </div>
-                      <div class="domain-search-holder">
-                        <span style="font-size: 18px; color: white;">Get paid for your data and time now!</span>
 
-                        <span style="font-size: 18px; color: white;">Precise Information Exchange Systems Network</span>
+                      <div class="big-title" style="margin-bottom: 15px;">
+                        PIES
+                        <span style="font-size: 28px; color: #ffffff; font-weight: 700; line-height: 62px; margin-bottom: 40px;">NETWORK</span>
+
+                      </div>
+
+                      <div>
+                        <span style="font-size: 18px; color: #ededed;">A decentralized blockchain based information exchange service</span>
+                        <br />
+                        <i style="font-size: 12px; color: #ededed;">Fair money. Low fees. Curated information.</i>
+
+                        <br /><br />
+                      </div>
+
+                      <div class="domain-search-holder" style="margin-top: 30px;">
+
+                        <span style="font-size: 18px; color: #ededed; margin-bottom: 15px;">Get your piece of the PIES network today</span><br />
+
+                        <!-- <br /> -->
+                        <a onclick="login()" class="ybtn ybtn-large ybtn-white ybtn-shadow animated bounceIn">
+                          <i class="fa fa-google-plus fa-lg" style="margin-right: 5px;"></i>
+
+                           Join Now!
+                        </a>
+                        <span style="color:white; font-size: 15px;">or</span>
+                        <a href="/info" class="ybtn ybtn-lg ybtn-white ybtn-shadow animated bounceIn">Learn More</a>
+
+                        <br />
+                        <!-- <span style="font-size: 15px; color: black;">Complete your account today & recieve 5$ of PECIES</span> -->
+
                       </div>
                   </div>
                   <div class="col-md-12">
@@ -99,31 +150,40 @@
           </div>
       </div>
   </div>
-  <div id="info" class="container-fluid">
+  <!-- <div id="info" class="container-fluid">
       <div class="container">
           <div class="row">
               <div class="col-md-12">
                   <div class="info-text">
-                    <p class="animation fadeIn" style="font-size: 16px;">
-                      PIES Network, a blockchain based attention compensation environment focused on the secure, honest, and direct transfer of information.
+                    <p class="animation fadeIn" style="font-size: 18px;">
+
+
+
                     </p>
                     <p class="animation fadeIn">
-                      In an age where only the large corporations benefit from your personal data, people should have the option of being directly and fully compensated for the attention they give to information - most importantly personally curated advertisement relevant to personal interest. Advertisements shouldn’t be an annoying burden on society requiring extensions to block out, but a meaningful symbiotic relationship focused on minimizing waste and improving efficiency. PIES proposes to be a clean platform where consumers simply get paid for the attention they give to relevant interests.
+
                     </p>
                   </div>
 
-                  <a href="#" class="ybtn ybtn-purple ybtn-shadow">Join the blockchain revolution!</a>
               </div>
           </div>
       </div>
-  </div>
+  </div> -->
   <div id="services" class="container-fluid">
       <div class="container">
           <div class="row">
               <div class="col-md-12">
                   <div class="row-title">
-                    What is PIES?
+                    What is PIES
                   </div>
+                  <!-- <hr /> -->
+                  <center>
+                    <span style="color:gray; ">
+                      <b>
+                      The Precise Information Exchange Service Network</b>
+                    </span>
+                  </center>
+
               </div>
           </div>
           <div class="row">
@@ -132,10 +192,11 @@
                       <div class="service-icon">
                           <img src="./sources/images/service-icon1.png" alt="">
                       </div>
-                      <div class="service-title"><a href="#">Precise</a></div>
+                      <div class="service-title"><a >Precise</a></div>
                       <div class="service-details">
-                          <p>Using your data we will connect you with the best content for you specifically. Precision is guaranteed connecting content creators to their potential targets.</p>
+                          <p>Our matching algorithm rewards closer matches between publishers and viewers.</p>
                       </div>
+
                   </div>
               </div>
               <div class="col-sm-12 col-md-6">
@@ -143,9 +204,9 @@
                       <div class="service-icon">
                           <img src="./sources/images/service-icon2.png" alt="">
                       </div>
-                      <div class="service-title"><a href="#">Information</a></div>
+                      <div class="service-title"><a >Information</a></div>
                       <div class="service-details">
-                          <p>Data is the most valuable resource in the world. PIES network wants your data and in exchange wants to pay you what you deserve for it. We are using the best security practices in software to protect and store and secure our users data.
+                          <p>We secure your personal information, and you benefit from it.
                           </p>
                       </div>
                   </div>
@@ -157,9 +218,9 @@
                       <div class="service-icon">
                           <img src="./sources/images/service-icon3.png" alt="">
                       </div>
-                      <div class="service-title"><a href="#">Exchange</a></div>
+                      <div class="service-title"><a >Exchange</a></div>
                       <div class="service-details">
-                          <p>We see money as information, and we want to distribute and decentrialize the practices of exchanging it. Our ERC20 Ethereum token PIES will serve as the internal currency for our network.</p>
+                          <p>When information is exchanged users are paid in our ERC20 Token Pieces (PCS).</p>
                       </div>
                   </div>
               </div>
@@ -168,9 +229,9 @@
                       <div class="service-icon">
                           <img src="./sources/images/service-icon4.png" alt="">
                       </div>
-                      <div class="service-title"><a href="#">Systems</a></div>
+                      <div class="service-title"><a>Service</a></div>
                       <div class="service-details">
-                          <p>We want our users to have a clean, friendly and unobtrusive experience from start to finish. We have built the most up to date web application implementing the best technologies to provide users with the experience they deserve!</p>
+                          <p>PIES provides an accurate low fee exchange for information between users and publishers.</p>
                       </div>
                   </div>
               </div>
@@ -185,11 +246,12 @@
           <div class="row">
               <div class="col-sm-12 col-md-6">
                   <div class="text-purple-light">Are you ready?</div>
-                  <div class="text-purple-dark">Read our white paper, or contact us.</div>
+                  <div class="text-purple-dark">Sign up today and get free PIECES (PCS)</div>
               </div>
               <div class="col-sm-12 col-md-6">
                   <div class="buttons-holder">
-                      <a target="_blank" href="./sources/documents/whitepaper.pdf" class="ybtn ybtn-purple">White Paper</a><a href="#footer" class="ybtn ybtn-white ybtn-shadow">Contact Us</a>
+                      <a onclick="login()" class="ybtn ybtn-purple"> <i class="fa fa-google-plus fa-lg" style="margin-right: 5px;"></i> Sign Up</a>
+                      <a href="#footer" class="ybtn ybtn-white ybtn-shadow" href="/info">More Info</a>
                   </div>
               </div>
           </div>
@@ -200,7 +262,7 @@
       <div class="container">
           <div class="row">
               <div class="col-md-12">
-                  <div class="row-title">Advantages of PIES Network</div>
+                  <div class="row-title">Key Features</div>
               </div>
           </div>
           <div class="row">
@@ -211,19 +273,20 @@
                               <div class="special-gradiant"></div>
                               <i class="htfy htfy-technology"></i>
                           </div>
-                          <div class="pricing-title">Viewer</div>
+                          <div class="pricing-title">Viewers</div>
                           <!-- <div class="pricing-price">free</div> -->
                           <div class="pricing-details">
                               <ul>
-                                  <li>3 - 5 minute onboarding process</li>
-                                  <li>Precise directed content towards your interests</li>
-                                  <li>Get paid instantly for your views</li>
-                                  <li>Top level data security</li>
+                                  <li>3 - 5 minute tutorial</li>
+                                  <li>Internal Wallet</li>
+                                  <li>Top level data privacy & security</li>
+                                  <li>Precisely curated content matching your interests</li>
+                                  <li>Instant payment for your views & attention</li>
+                                  <li>Additional monetary incentives for constructive feedback</li>
+
                                   <!-- <li>Instant alerts</li> -->
-                                  <li>
-                                    Respects your time with fair value
-                                  </li>
-                                  <li>Opinions will matter to content publishers</li>
+                                  <!-- <li>Respect through fairness - 98.5% of publisher rate goes to viewer</li> -->
+                                  <!-- <li>Opinions will matter to content publishers</li> -->
                                   <!-- <li>Support 24/7</li> -->
                                   <!-- <li class="not-included">Single Sign on</li>
                                   <li class="not-included">Unlimited Email accounts</li>
@@ -232,7 +295,7 @@
                               </ul>
                           </div>
                           <!-- <div class="pricing-link">
-                              <a class="ybtn" href="#">Create New Account</a>
+                              <a class="ybtn" >Create New Account</a>
                           </div> -->
                       </div>
                   </div>
@@ -244,28 +307,18 @@
                               <div class="special-gradiant"></div>
                               <i class="htfy htfy-cloud"></i>
                           </div>
-                          <div class="pricing-title">Content Publisher</div>
+                          <div class="pricing-title">Content Publishers</div>
                           <div class="pricing-price"></div>
                           <div class="pricing-details">
                               <ul>
-                                  <!-- <li>Unlimited Storage</li> -->
-                                  <!-- <li>Up to 10 Ads</li> -->
-                                  <li>
-                                    Fast, simple, and easy to get started
-                                  </li>
-                                  <li>Precise content delivery</li>
 
-                                  <li>The most curated & valuable userbase</li>
-                                  <li>Realtime data metrics</li>
-                                  <li>Custom feedback systems</li>
-                                  <li>Valuable user feedback</li>
+                                  <li>Quick & simple start</li>
+                                  <li>Real & valuable user base</li>
+                                  <li>In-depth & multi-faceted content matching</li>
+                                  <li>Real-time  data metrics for more advanced </li>
+                                  <li>Incentivized feedback system</li>
                                   <li>100% instant refunds</li>
-                                  <!-- <li>Support 24/7</li> -->
 
-                                  <!-- <li>Single Sign on</li> -->
-                                  <!-- <li>Unlimited Email accounts</li> -->
-                                  <!-- <li class="not-included">Support 24/7</li>
-                                  <li class="not-included">Linux server</li> -->
                               </ul>
                           </div>
                           <!-- <div class="pricing-link">
@@ -327,7 +380,7 @@
       <div class="container">
           <div class="row">
               <div class="col-xs-12">
-                  <div class="row-title">What is the plan?</div>
+                  <div class="row-title">The Plan</div>
               </div>
           </div>
           <div class="row rtl-cols">
@@ -354,12 +407,12 @@
                       <div class="feature-icon-holder feature-icon-holder4" data-id="4">
                           <div class="animation-holder"><div class="special-gradiant"></div></div>
                           <div class="feature-icon"><i class="htfy htfy-download"></i></div>
-                          <div class="feature-title">Gather the advertisers</div>
+                          <div class="feature-title">Gather the publishers</div>
                       </div>
                       <div class="feature-icon-holder feature-icon-holder5" data-id="5">
                           <div class="animation-holder"><div class="special-gradiant"></div></div>
                           <div class="feature-icon"><i class="htfy htfy-cogwheel"></i></div>
-                          <div class="feature-title">Hire the team</div>
+                          <div class="feature-title">Grow the team</div>
                       </div>
                   </div>
               </div>
@@ -370,15 +423,15 @@
                               <span class="feature-icon"><i class="htfy htfy-worldwide"></i></span>
                               <span class="feature-title">Our Technology</span>
                           </div>
-                          <span>Q3 2017</span>
-                          <br /><br />
+                          <!-- <span>Q3 2017</span> -->
                           <div class="feature-details">
-                              <p>At PIES the developement philosophy is to build quick, build secure, go live. This applications development started in late June of 2017 and is nearing completion. At PIES, we believe simplicty is key along with artistic touch and clean responsive design.</p>
-
-                              <p>PIES stack consists of JavaScript, Ethereum, HTML/CSS, Node, IPFS, Google Cloud and now TenserFlow integration. </p>
                               <p>
-                                PIES beta will launch in late October of 2017, less than a month away, long before any other AdTech ICO will have a viable product.
+                                                                PIES Network uses the most effective, relevant, and tested web technologies avilable to facilitate the highest level of quality and data security possible.
                               </p>
+                              <!-- <p>At PIES we are using the latest web technologies & techniques to speed up development time and provide high security. </p> -->
+
+                              <p>PIES web stack consists of JavaScript, Ethereum, HTML/CSS/LESS, Node, IPFS, Google Cloud, TenserFlow, and more. </p>
+
 
                           </div>
                       </div>
@@ -388,15 +441,15 @@
                               <span class="feature-title">Launch PIES Network</span>
                           </div>
                           <span>Q3 2017</span>
-                          <br /><br />
 
                           <div class="feature-details">
-
-                              <p>Once the inital beta is finished the ERC20 token sale will begin. This will be a small token sale only selling around 30% of the network to investors.</p>
+                            <p>
+                              PIES beta will launch in late October of 2017, less than a month away, long before any other AdTech ICO will have a viable product.
+                            </p>
+                              <p>Once the initial beta is finished the ERC20 token sale will begin.</p>
                               <p>
-                                After completion of ERC20 token sale the token will be moved on to seval exchanges where it will be publicaly traded. The site will immeditily open up to users to sign up, each user will be evaluated and placed into the network accordingly.
+
                               </p>
-                              <!-- <p>We will identify our users base interests along with specific interests groups/ demographics this data will allow us to go after specific ecommerce and adveritsers merchants to intise them into our network of publishers</p> -->
 
                           </div>
                       </div>
@@ -406,15 +459,13 @@
                               <span class="feature-title">Gathering the user base</span>
                           </div>
                           <span>Q4 2017</span>
-                          <br /><br />
-
                           <div class="feature-details">
-                              <!-- <p>The success of PIES network will rely upon the creation of a valuable, intelligent and healthy group of users. </p>
-                              <p>Value is not just measured in purchasing power, our criteria is going to look at many diverse factors to determine if a candidate is right to join the inital network.</p>
-
-                              <p>PIES network wants to build a strong reputation among its future clientele and content publishers. By having an incredibly strong group of users, PIES network aims to become as profitable as possible for its clients and users.</p> -->
                               <p>
-                                Users that join will be highly incentivize to grow the network through their peers and social media. Each time a new user is referred into the network and is accepted, the user who made the reference will receive 10$ worth of our PIES tokens.
+                                Users that join will be highly incentivized to grow the network through their peers and social media.
+                              </p>
+                              <p>
+
+                              Each time a new user is referred into the network, the user who made the reference will receive 10$ of PCS.
                               </p>
 
                           </div>
@@ -425,14 +476,12 @@
                               <span class="feature-title">Gathering the publishers</span>
                           </div>
                           <span>Q4 2017</span>
-                          <br /><br />
 
                           <div class="feature-details">
-                              <p>Once we have a strong inital userbase and a healthy ERC20 token we will start to aquire content publishers based on inital interal data and metrics of users.</p>
+                              <p>Based on initial internal data metrics of users, along with machine learning techniques PIES will target content publishers systematically</p>
                               <p>
-                                Using Tenser flow machine learning data visualizing techniques, PIES network will have an extremely accurate understanding of its user base and will be able to target specific content publisher with high efficiency.
                               </p>
-                              <p>PIES network will offer incentives to new content publishers to allow them to see the power of the network.</p>
+                              will offer incentives to new content publishers to allow them to see the power of the network.</p>
                           </div>
                       </div>
                       <div class="feature-box feature-d5">
@@ -441,20 +490,21 @@
                               <span class="feature-title">Hire the team</span>
                           </div>
                           <span>Q1 2018</span>
-                          <br /><br />
 
                           <div class="feature-details">
-                              <p>PIES network will need to hire support staff and developers to maintain the network.</p>
+                              <p>PIES network will need to hire support staff and marketing to grow the network efficiently.</p>
 
-                              <p>At this point we will go back into full development mode in an effort to refine and build new features and polish old ones. We want to build the most flexable data retrieval system on digital content ever designed, centered around the strongest user base in the world. Help us Join Today</p>
+                              <p>This is what much of the Token Sale proceeds will be used for.</p>
                           </div>
                       </div>
-
+                      <br /><br />
+                      <br /><br />
                   </div>
               </div>
           </div>
       </div>
   </div>
+
   <!-- <div id="testimonials" class="container-fluid">
       <div class="bg-color"></div>
       <div class="container">
@@ -491,7 +541,7 @@
       <div class="container">
           <div class="row">
               <div class="col-md-12">
-                  <div class="row-title">Our Promise</div>
+                  <div class="row-title">Our Focus</div>
               </div>
           </div>
           <div class="row">
@@ -500,8 +550,8 @@
                       <div class="mfeature-icon">
                           <i class="htfy htfy-tick"></i>
                       </div>
-                      <div class="mfeature-title">Value</div>
-                      <div class="mfeature-details">PIES Network will filter anyone from the network who attempts to abuse it. This is critical if we are to build a strong and long lasting community of users and content providers.</div>
+                      <div class="mfeature-title">Societal Value</div>
+                      <div class="mfeature-details">A primary focus of ours is to build a strong and long lasting community of users and content providers; therefore we are dedicated to providing the highest level of security, services, and design. </div>
                   </div>
               </div>
               <div class="col-sm-6 col-md-4">
@@ -509,8 +559,8 @@
                       <div class="mfeature-icon">
                           <i class="htfy htfy-tick"></i>
                       </div>
-                      <div class="mfeature-title">Responsive</div>
-                      <div class="mfeature-details">At PIES Network we believe the blockchain and this project as the future of digital content distribution. We have large plans for the growth and stability of the network. The developing team of this network is dedicated to providing the highest level of security, services, and design to our customers and partners.</div>
+                      <div class="mfeature-title">Transparency & Fairness</div>
+                      <div class="mfeature-details">In order to provide the highest quality of service and support for our entire community of users, our methods are clear and with purpose. The current sentiment is mutual respect through fairness in compensation - 98.5% of publisher rate goes to viewer.</div>
                   </div>
               </div>
               <div class="col-sm-12 col-md-4">
@@ -518,67 +568,76 @@
                       <div class="mfeature-icon">
                           <i class="htfy htfy-tick"></i>
                       </div>
-                      <div class="mfeature-title">Fair</div>
-                      <div class="mfeature-details">We are dedicated to provide the highest level of support to both our users and content publishers. We will never contest any transaction with our content publishers.</div>
+                      <div class="mfeature-title">Flexible & Responsive</div>
+                      <div class="mfeature-details">A primary focus of the PIES Network is the advancement of effectiveness and efficiency of blockchain technology for the purpose of digital content distribution. We will be closely monitoring growth and stability of the network while being completely open to community feedback.</div>
                   </div>
               </div>
           </div>
       </div>
   </div>
-  <!-- <div id="message2" class="container-fluid message-area normal-bg">
+  <div id="message2" class="container-fluid message-area normal-bg">
       <div class="container">
           <div class="row">
               <div class="col-sm-12 col-md-6">
-                  <div class="text-purple-light">Are you ready? Join us and get valued as a potential user today!</div>
-                  <div class="text-purple-dark">create an account, or contact us.</div>
+                  <div class="text-purple-light">Ready? Join now, complete your registration, get $5 worth of PIECES (PCS) today</div>
+                  <!-- <div class="text-purple-dark">Create an account .</div> -->
               </div>
               <div class="col-sm-12 col-md-6">
                   <div class="buttons-holder">
-                      <a href="#" class="ybtn ybtn-purple">Create Your Account</a><a href="#" class="ybtn ybtn-white ybtn-shadow">Contact Us</a>
+                      <a onclick="login()" class="ybtn ybtn-purple"><i class="fa fa-google-plus fa-lg" style="margin-right: 5px;"></i>Create Your Account</a>
+                      <!-- <a href="#email" class="ybtn ybtn-white ybtn-shadow">Contact Us</a> -->
                   </div>
               </div>
           </div>
       </div>
-  </div> -->
+  </div>
   <div id="footer" class="container-fluid">
       <div class="container">
           <div class="row">
               <div class="col-xs-6 col-sm-4 col-md-3">
                   <div class="address-holder">
                       <!-- <div class="phone"><i class="fa fa-phone"></i> 00 285 900 38502</div> -->
-                      <div class="email"><i class="fa fa-envelope"></i> pies.network@gmail.com</div>
-                      <!-- <div class="address">
+                      <div id="email" class="email">
+                        <a href="mailto:pies.network@gmail.com" style=" text-decoration: none; !importaint;  ">
+                              <span style="color:white; text-decoration:none"><i class="fa fa-envelope"></i>pies.network@gmail.com</span>
+                          </a>
+                        </div>
+                      <div class="address">
                           <i class="fa fa-map-marker"></i>
-                          <div>San Francisco, CA</div>
-                      </div> -->
-                  </div>
-              </div>
-              <div class="col-xs-6 col-sm-2 col-md-2">
-                  <div class="footer-menu-holder">
-
-                      <!-- <ul class="footer-menu">
-                          <li><a href="about.html">About us</a></li>
-                          <li><a href="blog.html">News</a></li>
-                          <li><a href="faq.html">FAQ</a></li>
-                          <li><a href="contact.html">Contact us</a></li>
-                      </ul> -->
+                          <div>Based in San Francisco, CA</div>
+                      </div>
                   </div>
               </div>
               <div class="col-xs-6 col-sm-2 col-md-3">
                   <div class="footer-menu-holder">
+
+                      <ul class="footer-menu">
+                          <!-- <li>
+                            <div class="address">
+                                <i class="fa fa-map-marker"></i>
+                                <div>San Francisco, CA</div>
+                            </div>
+                          </li> -->
+                          <!-- <li><a href="blog.html">News</a></li> -->
+                          <li><a href="/info">FAQ</a></li>
+                          <!-- <li><a href="/contact">Contact us</a></li> -->
+                       </ul>
+                  </div>
+              </div>
+              <!-- <div class="col-xs-6 col-sm-2 col-md-3">
+                  <div class="footer-menu-holder"> -->
                     <!-- <h4>4th Division INC</h4> -->
-                    <div class="address">
-                        <i class="fa fa-map-marker"></i>
-                        <div>San Francisco, CA</div>
-                    </div>
+                    <!-- <div class="address">
+
+                    </div> -->
                       <!-- <ul class="footer-menu">
                           <li><a href="webhosting.html">Web Hosting</a></li>
                           <li><a href="cloudhosting.html">Cloud Hosting</a></li>
                           <li><a href="vpsservers.html">VPS Servers</a></li>
                           <li><a href="#">Domain Names</a></li>
                       </ul> -->
-                  </div>
-              </div>
+                  <!-- </div> -->
+              <!-- </div> -->
               <!-- <div class="col-xs-6 col-sm-3 col-md-3">
                   <div class="footer-menu-holder">
                       <h4>Others</h4> -->
@@ -593,9 +652,9 @@
               <div class="col-xs-12 col-sm-1 col-md-1">
                   <div class="social-menu-holder">
                       <ul class="social-menu">
-                          <!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li> -->
-                          <!-- <li><a href="#"><i class="fa fa-youtube-play"></i></a></li> -->
                           <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                          <li><a href="#"><i class="fa fa-slack"></i></a></li>
+                          <li><a href="#"><i class="fa fa-reddit"></i></a></li>
                       </ul>
                    </div>
               </div>
@@ -603,7 +662,7 @@
           </div>
       </div>
   </div>
-</div>
+
 
 <script src="./sources/js/home/home.js"></script>
 <script src="./sources/js/jquery.min.js"></script>
@@ -611,5 +670,31 @@
 <script src="./sources/js/bootstrap-slider.min.js"></script>
 <script src="./sources/js/slick.min.js"></script>
 <script src="./sources/js/main.js"></script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
 </body>
 </html>

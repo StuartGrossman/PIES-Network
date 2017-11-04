@@ -30,6 +30,8 @@
         <link rel="manifest" href="../sources/images/logo/manifest.json">
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="../sources/images/logo/ms-icon-144x144.png">
+        <link rel="stylesheet" type="text/css" href="../sources/css/font-awesome.min.css">
+
         <meta name="theme-color" content="#ffffff">
     </head>
     <body class="scroll-assist">
@@ -52,634 +54,16 @@
                     </div>
                     <div class="module right">
                         <!-- <a class="btn btn-sm hidden-xs hidden-sm hidden-md" href="variant/builder.html">Test Network</a> -->
-                        <a onclick="dashboard()" class="btn btn-sm btn-filled" href="#">PIES network (beta)</a>
+                        <a onclick="login()" style="display:none;" class="btn btn-sm btn-filled" href="#" id="login">PIES network (beta)</a>
+                        <a onclick="dashboard()" style="display:none;" class="btn btn-sm btn-filled" href="#" id="dashboard">Dashboard</a>
+
                     </div>
                     <!-- <div class="module right">
                         <a class="btn btn-sm hidden-xs hidden-sm hidden-md" href="variant/builder.html">Try Builder</a>
                         <a class="btn btn-sm btn-filled" href="#">Buy Now</a>
                     </div> -->
                 </div>
-                <!-- <div class="nav-bar">
-                    <div class="module left">
-                        <a href="index.html">
-                            <img class="logo logo-light" alt="Foundry" src="../sources/foundry/img/logo-light.png" />
-                            <img class="logo logo-dark" alt="Foundry" src="../sources/foundry/img/logo-dark.png" />
-                        </a>
-                    </div>
-                    <div class="module widget-handle mobile-toggle right visible-sm visible-xs">
-                        <i class="ti-menu"></i>
-                    </div>
-                    <div class="module-group right">
-                        <div class="module left">
-                            <ul class="menu">
-                                <li class="has-dropdown">
-                                    <a href="#">
-                                        Home
-                                    </a>
-                                    <ul class="mega-menu">
-                                        <li>
-                                            <ul>
-                                                <li>
-                                                    <span class="title">Concepts</span>
-                                                </li>
-                                                <li>
-                                                    <a href="home-adventure.html">Adventure Travel</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-agency.html">Agency</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-agency-2.html">Agency 2</a>
-                                                    <span class="label">New!</span>
-                                                </li>
-                                                <li>
-                                                    <a href="home-app-landing.html">App Landing</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-app-landing-2.html">App Landing 2</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-capital-firm.html">Capital Firm</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-fashion.html">Fashion</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-fitness.html">Fitness</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-restaurant.html">Restaurant</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-music.html">Music</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-event.html">Event / Seminar</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-architecture.html">Architecture</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <ul>
-                                                <li>
-                                                    <a href="home-photography.html">Photography</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-photography-2.html">Ken Burns</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-personal-portfolio.html">Portfolio</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-property.html">Property Listing</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-resume.html">Resumé</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-winery.html">Winery</a>
-                                                </li>
-                                                <li>
-                                                    <span class="title">Home Pages</span>
-                                                </li>
-                                                <li>
-                                                    <a href="index.html">Home Classic</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-default-2.html">Home Layout 2</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-default-3.html">Home Layout 3</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-default-4.html">Home Layout 4</a>
-                                                </li>
-                                                <li>
-                                                    <a href="home-default-5.html">Home Layout 5</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="has-dropdown">
-                                    <a href="#">
-                                        Pages
-                                    </a>
-                                    <ul class="mega-menu">
-                                        <li>
-                                            <ul>
-                                                <li>
-                                                    <span class="title">Inner Pages</span>
-                                                </li>
-                                                <li>
-                                                    <a href="page-about-us-1.html">About Us 1</a>
-                                                </li>
-                                                <li>
-                                                    <a href="page-about-us-2.html">About Us 2</a>
-                                                </li>
-                                                <li>
-                                                    <a href="page-about-us-3.html">About Us 3</a>
-                                                </li>
-                                                <li>
-                                                    <a href="page-services-1.html">Services 1</a>
-                                                </li>
-                                                <li>
-                                                    <a href="page-services-2.html">Services 2</a>
-                                                </li>
-                                                <li>
-                                                    <a href="page-services-3.html">Services 3</a>
-                                                </li>
-                                                <li>
-                                                    <a href="page-contact-1.html">Contact 1</a>
-                                                </li>
-                                                <li>
-                                                    <a href="page-contact-2.html">Contact 2</a>
-                                                </li>
-                                                <li>
-                                                    <a href="page-contact-3.html">Planner</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <ul>
-                                                <li>
-                                                    <span class="title">Utility Pages</span>
-                                                </li>
-                                                <li>
-                                                    <a href="page-login.html">Login</a>
-                                                </li>
-                                                <li>
-                                                    <a href="page-register.html">Register</a>
-                                                </li>
-                                                <li>
-                                                    <a href="page-coming-soon.html">Coming Soon</a>
-                                                </li>
-                                                <li>
-                                                    <a href="page-faq.html">FAQ</a>
-                                                </li>
-                                                <li>
-                                                    <a href="page-confirmation.html">Confirmation</a>
-                                                </li>
-                                                <li>
-                                                    <a href="page-countdown.html">Countdown</a>
-                                                </li>
-                                                <li>
-                                                    <a href="page-countdown-2.html">Countdown 2</a>
-                                                </li>
-                                                <li>
-                                                    <a href="page-404.html">404 - Error</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="has-dropdown">
-                                    <a href="#">
-                                        Elements
-                                    </a>
-                                    <ul class="mega-menu">
-                                        <li>
-                                            <ul>
-                                                <li>
-                                                    <span class="title">Elements</span>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-buttons.html">
-                                                        <i class="ti-link"></i> Buttons</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-tabs.html">
-                                                        <i class="ti-layout-tab"></i> Tabbed Content</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-progress.html">
-                                                        <i class="ti-rocket"></i> Progress Bars</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-accordions.html">
-                                                        <i class="ti-layout-accordion-separated"></i> Accordions</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-alerts.html">
-                                                        <i class="ti-flag-alt"></i> Alerts</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-form-inputs.html">
-                                                        <i class="ti-pencil-alt"></i> Form Inputs</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-countdown.html">
-                                                        <i class="ti-alarm-clock"></i> Countdowns</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-modals.html">
-                                                        <i class="ti-layout-slider-alt"></i> Modals</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <ul>
-                                                <li>
-                                                    <span class="title">Elements</span>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-pricing.html">
-                                                        <i class="ti-money"></i> Pricing Tables</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-icon-boxes.html">
-                                                        <i class="ti-eye"></i> Icon Boxes</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-widgets.html">
-                                                        <i class="ti-layout-media-right"></i> Widgets</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-typography.html">
-                                                        <i class="ti-text"></i> Typography</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-lists.html">
-                                                        <i class="ti-list"></i> Lists</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-grid.html">
-                                                        <i class="ti-view-grid"></i> Grid Structure</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-textimage.html">
-                                                        <i class="ti-layout-list-large-image"></i> Text &amp; Image</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-intros.html">
-                                                        <i class="ti-microphone"></i> Intro Sections</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <ul>
-                                                <li>
-                                                    <span class="title">Elements</span>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-titles.html">
-                                                        <i class="ti-layout-cta-left"></i> Titles Left</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-titles-center.html">
-                                                        <i class="ti-layout-cta-center"></i> Titles Center</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-video.html">
-                                                        <i class="ti-video-clapper"></i> Video Inline</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-video-bg.html">
-                                                        <i class="ti-video-clapper"></i> Video BG</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-video-slider.html">
-                                                        <i class="ti-video-clapper"></i> Video Slider</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-galleries.html">
-                                                        <i class="ti-gallery"></i> Image Galleries</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-parallax.html">
-                                                        <i class="ti-layers"></i> Parallax</a>
-                                                </li>
-                                                <li>
-                                                    <a href="elements-nav-light.html">
-                                                        <i class="ti-menu-alt"></i> Nav Styles</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="has-dropdown">
-                                    <a href="#">
-                                        Portfolio
-                                    </a>
-                                    <ul>
-                                        <li class="has-dropdown">
-                                            <a href="#">
-                                                Contained
-                                            </a>
-                                            <ul>
-                                                <li>
-                                                    <a href="portfolio-grid-2col.html">
-                                                        2 Columns
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="portfolio-grid.html">
-                                                        3 Columns
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="portfolio-grid-4col.html">
-                                                        4 Columns
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-dropdown">
-                                            <a href="#">
-                                                Wide
-                                            </a>
-                                            <ul>
-                                                <li>
-                                                    <a href="portfolio-wide-2col.html">
-                                                        2 Columns
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="portfolio-wide.html">
-                                                        3 Columns
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="portfolio-wide-4col.html">
-                                                        4 Columns
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="portfolio-parallax.html">
-                                                Parallax
-                                            </a>
-                                        </li>
-                                        <li class="has-dropdown">
-                                            <a href="#">
-                                                Single
-                                            </a>
-                                            <ul>
-                                                <li>
-                                                    <a href="portfolio-single-1.html">
-                                                        Case Study 1
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="portfolio-single-2.html">
-                                                        Case Study 2
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="portfolio-single-3.html">
-                                                        Case Study 3
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="portfolio-single-4.html">
-                                                        Case Study 4
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="portfolio-single-5.html">
-                                                        Case Study 5
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="has-dropdown">
-                                    <a href="#">
-                                        Shop
-                                    </a>
-                                    <ul>
-                                        <li class="has-dropdown">
-                                            <a href="#">
-                                                Shop Layout
-                                            </a>
-                                            <ul>
-                                                <li>
-                                                    <a href="shop-sidebar.html">
-                                                        Sidebar Left
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-sidebar-right.html">
-                                                        Sidebar Right
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-fullwidth-4col.html">
-                                                        4 Columns
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-fullwidth.html">
-                                                        3 Columns
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-fullwidth-2col.html">
-                                                        2 Columns
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-dropdown">
-                                            <a href="#">
-                                                Product Single
-                                            </a>
-                                            <ul>
-                                                <li>
-                                                    <a href="shop-product-sidebar-left.html">
-                                                        Sidebar Left
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-product-sidebar.html">
-                                                        Sidebar Right
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-product-fullwidth.html">
-                                                        No Sidebar
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="shop-cart.html">
-                                                Cart
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-checkout.html">
-                                                Checkout
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="has-dropdown">
-                                    <a href="#">
-                                        Blog
-                                    </a>
-                                    <ul>
-                                        <li class="has-dropdown">
-                                            <a href="#">
-                                                Listing
-                                            </a>
-                                            <ul>
-                                                <li>
-                                                    <a href="blog-sidebar.html">
-                                                        Sidebar Left
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="blog-sidebar-right.html">
-                                                        Sidebar Right
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="blog-no-sidebar.html">
-                                                        No Sidebar
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-dropdown">
-                                            <a href="#">
-                                                Masonry
-                                            </a>
-                                            <ul>
-                                                <li>
-                                                    <a href="blog-masonry-sidebar.html">
-                                                        Sidebar Left
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="blog-masonry-sidebar-right.html">
-                                                        Sidebar Right
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="blog-masonry.html">
-                                                        3 Columns
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="blog-masonry-2col.html">
-                                                        2 Columns
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-dropdown">
-                                            <a href="#">
-                                                Single
-                                            </a>
-                                            <ul>
-                                                <li>
-                                                    <a href="blog-single-sidebar.html">
-                                                        Sidebar Left
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="blog-single-sidebar-right.html">
-                                                        Sidebar Right
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="blog-single-no-sidebar.html">
-                                                        No Sidebar
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="blog-single-disqus.html">
-                                                        Disqus Comments
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="blog-simple-feed.html">
-                                                Simple Feed
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <!--end of menu module-->
-                        <!-- <div class="module widget-handle search-widget-handle left">
-                            <div class="search">
-                                <i class="ti-search"></i>
-                                <span class="title">Search Site</span>
-                            </div>
-                            <div class="function">
-                                <form class="search-form">
-                                    <input type="text" placeholder="Type Here" />
-                                </form>
-                            </div>
-                        </div>
-                        <div class="module widget-handle cart-widget-handle left">
-                            <div class="cart">
-                                <i class="ti-bag"></i>
-                                <span class="label number">2</span>
-                                <span class="title">Shopping Cart</span>
-                            </div>
-                            <div class="function">
-                                <div class="widget">
-                                    <h6 class="title">Shopping Cart</h6>
-                                    <hr>
-                                    <ul class="cart-overview">
-                                        <li>
-                                            <a href="#">
-                                                <img alt="Product" src="../sources/foundry/img/shop-widget-1.png" />
-                                                <div class="description">
-                                                    <span class="product-title">Canvas Backpack</span>
-                                                    <span class="price number">$39.90</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img alt="Product" src="../sources/foundry/img/shop-widget-2.png" />
-                                                <div class="description">
-                                                    <span class="product-title">Vintage Camera</span>
-                                                    <span class="price number">$249.50</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <hr>
-                                    <div class="cart-controls">
-                                        <a class="btn btn-sm btn-filled" href="#">Checkout</a>
-                                        <div class="list-inline pull-right">
-                                            <span class="cart-total">Total: </span>
-                                            <span class="number">$289.40</span>
-                                        </div>
-                                    </div>
-                                </div> -->
-                                <!--end of widget-->
-                            <!-- </div>
-                        </div>
-                        <div class="module widget-handle language left">
-                            <ul class="menu">
-                                <li class="has-dropdown">
-                                    <a href="#">ENG</a>
-                                    <ul>
-                                        <li>
-                                            <a href="#">French</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Deutsch</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div> -->
-                    <!--end of module group-->
-                <!-- </div> -->
+
             </nav>
         </div>
         <div class="main-container">
@@ -710,21 +94,21 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4">
-                            <h2 class="number">2017</h2>
+                            <h2 class="number">Progress</h2>
                             <p>
-                                The idea for the PIES Network was proposed at the start of the year and we've been hard at work since.
+                              The inception of PIES was around mid June of 2017. The application was mapped in two weeks, and development began imminently. In less than three months a working MVP has been built, tested, and deployed. This rapid development time shows the dedication of the small team here at PIES.
                             </p>
                         </div>
                         <div class="col-sm-4">
-                            <h2 class="number">2+</h2>
+                            <h2 class="number">Team</h2>
                             <p>
-                                Sweet and small - with plans to scale appropriately to match community interest.
+                              PIES consists of two core developers and three advisors. Each member of this small team contributes to the vision and high paced development of the network. We encourage you to do your own research on each one of us and build your own opinion of the individuals working hard to bring this vision to life.
                             </p>
                         </div>
                         <div class="col-sm-4">
-                            <h2>Believe</h2>
+                            <h2>Vision</h2>
                             <p>
-                                We do.
+                                At PIES we believe by offering highly targeted content and respecting users time and data with fair compensation, PIES can reinvent the relationship between users and content publishers of any type.
                             </p>
                         </div>
                     </div>
@@ -784,25 +168,27 @@
                             </div>
                             <div class="col-sm-5 mb64 mb-xs-24">
                                 <h5 class="uppercase mb0">Stuart Grossman</h5>
-                                <span class="inline-block mb40 mb-xs-24">Title</span>
+                                <i class="fa fa-linkedin fa-lg"></i>
+                                <i class="inline-block mb40 mb-xs-24" style="font-size: 12px;">- CEO & Lead Software Engineer</i>
                                 <p>
-                                    Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est.
+                                    With over 5 years of professional software development and over 10 years of informal development experience. Stuart has built, maintained, and developed multiple full stack applications. Leading PIES network from a standpoint of relevance and fresh entrepreneurial hunger, Stuart dreams of reinventing the space of online Advertising and information distribution.
                                 </p>
                             </div>
                         </div>
                         <div class="col-md-9 col-md-push-3 col-sm-12 mb40 mb-xs-24 p0">
                             <div class="col-sm-7 mb64 mb-xs-24">
-                                <img alt="Pic" src="../sources/images/eg.png" />
+                                <img alt="Pic" src="../sources/images/eugene.png" />
                             </div>
                             <div class="col-sm-5 mb64 mb-xs-24">
                                 <h5 class="uppercase mb0">Eugene Grossman</h5>
-                                <span class="inline-block mb40 mb-xs-24">Title</span>
+                                <i class="fa fa-linkedin fa-lg"></i>
+                                <span class="inline-block mb40 mb-xs-24"> CTO, CF0 & lead Data Archetic</span>
                                 <p>
-                                    Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est.
+                                   With an accumulation of over 4 years of analyzing, curating, and managing big data for the fastest growing cooperation in world. Eugene’s ability to understand the big picture and create fast innovative solutions has made him a invaluable asset for the development of PIES Networks, and vision.
                                 </p>
                             </div>
                         </div>
-                        <div class="col-md-9 col-md-push-3 col-sm-12 mb40 mb-xs-24 p0">
+                        <!-- <div class="col-md-9 col-md-push-3 col-sm-12 mb40 mb-xs-24 p0">
                             <div class="col-sm-7 mb64 mb-xs-24">
                                 <img alt="Pic" src="../sources/foundry/img/team-3.jpg" />
                             </div>
@@ -813,14 +199,14 @@
                                     Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est.
                                 </p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <!--end of row-->
                 </div>
                 <!--end of container-->
             </section>
-            <hr class="mb0">
-            <section>
+            <!-- <hr class="mb0"> -->
+            <!-- <section>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
@@ -834,99 +220,9 @@
                             </div>
                         </div>
                     </div>
-                    <!--end of row-->
                 </div>
-                <!--end of container-->
-            </section>
-            <footer class="footer-1 bg-dark">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <img alt="Logo" class="logo" src="../sources/foundry/img/logo-light.png" />
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="widget">
-                                <h6 class="title">Recent Posts</h6>
-                                <hr>
-                                <ul class="link-list recent-posts">
-                                    <li>
-                                        <a href="#">Hugging pugs is super trendy</a>
-                                        <span class="date">February
-                                            <span class="number">14, 2015</span>
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <a href="#">Spinning vinyl is oh so cool</a>
-                                        <span class="date">February
-                                            <span class="number">9, 2015</span>
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <a href="#">Superior theme design by pros</a>
-                                        <span class="date">January
-                                            <span class="number">27, 2015</span>
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--end of widget-->
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="widget">
-                                <h6 class="title">Latest Updates</h6>
-                                <hr>
-                                <div class="twitter-feed">
-                                    <div class="tweets-feed" data-feed-name="mrareweb">
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end of widget-->
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="widget">
-                                <h6 class="title">Instagram</h6>
-                                <hr>
-                                <div class="instafeed" data-user-name="mrareweb">
-                                    <ul></ul>
-                                </div>
-                            </div>
-                            <!--end of widget-->
-                        </div>
-                    </div>
-                    <!--end of row-->
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <span class="sub">&copy; Copyright 2016 - Medium Rare</span>
-                        </div>
-                        <div class="col-sm-6 text-right">
-                            <ul class="list-inline social-list">
-                                <li>
-                                    <a href="#">
-                                        <i class="ti-twitter-alt"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="ti-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="ti-dribbble"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="ti-vimeo-alt"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--end of container-->
-                <a class="btn btn-sm fade-half back-to-top inner-link" href="#top">Top</a>
-            </footer>
+            </section> -->
+
         </div>
         <script src="./sources/foundry/js/jquery.min.js"></script>
         <script src="./sources/foundry/js/bootstrap.min.js"></script>
@@ -941,5 +237,107 @@
         <script src="./sources/foundry/js/smooth-scroll.min.js"></script>
         <script src="./sources/foundry/js/parallax.js"></script>
         <script src="./sources/foundry/js/scripts.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+
+        <script>
+            var config = {
+              apiKey: "AIzaSyBNyW7vjQSK2Gbrh4Mzox6G-uAG4gK1rgE",
+              authDomain: "adspace-9fe5c.firebaseapp.com",
+              databaseURL: "https://adspace-9fe5c.firebaseio.com",
+              projectId: "adspace-9fe5c",
+              storageBucket: "",
+              messagingSenderId: "129227170241"
+            };
+            firebase.initializeApp(config);
+            var provider = new firebase.auth.GoogleAuthProvider();
+            var userObj;
+
+            firebase.auth().onAuthStateChanged(function(user) {
+              if(user){
+               console.log("you are logged in!")
+               userObj = user;
+               if(userObj.uid){
+                 console.log("user object found")
+                 document.getElementById('dashboard').style.display = 'block';
+                 document.getElementById('dashboard').style["margin-top"] = '7px';
+
+                //  document.getElementById('logout').style.display = 'block';
+
+               }
+              }
+              else{
+                ///
+                // console.log("no user object found")
+                //
+                document.getElementById('login').style.display = 'block';
+                // document.getElementById('login').style.display = 'block';
+                document.getElementById('login').style["margin-top"] = '7px';
+
+
+                //  document.getElementById('dashboard').style.display = 'none';
+
+              }
+            })
+            function login(){
+
+              firebase.auth().signInWithPopup(provider).then(function(result) {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = result.credential.accessToken;
+                // The signed-in user info.
+                var user = result.user;
+                // console.log("inside login Function", user.email)
+                setTimeout(function(){
+                  console.log(userObj)
+                  // checkUserInfo();
+
+                }, 1000)
+
+                }).catch(function(error) {
+                 // Handle Errors here.
+                 var errorCode = error.code;
+                 var errorMessage = error.message;
+                 // The email of the user's account used.
+                 var email = error.email;
+                 // The firebase.auth.AuthCredential type that was used.
+                 var credential = error.credential;
+                //  console.log(errorCode, errorMessage, email, credential, error)
+                 // ...
+                });
+            }
+            function dashboard(){
+              firebase.database().ref('/phone/' + userObj.uid).on('value', function(snapshot){
+                if(snapshot.val()){
+                  console.log(snapshot.val(), 'userType is avil');
+                  if(snapshot.val().confirmed === true){
+                    console.log(snapshot.val().confirmed);
+                    firebase.database().ref('/usertype/' + userObj.uid).on('value', function(snapshot2){
+                      if(snapshot2.val()){
+                        console.log(snapshot2.val(), 'userType is avil');
+                        var usertype = snapshot2.val().type;
+                        if(usertype === 99){
+                          window.location = "/a-settings";
+
+                        }
+                        if(usertype === 10){
+                          window.location = "/v-settings";
+
+                        }
+                      }else{
+                        window.location = "/usertype";
+                      }
+                    })
+                  }
+                }
+                else{
+                  window.location = "/phone";
+
+                }
+              })
+            }
+
+
+
+        </script>
     </body>
+
 </html>

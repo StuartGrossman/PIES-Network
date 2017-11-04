@@ -310,14 +310,14 @@
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                               <h3>&nbsp;</h3>
-                              <h1>My Internal Token Balance</h1>
-                              <h5 style="color:white;">Tokens Avaliable for withdrawl</h5>
+                              <h1>My Internal PIES Balance</h1>
+                              <h5 style="color:white;">Tokens avaliable for withdrawl from the network</h5>
                           </div>
 
                       </div>
                       <div class="row weather p-20">
                         <div class="col-md-8 col-xs-10 col-lg-6 col-sm-10">
-                          <span style="color:orange; font-size: 30px;" id="internalBalance"></span>
+                          <span style="color:white; font-size:40px;" id="internalBalance"></span><span style="color:orange; font-size: 30px;" > PIES Tokens</span>
 
                         </div>
                         <div class="col-md-4 col-xs-2 col-lg-6 col-sm-2">
@@ -335,14 +335,14 @@
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                               <h3>&nbsp;</h3>
-                              <h1>My External Token Balance</h1>
-                              <h5 style="color:white;">Tokens I already own</h5>
+                              <h1>ETH Address PIES Balance</h1>
+                              <h5 style="color:white;">Tokens connected to my personal ETH address</h5>
                           </div>
 
                       </div>
                       <div class="row weather p-20">
                         <div class="col-md-12 col-xs-10 col-lg-12 col-sm-10">
-                          <span style="color:orange; font-size: 30px;" id="balance"></span>
+                          <span style="color:white; font-size:40px;" id="balance"></span><span style="color:orange; font-size: 30px;" > PIES Tokens</span>
                         </div>
                         <div class="col-md-4 col-xs-2 col-lg-6 col-sm-2">
 
@@ -466,7 +466,7 @@
                                  <input type="number" placeholder="Confirmation Code" id="confirmationCode" class="form-control"></input>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" onclick="sendCode()">Send Code</button>
+                                <button type="button" class="btn btn-default" id="sendCodeButton" onclick="sendCode()">Send Code</button>
                                 <button type="button" class="btn btn-primary" onclick="confirmWithdrawl()" id="step3">Confirm</button>
                             </div>
                         </div>
@@ -664,7 +664,14 @@ function checkState(user){
 }
 
 function sendCode(){
-  firebase.database().ref('/queue/withdrawPhoneCheck/tasks').push({'userId': userObject.uid});
+  var button = document.getElementById('sendCodeButton')
+  button.setAttribute('disabled', 'true');
+  firebase.database().ref('/queue/withdrawPhoneCheck/tasks').push({'userId': userObject.uid, "message": "PIES Withdraw code is"}).then(function(res, err){
+    console.log(res, err);
+    setTimeout(function(){
+      button.removeAttribute('disabled')
+    }, 1500)
+  });
 }
 
 function confirmWithdrawl(){
@@ -778,7 +785,7 @@ function loadBalance(){
     var internalBalance = snapshot.val().balance;
     if(internalBalance){
       var inter = numberWithCommas(internalBalance);
-      document.getElementById('internalBalance').innerHTML = inter + ' PIES Tokens';
+      document.getElementById('internalBalance').innerHTML = inter;
       document.getElementById('modalBalance').innerHTML = inter;
 
 
@@ -800,7 +807,7 @@ function loadBalance(){
 
               if(balance){
                 var balance = numberWithCommas(balance);
-                document.getElementById('balance').innerHTML = balance + ' PIES Tokens';
+                document.getElementById('balance').innerHTML = balance;
                 // document.getElementById('p-completion-number').innerHTML = balance;
 
                 document.getElementById('ethHolder').className = 'animated fadeIn';
