@@ -15,7 +15,7 @@ firebase.auth().onAuthStateChanged(function(user) {
    console.log("you are logged in!")
    userObj = user;
    if(userObj.uid){
-    //  document.getElementById('login').style.display = 'none';
+     document.getElementById('login').style.display = 'none';
      document.getElementById('dashboard').style.display = 'block';
      document.getElementById('logout').style.display = 'block';
 

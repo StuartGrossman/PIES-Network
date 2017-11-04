@@ -35,7 +35,9 @@
                               <!-- <a class="logo-holder" href="index.html">
                                 <div class="logo" style="width:62px;height:18px"></div>
                               </a> -->
+                              <div>
 
+                              </div>
                             </div>
                               <button aria-expanded="false" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs">
                                   <span class="icon-bar"></span>
@@ -59,9 +61,16 @@
 
 
                                   <!-- <li><a target="_blank" href="./sources/documents/whitepaper.pdf" href="/whitePaper">White Paper</a></li> -->
+                                  <li class="support-button-holder support-dropdown animated bounceIn" id="login">
+                                    <a onclick="login()" class="support-button">
+                                      <i class="fa fa-google-plus fa-lg" style="margin-right: 5px;"></i>
+
+                                       Sign Up
+                                    </a>
+                                  </li>
                                   <li><a href="/team">Team</a></li>
                                   <li><a href="#email">Contact</a></li>
-                                  <li><a target="_blank" href="/token">(PCS) Token Sale</a></li>
+                                  <li><a href="/token">(PCS) Token Sale</a></li>
 
                                   <!-- <li> -->
                                     <!-- <a onclick="login()" class="btn-google" id="login">Login</a> -->
@@ -80,6 +89,8 @@
                                         <li><a href="#"><i class="fa fa-book"></i>Knowledge base</a></li>
                                       </ul> -->
                                   </li>
+
+
                                   <li><a onclick="logout()" class="login-button" id="logout" style="display: none;">Logout</a></li>
 
 
@@ -120,13 +131,14 @@
                       </div>
 
                       <div class="domain-search-holder" style="margin-top: 30px;">
-                        <a onclick="login()" class="ybtn ybtn-large ybtn-white ybtn-shadow animated bounceIn">
+                        <!-- <a onclick="login()" class="ybtn ybtn-large ybtn-white ybtn-shadow animated bounceIn">
                           <i class="fa fa-google-plus fa-lg" style="margin-right: 5px;"></i>
 
                            Join Now!
-                        </a>
+                        </a> -->
                         <br />
-                        <span style="font-size: 18px; color: #ededed; margin-bottom: 15px;">Get your piece of the PIES network today</span><br />
+                        <!-- <span style="font-size: 18px; color: #ededed; margin-bottom: 15px;">Get your piece of the PIES network today</span> -->
+                        <br />
 
                         <!-- <br /> -->
 
@@ -255,7 +267,7 @@
               <div class="col-sm-12 col-md-6">
                   <div class="buttons-holder">
                       <a onclick="login()" class="ybtn ybtn-purple"> <i class="fa fa-google-plus fa-lg" style="margin-right: 5px;"></i> Sign Up</a>
-                      <a href="#footer" class="ybtn ybtn-white ybtn-shadow" href="/info">More Info</a>
+                      <a  class="ybtn ybtn-white ybtn-shadow" href="/info">More Info</a>
                   </div>
               </div>
           </div>
