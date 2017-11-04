@@ -68,7 +68,7 @@
                                        Sign In
                                     </a>
                                   </li>
-                                  <li><a href="/team">Team</a></li>
+                                  <li><a onclick="team()">Team</a></li>
                                   <li><a href="#email">Contact</a></li>
                                   <li><a href="/token">(PCS) Token Sale</a></li>
 
@@ -144,7 +144,7 @@
                         <!-- <br /> -->
 
                         <!-- <span style="color:white; font-size: 15px;">or</span>
-                        <a href="/flow" class="ybtn ybtn-lg ybtn-white ybtn-shadow animated bounceIn">Learn More</a>
+                        <a onclick="flow()" class="ybtn ybtn-lg ybtn-white ybtn-shadow animated bounceIn">Learn More</a>
 
                         <br /> -->
 
@@ -268,7 +268,7 @@
               <div class="col-sm-12 col-md-6">
                   <div class="buttons-holder">
                       <a onclick="login()" class="ybtn ybtn-purple"> <i class="fa fa-google-plus fa-lg" style="margin-right: 5px;"></i> Sign Up</a>
-                      <a  class="ybtn ybtn-white ybtn-shadow" href="/flow">More Info</a>
+                      <a  class="ybtn ybtn-white ybtn-shadow" onclick="flow()">More Info</a>
                   </div>
               </div>
           </div>
@@ -602,7 +602,7 @@
               <div class="col-sm-12 col-md-6">
                   <div class="buttons-holder">
                       <a onclick="login()" class="ybtn ybtn-purple"><i class="fa fa-google-plus fa-lg" style="margin-right: 5px;"></i>Create Your Account</a>
-                      <a href="/flow" class="ybtn ybtn-white ybtn-shadow">Application Flow</a>
+                      <a onclick="flow()" class="ybtn ybtn-white ybtn-shadow">Application Flow</a>
                   </div>
               </div>
           </div>
@@ -636,7 +636,7 @@
                             </div>
                           </li> -->
                           <!-- <li><a href="blog.html">News</a></li> -->
-                          <li><a href="/flow">FAQ</a></li>
+                          <li><a onclick="flow()">FAQ</a></li>
                           <!-- <li><a href="/contact">Contact us</a></li> -->
                        </ul>
                   </div>
@@ -688,6 +688,13 @@
 <script src="./sources/js/slick.min.js"></script>
 <script src="./sources/js/main.js"></script>
 <script>
+function flow(){
+  window.location = '/flow#flowTop';
+}
+function team(){
+  window.location = '/team#about';
+
+}
 $(document).ready(function(){
   // Add smooth scrolling to all links
   $("a").on('click', function(event) {
