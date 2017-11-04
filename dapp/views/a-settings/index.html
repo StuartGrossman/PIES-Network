@@ -458,8 +458,15 @@
 
 
       $('.main-container').css("display", "initial")
-
+      // checkAgain()
     }, loadTime);
+    // function checkAgain(){
+    //   if(  $('.loader').hide() ){
+    //     console.log("all good")
+    //   }else{
+    //     location.reload();
+    //   }
+    // }
     setTimeout(function(){
       console.log(DefaultTagData)
       // $('#tags').tagsinput({
@@ -717,7 +724,10 @@ function addTags(){
 
 function saveTags(data, array){
   // firebase.database().ref('/tag/' + userObject.uid).update(array)
-  firebase.database().ref('/queue/addTags/tasks').push({'data': array, 'userId': userObject.uid})
+  if(userObject){
+    firebase.database().ref('/queue/addTags/tasks').push({'data': array, 'userId': userObject.uid})
+    
+  }
   // .then(function(res){
   //   console.log(res);
   // })
