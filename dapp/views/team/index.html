@@ -54,7 +54,9 @@
                     </div>
                     <div class="module right">
                         <!-- <a class="btn btn-sm hidden-xs hidden-sm hidden-md" href="variant/builder.html">Test Network</a> -->
-                        <a onclick="dashboard()" class="btn btn-sm btn-filled" href="#">PIES network (beta)</a>
+                        <a onclick="login()" style="display:none;" class="btn btn-sm btn-filled" href="#" id="login">PIES network (beta)</a>
+                        <a onclick="dashboard()" style="display:none;" class="btn btn-sm btn-filled" href="#" id="dashboard">Dashboard</a>
+
                     </div>
                     <!-- <div class="module right">
                         <a class="btn btn-sm hidden-xs hidden-sm hidden-md" href="variant/builder.html">Try Builder</a>
@@ -235,5 +237,107 @@
         <script src="./sources/foundry/js/smooth-scroll.min.js"></script>
         <script src="./sources/foundry/js/parallax.js"></script>
         <script src="./sources/foundry/js/scripts.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+
+        <script>
+            var config = {
+              apiKey: "AIzaSyBNyW7vjQSK2Gbrh4Mzox6G-uAG4gK1rgE",
+              authDomain: "adspace-9fe5c.firebaseapp.com",
+              databaseURL: "https://adspace-9fe5c.firebaseio.com",
+              projectId: "adspace-9fe5c",
+              storageBucket: "",
+              messagingSenderId: "129227170241"
+            };
+            firebase.initializeApp(config);
+            var provider = new firebase.auth.GoogleAuthProvider();
+            var userObj;
+
+            firebase.auth().onAuthStateChanged(function(user) {
+              if(user){
+               console.log("you are logged in!")
+               userObj = user;
+               if(userObj.uid){
+                 console.log("user object found")
+                 document.getElementById('dashboard').style.display = 'block';
+                 document.getElementById('dashboard').style["margin-top"] = '7px';
+
+                //  document.getElementById('logout').style.display = 'block';
+
+               }
+              }
+              else{
+                ///
+                // console.log("no user object found")
+                //
+                document.getElementById('login').style.display = 'block';
+                // document.getElementById('login').style.display = 'block';
+                document.getElementById('login').style["margin-top"] = '7px';
+
+
+                //  document.getElementById('dashboard').style.display = 'none';
+
+              }
+            })
+            function login(){
+
+              firebase.auth().signInWithPopup(provider).then(function(result) {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = result.credential.accessToken;
+                // The signed-in user info.
+                var user = result.user;
+                // console.log("inside login Function", user.email)
+                setTimeout(function(){
+                  console.log(userObj)
+                  // checkUserInfo();
+
+                }, 1000)
+
+                }).catch(function(error) {
+                 // Handle Errors here.
+                 var errorCode = error.code;
+                 var errorMessage = error.message;
+                 // The email of the user's account used.
+                 var email = error.email;
+                 // The firebase.auth.AuthCredential type that was used.
+                 var credential = error.credential;
+                //  console.log(errorCode, errorMessage, email, credential, error)
+                 // ...
+                });
+            }
+            function dashboard(){
+              firebase.database().ref('/phone/' + userObj.uid).on('value', function(snapshot){
+                if(snapshot.val()){
+                  console.log(snapshot.val(), 'userType is avil');
+                  if(snapshot.val().confirmed === true){
+                    console.log(snapshot.val().confirmed);
+                    firebase.database().ref('/usertype/' + userObj.uid).on('value', function(snapshot2){
+                      if(snapshot2.val()){
+                        console.log(snapshot2.val(), 'userType is avil');
+                        var usertype = snapshot2.val().type;
+                        if(usertype === 99){
+                          window.location = "/a-settings";
+
+                        }
+                        if(usertype === 10){
+                          window.location = "/v-settings";
+
+                        }
+                      }else{
+                        window.location = "/usertype";
+                      }
+                    })
+                  }
+                }
+                else{
+                  window.location = "/phone";
+
+                }
+              })
+            }
+
+
+
+        </script>
     </body>
+
 </html>
