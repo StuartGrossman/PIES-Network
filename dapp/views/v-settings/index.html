@@ -284,7 +284,7 @@
 
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
-                            <h1>Personal Data </h1>
+                            <h1 style="color:#92C7C7;">Personal Data </h1>
 
                             <form class="floating-labels">
                               <div class="row">
@@ -328,7 +328,7 @@
                                   <div class="btn-group bootstrap-select">
 
                                      <select class="selectpicker" data-style="form-control" tabindex="-98">
-                                     <option>Web Spending /m</option>
+                                     <option>Monthly Spending</option>
                                      <option>All</option>
                                      <option>> $50</option>
                                      <option>$50 - $200</option>
@@ -359,6 +359,9 @@
                                      </select>
                                    </div>
                                 </div>
+                              </div>
+                              <div class="rowDetails">
+                                <span style="font-size:15px; color:#B7CEEC">*Mainly online consumer spending</span>
                               </div>
                             </form>
                             <!-- <h3>&nbsp;</h3>
@@ -431,7 +434,7 @@
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                             <h3>&nbsp;</h3>
-                            <h1>Purchased Brands </h1>
+                            <h1 style="color:#92C7C7;">Purchased Brands </h1>
                             <h4 style="color:white;">Please select brands you have purchased or would like to.</h4>
                             <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="BrandHolder">
                              <!-- <input class="form-control" placeholder="List Brands" id="Brands"/> -->
@@ -453,16 +456,38 @@
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Pepsi" onclick="addBrand('Pepsi')">Pepsi</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Starbucks" onclick="addBrand('Starbucks')">Starbucks</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="American Eagle" onclick="addBrand('American Eagle')">American Eagle</button>
+                              <center>
+                                <span id="downArrow" onclick="showTags('row1')" class="glyphicon glyphicon-arrow-down" style="color:white; font-size: 25px" aria-hidden="true"></span>
+                              </center>
+
+
+                              <div class="fadeIn animated" id="row1" style="display:none;">
+
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Converse" onclick="addBrand('Converse')">Converse</button>
-                              <!-- <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Ford" onclick="addBrand('Ford')">Ford</button> -->
-                              <!-- <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="LG" onclick="addBrand('LG')">LG</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Ford" onclick="addBrand('Ford')">Ford</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="LG" onclick="addBrand('LG')">LG</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Disney" onclick="addBrand('Disney')">Disney</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Old Navy" onclick="addBrand('Old Navy')">Old Navy</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Hot Topic" onclick="addBrand('Hot Topic')">Hot Topic</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Kohls" onclick="addBrand('Kohls')">Kohls</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Victorias Secret" onclick="addBrand('Victorias Secret')">Victorias Secret</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Hollister" onclick="addBrand('Hollister')">Hollister</button>
-                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Vans" onclick="addBrand('Vans')">Vans</button> -->
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Converse" onclick="addBrand('Converse')">Converse</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Ford" onclick="addBrand('Ford')">Ford</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="LG" onclick="addBrand('LG')">LG</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Disney" onclick="addBrand('Disney')">Disney</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Old Navy" onclick="addBrand('Old Navy')">Old Navy</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Hot Topic" onclick="addBrand('Hot Topic')">Hot Topic</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Kohls" onclick="addBrand('Kohls')">Kohls</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Victorias Secret" onclick="addBrand('Victorias Secret')">Victorias Secret</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Hollister" onclick="addBrand('Hollister')">Hollister</button>
+                              <br>
+                              <br>
+                              <center>
+                              <span id="upArrow" onclick="hideTags('row1')" class="glyphicon glyphicon-arrow-up" style="color:white; display:none; font-size: 25px;" aria-hidden="true"></span>
+                            </center>
+                              </div>
+                              <!-- <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Vans" onclick="addBrand('Vans')">Vans</button> -->
 
                             </div>
                             <h3>&nbsp;</h3>
@@ -632,6 +657,33 @@ function checkState(user){
   })
 }
 
+function showTags(data){
+
+  var showTags = document.getElementById(data);
+  var downArrow = document.getElementById('downArrow');
+  var upArrow = document.getElementById('upArrow');
+  if(showTags.style.display === "none"){
+      showTags.style.display = "block";
+      downArrow.style.display = "none";
+      upArrow.style.display = "block";
+    }
+    else{
+      showTags.style.display = "none";
+    }
+}
+function hideTags(data){
+  var hideTags = document.getElementById(data);
+  var downArrow = document.getElementById('downArrow');
+  var upArrow = document.getElementById('upArrow');
+  if(hideTags.style.display === "block"){
+      hideTags.style.display = "none";
+      upArrow.style.display = "none";
+      downArrow.style.display = "block";
+    }
+    else{
+      hideTags.style.display = "block";
+    }
+}
 function addBrand(data){
   // firebase.database().ref('/')
   // btn-success btn-rounded
