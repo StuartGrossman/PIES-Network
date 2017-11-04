@@ -468,7 +468,7 @@
     //   }
     // }
     setTimeout(function(){
-      console.log(DefaultTagData)
+      // console.log(DefaultTagData)
       // $('#tags').tagsinput({
       //   maxTags: 3,
       //   maxChars: 15,
@@ -715,7 +715,7 @@ function addTags(){
     tagArray.push(data[i].toLowerCase());
     var tempData = data[i].toLowerCase();
   }
-  console.log(tagArray)
+  // console.log(tagArray)
   saveTags(tempData, tagArray);
 
 
@@ -726,7 +726,7 @@ function saveTags(data, array){
   // firebase.database().ref('/tag/' + userObject.uid).update(array)
   if(userObject){
     firebase.database().ref('/queue/addTags/tasks').push({'data': array, 'userId': userObject.uid})
-    
+
   }
   // .then(function(res){
   //   console.log(res);
