@@ -100,9 +100,9 @@ var queue = new Queue(phoneRef, function(data, progress, resolve, reject) {
         // console.log(lastItem)
       }
       if(temp <= 1){
-        console.log(temp, "this is the ammount of phone attempts")
-
-        console.log('hitting less than 3 attempts')
+        // console.log(temp, "this is the ammount of phone attempts")
+        //
+        // console.log('hitting less than 3 attempts')
 
         db.ref('phoneAttempts/' + data.userId).push({'time': new Date().getTime() / 1000});
         //adds Timestamp for code Send
@@ -113,7 +113,7 @@ var queue = new Queue(phoneRef, function(data, progress, resolve, reject) {
               to: '+1' + data.phone,  // Text this number
               from: '+14157636376 ' // From a valid Twilio number
           }).then(function(message){
-            console.log(message.sid)
+            // console.log(message.sid)
             resolve();
           });
         }else{
@@ -122,7 +122,7 @@ var queue = new Queue(phoneRef, function(data, progress, resolve, reject) {
               to: '+1' + data.phone,  // Text this number
               from: '+14157636376 ' // From a valid Twilio number
           }).then(function(message){
-            console.log(message.sid)
+            // console.log(message.sid)
             resolve();
           });
         }
@@ -148,19 +148,28 @@ var queue = new Queue(phoneRef, function(data, progress, resolve, reject) {
 
                   //if time resloves to true than differnce of time stamps is sufficent to send new text
                   db.ref('phone/' + data.userId).update({'code': code, 'phone': data.phone});
-                  client.messages.create({
-                      body: 'Welcome to PIES Network, your code is ' + code,
-                      to: '+1' + data.phone,  // Text this number
-                      from: '+14157636376 ' // From a valid Twilio number
-                  })
-                  .then(function(message){
-                    console.log(message.sid)
-                    resolve();
-                  });
+                  if(data.message){
+                    client.messages.create({
+                        body: data.message + code,
+                        to: '+1' + data.phone,  // Text this number
+                        from: '+14157636376 ' // From a valid Twilio number
+                    }).then(function(message){
+                      // console.log(message.sid)
+                      resolve();
+                    });
+                  }else{
+                    client.messages.create({
+                        body: 'Welcome to PIES Network, your code is ' + code,
+                        to: '+1' + data.phone,  // Text this number
+                        from: '+14157636376 ' // From a valid Twilio number
+                    }).then(function(message){
+                      // console.log(message.sid)
+                      resolve();
+                    });
+                  }
+                }else{
+                  resolve();
                 }
-              }
-              else{
-                resolve();
               }
             })
 
@@ -176,6 +185,21 @@ var queue = new Queue(phoneRef, function(data, progress, resolve, reject) {
 })
 
 
+//Confirms Phone Code
+// var queue = new Queue(checkPhoneNumberRef, function(data, progress, resolve, reject) {
+//   db.ref('phone/').once('value', function(snapshot){
+//     var userPhonedata = snapshot.val();
+//     var primaryNumber = data.phoneNumber
+//     if(userPhonedata){
+//       for(var i in userPhonedata){
+//         if(userPhonedata[i].phone == primaryNumber){
+//           reject();
+//         }
+//       }
+//     }
+//   })
+//
+// })
 
 
 

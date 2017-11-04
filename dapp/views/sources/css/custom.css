@@ -1,4 +1,5 @@
 
+
 .delTag {
   margin-left: 50px;
   background-color: #ab8ce4;
@@ -6,6 +7,9 @@
   padding-right: 5px;
   color:black;
   display: inline;
+}
+.inputForm{
+  font-size: 15px;
 }
 /*#quesitonTag{
     margin-left: 7px;
@@ -45,7 +49,7 @@
     text-align: center;
 }
 .user-profile .user-pro-body img {
-    width: 50px; 
+    width: 50px;
     display: block;
     margin: 0 auto 10px;
 }

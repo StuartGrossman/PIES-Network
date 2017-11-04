@@ -25,6 +25,7 @@
     "firebase-queue": "^1.6.1",
     "google-cloud": "^0.56.0",
     "keythereum": "^1.0.2",
+    "promise-exec": "^0.1.0",
     "readable-stream": "^2.3.3",
     "sendgrid": "^1.9.2",
     "textmagic-rest-client": "0.0.5",
