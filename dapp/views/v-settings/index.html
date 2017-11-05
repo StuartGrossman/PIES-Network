@@ -440,22 +440,22 @@
                              <!-- <input class="form-control" placeholder="List Brands" id="Brands"/> -->
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Cimbing" onclick="addBrand('Cimbing')">Cimbing</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Painting" onclick="addBrand('Painting')">Painting</button>
-                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Apple" onclick="addBrand('Apple')">Apple</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Science" onclick="addBrand('Science')">Science</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Ceramics" onclick="addBrand('Ceramics')">Ceramics</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Soccer" onclick="addBrand('Soccer')">Soccer</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Basketball" onclick="addBrand('Basketball')">Basketball</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Tennis" onclick="addBrand('Tennis')">Tennis</button>
-                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Target" onclick="addBrand('Target')">Target</button>
-                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Amazon" onclick="addBrand('Amazon')">Amazon</button>
-                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Google" onclick="addBrand('Google')">Google</button>
-                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Wal-Mart" onclick="addBrand('Wal-Mart')">Wal-Mart</button>
-                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Nintendo" onclick="addBrand('Nintendo')">Nintendo</button>
-                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Coca-Cola" onclick="addBrand('Coca-Cola')">Coca-Cola</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Art" onclick="addBrand('Art')">Art</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Movies" onclick="addBrand('Movies')">Movies</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Technology" onclick="addBrand('Technology')">Technology</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Music" onclick="addBrand('Music')">Music</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Dancing" onclick="addBrand('Dancing')">Dancing</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Space" onclick="addBrand('Space')">Space</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Forever 21" onclick="addBrand('Forever 21')">Forever 21</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Jordan" onclick="addBrand('Jordan')">Jordan</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Pepsi" onclick="addBrand('Pepsi')">Pepsi</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Starbucks" onclick="addBrand('Starbucks')">Starbucks</button>
-                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="American Eagle" onclick="addBrand('American Eagle')">American Eagle</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Coffee" onclick="addBrand('Coffee')">Coffee</button>
                               <center>
                                 <span id="downArrow" onclick="showTags('row1')" class="glyphicon glyphicon-arrow-down" style="color:white; font-size: 25px" aria-hidden="true"></span>
                               </center>
@@ -737,8 +737,8 @@ function Onload(){
 
 function checkBrands(){
   //Tags are equal to the Brand Name
-  var brandTagArray = ['Cimbing', 'Painting','Science','Ceramics','Soccer','Basketball','Tennis','Target','Amazon','Google','Wal-Mart','Nintendo','Coca-Cola','Forever 21','Jordan','Pepsi','Starbucks',
-  'American Eagle','Converse','Ford','LG','Disney','Old Navy','Kohls','Victorias Secret','Hollister','Vans'];
+  var brandTagArray = ['Cimbing', 'Painting','Science','Ceramics','Soccer','Basketball','Tennis','Art','Movies','Technology','Music','Dancing','Space','Forever 21','Jordan','Pepsi','Starbucks',
+  'Coffee','Converse','Ford','LG','Disney','Old Navy','Kohls','Victorias Secret','Hollister','Vans'];
   firebase.database().ref('/tag/' + userObject.uid + '/brands').once('value', function(snapshot){
     if(snapshot.val()){
       snapshot.forEach(function(childSnapshot) {
