@@ -434,17 +434,17 @@
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                             <h3>&nbsp;</h3>
-                            <h1 style="color:#92C7C7;">Purchased Brands </h1>
-                            <h4 style="color:white;">Please select brands you have purchased or would like to.</h4>
+                            <h1 style="color:#92C7C7;">Personal Interest Tags</h1>
+                            <h4 style="color:white;">The more your tags match with the tags of a particular post, the more PCS you can be rewarded. </h4>
                             <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="BrandHolder">
                              <!-- <input class="form-control" placeholder="List Brands" id="Brands"/> -->
-                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Puma" onclick="addBrand('Puma')">Puma</button>
-                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Adidas" onclick="addBrand('Adidas')">Adidas</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Cimbing" onclick="addBrand('Cimbing')">Cimbing</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Painting" onclick="addBrand('Painting')">Painting</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Apple" onclick="addBrand('Apple')">Apple</button>
-                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Nike" onclick="addBrand('Nike')">Nike</button>
-                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Samsung" onclick="addBrand('Samsung')">Samsung</button>
-                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Sony" onclick="addBrand('Sony')">Sony</button>
-                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Microsoft" onclick="addBrand('Microsoft')">Microsoft</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Ceramics" onclick="addBrand('Ceramics')">Ceramics</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Soccer" onclick="addBrand('Soccer')">Soccer</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Basketball" onclick="addBrand('Basketball')">Basketball</button>
+                              <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Tennis" onclick="addBrand('Tennis')">Tennis</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Target" onclick="addBrand('Target')">Target</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Amazon" onclick="addBrand('Amazon')">Amazon</button>
                               <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Google" onclick="addBrand('Google')">Google</button>
@@ -485,8 +485,10 @@
                               <br>
                               <center>
                               <span id="upArrow" onclick="hideTags('row1')" class="glyphicon glyphicon-arrow-up" style="color:white; display:none; font-size: 25px;" aria-hidden="true"></span>
-                            </center>
+                             </center>
                               </div>
+
+
                               <!-- <button class="btn btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Vans" onclick="addBrand('Vans')">Vans</button> -->
 
                             </div>
@@ -721,7 +723,7 @@ function removeClass(id){
   ele.classList.remove('btn-default');
   ele.className = "btn-success"
 }
-// removeClass('Puma')
+// removeClass('Cimbing')
 
 function Onload(){
   checkBrands();
@@ -735,7 +737,7 @@ function Onload(){
 
 function checkBrands(){
   //Tags are equal to the Brand Name
-  var brandTagArray = ['Puma', 'Adidas','Apple','Nike','Samsung','Sony','Microsoft','Target','Amazon','Google','Wal-Mart','Nintendo','Coca-Cola','Forever 21','Jordan','Pepsi','Starbucks',
+  var brandTagArray = ['Cimbing', 'Painting','Science','Ceramics','Soccer','Basketball','Tennis','Target','Amazon','Google','Wal-Mart','Nintendo','Coca-Cola','Forever 21','Jordan','Pepsi','Starbucks',
   'American Eagle','Converse','Ford','LG','Disney','Old Navy','Kohls','Victorias Secret','Hollister','Vans'];
   firebase.database().ref('/tag/' + userObject.uid + '/brands').once('value', function(snapshot){
     if(snapshot.val()){
