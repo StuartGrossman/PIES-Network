@@ -81,21 +81,24 @@ function s4() {
 }
 
 function loadBalance(){
-  var userRef = firebase.database().ref('user/' + userObject.uid);
-  var data;
-  userRef.on('value', function(snapshot){
-    data = snapshot.val();
-    // console.log(data);
-    if(data.ethAddress){
-      firebase.database().ref('queue/myEthBalance/tasks').push({"ethAddress": data.ethAddress, "userId": userObj.uid});
-      if(data.myBalance){
-        var balance = numberWithCommas(data.myBalance);
-        document.getElementById('balance').innerHTML = 'Balance: ' + balance + ' <i><b>PIES</b></i>';
-        document.getElementById('p-completion-number').innerHTML = balance;
+  if(userObject){
+    var userRef = firebase.database().ref('user/' + userObject.uid);
+    var data;
+    userRef.on('value', function(snapshot){
+      data = snapshot.val();
+      // console.log(data);
+      if(data.ethAddress){
+        firebase.database().ref('queue/myEthBalance/tasks').push({"ethAddress": data.ethAddress, "userId": userObject.uid});
+        if(data.myBalance){
+          var balance = numberWithCommas(data.myBalance);
+          document.getElementById('balance').innerHTML = 'Balance: ' + balance + ' <i><b>PIES</b></i>';
+          document.getElementById('p-completion-number').innerHTML = balance;
 
+        }
       }
-    }
-  })
+    })
+  }
+
 
 }
 

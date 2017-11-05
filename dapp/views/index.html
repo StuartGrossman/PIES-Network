@@ -32,9 +32,12 @@
                               <!-- <a class="logo-holder" href="/" style="width:38%;">
                                     <img src="./sources/images/logo4.png" class="img-responsive" />
                               </a> -->
-                              <a class="logo-holder" href="index.html">
+                              <!-- <a class="logo-holder" href="index.html">
                                 <div class="logo" style="width:62px;height:18px"></div>
-                              </a>
+                              </a> -->
+                              <div>
+
+                              </div>
                             </div>
                               <button aria-expanded="false" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs">
                                   <span class="icon-bar"></span>
@@ -58,9 +61,16 @@
 
 
                                   <!-- <li><a target="_blank" href="./sources/documents/whitepaper.pdf" href="/whitePaper">White Paper</a></li> -->
-                                  <li><a href="/team">Team</a></li>
+                                  <li class="support-button-holder support-dropdown animated bounceIn" id="login">
+                                    <a onclick="login()" class="support-button">
+                                      <i class="fa fa-google-plus fa-lg" style="margin-right: 5px;"></i>
+
+                                       Sign In
+                                    </a>
+                                  </li>
+                                  <li><a onclick="team()">Team</a></li>
                                   <li><a href="#email">Contact</a></li>
-                                  <li><a target="_blank" href="/token">(PCS) Token Sale</a></li>
+                                  <li><a href="/token">(PCS) Token Sale</a></li>
 
                                   <!-- <li> -->
                                     <!-- <a onclick="login()" class="btn-google" id="login">Login</a> -->
@@ -79,6 +89,8 @@
                                         <li><a href="#"><i class="fa fa-book"></i>Knowledge base</a></li>
                                       </ul> -->
                                   </li>
+
+
                                   <li><a onclick="logout()" class="login-button" id="logout" style="display: none;">Logout</a></li>
 
 
@@ -106,7 +118,8 @@
 
                       <div class="big-title" style="margin-bottom: 15px;">
                         PIES
-                        <span style="font-size: 28px; color: #ffffff; font-weight: 700; line-height: 62px; margin-bottom: 40px;">NETWORK</span>
+                        <span style="font-size: 28px; color: #ffffff; font-weight: 700; line-height: 62px; margin-bottom: 20px;">NETWORK</span>
+                        <br />
 
                       </div>
 
@@ -115,23 +128,26 @@
                         <br />
                         <i style="font-size: 12px; color: #ededed;">Fair money. Low fees. Curated information.</i>
 
-                        <br /><br />
+                        <br />
                       </div>
 
                       <div class="domain-search-holder" style="margin-top: 30px;">
-
-                        <span style="font-size: 18px; color: #ededed; margin-bottom: 15px;">Get your piece of the PIES network today</span><br />
-
-                        <!-- <br /> -->
-                        <a onclick="login()" class="ybtn ybtn-large ybtn-white ybtn-shadow animated bounceIn">
+                        <!-- <a onclick="login()" class="ybtn ybtn-large ybtn-white ybtn-shadow animated bounceIn">
                           <i class="fa fa-google-plus fa-lg" style="margin-right: 5px;"></i>
 
-                           Join Now!
-                        </a>
-                        <span style="color:white; font-size: 15px;">or</span>
-                        <a href="/info" class="ybtn ybtn-lg ybtn-white ybtn-shadow animated bounceIn">Learn More</a>
-
+                           Join Today and get your first (PCS) Tokens!
+                        </a> -->
                         <br />
+                        <!-- <span style="font-size: 18px; color: #ededed; margin-bottom: 15px;">Get your piece of the PIES network today</span> -->
+                        <br />
+
+                        <!-- <br /> -->
+
+                        <!-- <span style="color:white; font-size: 15px;">or</span>
+                        <a onclick="flow()" class="ybtn ybtn-lg ybtn-white ybtn-shadow animated bounceIn">Learn More</a>
+
+                        <br /> -->
+
                         <!-- <span style="font-size: 15px; color: black;">Complete your account today & recieve 5$ of PECIES</span> -->
 
                       </div>
@@ -190,7 +206,7 @@
               <div class="col-sm-12 col-md-6">
                   <div class="service-box">
                       <div class="service-icon">
-                          <img src="./sources/images/service-icon1.png" alt="">
+                          <img src="./sources/images/service-icon2.png" alt="">
                       </div>
                       <div class="service-title"><a >Precise</a></div>
                       <div class="service-details">
@@ -202,11 +218,12 @@
               <div class="col-sm-12 col-md-6">
                   <div class="service-box">
                       <div class="service-icon">
-                          <img src="./sources/images/service-icon2.png" alt="">
+                          <img src="./sources/images/service-icon1.png" alt="">
                       </div>
                       <div class="service-title"><a >Information</a></div>
                       <div class="service-details">
-                          <p>We secure your personal information, and you benefit from it.
+                          <p>We secure your personal information, match you with publishers, and you benefit from it.
+
                           </p>
                       </div>
                   </div>
@@ -251,7 +268,7 @@
               <div class="col-sm-12 col-md-6">
                   <div class="buttons-holder">
                       <a onclick="login()" class="ybtn ybtn-purple"> <i class="fa fa-google-plus fa-lg" style="margin-right: 5px;"></i> Sign Up</a>
-                      <a href="#footer" class="ybtn ybtn-white ybtn-shadow" href="/info">More Info</a>
+                      <a  class="ybtn ybtn-white ybtn-shadow" onclick="flow()">More Info</a>
                   </div>
               </div>
           </div>
@@ -397,7 +414,7 @@
                       <div class="feature-icon-holder feature-icon-holder2" data-id="2">
                           <div class="animation-holder"><div class="special-gradiant"></div></div>
                           <div class="feature-icon"><i class="htfy htfy-like"></i></div>
-                          <div class="feature-title">Luanch the app</div>
+                          <div class="feature-title">Launch the app</div>
                       </div>
                       <div class="feature-icon-holder feature-icon-holder3" data-id="3">
                           <div class="animation-holder"><div class="special-gradiant"></div></div>
@@ -585,7 +602,7 @@
               <div class="col-sm-12 col-md-6">
                   <div class="buttons-holder">
                       <a onclick="login()" class="ybtn ybtn-purple"><i class="fa fa-google-plus fa-lg" style="margin-right: 5px;"></i>Create Your Account</a>
-                      <!-- <a href="#email" class="ybtn ybtn-white ybtn-shadow">Contact Us</a> -->
+                      <a onclick="flow()" class="ybtn ybtn-white ybtn-shadow">Application Flow</a>
                   </div>
               </div>
           </div>
@@ -619,7 +636,7 @@
                             </div>
                           </li> -->
                           <!-- <li><a href="blog.html">News</a></li> -->
-                          <li><a href="/info">FAQ</a></li>
+                          <li><a onclick="flow()">FAQ</a></li>
                           <!-- <li><a href="/contact">Contact us</a></li> -->
                        </ul>
                   </div>
@@ -671,6 +688,13 @@
 <script src="./sources/js/slick.min.js"></script>
 <script src="./sources/js/main.js"></script>
 <script>
+function flow(){
+  window.location = '/flow#flowTop';
+}
+function team(){
+  window.location = '/team#about';
+
+}
 $(document).ready(function(){
   // Add smooth scrolling to all links
   $("a").on('click', function(event) {
