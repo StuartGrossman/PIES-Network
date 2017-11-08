@@ -59,7 +59,9 @@ var upload = require('./routes/queue/upload');
 var queues = require('./routes/queue/queues');
 var tags = require('./routes/queue/tags');
 var wallet = require('./routes/queue/wallet');
+var categories = require('./routes/queue/categories');
 
+app.use('/categories', categories);
 app.use('/wallet', wallet);
 app.use('/linkUsers', linkUsers);
 app.use('/ipfs', ipfs);
