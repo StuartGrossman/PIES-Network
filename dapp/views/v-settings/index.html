@@ -303,13 +303,16 @@
                           <div class="row">
                             <div class="col-md-6 col-xs-6 col-lg-6 col-sm-6">
                               <div class="btn-group m-r-10">
-                                        <button aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button">Dropdown <span class="caret"></span></button>
+                                        <button aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button">Income <span class="caret"></span></button>
                                         <ul role="menu" class="dropdown-menu">
-                                            <li><a href="#">Action</a></li>
-                                            <li><a href="#">Another action</a></li>
-                                            <li><a href="#">Something else here</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Separated link</a></li>
+                                            <li><a onclick="addIncome(0)">None</a></li>
+                                            <li><a onclick="addIncome(1)">$10,000</a></li>
+                                            <li><a onclick="addIncome(10000)">$10,000 - $35,000</a></li>
+                                            <li><a onclick="addIncome(35000)">$35,000 - $50,000</a></li>
+                                            <li><a onclick="addIncome(50000)">$50,000 - $100,000</a></li>
+                                            <li><a onclick="addIncome(100000)">$100,000 - $250,000</a></li>
+                                            <li><a onclick="addIncome(250000)">$250,000 - $500,000</a></li> 
+                                            <li><a onclick="addIncome(500000)">< $500,000</a></li>
                                         </ul>
                               </div>
                             </div>
@@ -383,7 +386,7 @@
 
                                   </div>
                                   <div class="col-lg-2 col-sm-4 col-xs-12">
-                                    <button class="btn btn-block btn-outline btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Basketball" onclick="addBrand('Basketball')">Basketball</button>
+                                    <button class="btn btn-block btn-outline btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Anime" onclick="addBrand('Anime')">Anime</button>
 
                                   </div>
 
@@ -410,7 +413,7 @@
 
                                   </div>
                                   <div class="col-lg-2 col-sm-4 col-xs-12">
-                                    <button class="btn btn-block btn-outline btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Basketball" onclick="addBrand('Basketball')">Basketball</button>
+                                    <button class="btn btn-block btn-outline btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Anime" onclick="addBrand('Anime')">Anime</button>
 
                                   </div>
 
@@ -439,7 +442,7 @@
 
                                   </div>
                                   <div class="col-lg-2 col-sm-4 col-xs-12">
-                                    <button class="btn btn-block btn-outline btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Basketball" onclick="addBrand('Basketball')">Basketball</button>
+                                    <button class="btn btn-block btn-outline btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Anime" onclick="addBrand('Anime')">Anime</button>
 
                                   </div>
 
@@ -466,7 +469,7 @@
 
                                   </div>
                                   <div class="col-lg-2 col-sm-4 col-xs-12">
-                                    <button class="btn btn-block btn-outline btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Basketball" onclick="addBrand('Basketball')">Basketball</button>
+                                    <button class="btn btn-block btn-outline btn-default" style="margin-left: 6px; margin-bottom:5px;" id="Anime" onclick="addBrand('Anime')">Anime</button>
 
                                   </div>
 
@@ -682,6 +685,10 @@ function hideTags(data, row){
       hideTags.style.display = "block";
     }
 }
+
+function addIncome(){
+
+}
 function addBrand(data){
   // firebase.database().ref('/')
   // btn-success btn-rounded
@@ -738,7 +745,7 @@ function Onload(){
 
 function checkBrands(){
   //Tags are equal to the Brand Name
-  var brandTagArray = ['Cimbing', 'Painting','Science','Ceramics','Soccer','Basketball','Tennis','Art','Movies','Technology','Music','Dancing','Space','Forever 21','Jordan','Pepsi','Starbucks',
+  var brandTagArray = ['Cimbing', 'Painting','Science','Ceramics','Soccer','Anime','Tennis','Art','Movies','Technology','Music','Dancing','Space','Forever 21','Jordan','Pepsi','Starbucks',
   'Coffee','Converse','Ford','LG','Disney','Old Navy','Kohls','Victorias Secret','Hollister','Vans'];
   firebase.database().ref('/tag/' + userObject.uid + '/brands').once('value', function(snapshot){
     if(snapshot.val()){
