@@ -271,7 +271,18 @@
                                   <div class="progress-bar progress-bar-info progress-bar-striped active" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 100%" role="progressbar"> <span class="sr-only">85% Complete (success)</span> </div>
                               </div>
 
-                              <h2 id="myAddress"></h2>
+                              <div class="row">
+                                <div class="col-md-12 col-lg-12 sm-hidden xs-hidden">
+                                  <span style="font-size: 25px; color:white;" id="myAddress"></span>
+
+                                </div>
+                                <div class="hidden-md hidden-lg col-sm-12 col-xs-12">
+                                  <span style="font-size: 12px; color:white;" id="myAddress"></span>
+
+                                </div>
+                              </div>
+
+
                               <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
 
 
@@ -356,7 +367,7 @@
                                   <h1>Default Tags</h1>
                                   <h6>Limited to 5 default tags</h6>
                                   <div class="progress progress-md">
-                                      <div class="progress-bar progress-bar-info progress-bar-striped active" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 10%" role="progressbar"> <span class="sr-only">85% Complete (success)</span> </div>
+                                      <div class="progress-bar progress-bar-info progress-bar-striped active" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 0%" id="tagProgressBar" role="progressbar"> <span class="sr-only">85% Complete (success)</span> </div>
                                   </div>
                                   <div class="row" id="">
                                     <div class="col-md-12">
@@ -578,6 +589,9 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById('userImage').src = user.photoURL;
     document.getElementById('userName').innerHTML = user.displayName;
     getDefaultTags(userObject);
+    setTimeout(function(){
+      calcTagProgress();
+    }, 3000)
     // writeUserData(u)
 
   }else{
@@ -647,16 +661,16 @@ function Onload(){
 
 }
 
-
-function removeItem(k){
-  var dataRef =  firebase.database().ref('user/' + userObject.uid + '/tags/' + k );
-  dataRef.set({"data": null}).then(function(err, res){
-    dataRef.off
-    loadTags();
-
-  });
-
-}
+//
+// function removeItem(k){
+//   var dataRef =  firebase.database().ref('user/' + userObject.uid + '/tags/' + k );
+//   dataRef.set({"data": null}).then(function(err, res){
+//     dataRef.off
+//     loadTags();
+//
+//   });
+//
+// }
 
 // function submitEthAddress(){
 //   var ethAddress = document.getElementById('myEthAddress');
@@ -707,8 +721,9 @@ function getDefaultTags(user){
   tagsRef.once('value', function(snapshot){
     // console.log(snapshot.val())
     var data = [];
+    tagAmm = 0;
     for(var i  in snapshot.val()){
-
+      tagAmm += 1
       data.push(snapshot.val()[i])
     }
 
@@ -718,8 +733,8 @@ function getDefaultTags(user){
   })
 
 }
-var tagAmmoun = 0;
 function addTags(){
+
   var tagArray = [];
   var input = document.getElementById('tags')
 
@@ -736,15 +751,28 @@ function addTags(){
   return;
 }
 
+function calcTagProgress(){
+  firebase.database().ref('tag/' + userObject.uid).once('value', function(snapshot){
+    console.log(snapshot.val().length)
+    var tagProgress = document.getElementById('tagProgressBar');
+    if(tagAmm <= 9){
+      var growth = tagAmm * 10
+        for(var i = 0; i < growth; i++){
+          // console.log(i)
+          tagProgress.style.width = i + "%"
+        }
+    }
+  })
+
+}
+
 function saveTags(data, array){
-  // firebase.database().ref('/tag/' + userObject.uid).update(array)
   if(userObject){
-    firebase.database().ref('/queue/addTags/tasks').push({'data': array, 'userId': userObject.uid})
+    firebase.database().ref('/queue/addTags/tasks').push({'data': array, 'userId': userObject.uid}).then(function(){
+      calcTagProgress();
+    })
 
   }
-  // .then(function(res){
-  //   console.log(res);
-  // })
 }
 
 function numberWithCommas(x) {
