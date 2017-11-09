@@ -305,94 +305,124 @@
                               <div class="progress-bar progress-bar-info progress-bar-striped active" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 10%" role="progressbar"> <span class="sr-only">85% Complete (success)</span> </div>
                           </div>
                           <div class="row">
-                            <div class="col-md-4 col-xs-12 col-lg-4 col-sm-12">
+                            <div class="col-md-4 col-xs-12 col-lg-4 col-sm-4">
                               <div class="btn-group m-r-10">
                                         <button id="income" aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button" style="width:180px;">Income
                                         </button>
-                                        <button id="spinner" style="padding-left:4x; width:180px; display: none;" aria-expanded="false" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button">
+                                        <button id="incomeSpinner" style="padding-left:4x; width:180px; display: none;" aria-expanded="false" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button">
                                           <div  class="spinner">Loading...</div>
 
                                         </button>
-                                        <span><i id="incomeCheck" class="ti-check" style="display:none; font-size:40px; padding-left:4px; color:white;"></i></span>
+                                        <span><i id="incomeCheck" class="ti-check" style="display: none; padding-left:4px;"></i></span>
 
                                         <!-- <i class="ti-help" style="font-size:18px"></i><i class="ti-check" style="font-size:18px"></i> -->
 
                                         <ul role="menu" class="dropdown-menu">
-                                            <li><a onclick="addIncome(0)">None</a></li>
-                                            <li><a onclick="addIncome(10000)">$10,000</a></li>
-                                            <li><a onclick="addIncome(35000)">$10,000 - $35,000</a></li>
-                                            <li><a onclick="addIncome(50000)">$35,000 - $50,000</a></li>
-                                            <li><a onclick="addIncome(100000)">$50,000 - $100,000</a></li>
-                                            <li><a onclick="addIncome(250000)">$100,000 - $250,000</a></li>
-                                            <li><a onclick="addIncome(500000)">$250,000 - $500,000</a></li>
-                                            <li><a onclick="addIncome(1)">< $500,000</a></li>
+                                            <li><a onclick="addCategory('income', 0)">None</a></li>
+                                            <li><a onclick="addCategory('income', 10000)">$10,000</a></li>
+                                            <li><a onclick="addCategory('income', 35000)">$10,000 - $35,000</a></li>
+                                            <li><a onclick="addCategory('income', 50000)">$35,000 - $50,000</a></li>
+                                            <li><a onclick="addCategory('income', 100000)">$50,000 - $100,000</a></li>
+                                            <li><a onclick="addCategory('income', 250000)">$100,000 - $250,000</a></li>
+                                            <li><a onclick="addCategory('income', 500000)">$250,000 - $500,000</a></li>
+                                            <li><a onclick="addCategory('income', 1)">< $500,000</a></li>
                                         </ul>
                               </div>
                             </div>
-                            <div class="col-md-4 col-xs-12 col-lg-4 col-sm-12">
+                            <div class="col-md-4 col-xs-12 col-lg-4 col-sm-4">
                               <div class="btn-group m-r-10">
-                                        <button id="gender" aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button" style="width:180px;">Gender<span class="caret"></span></button>
+                                        <button id="gender" aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button" style="width:180px;">Gender
+                                        </button>
+                                        <button id="genderSpinner" style="padding-left:4x; width:180px; display: none;" aria-expanded="false" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button">
+                                          <div  class="spinner">Loading...</div>
+
+                                        </button>
+                                        <span><i id="genderCheck" class="ti-check" style="display: none; padding-left:4px;"></i></span>
                                         <ul role="menu" class="dropdown-menu">
-                                            <li><a onclick="addGender('All')">All</a></li>
-                                            <li><a onclick="addGender('Male')">Male</a></li>
-                                            <li><a onclick="addGender('Female')">Female</a></li>
-                                            <li><a onclick="addGender('Other')">Other</a></li>
+                                            <li><a onclick="addCategory('gender', 'All')">All</a></li>
+                                            <li><a onclick="addCategory('gender', 'Male')">Male</a></li>
+                                            <li><a onclick="addCategory('gender', 'Female')">Female</a></li>
+                                            <li><a onclick="addCategory('gender', 'Other')">Other</a></li>
                                         </ul>
                               </div>
                             </div>
-                            <div class="col-md-4 col-xs-12 col-lg-4 col-sm-12">
+                            <div class="col-md-4 col-xs-12 col-lg-4 col-sm-4">
                               <div class="btn-group m-r-10">
-                                        <button id="race" aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button" style="width:180px;">Race<span class="caret"></span></button>
+                                        <button id="race" aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button" style="width:180px;">Race
+                                        </button>
+                                        <button id="raceSpinner" style="padding-left:4x; width:180px; display: none;" aria-expanded="false" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button">
+                                          <div  class="spinner">Loading...</div>
+
+                                        </button>
+                                        <span><i id="raceCheck" class="ti-check" style="display: none; padding-left:4px;"></i></span>
                                         <ul role="menu" class="dropdown-menu">
-                                            <li><a onclick="addRace('All')">All</a></li>
-                                            <li><a onclick="addRace('White')">White</a></li>
-                                            <li><a onclick="addRace('Black or African American')">Black or African American</a></li>
-                                            <li><a onclick="addRace('Asian / Pacific Islander')">Asian / Pacific Islander</a></li>
-                                            <li><a onclick="addRace('Hispanic or Latino')">Hispanic or Latino</a></li>
-                                            <li><a onclick="addRace('Native American or American Indian')">Native American or American Indian</a></li>
-                                            <li><a onclick="addRace('Mix of two races')">Mix of two races</a></li>
-                                            <li><a onclick="addRace('Mix of more than two races')">Mix of more than two races</a></li>
+                                            <li><a onclick="addCategory('race', 'All')">All</a></li>
+                                            <li><a onclick="addCategory('race', 'White')">White</a></li>
+                                            <li><a onclick="addCategory('race', 'Black or African American')">Black or African American</a></li>
+                                            <li><a onclick="addCategory('race', 'Asian / Pacific Islander')">Asian / Pacific Islander</a></li>
+                                            <li><a onclick="addCategory('race', 'Hispanic or Latino')">Hispanic or Latino</a></li>
+                                            <li><a onclick="addCategory('race', 'Native American or American Indian')">Native American or American Indian</a></li>
+                                            <li><a onclick="addCategory('race', 'Mix of two races')">Mix of two races</a></li>
+                                            <li><a onclick="addCategory('race', 'Mix of more than two races')">Mix of more than two races</a></li>
                                         </ul>
                               </div>
                             </div>
                           </div>
                           <br>
                           <div class="row">
-                            <div class="col-md-4 col-xs-12 col-lg-4 col-sm-12">
+                            <div class="col-md-4 col-xs-12 col-lg-4 col-sm-4">
                               <div class="btn-group m-r-10">
-                                        <button id="sex" aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button" style="width:180px;">Sexuality<span class="caret"></span></button>
+                                        <button id="sex" aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button" style="width:180px;">Sexuality
+                                        </button>
+                                        <button id="sexSpinner" style="padding-left:4x; width:180px; display: none;" aria-expanded="false" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button">
+                                          <div  class="spinner">Loading...</div>
+
+                                        </button>
+                                        <span><i id="sexCheck" class="ti-check" style="display: none; padding-left:4px;"></i></span>
                                         <ul role="menu" class="dropdown-menu">
-                                            <li><a onclick="addSex('All')">All</a></li>
-                                            <li><a onclick="addSex('Straight')">Straight</a></li>
-                                            <li><a onclick="addSex('LGBTQ')">LGBTQ</a></li>
-                                            <li><a onclick="addSex('Other')">Other</a></li>
+                                            <li><a onclick="addCategory('sex', 'All')">All</a></li>
+                                            <li><a onclick="addCategory('sex', 'Straight')">Straight</a></li>
+                                            <li><a onclick="addCategory('sex', 'LGBTQ')">LGBTQ</a></li>
+                                            <li><a onclick="addCategory('sex', 'Other')">Other</a></li>
                                         </ul>
                               </div>
                             </div>
-                            <div class="col-md-4 col-xs-12 col-lg-4 col-sm-12">
+                            <div class="col-md-4 col-xs-12 col-lg-4 col-sm-4">
                               <div class="btn-group m-r-10">
-                                        <button id="spending" aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button" style="width:180px;">Web spending /m<span class="caret"></span></button>
+                                        <button id="spending" aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button" style="width:180px;">Web spending /m
+                                        </button>
+                                        <button id="spendingSpinner" style="padding-left:4x; width:180px; display: none;" aria-expanded="false" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button">
+                                          <div  class="spinner">Loading...</div>
+
+                                        </button>
+                                        <span><i id="spendingCheck" class="ti-check" style="display: none; padding-left:4px;"></i></span>
                                         <ul role="menu" class="dropdown-menu">
-                                            <li><a onclick="addSpending('All')">All</a></li>
-                                            <li><a onclick="addSpending('$50')">$50</a></li>
-                                            <li><a onclick="addSpending('$$200')">$50-$200</a></li>
-                                            <li><a onclick="addSpending('$500')">$200-500</a></li>
-                                            <li><a onclick="addSpending('$1000')">$500-1000</a></li>
-                                            <li><a onclick="addSpending('1')">$1000+</a></li>
+                                            <li><a onclick="addCategory('spending', 'All')">All</a></li>
+                                            <li><a onclick="addCategory('spending', '$50')">$50</a></li>
+                                            <li><a onclick="addCategory('spending', '$200')">$50-$200</a></li>
+                                            <li><a onclick="addCategory('spending', '$500')">$200-500</a></li>
+                                            <li><a onclick="addCategory('spending', '$1000')">$500-1000</a></li>
+                                            <li><a onclick="addCategory('spending', '1')">$1000+</a></li>
                                         </ul>
                               </div>
                             </div>
-                            <div class="col-md-4 col-xs-12 col-lg-4 col-sm-12">
+                            <div class="col-md-4 col-xs-12 col-lg-4 col-sm-4">
                               <div class="btn-group m-r-10">
-                                        <button id="education" aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button" style="width:180px;">Education<span class="caret"></span></button>
+                                        <button id="education" aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button" style="width:180px;">Education
+                                        </button>
+                                        <button id="educationSpinner" style="padding-left:4x; width:180px; display: none;" aria-expanded="false" class="btn btn-info dropdown-toggle waves-effect waves-light" type="button">
+                                          <div  class="spinner">Loading...</div>
+
+                                        </button>
+                                        <span><i id="educationCheck" class="ti-check" style="display: none; padding-left:4px;"></i></span>
                                         <ul role="menu" class="dropdown-menu">
-                                            <li><a onclick="addEducation('All')">All</a></li>
-                                            <li><a onclick="addEducation('High School or less')">High School or less</a></li>
-                                            <li><a onclick="addEducation('Some College')">Some College</a></li>
-                                            <li><a onclick="addEducation('Associates Degree')">Associates Degree</a></li>
-                                            <li><a onclick="addEducation('Bachelors Degree')">Bachelors Degree</a></li>
-                                            <li><a onclick="addEducation('Masters Degree')">Masters Degree</a></li>
-                                            <li><a onclick="addEducation('Phd')">Phd</a></li>
+                                            <li><a onclick="addCategory('education', 'All')">All</a></li>
+                                            <li><a onclick="addCategory('education', 'High School or less')">High School or less</a></li>
+                                            <li><a onclick="addCategory('education', 'Some College')">Some College</a></li>
+                                            <li><a onclick="addCategory('education', 'Associates Degree')">Associates Degree</a></li>
+                                            <li><a onclick="addCategory('education', 'Bachelors Degree')">Bachelors Degree</a></li>
+                                            <li><a onclick="addCategory('education', 'Masters Degree')">Masters Degree</a></li>
+                                            <li><a onclick="addCategory('education', 'Phd')">Phd</a></li>
                                         </ul>
                               </div>
                             </div>
@@ -756,68 +786,27 @@ function hideTags(data, row){
     }
 }
 
-function addIncome(income){
-// document.getElementById('income').innerHTML = income
-  console.log(income)
- var incomeRef = '/queue/addIncome/tasks';
- firebase.database().ref(incomeRef).push({'data': income, 'userId': userObject.uid}).then(function(res){
-   var button = document.getElementById('income');
-   var loader = document.getElementById('spinner');
-  //  var tempHtml = button.innerHTML;
-  //  button.innerHTML = '';
-  button.style.display = 'none';
-  loader.style.display = 'block';
+function addCategory(categories, data){
+  console.log(categories, data)
+  var categoryRef = '/queue/addCategory/tasks';
+  firebase.database().ref(categoryRef).push({'categories': categories, 'data': data, 'userId': userObject.uid}).then(function(res){
+    var button = document.getElementById(categories);
+    var loader = document.getElementById(categories + 'Spinner');
+    var check = document.getElementById(categories + 'Check');
+    button.style.display = 'none';
+    loader.style.display = 'initial';
+    check.style.display = 'initial';
 
-   //hide button
-   //show loader
-   setTimeout(function(){
-     loader.style.display = 'none';
-    //  button.innerHTML = tempHtml;
-     button.style.display = 'block';
-   },1500)
-   console.log('income passed to Queue')
- })
-}
-
-function addGender(gender){
-  console.log(gender)
-  var genderRef = '/queue/addGender/tasks';
-  firebase.database().ref(genderRef).push({'data': gender, 'userId': userObject.uid}).then(function(res){
-    console.log('gender passed to queue')
+     //hide button
+     //show loader
+     setTimeout(function(){
+       loader.style.display = 'none';
+      //  button.innerHTML = tempHtml;
+       button.style.display = 'initial';
+     },1500)
   })
 }
 
-function addRace(race){
-  console.log(race)
-  var raceRef = '/queue/addRace/tasks';
-  firebase.database().ref(raceRef).push({'data': race, 'userId': userObject.uid}).then(function(res){
-    console.log('race passed to queue')
-  })
-}
-
-function addSex(sex){
-  console.log(sex)
-  var sexRef = '/queue/addSex/tasks';
-  firebase.database().ref(sexRef).push({'data': sex, 'userId': userObject.uid}).then(function(res){
-    console.log('sex passed to queue')
-  })
-}
-
-function addSpending(spending){
-  console.log(spending)
-  var spendingRef = '/queue/addSpending/tasks';
-  firebase.database().ref(spendingRef).push({'data': spending, 'userId': userObject.uid}).then(function(res){
-    console.log('monthly spending passed to queue')
-  })
-}
-
-function addEducation(education){
-  console.log(education)
-  var educationRef = '/queue/addEducation/tasks';
-  firebase.database().ref(educationRef).push({'data': education, 'userId': userObject.uid}).then(function(res){
-    console.log('education passed to queue')
-  })
-}
 
 function addBrand(data){
   // firebase.database().ref('/')
