@@ -263,10 +263,16 @@
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-6 col-lg-12 col-sm-6">
                               <!-- <h3>&nbsp;</h3> -->
-                              <h1>My Ethereum Address </h1>
+                              <h1>My ETH Address </h1>
                               <h6>MetaMask working!</h6>
+                              <div class="hidden-sm hidden-xs">
+                                <h2 id="myAddress"></h2>
 
-                              <h2 id="myAddress"></h2>
+                              </div>
+                              <div class="visible-sm visible-xs">
+                                <h5 id="mySmallAddress"></h5>
+
+                              </div>
                               <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
 
 
@@ -657,6 +663,8 @@ function removeItem(k){
 
 function loadBalance(ethAddress){
   document.getElementById('myAddress').innerHTML = ethAddress;
+  document.getElementById('mySmallAddress').innerHTML = ethAddress;
+
 
   // console.log('hitting function', userObject)
   var userRef = firebase.database().ref('user/' + userObject.uid);
