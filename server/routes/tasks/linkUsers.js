@@ -37,6 +37,8 @@ function linkUsers(tagList){
           if(tempTag === fakeData[j].data){
             console.log(fakeData[j].data)
             catchTags = true;
+
+            ///funciton 
           }
         }
       }

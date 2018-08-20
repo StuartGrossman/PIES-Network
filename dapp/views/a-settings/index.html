@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>PIES</title>
+  <title>PIES Network</title>
   <link rel="stylesheet" type="text/css" href="../sources/css/bootstrap.min.css">
   <!-- Bootstrap Core CSS -->
     <!-- <link href="../sources/css/bootstrap-extension.css" rel="stylesheet"> -->
@@ -23,7 +23,8 @@
     <link href="../sources/css/custom.css" rel="stylesheet" />
     <link href="../sources/css/bootstrap-tagsinput.css" rel="stylesheet" />
 
-    <link rel="icon" href="./sources/images/pieslogo.png">
+    <link rel="icon" href="./sources/images/darklogo.png">
+
 
 </head>
 
@@ -44,127 +45,43 @@
                  </b>
                </a>
 
-              <ul class="nav navbar-top-links navbar-left hidden-xs">
+              <!-- <ul class="nav navbar-top-links navbar-left hidden-xs">
                   <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
                   <li>
-                      <!-- <form role="search" class="app-search hidden-xs"> -->
-                          <!-- <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form> -->
+                      <form role="search" class="app-search hidden-xs">
+                          <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form>
 
                   </li>
 
-              </ul>
+              </ul> -->
               <ul class="nav navbar-top-links navbar-right pull-right">
-                <li><a href="/a-transactions" class="waves-effect"><i class="fa fa-circle-o text-info"></i>
-                  <span class="hide-menu" id="balance"><i>0</i></span>
-                  <div class="notify"><span class="heartbit">
-                    </span><span class="point"></span>
-                  </div></a>
+                <li>
+                  <a href="/a-transactions" class="waves-effect">
+                    <i class="fa fa-circle-o text-info">
+                    </i>
+                    <span class="hide-menu" id="balance">
+                      <i>0</i>
+                    </span>
+                    <div class="notify"><span class="heartbit">
+                      </span><span class="point"></span>
+                    </div>
+                  </a>
                 </li>
 
-                  <li class="dropdown">
-                     <!-- <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="/a-ads"><i class="icon-envelope">
-                     </i>
-                          <div class="notify"><span class="heartbit">
-                            </span><span class="point"></span>
-                          </div>
-                      </a> -->
 
-                      <!-- <ul class="dropdown-menu mailbox animated bounceInDown">
-                          <li>
-                              <div class="drop-title">You have 4 new messages</div>
-                          </li>
-                          <li>
-                              <div class="message-center">
-                                  <a href="#">
-                                      <div class="user-img"> <img src="../sources/images/pawandeep.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
-                                      <div class="mail-contnet">
-                                          <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span> </div>
-                                  </a>
-                                  <a href="#">
-                                      <div class="user-img"> <img src="../sources/images/sonu.jpg" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
-                                      <div class="mail-contnet">
-                                          <h5>Sonu Nigam</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span> </div>
-                                  </a>
-                                  <a href="#">
-                                      <div class="user-img"> <img src="../sources/images/arijit.jpg" alt="user" class="img-circle"> <span class="profile-status away pull-right"></span> </div>
-                                      <div class="mail-contnet">
-                                          <h5>Arijit Sinh</h5> <span class="mail-desc">I am a singer!</span> <span class="time">9:08 AM</span> </div>
-                                  </a>
-                                  <a href="#">
-                                      <div class="user-img"> <img src="../sources/images/pawandeep.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
-                                      <div class="mail-contnet">
-                                          <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </div>
-                                  </a>
-                              </div>
-                          </li>
-                          <li>
-                              <a class="text-center" href="javascript:void(0);"> <strong>See all notifications</strong> <i class="fa fa-angle-right"></i> </a>
-                          </li>
-                      </ul> -->
-                      <!-- /.dropdown-messages -->
-                  </li>
                   <!-- /.dropdown -->
-                  <li class="dropdown">
-                    <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="/a-upload">
-                    <i class="icon-note"></i>
-                  <div class="notify">
-                    <span class="heartbit"></span>
-                    <span class="point"></span>
-                  </div>
-                  </a>
-                      <ul class="dropdown-menu dropdown-tasks animated slideInUp">
-                          <li>
-                              <a href="#">
-                                  <div>
-                                      <p> <strong>Task 1</strong> <span class="pull-right text-muted">40% Complete</span> </p>
-                                      <div class="progress progress-striped active">
-                                          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span class="sr-only">40% Complete (success)</span> </div>
-                                      </div>
-                                  </div>
-                              </a>
-                          </li>
-                          <li class="divider"></li>
-                          <li>
-                              <a href="#">
-                                  <div>
-                                      <p> <strong>Task 2</strong> <span class="pull-right text-muted">20% Complete</span> </p>
-                                      <div class="progress progress-striped active">
-                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"> <span class="sr-only">20% Complete</span> </div>
-                                      </div>
-                                  </div>
-                              </a>
-                          </li>
-                          <li class="divider"></li>
-                          <li>
-                              <a href="#">
-                                  <div>
-                                      <p> <strong>Task 3</strong> <span class="pull-right text-muted">60% Complete</span> </p>
-                                      <div class="progress progress-striped active">
-                                          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"> <span class="sr-only">60% Complete (warning)</span> </div>
-                                      </div>
-                                  </div>
-                              </a>
-                          </li>
-                          <li class="divider"></li>
-                          <li>
-                              <a href="#">
-                                  <div>
-                                      <p> <strong>Task 4</strong> <span class="pull-right text-muted">80% Complete</span> </p>
-                                      <div class="progress progress-striped active">
-                                          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"> <span class="sr-only">80% Complete (danger)</span> </div>
-                                      </div>
-                                  </div>
-                              </a>
-                          </li>
-                          <li class="divider"></li>
-                          <li>
-                              <a class="text-center" href="#"> <strong>See All Tasks</strong> <i class="fa fa-angle-right"></i> </a>
-                          </li>
-                      </ul>
-                      <!-- /.dropdown-tasks -->
-                  </li>
+                <li class="" >
+                  <a class=" waves-light" href="/a-upload">
 
-              </ul>
+                    <i class="icon-note"></i>
+
+                    <div class="notify">
+                      <span class="heartbit"></span>
+                      <span class="point"></span>
+                    </div>
+                  </a>
+                </li>
+
           </div>
 
       </nav>
@@ -212,11 +129,11 @@
                       <span class="hide-menu">Publish</span>
                     </a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="/content" class="waves-effect"><i data-icon="&#xe006;" class="linea-icon linea-basic fa-fw"></i>
                       <span class="hide-menu">Analytics</span>
                     </a>
-                  </li>
+                  </li> -->
                   <li>
                     <a href="/transactions" class="waves-effect"><i data-icon="&#xe011;" class="linea-icon linea-basic fa-fw"></i>
                       <span class="hide-menu">Transactions</span>
@@ -270,7 +187,7 @@
 
                               </div>
                               <div class="visible-sm visible-xs">
-                                <h5 id="mySmallAddress"></h5>
+                                <h6 id="mySmallAddress"></h6>
 
                               </div>
                               <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
@@ -298,28 +215,32 @@
                 </div>
 
                 <div class="col-md-12" id="noMetaMaskFound" style="display: none;">
-                  <div class="bg-theme-dark m-b-15">
+                  <div class="bg-themem-b-15">
                       <div class="row weather p-20">
-                          <div class="col-md-6 col-xs-6 col-lg-6 col-sm-6">
-                              <h1>Not using Google Chrome?</h1>
-                              <h1>Need MetaMask?</h1>
-                              <h3> MetaMask is a google chrome exstension for your browser that allows you to interact with our token. </h3>
+                          <div class="col-md-6 col-xs-12 col-lg-6 col-sm-12">
+                              <!-- <h1>Not using Google Chrome? Do you have MetaMask?</h1> -->
+
+                              <h1>PIES Network </h1>
+                              <h3>requires both</h3>
                               <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
-                              <h6>Once installed refresh this page and request your inital tokens on your wallet page! </h6>
 
 
                           </div>
-                          <div class="col-md-6 col-xs-6 col-lg-6 col-sm-6">
+                          <div class="col-md-6 col-xs-12 col-lg-6 col-sm-12">
                               <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
-                              <a target="_blank" href="https://www.google.com/chrome/browser/desktop/index.html"><button class="btn btn-lg btn-primary">Download Google Chrome</button></a>
+                              <h4>Download:</h4>
+                              <a target="_blank" href="https://www.google.com/chrome/browser/desktop/index.html"><button class="btn btn btn-danger">Google Chrome</button></a>
                               <br />
                               <br />
-                              <br />
-                              <a target="_blank" href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en"><button class="btn btn-lg btn-primary">Download MetaMask</button></a>
+                              <a target="_blank" href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en"><button class="btn btn btn-danger">MetaMask</button></a>
 
 
                           </div>
+                          <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
+                            <h3> MetaMask is a google chrome exstension for your browser that allows you to interact with our token </h3>
+                            <h3>Once installed refresh the page </h3>
 
+                          </div>
 
                       </div>
 
@@ -344,7 +265,7 @@
                 </div>
 
 
-                <div class="col-md-12" id="tagsHolder" style="display: none;">
+                <!-- <div class="col-md-12" id="tagsHolder" style="display: contents;">
                       <div class="bg-theme-dark m-b-15">
                           <div class="row weather p-20">
                               <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
@@ -358,8 +279,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <h4>These tags will be automatically applied to any content you publish free of charge</h4>
-                                  <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
+                                  <h4>These tags will be automatically applied to any content you publish</h4>
 
 
                               </div>
@@ -369,7 +289,7 @@
                           </div>
 
                       </div>
-                </div>
+                </div> -->
 
 
                 <!-- <div class="col-md-12">
@@ -450,8 +370,8 @@
     // $('.main-container').css("display", "none");
     // $('#successMessage').hide();
     $.toast({
-        heading: 'Welcome back to PIES Network',
-        text: 'Loading your pieces now!',
+        heading: 'Welcome back!',
+        text: 'PIES Network is loading',
         position: 'top-right',
         loaderBg: '#ff6849',
         icon: 'info',
@@ -488,7 +408,7 @@
         // event.cancel: set to true to prevent the item getting removed
       });
       // $("#tags").tagsinput(DefaultTagData[0].data);
-      $('#tagsHolder').css("display", "initial")
+      $('#tagsHolder').css("display", "contents")
 
     }, 3000);
 
@@ -520,8 +440,8 @@ window.addEventListener('load', function() {
         // document.getElementById('noMetaMaskFound').style.display ='none';
         document.getElementById('metaMaskNotLoggedIn').style.display = 'none';
 
-        document.getElementById('metaMaskFound').style.display = 'block';
-        document.getElementById('metaMaskFound').style.display = 'block';
+        document.getElementById('metaMaskFound').style.display = 'contents';
+        // document.getElementById('metaMaskFound').style.display = 'block';
 
 
 
@@ -535,7 +455,7 @@ window.addEventListener('load', function() {
   } else {
 
     setTimeout(function(){
-      document.getElementById('noMetaMaskFound').style.display = 'block';
+      document.getElementById('noMetaMaskFound').style.display = 'contents';
 
 
     }, 1000)

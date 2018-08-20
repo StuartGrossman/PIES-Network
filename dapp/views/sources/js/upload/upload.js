@@ -28,7 +28,7 @@ firebase.auth().onAuthStateChanged(function(userObj) {
     user = userObj
     document.getElementById('userImage').src = user.photoURL;
     document.getElementById('userName').innerHTML = user.displayName;
-    loadBalance();
+    // loadBalance();
     getDefaultTags(user);
 
     checkState(user);
@@ -80,27 +80,27 @@ function s4() {
   return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
 }
 
-function loadBalance(){
-  if(userObject){
-    var userRef = firebase.database().ref('user/' + userObject.uid);
-    var data;
-    userRef.on('value', function(snapshot){
-      data = snapshot.val();
-      // console.log(data);
-      if(data.ethAddress){
-        firebase.database().ref('queue/myEthBalance/tasks').push({"ethAddress": data.ethAddress, "userId": userObject.uid});
-        if(data.myBalance){
-          var balance = numberWithCommas(data.myBalance);
-          document.getElementById('balance').innerHTML = 'Balance: ' + balance + ' <i><b>PIES</b></i>';
-          document.getElementById('p-completion-number').innerHTML = balance;
-
-        }
-      }
-    })
-  }
-
-
-}
+// function loadBalance(){
+//   if(userObject){
+//     var userRef = firebase.database().ref('user/' + userObject.uid);
+//     var data;
+//     userRef.on('value', function(snapshot){
+//       data = snapshot.val();
+//       // console.log(data);
+//       if(data.ethAddress){
+//         firebase.database().ref('queue/myEthBalance/tasks').push({"ethAddress": data.ethAddress, "userId": userObject.uid});
+//         if(data.myBalance){
+//           var balance = numberWithCommas(data.myBalance);
+//           document.getElementById('balance').innerHTML = 'Balance: ' + balance + ' <i><b>PIES</b></i>';
+//           document.getElementById('p-completion-number').innerHTML = balance;
+//
+//         }
+//       }
+//     })
+//   }
+//
+//
+// }
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
