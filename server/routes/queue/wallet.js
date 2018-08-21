@@ -25,7 +25,7 @@ var balanceRef = admin.database().ref('/queue/myEthBalance/');
 var withdrawlRef = admin.database().ref('/queue/withdrawlAmmount/');
 
 var queue = new Queue(ethRef, function(data, progress, resolve, reject) {
-  console.log(data)
+  // console.log(data)
   db.ref('user/' + data.userId ).update({'ethAddress': data.ethAddress}).then(function(res, err){
     resolve();
   });

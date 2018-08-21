@@ -59,6 +59,7 @@ var upload = require('./routes/queue/upload');
 var queues = require('./routes/queue/queues');
 var tags = require('./routes/queue/tags');
 var wallet = require('./routes/queue/wallet');
+var stripe = require('./routes/stripe/stripe');
 
 app.use('/wallet', wallet);
 app.use('/linkUsers', linkUsers);
@@ -68,6 +69,8 @@ app.use('/phone', phone);
 app.use('/upload', upload);
 app.use('/queues', queues);
 app.use('/tags', tags);
+app.use('/stripe', stripe);
+
 
 
 
