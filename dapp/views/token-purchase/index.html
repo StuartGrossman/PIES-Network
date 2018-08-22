@@ -72,7 +72,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
   }
 })
-var ammount = 0;;
+var ammount = 0;
 function calculateDollars(input){
   ammount = input.value;
   exchangeRate = input.value * 100;
@@ -80,7 +80,7 @@ function calculateDollars(input){
 
 }
 
-var stripe = Stripe('pk_test_458UUQemoncaOL21F82T0aMQ');
+  var stripe = Stripe('pk_test_458UUQemoncaOL21F82T0aMQ');
 
   var paymentRequest = stripe.paymentRequest({
     country: 'US',
