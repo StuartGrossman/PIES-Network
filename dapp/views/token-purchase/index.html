@@ -54,6 +54,7 @@ var userObject, tagBox;
 firebase.auth().onAuthStateChanged(function(user) {
   if(user){
     userObject = user;
+    console.log(user)
     // checkState(userObject);
 
     // asyncWait();
