@@ -30,7 +30,7 @@
 
   <div id="payment-request-button"> -->
   <!-- A Stripe Element will be inserted here. -->
-  </div>
+</div>
 
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
@@ -96,8 +96,9 @@ paymentRequest.canMakePayment().then(function(result) {
   }
 });
 paymentRequest.on('token', function(ev) {
+  // console.log(ev.token.id)
   // Send the token to your server to charge it!
-  fetch('/charges', {
+  fetch('http://localhost:3000/charges', {
     method: 'POST',
     body: JSON.stringify({token: ev.token.id}),
     headers: {'content-type': 'application/json'},
