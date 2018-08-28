@@ -289,10 +289,10 @@
                             <form class="">
                               <div class="row">
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;">
+                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="raceHolder">
 
-                                     <select class="selectpicker" data-style="form-control" tabindex="-98" id="race" onchange="personalData(this, 'Race')">
-                                     <option id="raceOption">Race</option>
+                                     <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="personalData(this, 'race')">
+                                     <option>Race</option>
                                      <option data-race="All">All</option>
                                      <option data-race="W">White</option>
                                      <option data-race="BA">Black or African American</option>
@@ -309,9 +309,9 @@
                                      </select>
                                    </div>
                                    <br /><br />
-                                   <div class="btn-group bootstrap-select">
+                                   <div class="btn-group bootstrap-select" id="educationHolder">
 
-                                      <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="personalData(this, 'Education')">
+                                      <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="personalData(this, 'education')">
                                       <option id="educationOption">Education</option>
                                       <option>All</option>
                                       <option>Highschool or less</option>
@@ -396,8 +396,8 @@
 
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 
-                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;">
-                                     <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="personalData(this, 'Sexuality')">
+                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="sexualityHolder">
+                                     <select class="selectpicker" data-style="form-control" tabindex="-98" id="Sexuality" onchange="personalData(this, 'sexuality')">
                                      <option>Sexuality</option>
                                      <option>All</option>
                                      <option>Straight</option>
@@ -406,9 +406,9 @@
                                      </select>
                                    </div>
                                    <br /><br />
-                                   <div class="btn-group bootstrap-select">
+                                   <div class="btn-group bootstrap-select" id="webSpendingHolder">
 
-                                      <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="personalData(this, 'Web Spending')">
+                                      <select class="selectpicker" data-style="form-control" tabindex="-98" id="Web Spending" onchange="personalData(this, 'webSpending')">
                                       <option>Web Spending /m</option>
                                       <option>All</option>
                                       <option>> $50</option>
@@ -649,7 +649,7 @@ var statusState = true;
 firebase.auth().onAuthStateChanged(function(user) {
   if(user){
     userObject = user;
-  
+
     // checkState(userObject);
     Onload()
     // asyncWait();
@@ -858,7 +858,9 @@ function addContent(info){
 
 function personalData(selectObj, dataName) {
   var idx = selectObj.selectedIndex;
-  var indexedSelectedItem = selectObj.options[idx].value; 
+  var indexedSelectedItem = selectObj.options[idx].value;
+  document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].innerHTML = indexedSelectedItem;
+
   personalDataQueue(indexedSelectedItem, dataName)
 };
 
@@ -869,31 +871,16 @@ function personalDataQueue(data, dataName) {
 }
 
 function displayPersonalData() {
-  var savedData = firebase.database().ref("/userdata/" + userID).once("value", function(snapshot) {
+  firebase.database().ref("/userData/" + userObject.uid).once("value", function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
-      var key = childSnapshot.key;
-      var keyString = JSON.stringify(key);
-      // childData will be the actual contents of the child
-      var childData = childSnapshot.val();
-      var childDataString = JSON.stringify(childData);
-      
-      if (keyString === "Race"){
-      document.getElementById('raceOption').innerText = childDataString
-
+      if(document.getElementById(childSnapshot.key + 'Holder')){
+        document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].innerHTML = childSnapshot.val();
       }
-      else if (keyString === "Education") {
-      document.getElementById('educationOption').innerText = childDataString
-
-
-      }
-      else if (keyString === "Sexuality") {
-      document.getElementById('sexualityOption').innerText = childDataString
-
-      }
+    })
   })
 }
-// This is the first way I thought of trying to get the html elements to match the stringed values of the freibase objects its reading from, the main problem with this that because the elements are repeated every time the selectpicker element is used. The gist is that I gave the default options an id called raceOption, educationOption etc. and then simply switch the text of that element to match the value snapshotted from firebase. 
-// Please check out slack conversation I kind of went on a rant about how it is fucking stupid to avoid jQuery here because the TECHNOLOGY WAS DEVELOPED WITH THE INTENTION OF BEING USED WITH JQUERY. 
+// This is the first way I thought of trying to get the html elements to match the stringed values of the freibase objects its reading from, the main problem with this that because the elements are repeated every time the selectpicker element is used. The gist is that I gave the default options an id called raceOption, educationOption etc. and then simply switch the text of that element to match the value snapshotted from firebase.
+// Please check out slack conversation I kind of went on a rant about how it is fucking stupid to avoid jQuery here because the TECHNOLOGY WAS DEVELOPED WITH THE INTENTION OF BEING USED WITH JQUERY.
 </script>
 
 </html>
