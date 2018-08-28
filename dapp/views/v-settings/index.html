@@ -291,8 +291,8 @@
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                                   <div class="btn-group bootstrap-select" style="margin-top: 15px;">
 
-                                     <select class="selectpicker" data-style="form-control" tabindex="-98" id="race">
-                                     <option>Race</option>
+                                     <select class="selectpicker" data-style="form-control" tabindex="-98" id="race" onchange="personalData(this, 'Race')">
+                                     <option id="raceOption">Race</option>
                                      <option data-race="All">All</option>
                                      <option data-race="W">White</option>
                                      <option data-race="BA">Black or African American</option>
@@ -311,8 +311,8 @@
                                    <br /><br />
                                    <div class="btn-group bootstrap-select">
 
-                                      <select class="selectpicker" data-style="form-control" tabindex="-98">
-                                      <option>Education</option>
+                                      <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="personalData(this, 'Education')">
+                                      <option id="educationOption">Education</option>
                                       <option>All</option>
                                       <option>Highschool or less</option>
                                       <option>4 year degree or less</option>
@@ -322,10 +322,10 @@
                                       </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                <!-- <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                                   <div class="btn-group bootstrap-select" style="margin-top: 15px;">
 
-                                     <select class="selectpicker" data-style="form-control" tabindex="-98" id="race">
+                                     <select class="selectpicker" data-style="form-control" tabindex="-98" id="race" onchange="personalDataRace(this)">
                                      <option>Race</option>
                                      <option data-race="All">All</option>
                                      <option data-race="W">White</option>
@@ -341,8 +341,8 @@
 
 
                                      </select>
-                                   </div>
-                                   <br /><br />
+                                   </div> -->
+                                   <!-- <br /><br />
                                    <div class="btn-group bootstrap-select">
 
                                       <select class="selectpicker" data-style="form-control" tabindex="-98">
@@ -374,8 +374,8 @@
 
 
                                        </select>
-                                     </div>
-                                     <br /><br />
+                                     </div> -->
+                                     <!-- <br /><br />
                                      <div class="btn-group bootstrap-select">
 
                                         <select class="selectpicker" data-style="form-control" tabindex="-98">
@@ -388,7 +388,7 @@
                                         </option>
                                         </select>
                                       </div>
-                                  </div>
+                                  </div> -->
 
                                 <!-- <div class="lg-hidden md-hidden" style="margin-top: 15px;">
 
@@ -397,7 +397,7 @@
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 
                                   <div class="btn-group bootstrap-select" style="margin-top: 15px;">
-                                     <select class="selectpicker" data-style="form-control" tabindex="-98">
+                                     <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="personalData(this, 'Sexuality')">
                                      <option>Sexuality</option>
                                      <option>All</option>
                                      <option>Straight</option>
@@ -408,7 +408,7 @@
                                    <br /><br />
                                    <div class="btn-group bootstrap-select">
 
-                                      <select class="selectpicker" data-style="form-control" tabindex="-98">
+                                      <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="personalData(this, 'Web Spending')">
                                       <option>Web Spending /m</option>
                                       <option>All</option>
                                       <option>> $50</option>
@@ -649,13 +649,14 @@ var statusState = true;
 firebase.auth().onAuthStateChanged(function(user) {
   if(user){
     userObject = user;
+  
     // checkState(userObject);
     Onload()
     // asyncWait();
     // console.log(user)
     document.getElementById('userImage').src = user.photoURL;
     // document.getElementById('userName').innerHTML = user.displayName;
-
+    displayPersonalData();
     // writeUserData(u)
 
   }else{
@@ -854,6 +855,45 @@ function addContent(info){
   console.log(info)
 }
 
+
+function personalData(selectObj, dataName) {
+  var idx = selectObj.selectedIndex;
+  var indexedSelectedItem = selectObj.options[idx].value; 
+  personalDataQueue(indexedSelectedItem, dataName)
+};
+
+function personalDataQueue(data, dataName) {
+  var queue = firebase.database().ref('/queue/personalData/tasks');
+
+  queue.push({'data': data, 'userId': userObject.uid, 'dataName': dataName})
+}
+
+function displayPersonalData() {
+  var savedData = firebase.database().ref("/userdata/" + userID).once("value", function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var key = childSnapshot.key;
+      var keyString = JSON.stringify(key);
+      // childData will be the actual contents of the child
+      var childData = childSnapshot.val();
+      var childDataString = JSON.stringify(childData);
+      
+      if (keyString === "Race"){
+      document.getElementById('raceOption').innerText = childDataString
+
+      }
+      else if (keyString === "Education") {
+      document.getElementById('educationOption').innerText = childDataString
+
+
+      }
+      else if (keyString === "Sexuality") {
+      document.getElementById('sexualityOption').innerText = childDataString
+
+      }
+  })
+}
+// This is the first way I thought of trying to get the html elements to match the stringed values of the freibase objects its reading from, the main problem with this that because the elements are repeated every time the selectpicker element is used. The gist is that I gave the default options an id called raceOption, educationOption etc. and then simply switch the text of that element to match the value snapshotted from firebase. 
+// Please check out slack conversation I kind of went on a rant about how it is fucking stupid to avoid jQuery here because the TECHNOLOGY WAS DEVELOPED WITH THE INTENTION OF BEING USED WITH JQUERY. 
 </script>
 
 </html>
