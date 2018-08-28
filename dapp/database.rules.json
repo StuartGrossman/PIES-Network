@@ -48,7 +48,7 @@
 
       }
     },
-    "tag": {
+    "userData": {
       ".read": false,
       ".write": false,
       "$user_id": {
@@ -68,7 +68,7 @@
     "stripe": {
       ".read": false,
       ".write": false
-    }
+    },
     "phoneAttempts": {
       ".read": false,
       ".write": false,
