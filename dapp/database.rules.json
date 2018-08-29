@@ -48,11 +48,24 @@
 
       }
     },
+    "userData": {
+      ".read": false,
+      ".write": false,
+      "$user_id": {
+        ".write": false,
+        ".read": "$user_id === auth.uid"
+
+      }
+    },
     "catagory":{
       ".read": false,
       ".write": false
     },
     "esgrow": {
+      ".read": false,
+      ".write": false
+    },
+    "stripe": {
       ".read": false,
       ".write": false
     },
@@ -145,7 +158,37 @@
           }
         }
       },
+      "personalData": {
+       "tasks": {
+       ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val()",
+           ".write": "auth.uid == newData.child('userId').val()"
+          }
+        }
+      },
+      "getTags": {
+       "tasks": {
+       ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val()",
+           ".write": "auth.uid == newData.child('userId').val()"
+          }
+        }
+      },
       "addTags": {
+       "tasks": {
+       ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val()",
+           ".write": "auth.uid == newData.child('userId').val()"
+          }
+        }
+      },
+      "stripe": {
        "tasks": {
        ".indexOn": ["_state"],
          "$task": {
