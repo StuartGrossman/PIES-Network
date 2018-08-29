@@ -300,7 +300,7 @@
 
                                      <option data-race="HL">Hispanic or Latino</option>
 
-                                     <option data-race="NANI">Native American or American Indian</option>
+                                     <option data-race="NANI">Native American</option>
                                      <option data-race="other">Other</option>
 
 
@@ -322,10 +322,10 @@
                                       </select>
                                     </div>
                                 </div>
-                                <!-- <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                                   <div class="btn-group bootstrap-select" style="margin-top: 15px;">
 
-                                     <select class="selectpicker" data-style="form-control" tabindex="-98" id="race" onchange="personalDataRace(this)">
+                                     <select class="selectpicker" data-style="form-control" tabindex="-98" id="race" onchange="personalData(this)">
                                      <option>Race</option>
                                      <option data-race="All">All</option>
                                      <option data-race="W">White</option>
@@ -341,58 +341,95 @@
 
 
                                      </select>
-                                   </div> -->
-                                   <!-- <br /><br />
-                                   <div class="btn-group bootstrap-select">
+                                   </div>
+                                   <br /><br />
+                                   <div class="btn-group bootstrap-select" id="ageHolder">
 
-                                      <select class="selectpicker" data-style="form-control" tabindex="-98">
-                                      <option>Education</option>
-                                      <option>All</option>
-                                      <option>Highschool or less</option>
-                                      <option>4 year degree or less</option>
+                                      <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="personalData(this, 'age')">
+                                      <option>Age</option>
                                       <option>
-                                        4 year degree or greater
+                                        - 20
+                                      </option>
+                                      <option>20 - 30</option>
+                                      <option>30 - 40</option>
+                                      <option>40 - 50</option>
+                                      <option>
+                                        60 +
                                       </option>
                                       </select>
                                     </div>
-                                </div>  <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="btn-group bootstrap-select" style="margin-top: 15px;">
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="professionHolder">
 
-                                       <select class="selectpicker" data-style="form-control" tabindex="-98" id="race">
-                                       <option>Race</option>
-                                       <option data-race="All">All</option>
-                                       <option data-race="W">White</option>
-                                       <option data-race="BA">Black or African American</option>
-                                       <option data-race="AP">Asian / Pacific Islander</option>
+                                       <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="personalData(this, 'profession')">
+                                       <option>Profession</option>
+                                       <option data-race="All">None</option>
+                                       <option data-race="W">Retail Salespersons</option>
+                                       <option data-race="BA">Nurse</option>
+                                       <option data-race="AP">Customer Service</option>
 
-                                       <option data-race="HL">Hispanic or Latino</option>
+                                       <option data-race="HL">Laborers</option>
 
-                                       <option data-race="NANI">Native American or American Indian</option>
-                                       <option data-race="other">Other</option>
-
+                                       <option data-race="NANI">Waiters and Waitresses</option>
+                                       <option data-race="other">Administrative</option>
+                                       <option>
+                                         Physician
+                                       </option>
+                                       <option>
+                                         Technician
+                                       </option>
+                                       <option>
+                                         Lawyer
+                                       </option>
+                                       <option>
+                                         Engineer
+                                       </option>
+                                       <option>
+                                         Software Engineer
+                                       </option>
+                                       <option>
+                                         Sales
+                                       </option>
+                                       <option>
+                                         Athlete
+                                       </option>
+                                       <option>
+                                         Health Professional
+                                       </option>
+                                       <option>
+                                         Consultant
+                                       </option>
+                                       <option>
+                                         Police
+                                       </option>
+                                       <option>
+                                         Tradesman
+                                       </option>
+                                       <option>
+                                         Driver
+                                       </option>
+                                       <option>
+                                         Mechanic
+                                       </option>
 
 
 
                                        </select>
-                                     </div> -->
-                                     <!-- <br /><br />
-                                     <div class="btn-group bootstrap-select">
+                                     </div>
+                                     <br /><br />
+                                     <div class="btn-group bootstrap-select" id="marriageHolder">
 
-                                        <select class="selectpicker" data-style="form-control" tabindex="-98">
-                                        <option>Education</option>
-                                        <option>All</option>
-                                        <option>Highschool or less</option>
-                                        <option>4 year degree or less</option>
-                                        <option>
-                                          4 year degree or greater
-                                        </option>
+                                        <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="personalData(this, 'marriage')">
+                                        <option>Marriage</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+
                                         </select>
                                       </div>
-                                  </div> -->
+                                  </div>
 
-                                <!-- <div class="lg-hidden md-hidden" style="margin-top: 15px;">
 
-                                </div> -->
 
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 
