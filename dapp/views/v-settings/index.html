@@ -289,9 +289,9 @@
                             <form class="">
                               <div class="row">
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;">
+                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="raceHolder">
 
-                                     <select class="selectpicker" data-style="form-control" tabindex="-98" id="race">
+                                     <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="personalData(this, 'race')">
                                      <option>Race</option>
                                      <option data-race="All">All</option>
                                      <option data-race="W">White</option>
@@ -300,7 +300,7 @@
 
                                      <option data-race="HL">Hispanic or Latino</option>
 
-                                     <option data-race="NANI">Native American or American Indian</option>
+                                     <option data-race="NANI">Native American</option>
                                      <option data-race="other">Other</option>
 
 
@@ -309,10 +309,10 @@
                                      </select>
                                    </div>
                                    <br /><br />
-                                   <div class="btn-group bootstrap-select">
+                                   <div class="btn-group bootstrap-select" id="educationHolder">
 
-                                      <select class="selectpicker" data-style="form-control" tabindex="-98">
-                                      <option>Education</option>
+                                      <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="personalData(this, 'education')">
+                                      <option id="educationOption">Education</option>
                                       <option>All</option>
                                       <option>Highschool or less</option>
                                       <option>4 year degree or less</option>
@@ -325,7 +325,7 @@
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                                   <div class="btn-group bootstrap-select" style="margin-top: 15px;">
 
-                                     <select class="selectpicker" data-style="form-control" tabindex="-98" id="race">
+                                     <select class="selectpicker" data-style="form-control" tabindex="-98" id="race" onchange="personalData(this)">
                                      <option>Race</option>
                                      <option data-race="All">All</option>
                                      <option data-race="W">White</option>
@@ -343,61 +343,98 @@
                                      </select>
                                    </div>
                                    <br /><br />
-                                   <div class="btn-group bootstrap-select">
+                                   <div class="btn-group bootstrap-select" id="ageHolder">
 
-                                      <select class="selectpicker" data-style="form-control" tabindex="-98">
-                                      <option>Education</option>
-                                      <option>All</option>
-                                      <option>Highschool or less</option>
-                                      <option>4 year degree or less</option>
+                                      <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="personalData(this, 'age')">
+                                      <option>Age</option>
                                       <option>
-                                        4 year degree or greater
+                                        - 20
+                                      </option>
+                                      <option>20 - 30</option>
+                                      <option>30 - 40</option>
+                                      <option>40 - 50</option>
+                                      <option>
+                                        60 +
                                       </option>
                                       </select>
                                     </div>
-                                </div>  <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="btn-group bootstrap-select" style="margin-top: 15px;">
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="professionHolder">
 
-                                       <select class="selectpicker" data-style="form-control" tabindex="-98" id="race">
-                                       <option>Race</option>
-                                       <option data-race="All">All</option>
-                                       <option data-race="W">White</option>
-                                       <option data-race="BA">Black or African American</option>
-                                       <option data-race="AP">Asian / Pacific Islander</option>
+                                       <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="personalData(this, 'profession')">
+                                       <option>Profession</option>
+                                       <option data-race="All">None</option>
+                                       <option data-race="W">Retail Salespersons</option>
+                                       <option data-race="BA">Nurse</option>
+                                       <option data-race="AP">Customer Service</option>
 
-                                       <option data-race="HL">Hispanic or Latino</option>
+                                       <option data-race="HL">Laborers</option>
 
-                                       <option data-race="NANI">Native American or American Indian</option>
-                                       <option data-race="other">Other</option>
-
+                                       <option data-race="NANI">Waiters and Waitresses</option>
+                                       <option data-race="other">Administrative</option>
+                                       <option>
+                                         Physician
+                                       </option>
+                                       <option>
+                                         Technician
+                                       </option>
+                                       <option>
+                                         Lawyer
+                                       </option>
+                                       <option>
+                                         Engineer
+                                       </option>
+                                       <option>
+                                         Software Engineer
+                                       </option>
+                                       <option>
+                                         Sales
+                                       </option>
+                                       <option>
+                                         Athlete
+                                       </option>
+                                       <option>
+                                         Health Professional
+                                       </option>
+                                       <option>
+                                         Consultant
+                                       </option>
+                                       <option>
+                                         Police
+                                       </option>
+                                       <option>
+                                         Tradesman
+                                       </option>
+                                       <option>
+                                         Driver
+                                       </option>
+                                       <option>
+                                         Mechanic
+                                       </option>
 
 
 
                                        </select>
                                      </div>
                                      <br /><br />
-                                     <div class="btn-group bootstrap-select">
+                                     <div class="btn-group bootstrap-select" id="marriageHolder">
 
-                                        <select class="selectpicker" data-style="form-control" tabindex="-98">
-                                        <option>Education</option>
-                                        <option>All</option>
-                                        <option>Highschool or less</option>
-                                        <option>4 year degree or less</option>
-                                        <option>
-                                          4 year degree or greater
-                                        </option>
+                                        <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="personalData(this, 'marriage')">
+                                        <option>Marriage</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+
                                         </select>
                                       </div>
                                   </div>
 
-                                <!-- <div class="lg-hidden md-hidden" style="margin-top: 15px;">
 
-                                </div> -->
 
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 
-                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;">
-                                     <select class="selectpicker" data-style="form-control" tabindex="-98">
+                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="sexualityHolder">
+                                     <select class="selectpicker" data-style="form-control" tabindex="-98" id="Sexuality" onchange="personalData(this, 'sexuality')">
                                      <option>Sexuality</option>
                                      <option>All</option>
                                      <option>Straight</option>
@@ -406,9 +443,9 @@
                                      </select>
                                    </div>
                                    <br /><br />
-                                   <div class="btn-group bootstrap-select">
+                                   <div class="btn-group bootstrap-select" id="webSpendingHolder">
 
-                                      <select class="selectpicker" data-style="form-control" tabindex="-98">
+                                      <select class="selectpicker" data-style="form-control" tabindex="-98" id="Web Spending" onchange="personalData(this, 'webSpending')">
                                       <option>Web Spending /m</option>
                                       <option>All</option>
                                       <option>> $50</option>
@@ -676,13 +713,14 @@ var statusState = true;
 firebase.auth().onAuthStateChanged(function(user) {
   if(user){
     userObject = user;
+
     // checkState(userObject);
     Onload()
     // asyncWait();
     // console.log(user)
     document.getElementById('userImage').src = user.photoURL;
     // document.getElementById('userName').innerHTML = user.displayName;
-
+    displayPersonalData();
     // writeUserData(u)
 
   }else{
@@ -881,6 +919,32 @@ function addContent(info){
   console.log(info)
 }
 
+
+function personalData(selectObj, dataName) {
+  var idx = selectObj.selectedIndex;
+  var indexedSelectedItem = selectObj.options[idx].value;
+  document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].innerHTML = indexedSelectedItem;
+
+  personalDataQueue(indexedSelectedItem, dataName)
+};
+
+function personalDataQueue(data, dataName) {
+  var queue = firebase.database().ref('/queue/personalData/tasks');
+
+  queue.push({'data': data, 'userId': userObject.uid, 'dataName': dataName})
+}
+
+function displayPersonalData() {
+  firebase.database().ref("/userData/" + userObject.uid).once("value", function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      if(document.getElementById(childSnapshot.key + 'Holder')){
+        document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].innerHTML = childSnapshot.val();
+      }
+    })
+  })
+}
+// This is the first way I thought of trying to get the html elements to match the stringed values of the freibase objects its reading from, the main problem with this that because the elements are repeated every time the selectpicker element is used. The gist is that I gave the default options an id called raceOption, educationOption etc. and then simply switch the text of that element to match the value snapshotted from firebase.
+// Please check out slack conversation I kind of went on a rant about how it is fucking stupid to avoid jQuery here because the TECHNOLOGY WAS DEVELOPED WITH THE INTENTION OF BEING USED WITH JQUERY.
 </script>
 
 </html>
