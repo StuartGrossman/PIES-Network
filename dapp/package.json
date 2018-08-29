@@ -8,10 +8,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.12.4",
+    "body-parser": "^1.18.3",
     "ejs": "^2.3.1",
-    "express": "^4.12.4",
-    "firebase": "^3.9.0",
+    "express": "^4.16.3",
+    "firebase": "^5.4.1",
     "firebase-admin": "^4.2.1",
     "firebase-functions": "^0.6.1",
     "firebase-queue": "^1.6.1",
