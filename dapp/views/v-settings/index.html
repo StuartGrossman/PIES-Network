@@ -868,30 +868,59 @@ function personalDataQueue(data, dataName) {
   queue.push({'data': data, 'userId': userObject.uid, 'dataName': dataName})
 }
 
-function displayPersonalData() {
-  var savedData = firebase.database().ref("/userdata/" + userID).once("value", function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var key = childSnapshot.key;
-      var keyString = JSON.stringify(key);
-      // childData will be the actual contents of the child
-      var childData = childSnapshot.val();
-      var childDataString = JSON.stringify(childData);
-      
-      if (keyString === "Race"){
-      document.getElementById('raceOption').innerText = childDataString
+function displayPersonalData(){
+var ref = firebase.database().ref("/userData/" + userObject.uid);
+ref.once("value")
+  .then(function(snapshot) {
+    var race = snapshot.child("Race").val(); //this gives the users last choice after checking to see if that child of their userData exists, this method saves time by not having to check to see if the user has filled in their preferences yet
+    console.log(race);
+    document.getElementById("raceOption").innerHTML = "";
+    document.getElementById("raceOption").innerText = race;
+    var education = snapshot.child("Education").val();
+    console.log(education);
+    var sexuality = snapshot.child("Sexuality").val();
+    console.log(sexuality);
+    var webSpending = snapshot.child("Web Spending").val();
+    console.log(webSpending);
 
-      }
-      else if (keyString === "Education") {
-      document.getElementById('educationOption').innerText = childDataString
 
 
-      }
-      else if (keyString === "Sexuality") {
-      document.getElementById('sexualityOption').innerText = childDataString
-
-      }
-  })
+    // var firstName = snapshot.child("name/first").val(); // "Ada"
+    // var lastName = snapshot.child("name").child("last").val(); // "Lovelace"
+    // var age = snapshot.child("age").val(); // null
+  });
 }
+// function displayPersonalData() {
+//   var savedData = firebase.database().ref("/userData/" + userObject.uid).once("value", function(snapshot) {
+//     snapshot.forEach(function(childSnapshot) {
+//       console.log(childSnapshot)
+//       var key = childSnapshot.key;
+//       console.log(key)
+//       var keyString = JSON.stringify(key);
+//       console.log(keyString)
+//       // childData will be the actual contents of the child
+//       var childData = childSnapshot.val();
+//       console.log(childData)
+//       var childDataString = JSON.stringify(childData);
+//       console.log(childDataString + "GET THIS SHIT IN THE ELEMENT")
+      
+//       if (keyString === "Race"){
+//       document.getElementById('raceOption').innerHTML = "";
+//       document.getElementById('raceOption').innerText = childData.val();
+
+//       }
+//       else if (keyString === "Education") {
+//       document.getElementById('educationOption').innerText = childDataString
+
+
+//       }
+//       else if (keyString === "Sexuality") {
+//       document.getElementById('sexualityOption').innerText = childDataString
+
+//       }
+//   })
+// })
+// }
 // This is the first way I thought of trying to get the html elements to match the stringed values of the freibase objects its reading from, the main problem with this that because the elements are repeated every time the selectpicker element is used. The gist is that I gave the default options an id called raceOption, educationOption etc. and then simply switch the text of that element to match the value snapshotted from firebase. 
 // Please check out slack conversation I kind of went on a rant about how it is fucking stupid to avoid jQuery here because the TECHNOLOGY WAS DEVELOPED WITH THE INTENTION OF BEING USED WITH JQUERY. 
 </script>
