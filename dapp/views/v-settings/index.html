@@ -289,7 +289,7 @@
                             <form class="">
                               <div class="row">
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;">
+                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="Race">
 
                                      <select class="selectpicker" data-style="form-control" tabindex="-98" id="race" onchange="personalData(this, 'Race')">
                                      <option id="raceOption">Race</option>
@@ -867,29 +867,39 @@ function personalDataQueue(data, dataName) {
 
   queue.push({'data': data, 'userId': userObject.uid, 'dataName': dataName})
 }
-
+// function displayPersonalData() {
+//  firebase.database().ref("/userData/" + userObject.uid).once("value", function(snapshot) {
+//    snapshot.forEach(function(childSnapshot) {
+//      if(document.getElementById(childSnapshot.key + 'Holder')){
+//        document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].innerHTML = childSnapshot.val();
+//      }
+//    })
+//  })
+// }
 function displayPersonalData(){
 var ref = firebase.database().ref("/userData/" + userObject.uid);
-ref.once("value")
-  .then(function(snapshot) {
-    var race = snapshot.child("Race").val(); //this gives the users last choice after checking to see if that child of their userData exists, this method saves time by not having to check to see if the user has filled in their preferences yet
-    console.log(race);
-    document.getElementById("raceOption").innerHTML = "";
-    document.getElementById("raceOption").innerText = race;
-    var education = snapshot.child("Education").val();
-    console.log(education);
-    var sexuality = snapshot.child("Sexuality").val();
-    console.log(sexuality);
-    var webSpending = snapshot.child("Web Spending").val();
-    console.log(webSpending);
+ref.once("value").then(function(childSnapshot) {
+    if ($(snapshot.key)){
+      $(snapshot.key).childNodes[1].childNodes[0].innerHTML = childSnapshot.val();
+    }
+    
+    })
+  }; 
+
+    // var education = snapshot.child("Education").val();
+    // console.log(education);
+    // var sexuality = snapshot.child("Sexuality").val();
+    // console.log(sexuality);
+    // var webSpending = snapshot.child("Web Spending").val();
+    // console.log(webSpending);
 
 
 
     // var firstName = snapshot.child("name/first").val(); // "Ada"
     // var lastName = snapshot.child("name").child("last").val(); // "Lovelace"
     // var age = snapshot.child("age").val(); // null
-  });
-}
+//   });
+// };
 // function displayPersonalData() {
 //   var savedData = firebase.database().ref("/userData/" + userObject.uid).once("value", function(snapshot) {
 //     snapshot.forEach(function(childSnapshot) {
