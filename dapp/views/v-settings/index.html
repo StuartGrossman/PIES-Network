@@ -16,7 +16,7 @@
     <!-- animation CSS -->
     <link href="../sources/css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <!-- <link href="../sources/css/admin-style.css" rel="stylesheet"> -->
+    <link href="../sources/css/admin-style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="../sources/css/viewer.css" id="theme" rel="stylesheet">
 
@@ -212,6 +212,11 @@
                             <li><a href="#">Dashboard</a></li>
                             <li class="active">Settings</li>
                         </ol>
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12">
+                      <div class="progress" style="margin-top: 15px;">
+                        <div class="progress-bar"  id="progressBar" role="progressbar"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -475,11 +480,11 @@
                   </div>
                 </div>
                 <div class="col-md-12">
-                      <div class="bg-theme-dark m-b-15">
+                      <!-- <div class="bg-theme-dark m-b-15"> -->
                           <div class="row weather p-20">
                               <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
-                                  <h1>Default Tags</h1>
-                                  <h6>Limited to 5 default tags</h6>
+                                  <h1>Your Custome Tags</h1>
+
                                   <div class="row" id="">
                                     <div class="col-md-12">
                                       <div class="bs-example">
@@ -497,7 +502,7 @@
 
                           </div>
 
-                      </div>
+                      <!-- </div> -->
                 </div>
                 <!-- <div class="col-md-12">
 
@@ -925,18 +930,27 @@ function personalData(selectObj, dataName) {
   document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].innerHTML = indexedSelectedItem;
   document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].style.color = '#FF5722';
 
-  personalDataQueue(indexedSelectedItem, dataName)
+  personalDataQueue(indexedSelectedItem, dataName);
 };
 
 function personalDataQueue(data, dataName) {
   var queue = firebase.database().ref('/queue/personalData/tasks');
 
-  queue.push({'data': data, 'userId': userObject.uid, 'dataName': dataName})
+  queue.push({'data': data, 'userId': userObject.uid, 'dataName': dataName}).then(function(){
+    // displayPersonalData(count);
+
+  })
 }
+// var count = 0;
 
 function displayPersonalData() {
+  // count = 0;
+
   firebase.database().ref("/userData/" + userObject.uid).once("value", function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
+      //progressBar
+      // count += 1;
+      //
       //logic for finding elements
       if(document.getElementById(childSnapshot.key + 'Holder')){
         //logic to change title of each optionPicker
@@ -950,8 +964,18 @@ function displayPersonalData() {
 
       }
     })
+    // updateProgressBar(count);
+
   })
 }
+
+// var totalData = 8;
+// function updateProgressBar(count){
+//   percent = 100 / totalData;
+//   progressBar = percent * count;
+//   console.log(progressBar, count)
+//   document.getElementById('progressBar').style.width = progressBar + '%'
+// }
 </script>
 
 </html>
