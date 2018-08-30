@@ -26,6 +26,13 @@
   .tagDiv {
     border-radius: 10px;
   }
+  .pickTitle {
+    opacity: .7;
+    float: right;
+    color: #FF5722;
+    font-size: 8px;
+  }
+
   .indvTag {
      /* width: auto;
      height: 50px;*/

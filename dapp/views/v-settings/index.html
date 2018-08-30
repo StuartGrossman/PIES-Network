@@ -144,7 +144,7 @@
         </nav>
         <!-- Left navbar-header -->
         <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+            <div class="sidebar-nav navbar-collapse">
                 <div class="user-profile">
                     <div class="dropdown user-pro-body">
 
@@ -166,7 +166,7 @@
                     <li class="sidebar-search hidden-sm hidden-md hidden-lg">
                         <!-- input-group -->
                         <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search..."> <span class="input-group-btn">
+                            <!-- <input type="text" class="form-control" placeholder="Search..."> <span class="input-group-btn"> -->
             <button class="btn btn-default" type="button"> <i class="fa fa-search"></i> </button>
             </span> </div>
                         <!-- /input-group -->
@@ -279,12 +279,12 @@
 
                 <div class="col-md-12">
 
-                  <div class=" m-b-15" style="background-color: #4f5467">
+                  <div class=" m-b-15" >
 
 
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
-                            <h1>Personal Data </h1>
+                            <h1 style="color: #FF5722; opacity: .85;">Personal Data </h1>
 
                             <form class="">
                               <div class="row">
@@ -293,7 +293,6 @@
 
                                      <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="personalData(this, 'race')">
                                      <option>Race</option>
-                                     <option data-race="All">All</option>
                                      <option data-race="W">White</option>
                                      <option data-race="BA">Black or African American</option>
                                      <option data-race="AP">Asian / Pacific Islander</option>
@@ -323,20 +322,20 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;">
+                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="incomeHolder">
 
-                                     <select class="selectpicker" data-style="form-control" tabindex="-98" id="race" onchange="personalData(this)">
-                                     <option>Race</option>
-                                     <option data-race="All">All</option>
-                                     <option data-race="W">White</option>
-                                     <option data-race="BA">Black or African American</option>
-                                     <option data-race="AP">Asian / Pacific Islander</option>
+                                     <select class="selectpicker" data-style="form-control" tabindex="-98" id="race" onchange="personalData(this, 'income')">
+                                     <option>Income /Year</option>
 
-                                     <option data-race="HL">Hispanic or Latino</option>
 
-                                     <option data-race="NANI">Native American or American Indian</option>
-                                     <option data-race="other">Other</option>
+                                     <option>> $10,000</option>
+                                     <option>$10,000 - $25,000</option>
+                                     <option>$25,000 - $50,000</option>
 
+                                     <option>$50,000 - $100,000</option>
+
+                                     <option>$100,000 - $500,000</option>
+                                     <option>$500,000 > </option>
 
 
 
@@ -924,6 +923,7 @@ function personalData(selectObj, dataName) {
   var idx = selectObj.selectedIndex;
   var indexedSelectedItem = selectObj.options[idx].value;
   document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].innerHTML = indexedSelectedItem;
+  document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].style.color = '#FF5722';
 
   personalDataQueue(indexedSelectedItem, dataName)
 };
@@ -937,8 +937,17 @@ function personalDataQueue(data, dataName) {
 function displayPersonalData() {
   firebase.database().ref("/userData/" + userObject.uid).once("value", function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
+      //logic for finding elements
       if(document.getElementById(childSnapshot.key + 'Holder')){
+        //logic to change title of each optionPicker
         document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].innerHTML = childSnapshot.val();
+        document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].style.color = '#FF5722';
+        //logic for chaning styles and generating title
+        var pickTitle = document.createElement("span");
+        pickTitle.className += 'pickTitle';
+        pickTitle.innerHTML = childSnapshot.key;
+        document.getElementById(childSnapshot.key + 'Holder').appendChild(pickTitle);
+
       }
     })
   })

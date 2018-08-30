@@ -97,7 +97,7 @@ var getTagsRef = admin.database().ref('/queue/personalData/');
 var queue = new Queue(getTagsRef, function(data, progress, resolve, reject) {
   var updateData = {};
   updateData[data.dataName] =  data.data;
-  admin.database().ref('userData' + data.userId).update(updateData).then(function(err, res){
+  admin.database().ref('userData/' + data.userId).update(updateData).then(function(err, res){
     if(err){
       reject();
     }
