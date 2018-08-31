@@ -73,7 +73,7 @@ var queue = new Queue(withdrawlRef, function(data, progress, resolve, reject) {
 })
 
 var queue = new Queue(balanceRef, function(data, progress, resolve, reject) {
-  console.log(data.ethAddress)
+  // console.log(data.ethAddress)
   if(!data.ethAddress){
     resolve();
   }
