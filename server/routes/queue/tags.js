@@ -10,12 +10,14 @@ var addTagsRef = admin.database().ref('/queue/addTags/');
 
 
 var queue = new Queue(addTagsRef, function(data, progress, resolve, reject) {
+  var dataFlag = false;
   db.ref('tags/' + data.userId).once('value', function(snapshot){
     if(snapshot.val()){
       snapshot.forEach(function(childSnapshot) {
         if(data.tag === childSnapshot.val()){
+          dataFlag = true;
           db.ref('tags/' + data.userId).child(childSnapshot.key).remove().then(function(res, err){
-            // console.log('deleting data');
+            // console.log('deleting data', childSnapshot.val());
             if(err){
               reject();
             }
@@ -24,16 +26,19 @@ var queue = new Queue(addTagsRef, function(data, progress, resolve, reject) {
         }
       })
       //Outside of loop!
-      db.ref('tags/' + data.userId).push(data.tag).then(function(res, err){
-        // console.log('searched Data for duplicate, none found, added tag')
-        if(err){
-          reject();
-        }
-        resolve();
-      })
+      if(dataFlag === false){
+        db.ref('tags/' + data.userId).push(data.tag).then(function(res, err){
+          // console.log('searched Data for duplicate, none found, added tag', data.tag, dataFlag)
+          if(err){
+            reject();
+          }
+          resolve();
+        })
+      }
+
     }else{
       db.ref('tags/' + data.userId).push(data.tag).then(function(res, err){
-        // console.log('no data found, added tag')
+        // console.log('no data found, added tag', data.tag)
         if(err){
           reject();
         }
