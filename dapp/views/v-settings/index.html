@@ -81,10 +81,16 @@
                           </span>
                         </div>
                     </li>
-                    <li> <a href="index.html" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard <span class="fa arrow"></span> <span class="label label-rouded label-custom pull-right" id="alerts">4</span></span></a>
-                        <ul class="nav nav-second-level">
+                    <li>
+                      <a href="index.html" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i>
+                        <span class="hide-menu"> My Content
+                          <span class="fa arrow"></span>
+                          <span class="label label-rouded label-custom pull-right" id="alerts">4</span>
+                        </span>
+                      </a>
+                        <!-- <ul class="nav nav-second-level">
                             <li> <a href="/content">My Content</a> </li>
-                        </ul>
+                        </ul> -->
                     </li>
                     <li>
                       <a href="/v-wallet" class="waves-effect">
@@ -146,7 +152,7 @@
 
                               <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                                 <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="raceHolder">
-                                   <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunct.sliderFunct.personalData(this, 'race')">
+                                   <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunctions.personalData(this, 'race')">
                                      <option>Race</option>
                                      <option>White</option>
                                      <option>Black or African American</option>
@@ -162,7 +168,7 @@
                                  <br />
 
                                  <div class="btn-group bootstrap-select" id="educationHolder">
-                                    <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunct.personalData(this, 'education')">
+                                    <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunctions.personalData(this, 'education')">
                                       <option id="educationOption">Education</option>
                                       <option>All</option>
                                       <option>Highschool or less</option>
@@ -193,7 +199,7 @@
 
                                  <div class="btn-group bootstrap-select" id="ageHolder">
                                     <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunctions.personalData(this, 'age')">
-                                      <option>Age</option>
+                                      <option>Age (years)</option>
                                       <option>- 20</option>
                                       <option>20 - 30</option>
                                       <option>30 - 40</option>
@@ -213,7 +219,7 @@
                                        <option>Nurse</option>
                                        <option>Customer Service</option>
                                        <option>Laborers</option>
-                                       <option>Waiters and Waitresses</option>
+                                       <option>Waiters or Waitresses</option>
                                        <option>Administrative</option>
                                        <option>Physician</option>
                                        <option>Technician</option>
@@ -235,9 +241,9 @@
 
                                    <br />
 
-                                   <div class="btn-group bootstrap-select" id="marriageHolder">
-                                      <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunctions.personalData(this, 'marriage')">
-                                        <option>Marriage</option>
+                                   <div class="btn-group bootstrap-select" id="maritalStatusHolder">
+                                      <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunctions.personalData(this, 'maritalStatus')">
+                                        <option>Marital Status</option>
                                         <option>Yes</option>
                                         <option>No</option>
                                       </select>
@@ -245,7 +251,7 @@
                                 </div>
 
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="sexualityHolder">
+                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="sexualityHolder" style="background: white;">
                                      <select class="selectpicker" data-style="form-control" tabindex="-98" id="Sexuality" onchange="sliderFunctions.personalData(this, 'sexuality')">
                                      <option>Sexuality</option>
                                      <option>All</option>

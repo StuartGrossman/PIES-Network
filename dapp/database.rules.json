@@ -36,7 +36,7 @@
       ".read": false,
       ".write": false
     },
-    "tag": {
+    "tags": {
       ".read": false,
     	".write": false,
       "$user_id": {
@@ -168,16 +168,6 @@
           }
         }
       },
-      "getTags": {
-       "tasks": {
-       ".indexOn": ["_state"],
-         "$task": {
-           ".indexOn": ["_state"],
-           ".validate": "auth.uid == newData.child('userId').val()",
-           ".write": "auth.uid == newData.child('userId').val()"
-          }
-        }
-      },
       "addTags": {
        "tasks": {
        ".indexOn": ["_state"],
@@ -277,16 +267,6 @@
          "$task": {
            ".indexOn": ["_state"],
            ".validate": "auth.uid == newData.child('userId').val()"
-          }
-        }
-      },
-      "addBrandTags": {
-       "tasks": {
-         ".indexOn": ["_state"],
-         "$task": {
-           ".indexOn": ["_state"],
-           ".validate": "auth.uid == newData.child('userId').val()",
-           ".write": true
           }
         }
       }
