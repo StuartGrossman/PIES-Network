@@ -89,6 +89,16 @@
         ".read": "$user_id === auth.uid"
       }
     },
+      "progressBar": {
+      ".read": false,
+      ".write": false,
+        "$user_id": {
+        // grants write access to the owner of this user account
+        // whose uid must exactly match the key ($user_id)
+        ".write": false,
+        ".read": "$user_id === auth.uid"
+      }
+    },
     "activecontent": {
       ".read": false,
       ".write": false

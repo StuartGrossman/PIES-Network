@@ -13,11 +13,9 @@ var db = admin.database();
 
 var progressBarRef = admin.database().ref('/queue/progressBar/');
 var queue = new Queue(progressBarRef, function(data, progress, resolve, reject) {
-  console.log(data.userData, data.tagData, 'start data')
-
+  // console.log(data.userData, data.tagData);
   tagProgress = (data.tagData * 10);
   userDataProgress = (data.userData * (100/8));
-  console.log('first change', userDataProgress, tagProgress)
   if(tagProgress >= 100){
     tagProgress = 100;
   }
@@ -25,10 +23,9 @@ var queue = new Queue(progressBarRef, function(data, progress, resolve, reject) 
     userDataProgress = 100;
   }
   var total =  (userDataProgress + tagProgress)/2;
-
-
+  // console.log(total);
   if(total >= 100){
-    console.log('total is above 100')
+    // console.log('total is above 100');
     db.ref('user/' + data.userId).update({progress: true}).then(function(){
       db.ref('progressBar/' + data.userId).update({'progress': 100}).then(function(){
         resolve();
