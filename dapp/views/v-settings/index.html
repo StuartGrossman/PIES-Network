@@ -28,7 +28,7 @@
     <link rel="icon" href="../sources/images/darklogo.png">
 </head>
 <body>
-<!-- style="display:none" -->``
+<!-- style="display:none" -->
     <div id="wrapper" class="main-container" >
         <!-- Navigation -->
 
@@ -48,7 +48,7 @@
 
                 <ul class="nav navbar-top-links navbar-right pull-right">
                   <li>
-                    <a href="/v-wallet" class="waves-effect" onmouseover="navBarFunctions.changeMetaMaskBalanceText(this)" onmouseout="navBarFunctions.unChangeMMBalanceText(this)">
+                    <a class="waves-effect" >
                       <img src="../sources/images/metamask-icon.png"/>
 
                       <span class="hide-menu" id="balance" style="color:#FF5722">
@@ -62,7 +62,7 @@
                 </ul>
                 <ul class="nav navbar-top-links navbar-right pull-right">
                   <li>
-                    <a href="/v-wallet" class="waves-effect" onmouseover="navBarFunctions.changeInternalBalanceText(this)" onmouseout="navBarFunctions.unChangeInternalBalanceText(this)">
+                    <a data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" class="waves-effect" onmouseover="navBarFunctions.changeInternalBalanceText(this)" onmouseout="navBarFunctions.unChangeInternalBalanceText(this)">
                       <!-- <i class="fa fa-circle-o text-info"></i> -->
                       <i class="icon-wallet fa-fw"></i>
                       <span clasSs="hide-menu" id="internalBalance" style="color:#FF5722">
@@ -114,10 +114,10 @@
                         </ul> -->
                     </li>
                     <li>
-                      <a href="/v-wallet" class="waves-effect">
+                      <a data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" class="waves-effect">
                         <i class="icon-wallet fa-fw"></i>
                         <span class="hide-menu">
-                          Wallet
+                          Withdraw
                         </span>
                       </a>
                     </li>
@@ -424,9 +424,97 @@
                               <h3>&nbsp;</h3>
                           </div>
                       </div>
-                  </div>
-                </div> -->
+                  </div> -->
+                </div>
+
+
+
+
+
             </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="exampleModalLabel1">Start Withdrawl<span id="modalBalance"></span> </h4> </div>
+                        <div class="modal-body">
+                            <form>
+                              <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                  <div class="form-group">
+                                      <label for="recipient-name" class="control-label">Ammount (PIES)</label>
+                                      <input type="number" class="form-control" id="ethAmmountWithdrawl" maxlength="40" id="name">
+                                      <h6 style="color: red; display: none;" id="ammountError">Required or too large</h6>
+
+                                  </div>
+                                </div>
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                  <div class="form-group">
+                                      <label for="recipient-name" class="control-label">ETH Withdrawl Address</label>
+                                      <input type="text" class="form-control" id="ethWithdrawlAddress"  maxlength="42" >
+                                      <h6 style="color: red; display: none;" id="ethError">Required</h6>
+
+                                  </div>
+                                </div>
+                              </div>
+
+
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger" id="step2">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label1">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="exampleModal2Label1">Confirm Withdrawl</h4> </div>
+                        <div class="modal-body">
+                          <h6 style="color: red">Please make sure all information is correct, once tokens are withdrawn we will be unable to issue refunds</h6>
+                             <div class="white-box">
+
+                               <span style="font-size: 12px;">Ammount:</span>
+
+                               <span style="font-size: 18px; color:orange;" id="ammountForWithdrawl"></span>
+                               <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span>
+
+                               <br /><hr />
+                               <span style="font-size: 12px;">To:</span>
+
+                               <span style="font-size: 18px; color:orange;" id="ethAddressForWithdrawl"></span>
+                               <br /> <hr />
+
+                               <span style="font-size: 12px;">Fee:</span>
+
+                               <span style="font-size: 18px; color:orange;" id="fee"></span>
+                               <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span>
+
+                               <br /> <hr />
+
+                               <span style="font-size: 12px;">Total:</span>
+
+                               <span style="font-size: 18px; color:orange;" id="totalWithdrawlAmmount"></span>
+                               <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span>
+
+                             </div>
+                             <input type="number" placeholder="Confirmation Code" id="confirmationCode" class="form-control"></input>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" id="sendCodeButton" onclick="sendCode()">Send Code</button>
+                            <button type="button" class="btn btn-primary" onclick="confirmWithdrawl()" id="step3">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <footer class="footer text-center" style="color:black">
            &copy; PIES NETWORK

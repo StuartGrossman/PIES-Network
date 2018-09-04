@@ -23,16 +23,16 @@ var navBarWallet = (function(firebaseDataBase, userObject){
     button.innerHTML = internalBalanceText;
   }
 
-  var metaMaskText;
-  this.changeMetaMaskBalanceText = function changeMetaMaskBalanceText(button){
-    if(button.innerHTML === 'Deposite'){
-      return
-    }else{
-      metaMaskText = button.innerHTML;
-      button.innerHTML = 'Deposite';
-    }
-  }
-  this.unChangeMMBalanceText = function unChangeMMBalanceText(button){
-    button.innerHTML = metaMaskText;
-  }
+  // var metaMaskText;
+  // this.changeMetaMaskBalanceText = function changeMetaMaskBalanceText(button){
+  //   if(button.innerHTML === 'Deposite'){
+  //     return
+  //   }else{
+  //     metaMaskText = button.innerHTML;
+  //     button.innerHTML = 'Deposite';
+  //   }
+  // }
+  // this.unChangeMMBalanceText = function unChangeMMBalanceText(button){
+  //   button.innerHTML = metaMaskText;
+  // }
 })
