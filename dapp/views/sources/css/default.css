@@ -53,11 +53,11 @@ body {
   color: #ffffff;
 }
 .navbar-header {
-  /* opacity: .35; */
-  background: #edf1f5;
+  opacity: .75;
+  background: DEE2E5;
 }
 .navbar-top-links > li > a {
-  color: #FF5722;
+  color: white;
 }
 /*Right panel*/
 .right-sidebar .rpanel-title {

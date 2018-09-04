@@ -10,16 +10,12 @@
   <link rel="stylesheet" type="text/css" href="./sources/css/home-style.css">
   <link rel="stylesheet" type="text/css" href="./sources/css/bootstrap-social.css">
   <link rel="stylesheet" type="text/css" href="./sources/css/animate.css">
-
-
   <link rel="icon" href="./sources/images/darklogo.png">
   <meta name="google-site-verification" content="H3vsDSHhe1n0avNVL9K5Spu9zWjAg29GhXwnDhFpHfc" />
   <title>PIES Network</title>
   <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
-
 </head>
 <body>
-
   <div id="header-holder">
       <div class="bg-animation"></div>
       <nav id="nav" class="navbar navbar-default navbar-full">
@@ -28,82 +24,34 @@
                   <div class="row">
                       <div class="col-md-12">
                           <div class="navbar-header">
-                            <div>
-                              <!-- <a class="logo-holder" href="/" style="width:38%;">
-                                    <img src="./sources/images/logo4.png" class="img-responsive" />
-                              </a> -->
-                              <!-- <a class="logo-holder" href="index.html">
-                                <div class="logo" style="width:62px;height:18px"></div>
-                              </a> -->
-                              <div>
-
-                              </div>
-                            </div>
                               <button aria-expanded="false" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs">
                                   <span class="icon-bar"></span>
                                   <span class="icon-bar"></span>
                                   <span class="icon-bar"></span>
                               </button>
-
                           </div>
                           <div style="height: 1px;" role="main" aria-expanded="false" class="navbar-collapse collapse" id="bs">
                               <ul class="nav navbar-nav navbar-right">
-                                  <!-- <li><a href="index.html">Home</a></li> -->
-                                  <!-- <li class="dropdown">
-                                      <a href="#pricing">Hosting <i class="fa fa-caret-down"></i></a>
-                                      <ul class="dropdown-menu">
-                                        <li><a href="cloudhosting.html">Cloud Hosting</a></li>
-                                        <li><a href="webhosting.html">Web Hosting</a></li>
-                                        <li><a href="vpshosting.html">VPS Servers</a></li>
-                                      </ul>
-                                  </li> -->
-                                  <!-- <li><a href="about.html">Company FAQ</a></li> -->
-
-
-                                  <!-- <li><a target="_blank" href="./sources/documents/whitepaper.pdf" href="/whitePaper">White Paper</a></li> -->
                                   <li class="support-button-holder support-dropdown animated bounceIn" id="login">
                                     <a onclick="login()" class="support-button">
                                       <i class="fa fa-google-plus fa-lg" style="margin-right: 5px;"></i>
-
                                        Sign In
                                     </a>
                                   </li>
-                                  <li><a onclick="team()">Team</a></li>
-                                  <li><a href="#email">Contact</a></li>
-                                  <!-- <li><a href="/token">(PCS) Token Sale</a></li> -->
-
-                                  <!-- <li> -->
-                                    <!-- <a onclick="login()" class="btn-google" id="login">Login</a> -->
-                                    <!-- <a class="btn btn-social-icon btn-google">
-                                      <span class="fa fa-google"></span>
-                                    </a>
-                                  </li> -->
-
-                                  <!-- <li><a class="support-button" id="dashboard" style="display: none;">Dashboard</a></li> -->
+                                  <li>
+                                    <a onclick="team()">Team</a>
+                                  </li>
+                                  <li>
+                                    <a href="#email">Contact</a>
+                                  </li>
                                   <li class="support-button-holder support-dropdown animated bounceIn">
                                       <a class="support-button" onclick="dashboard()" style="display: none;" id="dashboard">Dashboard</a>
-                                      <!-- <ul class="dropdown-menu">
-                                        <li><a href="#"><i class="fa fa-phone"></i>Toll-Free  08-197-435-01</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i>Start a Live Chat</a></li>
-                                        <li><a href="#"><i class="fa fa-ticket"></i>Open a ticket</a></li>
-                                        <li><a href="#"><i class="fa fa-book"></i>Knowledge base</a></li>
-                                      </ul> -->
                                   </li>
-
-
-                                  <li><a onclick="logout()" class="login-button" id="logout" style="display: none;">Logout</a></li>
-
-
-
-                                  <!-- <li class="support-button-holder support-dropdown">  -->
-                                      <!-- <a class="support-button" href="#">Support</a>
-                                      <ul class="dropdown-menu">
-                                        <li><a href="#"><i class="fa fa-phone"></i>Toll-Free  08-197-435-01</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i>Start a Live Chat</a></li>
-                                        <li><a href="#"><i class="fa fa-ticket"></i>Open a ticket</a></li>
-                                        <li><a href="#"><i class="fa fa-book"></i>Knowledge base</a></li>
-                                      </ul>
-                                  </li>  -->
+                                  <li>
+                                    <a onclick="logout()" class="login-button" id="logout" style="display: none;">
+                                      Logout
+                                    </a>
+                                  </li>
                               </ul>
                           </div>
                       </div>
@@ -115,47 +63,34 @@
           <div class="container">
               <div class="row">
                   <div class="col-md-12">
-
-                      <div class="big-title" style="margin-bottom: 15px;">
+                      <div class="big-title" style="margin-bottom: 25px;">
                         PIES
-                        <span style="font-size: 28px; color: #ffffff; font-weight: 700; line-height: 62px; margin-bottom: 20px;">NETWORK</span>
-                        <br />
-
+                        <span style="font-size: 28px; color: #ffffff; font-weight: 700; line-height: 62px; margin-bottom: 20px;">
+                          NETWORK
+                        </span>
                       </div>
-
+                      <br />
+                      <br />
                       <div>
-                        <span style="font-size: 18px; color: #ededed;">A decentralized blockchain based information exchange service</span>
+                        <span style="font-size: 18px; color: #ededed;">
+                          A decentralized blockchain based information exchange service
+                        </span>
                         <br />
-                        <i style="font-size: 12px; color: #ededed;">Fair money. Low fees. Curated information.</i>
-
                         <br />
-                      </div>
-
-                      <div class="domain-search-holder" style="margin-top: 30px;">
-                        <!-- <a onclick="login()" class="ybtn ybtn-large ybtn-white ybtn-shadow animated bounceIn">
-                          <i class="fa fa-google-plus fa-lg" style="margin-right: 5px;"></i>
-
-                           Join Today and get your first (PCS) Tokens!
-                        </a> -->
+                        <i style="font-size: 14px; color: #ededed;">
+                        Low fees. Fair exchange. Curated information.
+                        </i>
                         <br />
-                        <!-- <span style="font-size: 18px; color: #ededed; margin-bottom: 15px;">Get your piece of the PIES network today</span> -->
                         <br />
-
-                        <!-- <br /> -->
-
-                        <!-- <span style="color:white; font-size: 15px;">or</span>
-                        <a onclick="flow()" class="ybtn ybtn-lg ybtn-white ybtn-shadow animated bounceIn">Learn More</a>
-
-                        <br /> -->
-
-                        <!-- <span style="font-size: 15px; color: black;">Complete your account today & recieve 5$ of PECIES</span> -->
-
                       </div>
                   </div>
+
+
                   <div class="col-md-12">
+                    <br />
+                    <br />
                       <div class="arrow-button-holder">
                           <a href="#pricing">
-                              <!-- <div class="button-text">Our Plan!</div> -->
                               <div class="arrow-icon">
                                   <i class="htfy htfy-arrow-down"></i>
                               </div>
@@ -166,40 +101,20 @@
           </div>
       </div>
   </div>
-  <!-- <div id="info" class="container-fluid">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-12">
-                  <div class="info-text">
-                    <p class="animation fadeIn" style="font-size: 18px;">
-
-
-
-                    </p>
-                    <p class="animation fadeIn">
-
-                    </p>
-                  </div>
-
-              </div>
-          </div>
-      </div>
-  </div> -->
   <div id="services" class="container-fluid">
       <div class="container">
           <div class="row">
               <div class="col-md-12">
                   <div class="row-title">
-                    What is PIES
+                    The Precise Information Exchange Service Network
                   </div>
-                  <!-- <hr /> -->
                   <center>
                     <span style="color:gray; ">
                       <b>
-                      The Precise Information Exchange Service Network</b>
+                        PIES NETWORK
+                      </b>
                     </span>
                   </center>
-
               </div>
           </div>
           <div class="row">
@@ -210,9 +125,9 @@
                       </div>
                       <div class="service-title"><a >Precise</a></div>
                       <div class="service-details">
-                          <p>Our matching algorithm rewards closer matches between publishers and viewers.</p>
+                          <p>Our matching algorithm rewards closer matches between publishers and viewers.
+                          </p>
                       </div>
-
                   </div>
               </div>
               <div class="col-sm-12 col-md-6">
@@ -222,8 +137,8 @@
                       </div>
                       <div class="service-title"><a >Information</a></div>
                       <div class="service-details">
-                          <p>We secure your personal information, match you with publishers, and you benefit from it.
-
+                          <p>
+                            We secure your personal information, match you with publishers, and you benefit from it.
                           </p>
                       </div>
                   </div>
@@ -237,7 +152,9 @@
                       </div>
                       <div class="service-title"><a >Exchange</a></div>
                       <div class="service-details">
-                          <p>When information is exchanged users are paid in our ERC20 Token Pieces (PCS).</p>
+                          <p>
+                            When information is exchanged users are paid in our ERC20 Token.
+                          </p>
                       </div>
                   </div>
               </div>
@@ -248,15 +165,15 @@
                       </div>
                       <div class="service-title"><a>Service</a></div>
                       <div class="service-details">
-                          <p>PIES provides an accurate low fee exchange for information between users and publishers.</p>
+                          <p>
+                            PIES provides an accurate low fee exchange for information between users and publishers.
+                          </p>
                       </div>
                   </div>
               </div>
             </div>
-
       </div>
   </div>
-
   <div id="message1" class="container-fluid message-area">
       <div class="bg-color"></div>
       <div class="container">
@@ -291,29 +208,16 @@
                               <i class="htfy htfy-technology"></i>
                           </div>
                           <div class="pricing-title">Viewers</div>
-                          <!-- <div class="pricing-price">free</div> -->
                           <div class="pricing-details">
                               <ul>
-                                  <li>3 - 5 minute tutorial</li>
-                                  <li>Internal Wallet</li>
-                                  <li>Top level data privacy & security</li>
-                                  <li>Precisely curated content matching your interests</li>
-                                  <li>Instant payment for your views & attention</li>
-                                  <li>Additional monetary incentives for constructive feedback</li>
-
-                                  <!-- <li>Instant alerts</li> -->
-                                  <!-- <li>Respect through fairness - 98.5% of publisher rate goes to viewer</li> -->
-                                  <!-- <li>Opinions will matter to content publishers</li> -->
-                                  <!-- <li>Support 24/7</li> -->
-                                  <!-- <li class="not-included">Single Sign on</li>
-                                  <li class="not-included">Unlimited Email accounts</li>
-                                  <li class="not-included"></li>
-                                  <li class="not-included">Linux server</li> -->
+                                <li>3 - 5 minute tutorial</li>
+                                <li>Internal Wallet</li>
+                                <li>Top level data privacy & security</li>
+                                <li>Precisely curated content matching your interests</li>
+                                <li>Instant payment for your views & attention</li>
+                                <li>Additional monetary incentives for constructive feedback</li>
                               </ul>
                           </div>
-                          <!-- <div class="pricing-link">
-                              <a class="ybtn" >Create New Account</a>
-                          </div> -->
                       </div>
                   </div>
               </div>
@@ -328,267 +232,18 @@
                           <div class="pricing-price"></div>
                           <div class="pricing-details">
                               <ul>
-
-                                  <li>Quick & simple start</li>
-                                  <li>Real & valuable user base</li>
-                                  <li>In-depth & multi-faceted content matching</li>
-                                  <li>Real-time  data metrics for more advanced </li>
-                                  <li>Incentivized feedback system</li>
-                                  <li>100% instant refunds</li>
-
+                                <li>Quick & simple start</li>
+                                <li>Real & valuable user base</li>
+                                <li>In-depth & multi-faceted content matching</li>
+                                <li>Real-time  data metrics for more advanced </li>
+                                <li>Incentivized feedback system</li>
+                                <li>100% instant refunds</li>
                               </ul>
                           </div>
-                          <!-- <div class="pricing-link">
-                              <a class="ybtn" href="#">Create New Account</a>
-                          </div> -->
                       </div>
                   </div>
               </div>
-              <!-- <div class="col-sm-12 col-md-4">
-                  <div class="pricing-box pricing-color3">
-                      <div class="pricing-content">
-                          <div class="pricing-icon">
-                              <div class="special-gradiant"></div>
-                              <i class="htfy htfy-computer"></i>
-                          </div>
-                          <div class="pricing-title">PIES network</div>
-                          <div class="pricing-price">1 - 10% of transaction</div>
-                          <div class="pricing-details">
-                              <ul>
-                                  <li>Small fee to pay for ethereum transactions</li>
-                                  <li>Small fee to pay employees</li>
-                                  <li>All Sharing Features</li>
-                                  <li>Realtime Revoke</li>
-                                  <li>Access to Party Integrations</li>
-                                  <li>Free Native Apps</li>
-                                  <li>QNote Editor</li>
-                                  <li>Offline File Access</li>
-                                  <li>Single Sign on</li>
-                                  <li>Unlimited Email accounts</li>
-                                  <li>Support 24/7</li>
-                                  <li>Linux server</li>
-                              </ul>
-                          </div>
-                          <div class="pricing-link">
-                              <a class="ybtn" href="#">Create New Account</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>-->
-          </div>
-      </div>
-  </div>
-  <!-- <div id="custom-plan" class="container-fluid">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-12">
-                  <h4>Custom Hosting Plan</h4>
-                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum div atque corrupti quos dolores et quas molestias.</p>
-              </div>
-              <div class="col-md-12">
-                  <div class="custom-plan-box">
-                      <input id="c-plan" type="text" data-slider-min="100" data-slider-max="10000" data-slider-step="100" data-slider-value="5000" data-currency="$" data-unit="GB">
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div> -->
-  <div id="features" class="container-fluid">
-      <div class="container">
-          <div class="row">
-              <div class="col-xs-12">
-                  <div class="row-title">The Plan</div>
-              </div>
-          </div>
-          <div class="row rtl-cols">
-              <div class="col-sm-12 col-md-6">
-                  <div id="features-links-holder">
-                      <div class="icons-axis">
-                          <img src="./sources/images/features-icon.png" alt="">
-                      </div>
-                      <div class="feature-icon-holder feature-icon-holder1 opened" data-id="1">
-                          <div class="animation-holder"><div class="special-gradiant"></div></div>
-                          <div class="feature-icon"><i class="htfy htfy-worldwide"></i></div>
-                          <div class="feature-title">Build the tech</div>
-                      </div>
-                      <div class="feature-icon-holder feature-icon-holder2" data-id="2">
-                          <div class="animation-holder"><div class="special-gradiant"></div></div>
-                          <div class="feature-icon"><i class="htfy htfy-like"></i></div>
-                          <div class="feature-title">Launch the app</div>
-                      </div>
-                      <div class="feature-icon-holder feature-icon-holder3" data-id="3">
-                          <div class="animation-holder"><div class="special-gradiant"></div></div>
-                          <div class="feature-icon"><i class="htfy htfy-location"></i></div>
-                          <div class="feature-title">Gather the users</div>
-                      </div>
-                      <div class="feature-icon-holder feature-icon-holder4" data-id="4">
-                          <div class="animation-holder"><div class="special-gradiant"></div></div>
-                          <div class="feature-icon"><i class="htfy htfy-download"></i></div>
-                          <div class="feature-title">Gather the publishers</div>
-                      </div>
-                      <div class="feature-icon-holder feature-icon-holder5" data-id="5">
-                          <div class="animation-holder"><div class="special-gradiant"></div></div>
-                          <div class="feature-icon"><i class="htfy htfy-cogwheel"></i></div>
-                          <div class="feature-title">Grow the team</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-12 col-md-6">
-                  <div id="features-holder">
-                      <div class="feature-box feature-d1 show-details">
-                          <div class="feature-title-holder">
-                              <span class="feature-icon"><i class="htfy htfy-worldwide"></i></span>
-                              <span class="feature-title">Our Technology</span>
-                          </div>
-                          <!-- <span>Q3 2017</span> -->
-                          <div class="feature-details">
-                              <p>
-                                                                PIES Network uses the most effective, relevant, and tested web technologies avilable to facilitate the highest level of quality and data security possible.
-                              </p>
-                              <!-- <p>At PIES we are using the latest web technologies & techniques to speed up development time and provide high security. </p> -->
 
-                              <p>PIES web stack consists of JavaScript, Ethereum, HTML/CSS/LESS, Node, IPFS, Google Cloud, TenserFlow, and more. </p>
-
-
-                          </div>
-                      </div>
-                      <div class="feature-box feature-d2">
-                          <div class="feature-title-holder">
-                              <span class="feature-icon"><i class="htfy htfy-like"></i></span>
-                              <span class="feature-title">Launch PIES Network</span>
-                          </div>
-                          <span>Q3 2017</span>
-
-                          <div class="feature-details">
-                            <p>
-                              PIES beta will launch in late October of 2017, less than a month away, long before any other AdTech ICO will have a viable product.
-                            </p>
-                              <p>Once the initial beta is finished the ERC20 token sale will begin.</p>
-                              <p>
-
-                              </p>
-
-                          </div>
-                      </div>
-                      <div class="feature-box feature-d3">
-                          <div class="feature-title-holder">
-                              <span class="feature-icon"><i class="htfy htfy-location"></i></span>
-                              <span class="feature-title">Gathering the user base</span>
-                          </div>
-                          <span>Q4 2017</span>
-                          <div class="feature-details">
-                              <p>
-                                Users that join will be highly incentivized to grow the network through their peers and social media.
-                              </p>
-                              <p>
-
-                              Each time a new user is referred into the network, the user who made the reference will receive 10$ of PCS.
-                              </p>
-
-                          </div>
-                      </div>
-                      <div class="feature-box feature-d4">
-                          <div class="feature-title-holder">
-                              <span class="feature-icon"><i class="htfy htfy-download"></i></span>
-                              <span class="feature-title">Gathering the publishers</span>
-                          </div>
-                          <span>Q4 2017</span>
-
-                          <div class="feature-details">
-                              <p>Based on initial internal data metrics of users, along with machine learning techniques PIES will target content publishers systematically</p>
-                              <p>
-                              </p>
-                              will offer incentives to new content publishers to allow them to see the power of the network.</p>
-                          </div>
-                      </div>
-                      <div class="feature-box feature-d5">
-                          <div class="feature-title-holder">
-                              <span class="feature-icon"><i class="htfy htfy-cogwheel"></i></span>
-                              <span class="feature-title">Hire the team</span>
-                          </div>
-                          <span>Q1 2018</span>
-
-                          <div class="feature-details">
-                              <p>PIES network will need to hire support staff and marketing to grow the network efficiently.</p>
-
-                              <p>This is what much of the Token Sale proceeds will be used for.</p>
-                          </div>
-                      </div>
-                      <br /><br />
-                      <br /><br />
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
-  <!-- <div id="testimonials" class="container-fluid">
-      <div class="bg-color"></div>
-      <div class="container">
-          <div class="row">
-              <div class="col-xs-12">
-                  <div class="row-title">Testimonials</div>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-xs-12">
-                  <div id="testimonials-slider">
-                      <div>
-                          <div class="details-holder">
-                              <img class="photo" src="./sources/images/person1.jpg" alt="">
-                              <h4>Chris Walker</h4>
-                              <h5>CEO & CO-Founder @HelloBrandio</h5>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris egestas non ante non consequat. Aenean accumsan eros vel elit tristique, non sodales nunc luctus. Etiam vitae odio eget orci finibus auctor ut eget magna.</p>
-                          </div>
-                      </div>
-                      <div>
-                          <div class="details-holder">
-                              <img class="photo" src="./sources/images/person2.jpg" alt="">
-                              <h4>Chris Walker</h4>
-                              <h5>CEO & CO-Founder @HelloBrandio</h5>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris egestas non ante non consequat. Aenean accumsan eros vel elit tristique, non sodales nunc luctus. Etiam vitae odio eget orci finibus auctor ut eget magna.</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div> -->
-  <div id="more-features" class="container-fluid">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-12">
-                  <div class="row-title">Our Focus</div>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-sm-6 col-md-4">
-                  <div class="mfeature-box">
-                      <div class="mfeature-icon">
-                          <i class="htfy htfy-tick"></i>
-                      </div>
-                      <div class="mfeature-title">Societal Value</div>
-                      <div class="mfeature-details">A primary focus of ours is to build a strong and long lasting community of users and content providers; therefore we are dedicated to providing the highest level of security, services, and design. </div>
-                  </div>
-              </div>
-              <div class="col-sm-6 col-md-4">
-                  <div class="mfeature-box">
-                      <div class="mfeature-icon">
-                          <i class="htfy htfy-tick"></i>
-                      </div>
-                      <div class="mfeature-title">Transparency & Fairness</div>
-                      <div class="mfeature-details">In order to provide the highest quality of service and support for our entire community of users, our methods are clear and with purpose. The current sentiment is mutual respect through fairness in compensation - 98.5% of publisher rate goes to viewer.</div>
-                  </div>
-              </div>
-              <div class="col-sm-12 col-md-4">
-                  <div class="mfeature-box">
-                      <div class="mfeature-icon">
-                          <i class="htfy htfy-tick"></i>
-                      </div>
-                      <div class="mfeature-title">Flexible & Responsive</div>
-                      <div class="mfeature-details">A primary focus of the PIES Network is the advancement of effectiveness and efficiency of blockchain technology for the purpose of digital content distribution. We will be closely monitoring growth and stability of the network while being completely open to community feedback.</div>
-                  </div>
-              </div>
           </div>
       </div>
   </div>
@@ -597,7 +252,6 @@
           <div class="row">
               <div class="col-sm-12 col-md-6">
                   <div class="text-purple-light">Ready? Join now, complete your registration, get $5 worth of PIECES (PCS) today</div>
-                  <!-- <div class="text-purple-dark">Create an account .</div> -->
               </div>
               <div class="col-sm-12 col-md-6">
                   <div class="buttons-holder">
@@ -613,7 +267,6 @@
           <div class="row">
               <div class="col-xs-6 col-sm-4 col-md-3">
                   <div class="address-holder">
-                      <!-- <div class="phone"><i class="fa fa-phone"></i> 00 285 900 38502</div> -->
                       <div id="email" class="email">
                         <a href="mailto:pies.network@gmail.com" style=" text-decoration: none; !importaint;  ">
                               <span style="color:white; text-decoration:none"><i class="fa fa-envelope"></i>pies.network@gmail.com</span>
@@ -627,65 +280,21 @@
               </div>
               <div class="col-xs-6 col-sm-2 col-md-3">
                   <div class="footer-menu-holder">
-
                       <ul class="footer-menu">
-                          <!-- <li>
-                            <div class="address">
-                                <i class="fa fa-map-marker"></i>
-                                <div>San Francisco, CA</div>
-                            </div>
-                          </li> -->
-                          <!-- <li><a href="blog.html">News</a></li> -->
                           <li><a onclick="flow()">FAQ</a></li>
-                          <!-- <li><a href="/contact">Contact us</a></li> -->
                        </ul>
                   </div>
-              </div>
-              <!-- <div class="col-xs-6 col-sm-2 col-md-3">
-                  <div class="footer-menu-holder"> -->
-                    <!-- <h4>4th Division INC</h4> -->
-                    <!-- <div class="address">
-
-                    </div> -->
-                      <!-- <ul class="footer-menu">
-                          <li><a href="webhosting.html">Web Hosting</a></li>
-                          <li><a href="cloudhosting.html">Cloud Hosting</a></li>
-                          <li><a href="vpsservers.html">VPS Servers</a></li>
-                          <li><a href="#">Domain Names</a></li>
-                      </ul> -->
-                  <!-- </div> -->
-              <!-- </div> -->
-              <!-- <div class="col-xs-6 col-sm-3 col-md-3">
-                  <div class="footer-menu-holder">
-                      <h4>Others</h4> -->
-                      <!-- <ul class="footer-menu">
-                          <li><a href="#">Transfer domains</a></li>
-                          <li><a href="portal.html">Customer Portal</a></li>
-                          <li><a href="#">Support Portal</a></li>
-                          <li><a href="#">Video Tutorials</a></li>
-                      </ul> -->
-                  <!-- </div>
-              </div> -->
-              <div class="col-xs-12 col-sm-1 col-md-1">
-                  <div class="social-menu-holder">
-                      <ul class="social-menu">
-                          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i class="fa fa-slack"></i></a></li>
-                          <li><a href="#"><i class="fa fa-reddit"></i></a></li>
-                      </ul>
-                   </div>
               </div>
 
           </div>
       </div>
   </div>
-
-
+</body>
 <script src="./sources/js/home/home.js"></script>
-<script src="./sources/js/jquery.min.js"></script>
-<script src="./sources/js/bootstrap.min.js"></script>
-<script src="./sources/js/bootstrap-slider.min.js"></script>
-<script src="./sources/js/slick.min.js"></script>
+<script src="./sources/js/utilites/jquery.min.js"></script>
+<script src="./sources/js/utilites/bootstrap.min.js"></script>
+<script src="./sources/js/utilites/bootstrap-slider.min.js"></script>
+<script src="./sources/js/utilites/slick.min.js"></script>
 <!-- <script src="./sources/js/main.js"></script> -->
 <script>
 function flow(){
