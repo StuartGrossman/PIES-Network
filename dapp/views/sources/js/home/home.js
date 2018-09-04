@@ -145,6 +145,7 @@ function checkUserInfo(){
       var isAnonymous = userObj.isAnonymous;
       var uid = userObj.uid;
       var providerData = userObj.providerData;
+      var progress = false;
       redirectUrl = "/phone"
 
       writeUserData(uid, displayName, email, photoURL, redirectUrl);
@@ -153,11 +154,13 @@ function checkUserInfo(){
   })
 }
 function writeUserData(userId, name, email, imageUrl) {
-  console.log(userId, "inside writeUserData");
+  // console.log(userId, "inside writeUserData");
+  //ATTENTION, NEEDS TO BE QUEUE , SERVER ACTION REQUIRED!
   firebase.database().ref('user/' + userId).set({
    username: name,
    email: email,
-   profile_picture : imageUrl
+   profile_picture : imageUrl,
+   progressBar: progress
  }).then(function(){
    window.location = "/phone"
  })

@@ -45,21 +45,20 @@
                  </b>
                </a>
 
-              <!-- <ul class="nav navbar-top-links navbar-left hidden-xs">
-                  <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
+              <ul class="nav navbar-top-links navbar-left hidden-xs">
                   <li>
-                      <form role="search" class="app-search hidden-xs">
-                          <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form>
-
-                  </li>
-
-              </ul> -->
+                    <a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light">
+                      <i class="icon-arrow-left-circle ti-menu"></i>
+                    </a>
+                </li>
+              </ul>
               <ul class="nav navbar-top-links navbar-right pull-right">
                 <li>
                   <a href="/a-transactions" class="waves-effect">
-                    <i class="fa fa-circle-o text-info">
-                    </i>
-                    <span class="hide-menu" id="balance">
+                    <!-- <i class="fa fa-circle-o text-info"> -->
+                      <img src="../sources/images/metamask-icon.png"/>
+                    <!-- </i> -->
+                    <span class="hide-menu" id="balance" style="vertical-align:middle;">
                       <i>0</i>
                     </span>
                     <div class="notify"><span class="heartbit">
@@ -67,8 +66,6 @@
                     </div>
                   </a>
                 </li>
-
-
                   <!-- /.dropdown -->
                 <li class="" >
                   <a class=" waves-light" href="/a-upload">
@@ -91,37 +88,12 @@
               <div class="user-profile">
                   <div class="dropdown user-pro-body">
                       <div><img id="userImage" alt="user-img" class="img-circle"></div> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="userName"><span class="caret"></span></a>
-                      <!-- <ul class="dropdown-menu animated flipInY">
-                          <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
-                          <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
-                          <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
-                          <li role="separator" class="divider"></li>
-                          <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
-                          <li role="separator" class="divider"></li>
-                          <li><a href="login.html"><i class="fa fa-power-off"></i> Logout</a></li>
-                      </ul> -->
+
                   </div>
               </div>
               <ul class="nav" id="side-menu">
-                  <li class="sidebar-search hidden-sm hidden-md hidden-lg">
-                      <!-- input-group -->
-                      <!-- <div class="input-group custom-search-form">
-                          <input type="text" class="form-control" placeholder="Search..."> <span class="input-group-btn">
-                            <button class="btn btn-default" type="button"> <i class="fa fa-search"></i> </button>
-                          </span> </div> -->
-                      <!-- /input-group -->
-                  </li>
-                  <!-- <li class="nav-small-cap m-t-10"> Main Menu</li> -->
                   <li>
-                    <a href="index.html" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v">
-                    </i>
-                    <span class="hide-menu"> Content <span class="fa arrow"></span>
-                    <span class="label label-rouded label-custom pull-right" id="contentNumber">0</span>
-                  </a>
                       <ul class="nav nav-second-level">
-
-
-
                       </ul>
                   </li>
                   <li>
@@ -149,17 +121,17 @@
 
                       </ul>
                   </li> -->
-
                   <li>
                     <a onclick="logout()" href="/" class="waves-effect"><i class="icon-logout fa-fw"></i>
                       <span class="hide-menu">Logout</span>
                     </a>
                   </li>
-
               </ul>
           </div>
       </div>
       <!-- Page Content -->
+      <div>
+
       <div id="page-wrapper">
 
           <div class="container-fluid">
@@ -168,7 +140,10 @@
                   <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                       <ol class="breadcrumb" style="float: left;">
                           <!-- <li><a href="#">Dashboard</a></li> -->
+                          <li class="active">Publisher</li>
+
                           <li class="active">Settings</li>
+
                       </ol>
                   </div>
               </div>
@@ -176,12 +151,12 @@
               <div class="col-md-12">
 
                 <div class="col-md-12" id="metaMaskFound" style="display: none;">
-                  <div class="bg-theme-dark m-b-15">
+                  <div class="bg-theme m-b-15">
                       <div class="row weather p-20">
-                          <div class="col-md-12 col-xs-6 col-lg-12 col-sm-6">
+                          <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                               <!-- <h3>&nbsp;</h3> -->
-                              <h1>My ETH Address </h1>
-                              <h6>MetaMask working!</h6>
+                              <h1>My Ethereum Address </h1>
+                              <h6>MetaMask is connected!</h6>
                               <div class="hidden-sm hidden-xs">
                                 <h2 id="myAddress"></h2>
 
@@ -313,8 +288,8 @@
 
 
 
-              <footer class="footer text-center">
-                2017 &copy; PIES NETWORK
+              <footer class="footer text-center" style="color:white">
+                 &copy; PIES NETWORK
               </footer>
 
           </div>
@@ -325,12 +300,12 @@
   </div>
 
 <!-- Loader -->
-  <section class="loaderSection" style="background: white">
-      <div class="loader" >
-        <div class="box"></div>
-        <div class="hill"></div>
-      </div>
-  </section>
+<section class="loaderSection" style="background: white">
+    <div class="loader" >
+      <div class="box"></div>
+      <div class="hill"></div>
+    </div>
+</section>
 
 
 </body>
@@ -400,9 +375,9 @@
       //   maxChars: 15,
       //   trimValue: true
       // });
-      for(var i = 0 ; i < DefaultTagData.length ; i++){
-        $('#tags').tagsinput('add', DefaultTagData[i])
-      }
+      // for(var i = 0 ; i < DefaultTagData.length ; i++){
+      //   $('#tags').tagsinput('add', DefaultTagData[i])
+      // }
       $('#tags').on('beforeItemRemove', function(event) {
         // event.item: contains the item
         // event.cancel: set to true to prevent the item getting removed
@@ -483,6 +458,7 @@ var tagProgress = document.getElementById('tagProgress');
 firebase.auth().onAuthStateChanged(function(user) {
   if(user){
     userObject = user;
+    timeout();
     checkState(userObject);
 
     // asyncWait();
@@ -497,6 +473,13 @@ firebase.auth().onAuthStateChanged(function(user) {
 
   }
 })
+
+function timeout(){
+  var ele = document.getElementById('page-wrapper');
+    setTimeout(function(){
+      ele.style['min-heigh'] = 'none';
+    }, 3000)
+}
 
 function checkState(user){
   // console.log('checking State', user)
