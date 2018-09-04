@@ -2,11 +2,11 @@ var navBarWallet = (function(firebaseDataBase, userObject){
   'use strict';
 
   this.changeClaimButtonText = function changeClaimButtonText(button){
-    button.innerHTML = '100 PIES Tokens'
+    button.innerHTML = 'Claim Now!'
   }
 
   this.unChangeClaimButtonText = function unChangeClaimButtonText(button){
-    button.innerHTML = 'Free Tokens'
+    button.innerHTML = 'Free Tokens!'
   }
 
   var internalBalanceText;
