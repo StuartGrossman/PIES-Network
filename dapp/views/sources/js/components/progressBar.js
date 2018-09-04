@@ -43,20 +43,18 @@ var progressBar = (function(userObject, firebaseDataBase){
     userDataRef.once('value', function(snapshot) {
       if(snapshot.val()){
         userDataSize = Object.keys(snapshot.val()).length;
-        console.log(userDataSize)
       }
     });
     tagsDataRef.once('value', function(snapshot) {
       if(snapshot.val()){
         userTagDataSize = Object.keys(snapshot.val()).length;
-        console.log(userTagDataSize)
       }
     });
     progressBarDataRef.on('value', function(snapshot) {
       var claimEle = document.getElementById('claimToken');
+      var claimedEle = document.getElementById('claimedToken');
       if(snapshot.val()){
         progress = snapshot.val().progress;
-        console.log(progress)
         progress = Math.round(progress * 100) / 100
         var progressBarEle = document.getElementById('progressBar');
         var percentageCompleted = document.getElementById('percentageCompleted');
@@ -66,9 +64,15 @@ var progressBar = (function(userObject, firebaseDataBase){
           claimEle.style.display = 'block'
         }else if(progress === 100 && snapshot.val().freeTokenClaimed === true){
           claimEle.style.display = 'none';
+          claimedToken.style.display = 'block';
         }else if(progress < 100 && snapshot.val().freeTokenClaimed === false){
           claimEle.style.display = 'none';
-        }else{
+        }else if(progress < 100 && snapshot.val().freeTokenClaimed === true){
+          claimEle.style.display = 'none';
+          claimedToken.style.display = 'block';
+
+        }
+        else{
           claimEle.style.display = 'block';
         }
       }

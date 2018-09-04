@@ -28,8 +28,8 @@
     <link rel="icon" href="../sources/images/darklogo.png">
 </head>
 <body>
-
-    <div id="wrapper" class="main-container">
+<!-- style="display:none" -->``
+    <div id="wrapper" class="main-container" >
         <!-- Navigation -->
 
         <nav class="navbar navbar-default navbar-static-top m-b-0">
@@ -152,6 +152,7 @@
                       <!-- <i class="icon-logout fa-fw"></i> -->
                       Free Tokens
                     </button>
+                    <button class="btn-sm btn-defualt" id="claimedToken" style="display:none;" disabled>Tokens Claimed!</button>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6">
                         <ol class="breadcrumb" style="float: none; margin-top:5px;">
@@ -191,18 +192,20 @@
                                      <option>Native American</option>
                                      <option>Other</option>
                                    </select>
+                                   <span class="pickTitle">Race</span>
                                  </div>
 
                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="educationHolder">
                                     <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunctions.personalData(this, 'education')">
                                       <option id="educationOption">Education</option>
-                                      <option>High school degree or equivalent</option>
+                                      <option>High school degree or less</option>
                                       <option>Some college but no degree</option>
                                       <option>Trade or technical training</option>
                                       <option>Associate degree</option>
                                       <option>Bachelor degree</option>
                                       <option>Graduate degree</option>
                                     </select>
+                                    <span class="pickTitle">Education</span>
                                   </div>
                               </div>
 
@@ -216,6 +219,7 @@
                                     <option>Transgender</option>
                                     <option>Other</option>
                                     </select>
+                                    <span class="pickTitle">Gender</span>
                                   </div>
 
                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="ageHolder">
@@ -231,12 +235,12 @@
                                       <option>65-74 years</option>
                                       <option>75 years & older</option>
                                     </select>
+                                    <span class="pickTitle">Age</span>
                                  </div>
                               </div>
 
                               <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                                     <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="professionHolder">
-
                                      <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunctions.personalData(this, 'profession')">
                                        <option>Profession</option>
                                        <option>None</option>
@@ -266,6 +270,7 @@
                                        <option>Waiters or Waitresses</option>
                                        <option></option>
                                      </select>
+                                     <span class="pickTitle">Profession</span>
                                    </div>
 
                                    <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="relationship-StatusHolder">
@@ -275,8 +280,8 @@
                                         <option>In Relationship</option>
                                         <option>Married</option>
                                         <option>Divorced</option>
-
                                       </select>
+                                      <span class="pickTitle">Relationship Status</span>
                                    </div>
                                 </div>
 
@@ -296,8 +301,8 @@
                                         <option>$80,000 – $89,999</option>
                                         <option>$90,000 – $99,999</option>
                                         <option>$100,000 or more</option>
-
                                       </select>
+                                      <span class="pickTitle">Income</span>
                                     </div>
 
                                    <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="web-SpendingHolder">
@@ -310,6 +315,8 @@
                                         <option>$1000 - $5000</option>
                                         <option>$5000 ></option>
                                       </select>
+                                      <span class="pickTitle">Web Spending</span>
+
                                     </div>
                                 </div>
                           </div>
@@ -460,12 +467,13 @@
 <script src="../sources/js/utilites/switchery.min.js"></script>
 <script src="../sources/js/utilites/ethjs-query.min.js"></script>
 <script src="../sources/js/utilites/ethjs-contract.min.js"></script>
-<!-- <script src="../sources/js/components/loader.js"></script> -->
 <script src="../sources/js/components/progressBar.js"></script>
 <script src="../sources/js/components/slider.js"></script>
 <script src="../sources/js/components/tags.js"></script>
 <script src="../sources/js/components/tokenFunctionList.js"></script>
 <script src="../sources/js/components/navBar-wallet.js"></script>
+<!-- <script src="../sources/js/components/loader.js"></script> -->
+
 <!-- <script src="../sources/js/bootstrap-tagsinput.min.js"></script> -->
 
 <!-- <script src="../sources/js/locationpicker/locationpicker.jquery.js"></script> -->

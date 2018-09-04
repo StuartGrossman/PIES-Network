@@ -30,10 +30,10 @@ var sliderFunction = (function(userObject, firebaseDataBase){
           document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].style.color= 'white';
 
           //logic for chaning styles and generating title
-          var pickTitle = document.createElement("span");
-          pickTitle.className += 'pickTitle';
-          pickTitle.innerHTML = childSnapshot.key;
-          document.getElementById(childSnapshot.key + 'Holder').appendChild(pickTitle);
+          // var pickTitle = document.createElement("span");
+          // pickTitle.className += 'pickTitle';
+          // pickTitle.innerHTML = childSnapshot.key;
+          // document.getElementById(childSnapshot.key + 'Holder').appendChild(pickTitle);
 
         }
       })
