@@ -1,4 +1,4 @@
-var navBarWallet = (function(firebaseDataBase, userObject){
+var navBarWallet = (function(userObject, firebaseDataBase){
   'use strict';
 
   this.changeClaimButtonText = function changeClaimButtonText(button){
@@ -35,4 +35,13 @@ var navBarWallet = (function(firebaseDataBase, userObject){
   // this.unChangeMMBalanceText = function unChangeMMBalanceText(button){
   //   button.innerHTML = metaMaskText;
   // }
+  this.freeTokens = function freeTokens(){
+    console.log(firebaseDataBase)
+    var queue = firebaseDataBase.ref('/queue/freeTokens/tasks');
+
+    queue.push({'userId': userObject.uid}).then(function(){
+      //checks status of percentage in server
+        return;
+    })
+  }
 })

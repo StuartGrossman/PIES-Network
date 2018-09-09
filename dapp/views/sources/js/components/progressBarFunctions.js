@@ -64,12 +64,12 @@ var progressBar = (function(userObject, firebaseDataBase){
           claimEle.style.display = 'block'
         }else if(progress === 100 && snapshot.val().freeTokenClaimed === true){
           claimEle.style.display = 'none';
-          claimedToken.style.display = 'block';
+          // claimedToken.style.display = 'block';
         }else if(progress < 100 && snapshot.val().freeTokenClaimed === false){
           claimEle.style.display = 'none';
         }else if(progress < 100 && snapshot.val().freeTokenClaimed === true){
           claimEle.style.display = 'none';
-          claimedToken.style.display = 'block';
+          // claimedToken.style.display = 'block';
 
         }
         else{
@@ -86,4 +86,6 @@ var progressBar = (function(userObject, firebaseDataBase){
         return;
     })
   }
+
+
 })

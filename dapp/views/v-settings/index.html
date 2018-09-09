@@ -42,11 +42,11 @@
                       </a>
                   </li>
                   <li>
-                    <a class="logo" href="/">
+                    <!-- <a class="logo" href="/" style="width:120%">
                       <b>
-                        <img src="../sources/images/content-logo.png" style="width:150%" />
+                        <img src="../sources/images/content-logo.png" style="width:138%" />
                       </b>
-                    </a>
+                    </a> -->
                   </li>
                 </ul>
 
@@ -55,7 +55,7 @@
                     <a class="waves-effect" >
                       <img src="../sources/images/metamask-icon-2.png"/>
 
-                      <span class="hide-menu" id="balance" style="color:white">
+                      <span class="hide-menu" id="balance" style="color:#FF5722; opacity: .75;">
                         <i>0</i>
                       </span>
                       <div class="notify"><span class="heartbit">
@@ -68,8 +68,8 @@
                   <li>
                     <a data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" class="waves-effect" onmouseover="navBarFunctions.changeInternalBalanceText(this)" onmouseout="navBarFunctions.unChangeInternalBalanceText(this)">
                       <!-- <i class="fa fa-circle-o text-info"></i> -->
-                      <i class="icon-wallet fa-fw"></i>
-                      <span clasSs="hide-menu" id="internalBalance" style="color:white">
+                      <i style="color:#FF5722;" class="icon-wallet fa-fw"></i>
+                      <span clasSs="hide-menu" id="internalBalance" style="color:#FF5722; opacity: .75;">
                         <i>0</i>
                       </span>
                       <div class="notify"><span class="heartbit">
@@ -110,12 +110,12 @@
                       <a href="index.html" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i>
                         <span class="hide-menu"> My Content
                           <span class="fa arrow"></span>
-                          <span class="label label-rouded label-custom pull-right" id="alerts">0</span>
+                          <span class="label label-rouded label-custom pull-right" id="contentAlerts">0</span>
                         </span>
                       </a>
-                        <!-- <ul class="nav nav-second-level">
-                            <li> <a href="/content">My Content</a> </li>
-                        </ul> -->
+                        <ul class="nav nav-second-level" id="contentHolder">
+                            <!-- <li> <a href="/content">My Content</a> </li> -->
+                        </ul>
                     </li>
                     <li>
                       <a data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" class="waves-effect">
@@ -149,14 +149,14 @@
 
         <!-- Page Content -->
         <div id="page-wrapper">
-            <div class="container-fluid animated fadeIn">
+            <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-2 col-md-1 col-sm-2 col-xs-6">
-                    <button class="btn-sm btn-danger" onmouseover="navBarFunctions.changeClaimButtonText(this)" onmouseout="navBarFunctions.unChangeClaimButtonText(this)" style="display: none;" id="claimToken">
+                    <button class="btn-sm btn-danger" onmouseover="navBarFunctions.changeClaimButtonText(this)" onmouseout="navBarFunctions.unChangeClaimButtonText(this)" style="display: none;" id="claimToken" onclick="navBarFunctions.freeTokens()">
                       <!-- <i class="icon-logout fa-fw"></i> -->
                       Free Tokens
                     </button>
-                    <button class="btn-sm btn-defualt" id="claimedToken" style="display:none;" disabled>Tokens Claimed!</button>
+                    <!-- <button class="btn-xs btn-primary" id="claimedToken" style="display:none; margin-top:5px;" disabled>Tokens Claimed!</button> -->
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6">
                         <ol class="breadcrumb" style="float: none; margin-top:5px;">
@@ -176,19 +176,20 @@
                       <span id="percentageCompleted" style="vertical-align: -webkit-baseline-middle;font-size: 12px; color:#FF5722" ></span>
                     </div>
                 </div>
+
                 <div class="col-md-12">
                   <div class=" m-b-15" >
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                             <h1 style="color: black; opacity: .55;">Personal Data </h1>
-                            <h45 style="color:#FF5722; opacity: .65;">Please Fill in these importaint feilds accuratly</h5>
+                            <h5 style="color:#FF5722; opacity: .65;">Please Fill in these importaint feilds accuratly</h5>
 
                             <div class="row">
 
                               <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                                 <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="raceHolder">
                                    <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunctions.personalData(this, 'race')">
-                                     <option>Race</option>
+                                     <option>What is your Race?</option>
                                      <option>Caucasian</option>
                                      <option>African American</option>
                                      <option>Asian / Pacific Islander</option>
@@ -201,7 +202,7 @@
 
                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="educationHolder">
                                     <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunctions.personalData(this, 'education')">
-                                      <option id="educationOption">Education</option>
+                                      <option>Highest degree of education?</option>
                                       <option>High school degree or less</option>
                                       <option>Some college but no degree</option>
                                       <option>Trade or technical training</option>
@@ -217,7 +218,7 @@
 
                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="genderHolder" style="background: white;">
                                     <select class="selectpicker" data-style="form-control" tabindex="-98" id="gender" onchange="sliderFunctions.personalData(this, 'gender')">
-                                    <option>Gender</option>
+                                    <option>What is your gender?</option>
                                     <option>Male</option>
                                     <option>Female</option>
                                     <option>Transgender</option>
@@ -246,7 +247,7 @@
                               <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                                     <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="professionHolder">
                                      <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunctions.personalData(this, 'profession')">
-                                       <option>Profession</option>
+                                       <option>Whats your profession?</option>
                                        <option>None</option>
                                        <option>Administrative</option>
                                        <option>Athlete</option>
@@ -279,7 +280,7 @@
 
                                    <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="relationship-StatusHolder">
                                       <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunctions.personalData(this, 'relationship-Status')">
-                                        <option>Relationship Status</option>
+                                        <option>Your relationship status?</option>
                                         <option>Single</option>
                                         <option>In Relationship</option>
                                         <option>Married</option>
@@ -293,7 +294,7 @@
 
                                    <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="incomeHolder">
                                       <select class="selectpicker" data-style="form-control" tabindex="-98" id="income" onchange="sliderFunctions.personalData(this, 'income')">
-                                        <option>Income per Year</option>
+                                        <option>Income per year?</option>
                                         <option>$0 – $9,999</option>
                                         <option>$10,000 – $19,999</option>
                                         <option>$20,000 – $29,999</option>
@@ -311,7 +312,7 @@
 
                                    <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="web-SpendingHolder">
                                       <select class="selectpicker" data-style="form-control" tabindex="-98" id="web-Spending" onchange="sliderFunctions.personalData(this, 'web-Spending')">
-                                        <option>Web Spending per month</option>
+                                        <option>Web spending per month?</option>
                                         <option>$0 - $50</option>
                                         <option>$50 - $200</option>
                                         <option>$200 - $500</option>
@@ -323,10 +324,281 @@
 
                                     </div>
                                 </div>
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="politicalViewHolder">
+                                     <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunctions.personalData(this, 'politicalView')">
+                                       <option>Politcal Affiliation?</option>
+                                       <option>Democratic</option>
+                                       <option>Republican</option>
+                                       <option>Libertarian</option>
+                                       <option>Socialist</option>
+                                       <option>Progressive</option>
+                                       <option>Green Party</option>
+                                       <option value="None">None apply to me</option>
+                                     </select>
+                                     <span class="pickTitle">Political Affiliation</span>
+                                   </div>
+                                  <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="countryHolder">
+                                    <select class="selectpicker" data-style="form-control" tabindex="-98" id="country" onchange="sliderFunctions.personalData(this, 'country')">
+                                      <option>Whats your country?</option>
+                                      <option>Afghanistan</option>
+                                      <option>Åland Islands</option>
+                                      <option>Albania</option>
+                                      <option>Algeria</option>
+                                      <option>American Samoa</option>
+                                      <option>Andorra</option>
+                                      <option>Angola</option>
+                                      <option>Anguilla</option>
+                                      <option>Antarctica</option>
+                                      <option>Antigua and Barbuda</option>
+                                      <option>Argentina</option>
+                                      <option>Armenia</option>
+                                      <option>Aruba</option>
+                                      <option>Australia</option>
+                                      <option>Austria</option>
+                                      <option>Azerbaijan</option>
+                                      <option>Bahamas</option>
+                                      <option>Bahrain</option>
+                                      <option>Bangladesh</option>
+                                      <option>Barbados</option>
+                                      <option>Belarus</option>
+                                      <option>Belgium</option>
+                                      <option>Belize</option>
+                                      <option>Benin</option>
+                                      <option>Bermuda</option>
+                                      <option>Bhutan</option>
+                                      <option>Bolivia, Plurinational State of</option>
+                                      <option>Bonaire, Sint Eustatius and Saba</option>
+                                      <option>Bosnia and Herzegovina</option>
+                                      <option>Botswana</option>
+                                      <option>Bouvet Island</option>
+                                      <option>Brazil</option>
+                                      <option>British Indian Ocean Territory</option>
+                                      <option>Brunei Darussalam</option>
+                                      <option>Bulgaria</option>
+                                      <option>Burkina Faso</option>
+                                      <option>Burundi</option>
+                                      <option>Cambodia</option>
+                                      <option>Cameroon</option>
+                                      <option>Canada</option>
+                                      <option>Cape Verde</option>
+                                      <option>Cayman Islands</option>
+                                      <option>Central African Republic</option>
+                                      <option>Chad</option>
+                                      <option>Chile</option>
+                                      <option>China</option>
+                                      <option>Christmas Island</option>
+                                      <option>Cocos (Keeling) Islands</option>
+                                      <option>Colombia</option>
+                                      <option>Comoros</option>
+                                      <option>Congo</option>
+                                      <option>Congo, the Democratic Republic of the</option>
+                                      <option>Cook Islands</option>
+                                      <option>Costa Rica</option>
+                                      <option>Côte d'Ivoire</option>
+                                      <option>Croatia</option>
+                                      <option>Cuba</option>
+                                      <option>Curaçao</option>
+                                      <option>Cyprus</option>
+                                      <option>Czech Republic</option>
+                                      <option>Denmark</option>
+                                      <option>Djibouti</option>
+                                      <option>Dominica</option>
+                                      <option>Dominican Republic</option>
+                                      <option>Ecuador</option>
+                                      <option>Egypt</option>
+                                      <option>El Salvador</option>
+                                      <option>Equatorial Guinea</option>
+                                      <option>Eritrea</option>
+                                      <option>Estonia</option>
+                                      <option>Ethiopia</option>
+                                      <option>Falkland Islands (Malvinas)</option>
+                                      <option>Faroe Islands</option>
+                                      <option>Fiji</option>
+                                      <option>Finland</option>
+                                      <option>France</option>
+                                      <option>French Guiana</option>
+                                      <option>French Polynesia</option>
+                                      <option>French Southern Territories</option>
+                                      <option>Gabon</option>
+                                      <option>Gambia</option>
+                                      <option>Georgia</option>
+                                      <option>Germany</option>
+                                      <option>Ghana</option>
+                                      <option>Gibraltar</option>
+                                      <option>Greece</option>
+                                      <option>Greenland</option>
+                                      <option>Grenada</option>
+                                      <option>Guadeloupe</option>
+                                      <option>Guam</option>
+                                      <option>Guatemala</option>
+                                      <option>Guernsey</option>
+                                      <option>Guinea</option>
+                                      <option>Guinea-Bissau</option>
+                                      <option>Guyana</option>
+                                      <option>Haiti</option>
+                                      <option>Heard Island and McDonald Islands</option>
+                                      <option>Holy See (Vatican City State)</option>
+                                      <option>Honduras</option>
+                                      <option>Hong Kong</option>
+                                      <option>Hungary</option>
+                                      <option>Iceland</option>
+                                      <option>India</option>
+                                      <option>Indonesia</option>
+                                      <option>Iran, Islamic Republic of</option>
+                                      <option>Iraq</option>
+                                      <option>Ireland</option>
+                                      <option>Isle of Man</option>
+                                      <option>Israel</option>
+                                      <option>Italy</option>
+                                      <option>Jamaica</option>
+                                      <option>Japan</option>
+                                      <option>Jersey</option>
+                                      <option>Jordan</option>
+                                      <option>Kazakhstan</option>
+                                      <option>Kenya</option>
+                                      <option>Kiribati</option>
+                                      <option>Korea, Democratic People's Republic of</option>
+                                      <option>Korea, Republic of</option>
+                                      <option>Kuwait</option>
+                                      <option>Kyrgyzstan</option>
+                                      <option>Lao People's Democratic Republic</option>
+                                      <option>Latvia</option>
+                                      <option>Lebanon</option>
+                                      <option>Lesotho</option>
+                                      <option>Liberia</option>
+                                      <option>Libya</option>
+                                      <option>Liechtenstein</option>
+                                      <option>Lithuania</option>
+                                      <option>Luxembourg</option>
+                                      <option>Macao</option>
+                                      <option>Macedonia, the former Yugoslav Republic of</option>
+                                      <option>Madagascar</option>
+                                      <option>Malawi</option>
+                                      <option>Malaysia</option>
+                                      <option>Maldives</option>
+                                      <option>Mali</option>
+                                      <option>Malta</option>
+                                      <option>Marshall Islands</option>
+                                      <option>Martinique</option>
+                                      <option>Mauritania</option>
+                                      <option>Mauritius</option>
+                                      <option>Mayotte</option>
+                                      <option>Mexico</option>
+                                      <option>Micronesia, Federated States of</option>
+                                      <option>Moldova, Republic of</option>
+                                      <option>Monaco</option>
+                                      <option>Mongolia</option>
+                                      <option>Montenegro</option>
+                                      <option>Montserrat</option>
+                                      <option>Morocco</option>
+                                      <option>Mozambique</option>
+                                      <option>Myanmar</option>
+                                      <option>Namibia</option>
+                                      <option>Nauru</option>
+                                      <option>Nepal</option>
+                                      <option>Netherlands</option>
+                                      <option>New Caledonia</option>
+                                      <option>New Zealand</option>
+                                      <option>Nicaragua</option>
+                                      <option>Niger</option>
+                                      <option>Nigeria</option>
+                                      <option>Niue</option>
+                                      <option>Norfolk Island</option>
+                                      <option>Northern Mariana Islands</option>
+                                      <option>Norway</option>
+                                      <option>Oman</option>
+                                      <option>Pakistan</option>
+                                      <option>Palau</option>
+                                      <option>Palestinian Territory, Occupied</option>
+                                      <option>Panama</option>
+                                      <option>Papua New Guinea</option>
+                                      <option>Paraguay</option>
+                                      <option>Peru</option>
+                                      <option>Philippines</option>
+                                      <option>Pitcairn</option>
+                                      <option>Poland</option>
+                                      <option>Portugal</option>
+                                      <option>Puerto Rico</option>
+                                      <option>Qatar</option>
+                                      <option>Réunion</option>
+                                      <option>Romania</option>
+                                      <option>Russian Federation</option>
+                                      <option>Rwanda</option>
+                                      <option>Saint Barthélemy</option>
+                                      <option>Saint Helena, Ascension and Tristan da Cunha</option>
+                                      <option>Saint Kitts and Nevis</option>
+                                      <option>Saint Lucia</option>
+                                      <option>Saint Martin (French part)</option>
+                                      <option>Saint Pierre and Miquelon</option>
+                                      <option>Saint Vincent and the Grenadines</option>
+                                      <option>Samoa</option>
+                                      <option>San Marino</option>
+                                      <option>Sao Tome and Principe</option>
+                                      <option>Saudi Arabia</option>
+                                      <option>Senegal</option>
+                                      <option>Serbia</option>
+                                      <option>Seychelles</option>
+                                      <option>Sierra Leone</option>
+                                      <option>Singapore</option>
+                                      <option>Sint Maarten (Dutch part)</option>
+                                      <option>Slovakia</option>
+                                      <option>Slovenia</option>
+                                      <option>Solomon Islands</option>
+                                      <option>Somalia</option>
+                                      <option>South Africa</option>
+                                      <option>South Georgia and the South Sandwich Islands</option>
+                                      <option>South Sudan</option>
+                                      <option>Spain</option>
+                                      <option>Sri Lanka</option>
+                                      <option>Sudan</option>
+                                      <option>Suriname</option>
+                                      <option>Svalbard and Jan Mayen</option>
+                                      <option>Swaziland</option>
+                                      <option>Sweden</option>
+                                      <option>Switzerland</option>
+                                      <option>Syrian Arab Republic</option>
+                                      <option>Taiwan, Province of China</option>
+                                      <option>Tajikistan</option>
+                                      <option>Tanzania, United Republic of</option>
+                                      <option>Thailand</option>
+                                      <option>Timor-Leste</option>
+                                      <option>Togo</option>
+                                      <option>Tokelau</option>
+                                      <option>Tonga</option>
+                                      <option>Trinidad and Tobago</option>
+                                      <option>Tunisia</option>
+                                      <option>Turkey</option>
+                                      <option>Turkmenistan</option>
+                                      <option>Turks and Caicos Islands</option>
+                                      <option>Tuvalu</option>
+                                      <option>Uganda</option>
+                                      <option>Ukraine</option>
+                                      <option>United Arab Emirates</option>
+                                      <option>United Kingdom</option>
+                                      <option>United States</option>
+                                      <option>United States Minor Outlying Islands</option>
+                                      <option>Uruguay</option>
+                                      <option>Uzbekistan</option>
+                                      <option>Vanuatu</option>
+                                      <option>Venezuela, Bolivarian Republic of</option>
+                                      <option>Viet Nam</option>
+                                      <option>Virgin Islands, British</option>
+                                      <option>Virgin Islands, U.S.</option>
+                                      <option>Wallis and Futuna</option>
+                                      <option>Western Sahara</option>
+                                      <option>Yemen</option>
+                                      <option>Zambia</option>
+                                      <option>Zimbabwe</option>
+                                    </select>
+                                    <span class="pickTitle">Country</span>
+
+                                  </div>
+                                </div>
+                              </div>
                           </div>
                       </div>
                     </div>
-                  </div>
                 </div>
                 <div class="col-md-12">
                   <div class=" m-b-15" class="">
@@ -430,93 +702,133 @@
                       </div>
                   </div> -->
                 </div>
-
-
-
-
-
             </div>
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="exampleModalLabel1">Start Withdrawl<span id="modalBalance"></span> </h4> </div>
-                        <div class="modal-body">
-                            <form>
-                              <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                  <div class="form-group">
-                                      <label for="recipient-name" class="control-label">Ammount (PIES)</label>
-                                      <input type="number" class="form-control" id="ethAmmountWithdrawl" maxlength="40" id="name">
-                                      <h6 style="color: red; display: none;" id="ammountError">Required or too large</h6>
+            <div id="outerModalHolder">
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title" id="exampleModalLabel1">Start Withdrawl<span id="modalBalance"></span> </h4> </div>
+                          <div class="modal-body">
+                              <form>
+                                <div class="row">
+                                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">Ammount (PIES)</label>
+                                        <input type="number" class="form-control" id="ethAmmountWithdrawl" maxlength="40" id="name">
+                                        <h6 style="color: red; display: none;" id="ammountError">Required or too large</h6>
 
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">ETH Withdrawl Address</label>
+                                        <input type="text" class="form-control" id="ethWithdrawlAddress"  maxlength="42" >
+                                        <h6 style="color: red; display: none;" id="ethError">Required</h6>
+
+                                    </div>
                                   </div>
                                 </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                  <div class="form-group">
-                                      <label for="recipient-name" class="control-label">ETH Withdrawl Address</label>
-                                      <input type="text" class="form-control" id="ethWithdrawlAddress"  maxlength="42" >
-                                      <h6 style="color: red; display: none;" id="ethError">Required</h6>
-
-                                  </div>
-                                </div>
-                              </div>
 
 
 
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-danger" id="step2">Next</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label1">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="exampleModal2Label1">Confirm Withdrawl</h4> </div>
-                        <div class="modal-body">
-                          <h6 style="color: red">Please make sure all information is correct, once tokens are withdrawn we will be unable to issue refunds</h6>
-                             <div class="white-box">
+                              </form>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-danger" id="step2">Next</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label1">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title" id="exampleModal2Label1">Confirm Withdrawl</h4> </div>
+                          <div class="modal-body">
+                            <h6 style="color: red">Please make sure all information is correct, once tokens are withdrawn we will be unable to issue refunds</h6>
+                               <div class="white-box">
 
-                               <span style="font-size: 12px;">Ammount:</span>
+                                 <span style="font-size: 12px;">Ammount:</span>
 
-                               <span style="font-size: 18px; color:orange;" id="ammountForWithdrawl"></span>
-                               <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span>
+                                 <span style="font-size: 18px; color:orange;" id="ammountForWithdrawl"></span>
+                                 <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span>
 
-                               <br /><hr />
-                               <span style="font-size: 12px;">To:</span>
+                                 <br /><hr />
+                                 <span style="font-size: 12px;">To:</span>
 
-                               <span style="font-size: 18px; color:orange;" id="ethAddressForWithdrawl"></span>
-                               <br /> <hr />
+                                 <span style="font-size: 18px; color:orange;" id="ethAddressForWithdrawl"></span>
+                                 <br /> <hr />
 
-                               <span style="font-size: 12px;">Fee:</span>
+                                 <span style="font-size: 12px;">Fee:</span>
 
-                               <span style="font-size: 18px; color:orange;" id="fee"></span>
-                               <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span>
+                                 <span style="font-size: 18px; color:orange;" id="fee"></span>
+                                 <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span>
 
-                               <br /> <hr />
+                                 <br /> <hr />
 
-                               <span style="font-size: 12px;">Total:</span>
+                                 <span style="font-size: 12px;">Total:</span>
 
-                               <span style="font-size: 18px; color:orange;" id="totalWithdrawlAmmount"></span>
-                               <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span>
+                                 <span style="font-size: 18px; color:orange;" id="totalWithdrawlAmmount"></span>
+                                 <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span>
 
-                             </div>
-                             <input type="number" placeholder="Confirmation Code" id="confirmationCode" class="form-control"></input>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" id="sendCodeButton" onclick="sendCode()">Send Code</button>
-                            <button type="button" class="btn btn-primary" onclick="confirmWithdrawl()" id="step3">Confirm</button>
-                        </div>
-                    </div>
-                </div>
+                               </div>
+                               <input type="number" placeholder="Confirmation Code" id="confirmationCode" class="form-control"></input>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-default" id="sendCodeButton" onclick="sendCode()">Send Code</button>
+                              <button type="button" class="btn btn-primary" onclick="confirmWithdrawl()" id="step3">Confirm</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="modal fade" id="blankModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label1">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title" id="modalTitle"></h4> </div>
+                          <div class="modal-body">
+                            <h6 style="color: red">Please make sure all information is correct, once tokens are withdrawn we will be unable to issue refunds</h6>
+                               <div class="white-box">
+
+                                 <!-- <span style="font-size: 12px;">Ammount:</span>
+
+                                 <span style="font-size: 18px; color:orange;" id="ammountForWithdrawl"></span>
+                                 <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span>
+
+                                 <br /><hr />
+                                 <span style="font-size: 12px;">To:</span>
+
+                                 <span style="font-size: 18px; color:orange;" id="ethAddressForWithdrawl"></span>
+                                 <br /> <hr />
+
+                                 <span style="font-size: 12px;">Fee:</span>
+
+                                 <span style="font-size: 18px; color:orange;" id="fee"></span>
+                                 <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span>
+
+                                 <br /> <hr />
+
+                                 <span style="font-size: 12px;">Total:</span>
+
+                                 <span style="font-size: 18px; color:orange;" id="totalWithdrawlAmmount"></span>
+                                 <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span> -->
+
+                               </div>
+                               <!-- <input type="number" placeholder="Confirmation Code" id="confirmationCode" class="form-control"></input> -->
+                          </div>
+                          <div class="modal-footer">
+                              <!-- <button type="button" class="btn btn-default" id="" onclick="">Send Code</button> -->
+                              <button type="button" class="btn btn-danger" onclick="" id="">Confirm</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
             </div>
 
         </div>
@@ -559,12 +871,13 @@
 <script src="../sources/js/utilites/switchery.min.js"></script>
 <script src="../sources/js/utilites/ethjs-query.min.js"></script>
 <script src="../sources/js/utilites/ethjs-contract.min.js"></script>
-<script src="../sources/js/components/progressBar.js"></script>
-<script src="../sources/js/components/slider.js"></script>
-<script src="../sources/js/components/tags.js"></script>
-<script src="../sources/js/components/tokenFunctionList.js"></script>
-<script src="../sources/js/components/navBar-wallet.js"></script>
-<!-- <script src="../sources/js/components/loader.js"></script> -->
+<script src="../sources/js/components/progressBarFunctions.js"></script>
+<script src="../sources/js/components/sliderFunctions.js"></script>
+<script src="../sources/js/components/tagFunctions.js"></script>
+<script src="../sources/js/components/tokenFunctions.js"></script>
+<script src="../sources/js/components/navBarFunctions.js"></script>
+<script src="../sources/js/components/contentFunctions.js"></script>
+<script src="../sources/js/components/loaderFunctions.js"></script>
 
 <!-- <script src="../sources/js/bootstrap-tagsinput.min.js"></script> -->
 
@@ -600,7 +913,9 @@ firebase.auth().onAuthStateChanged(function(user) {
     tokenFunctions = new tokenFunctionList(userObject, firebaseDataBase);
     progressBarFunctions = new progressBar(userObject, firebaseDataBase);
     navBarFunctions = new navBarWallet(userObject, firebaseDataBase);
+    contentFunctions = new contentFunctions(userObject, firebaseDataBase);
 
+    contentFunctions.load();
     tokenFunctions.loadBalance();
     tokenFunctions.loadInternalBalance();
     checkTagFunctions.checkTags(); // gets Tag Data

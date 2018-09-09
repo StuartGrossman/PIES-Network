@@ -15,7 +15,7 @@ var progressBarRef = admin.database().ref('/queue/progressBar/');
 var queue = new Queue(progressBarRef, function(data, progress, resolve, reject) {
   // console.log(data.userData, data.tagData);
   tagProgress = (data.tagData * 10);
-  userDataProgress = (data.userData * (100/8));
+  userDataProgress = (data.userData * (100/10));
   if(tagProgress >= 100){
     tagProgress = 100;
   }
@@ -38,5 +38,23 @@ var queue = new Queue(progressBarRef, function(data, progress, resolve, reject) 
   }
 });
 
+var freeTokenRef = admin.database().ref('/queue/freeTokens/');
+var queue = new Queue(freeTokenRef, function(data, progress, resolve, reject) {
+  db.ref('progressBar/' + data.userId).once('value', function(snapshot){
+    if(snapshot.val().freeTokenClaimed === false){
+      db.ref('internalBalance/' + data.userId).once('value', function(childSnapshot){
+        var internalBalance = childSnapshot.val().balance;
+        internalBalance += 1000;
+        db.ref('internalBalance/' + data.userId).update({'balance': internalBalance}).then(function(res){
+          db.ref('progressBar/' + data.userId).update({'freeTokenClaimed': true}).then(function(res){
+            resolve();
+          })
+        })
+      })
+    }else{
+      resolve();
+    }
+  })
+});
 
 module.exports = router;

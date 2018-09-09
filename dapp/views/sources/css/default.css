@@ -53,11 +53,16 @@ body {
   color: #ffffff;
 }
 .navbar-header {
-  opacity: .75;
-  background: DEE2E5;
+  /* opacity: .75; */
+  background: #DEE2E5;
+  filter: brightness(95%);
+}
+.navbar-header.hover {
+
 }
 .navbar-top-links > li > a {
-  color: white;
+  color: #FF5722;
+  opacity: .75;
 }
 /*Right panel*/
 .right-sidebar .rpanel-title {
