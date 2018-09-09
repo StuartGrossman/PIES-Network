@@ -41,4 +41,51 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     console.log(blankModal.childNodes[1].childNodes[1].childNodes[1].innerHTML = "test")
 
   }
+
+  // var contentData;
+  // function loadContent(){
+  //   console.log(userObject.uid)
+  //   firebase.database().ref('publishedContent/' + userObject.uid).once('value', function(snapshot){
+  //     console.log(snapshot.val())
+  //     if(snapshot.val()){
+  //       snapshot.forEach(function(res){
+  //         console.log(res.val())
+  //         //generate HTML function
+  //         console.log(res.val().capta)
+  //         contentData = res.val();
+  //         console.log(res.val().capta)
+  //         document.getElementById('capta').setAttribute('src', res.val().capta)
+  //         document.getElementById('content1').setAttribute('src', res.val().capta)
+  //         for(var k = 0; k < res.val().tags.length; k++){
+  //           console.log()
+  //           var tagsName = res.val().tags[k];
+  //           var para = document.createElement("span");
+  //           para.className += 'tag label label-info'
+  //           var node = document.createTextNode('#' + res.val().tags[k]);
+  //
+  //           para.appendChild(node);
+  //           document.getElementById('tags-holder').appendChild(para)
+  //
+  //         }
+  //
+  //
+  //       })
+  //     }
+  //   })
+  // }
+  //
+  // function play(){
+  //   document.getElementById('videoCage').setAttribute('src', contentData.url);
+  //   // document.getElementById('ModalLabel1').style.display = 'none';
+  //   plyr.setup();
+  //
+  //   document.getElementById('capta').style.display = 'none';
+  //   document.getElementById('ModalLabel1').style.display = 'none';
+  //   document.getElementById('doneButton').style.display = 'block';
+  //
+  //
+  //   document.getElementById('videoCage').style.display = 'block';
+  //
+  //
+  // }
 })
