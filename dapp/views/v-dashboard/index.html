@@ -645,12 +645,7 @@
                             </form>
                             <br />
                             <br />
-
-                            <br />
                             <h6 style="color:#FF5722; opacity: .65;">Popular Interests</h6>
-
-                            <br />
-
                             <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="tagHolder">
                               <button class="btn btn-unpressed" style="margin-left: 6px; margin-bottom:5px;" id="Books" onclick="checkTagFunctions.addTag('Books')">Books</button>
                               <button class="btn btn-unpressed" style="margin-left: 6px; margin-bottom:5px;" id="Technology" onclick="checkTagFunctions.addTag('Technology')">Technology</button>
@@ -931,7 +926,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     contentFunctions.load();
     tokenFunctions.loadBalance();
     tokenFunctions.loadInternalBalance();
-    checkTagFunctions.checkTags(); // gets Tag Data
+    // checkTagFunctions.checkTags(); // gets Tag Data
     sliderFunctions.displayPersonalData(); // gets Slider Data
     progressBarFunctions.startDataCheck();
   }
