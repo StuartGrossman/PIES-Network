@@ -15,7 +15,7 @@ var progressBarRef = admin.database().ref('/queue/progressBar/');
 var queue = new Queue(progressBarRef, function(data, progress, resolve, reject) {
   // console.log(data.userData, data.tagData);
   tagProgress = (data.tagData * 10);
-  userDataProgress = (data.userData * (100/10));
+  userDataProgress = (data.userData * (100/12));
   if(tagProgress >= 100){
     tagProgress = 100;
   }

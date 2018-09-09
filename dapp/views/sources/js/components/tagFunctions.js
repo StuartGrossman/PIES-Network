@@ -11,6 +11,9 @@ var tagFunctions = (function(userObject, firebaseDataBase){
           if(buttonHolder){
               removeClass(childSnapshot.val())
           }
+          else{
+             //create and add element if it does not exist
+          }
         })
       }
     })
@@ -19,15 +22,18 @@ var tagFunctions = (function(userObject, firebaseDataBase){
   this.addTag = function addTag(data){
     var tagReference = '/queue/addTags/tasks';
     if(buttonClickedCounter == 0){
+      //prevents over pressing
       buttonClickedCounter += 1;
       firebaseDataBase.ref(tagReference).push({'tag': data, 'userId': userObject.uid}).then(function(res){
-        var ele = document.getElementById(data);
-        if(ele.classList.contains('btn-unpressed')){
-          removeClass(data);
-          buttonClickedCounter = 0;
-        }else{
-          addClass(data);
-          buttonClickedCounter = 0;
+        if(document.getElementById(data)){
+          var ele = document.getElementById(data);
+          if(ele.classList.contains('btn-unpressed')){
+            removeClass(data);
+            buttonClickedCounter = 0;
+          }else{
+            addClass(data);
+            buttonClickedCounter = 0;
+          }
         }
       });
     }
@@ -44,5 +50,16 @@ var tagFunctions = (function(userObject, firebaseDataBase){
     ele.classList.remove('btn-unpressed');
     ele.className = "btn btn-danger"
   }
+  this.addCustomeTag = function addCustomeTag(data){
+    if(data.value.length > 1){
+       var data = data.value.split('');
+       var firstLetter = data[0].toUpperCase();
+       data.splice(0,1);
+       data.unshift(firstLetter);
+       data = data.join('');
+       addTag(data);
 
+
+    }
+  }
 })

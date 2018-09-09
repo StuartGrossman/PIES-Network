@@ -28,10 +28,9 @@
     <link rel="icon" href="../sources/images/darklogo.png">
 </head>
 <body>
-<!-- style="display:none" -->
-    <div id="wrapper" class="main-container" >
-        <!-- Navigation -->
+    <div id="wrapper" class="main-container" style="display: none;">
 
+        <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
             <div class="navbar-header"> <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
                 <ul class="nav navbar-top-links navbar-left hidden-xs">
@@ -55,7 +54,7 @@
                     <a class="waves-effect" >
                       <img src="../sources/images/metamask-icon-2.png"/>
 
-                      <span class="hide-menu" id="balance" style="color:#FF5722; opacity: .75;">
+                      <span class="hide-menu" id="balance" style="color:#FF5722; opacity: .95;">
                         <i>0</i>
                       </span>
                       <div class="notify"><span class="heartbit">
@@ -69,7 +68,7 @@
                     <a data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" class="waves-effect" onmouseover="navBarFunctions.changeInternalBalanceText(this)" onmouseout="navBarFunctions.unChangeInternalBalanceText(this)">
                       <!-- <i class="fa fa-circle-o text-info"></i> -->
                       <i style="color:#FF5722;" class="icon-wallet fa-fw"></i>
-                      <span clasSs="hide-menu" id="internalBalance" style="color:#FF5722; opacity: .75;">
+                      <span clasSs="hide-menu" id="internalBalance" style="color:#FF5722; opacity: .95;">
                         <i>0</i>
                       </span>
                       <div class="notify"><span class="heartbit">
@@ -145,7 +144,6 @@
                 </ul>
             </div>
         </div>
-        <!-- Left navbar-header end -->
 
         <!-- Page Content -->
         <div id="page-wrapper">
@@ -289,7 +287,35 @@
                                       <span class="pickTitle">Relationship Status</span>
                                    </div>
                                 </div>
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 
+                                   <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="religionHolder">
+                                      <select class="selectpicker" data-style="form-control" tabindex="-98" id="religion" onchange="sliderFunctions.personalData(this, 'religion')">
+                                        <option>What is your religion?</option>
+                                        <option>Christianity</option>
+                                        <option>Islam</option>
+                                        <option>Nonreligious</option>
+                                        <option>Hinduism</option>
+                                        <option>Buddhism</option>
+                                        <option>Chinese Traditional</option>
+                                        <option>African Traditional</option>
+
+                                      </select>
+                                      <span class="pickTitle">Religion</span>
+                                    </div>
+
+                                   <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="household-sizeHolder">
+                                      <select class="selectpicker" data-style="form-control" tabindex="-98" id="household-size" onchange="sliderFunctions.personalData(this, 'household-size')">
+                                        <option>What is your household size?</option>
+                                        <option>1</option>
+                                        <option>2-3</option>
+                                        <option>3-5</option>
+                                        <option>5+</option>
+                                      </select>
+                                      <span class="pickTitle">Household Size</span>
+
+                                    </div>
+                                </div>
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 
                                    <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="incomeHolder">
@@ -324,6 +350,7 @@
 
                                     </div>
                                 </div>
+
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                                   <div class="btn-group bootstrap-select" style="margin-top: 15px;" id="politicalViewHolder">
                                      <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunctions.personalData(this, 'politicalView')">
@@ -600,13 +627,30 @@
                       </div>
                     </div>
                 </div>
+
                 <div class="col-md-12">
                   <div class=" m-b-15" class="">
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                             <h3>&nbsp;</h3>
-                            <h1 style="color: black; opacity: .55;">Popular Interests </h1>
-                            <h4 style="color:#FF5722; opacity: .65;">Please select at least 10 interests</h4>
+                            <h1 style="color: black; opacity: .55;">Interests </h1>
+                            <h4 style="color:#FF5722; opacity: .65;">Add custome tags</h4>
+
+                            <form class="form-material m-t-40">
+
+                              <!-- <h6 style="color:#FF5722; opacity: .65;"></h6> -->
+                              <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="customeTagHolder">
+                                <input onchange="checkTagFunctions.addCustomeTag(this)" class="form-control form-control-line" type="text" id="tags" placeholder="press enter to submit your tag">
+                              </div>
+                            </form>
+                            <br />
+                            <br />
+
+                            <br />
+                            <h6 style="color:#FF5722; opacity: .65;">Popular Interests</h6>
+
+                            <br />
+
                             <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="tagHolder">
                               <button class="btn btn-unpressed" style="margin-left: 6px; margin-bottom:5px;" id="Books" onclick="checkTagFunctions.addTag('Books')">Books</button>
                               <button class="btn btn-unpressed" style="margin-left: 6px; margin-bottom:5px;" id="Technology" onclick="checkTagFunctions.addTag('Technology')">Technology</button>
@@ -672,36 +716,8 @@
                       </div>
                   </div>
                 </div>
-                <div class="col-md-12">
-                  <div class=" m-b-15" class="">
-                      <!-- <div class="row weather p-20">
-                          <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
-                            <h3>&nbsp;</h3>
-                            <h1 style="color: black; opacity: .55;">Your Custome Interests</h1>
-                            <h4 style="color:#FF5722; opacity: .95;">Have as many as you like!</h4>
-                            <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="customeTagHolder">
-                              <input onchange="addCustomeTag()" type="text" id="tags" data-role="tagsinput" style="display: intial;">
-                            </div>
-                              <h3>&nbsp;</h3>
-                          </div>
-                      </div> -->
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <!-- <div class=" m-b-15" class="">
-                      <div class="row weather p-20">
-                          <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
-                            <h3>&nbsp;</h3>
-                            <h1 style="color: black; opacity: .55;">Your Location</h1>
-                            <h4 style="color:#FF5722; opacity: .95;">This helps content publishers and you!<h4>
-                            <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="customeTagHolder">
-                              <div id="somecomponent" style="width: 500px; height: 400px;"></div>
-                            </div>
-                              <h3>&nbsp;</h3>
-                          </div>
-                      </div>
-                  </div> -->
-                </div>
+
+
             </div>
 
             <div id="outerModalHolder">
@@ -832,23 +848,23 @@
             </div>
 
         </div>
+
+        <!-- Page Footer -->
         <footer class="footer text-center" style="color:black">
            &copy; PIES NETWORK <span style="font-size:8px;">beta V : 1.3.3 : 2018</span>
         </footer>
     </div>
 
-    <!-- <div>
-      <section class="loaderSection">
+    <!-- Page Loading Icon -->
+    <div>
+      <section class="loaderSection" style="background: white">
           <div class="loader" >
             <div class="box"></div>
             <div class="hill"></div>
           </div>
       </section>
-    </div> -->
-
-
+    </div>
 </body>
-<!-- <script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script> -->
 
 <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
 <script src="../sources/js/utilites/jquery.min.js"></script>
@@ -878,14 +894,11 @@
 <script src="../sources/js/components/navBarFunctions.js"></script>
 <script src="../sources/js/components/contentFunctions.js"></script>
 <script src="../sources/js/components/loaderFunctions.js"></script>
-
-<!-- <script src="../sources/js/bootstrap-tagsinput.min.js"></script> -->
-
-<!-- <script src="../sources/js/locationpicker/locationpicker.jquery.js"></script> -->
-
-<!-- <script>
-    $('#somecomponent').locationpicker();
-</script> -->
+<script>
+$(function() {
+    $("form").submit(function() { return false; });
+});
+</script>
 <script>
 var userObject;
 var sliderFunctions;

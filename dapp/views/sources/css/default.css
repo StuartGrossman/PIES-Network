@@ -55,7 +55,7 @@ body {
 .navbar-header {
   /* opacity: .75; */
   background: #DEE2E5;
-  filter: brightness(95%);
+  /* filter: brightness(95%); */
 }
 .navbar-header.hover {
 
