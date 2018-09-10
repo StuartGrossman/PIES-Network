@@ -61,7 +61,7 @@ var tokenFunctionList = (function(userObject, firebaseDataBase){
       var data = snapshot.val();
       if(data.balance){
         var balance = numberWithCommas(data.balance);
-        document.getElementById('balance').innerHTML = balance + ' <i><b>PIES</b></i>';
+        document.getElementById('balance').innerHTML = balance + ' <i style="color:white"><b>PIES</b></i>';
 
 
         // if(data.myBalance){
@@ -93,7 +93,7 @@ var tokenFunctionList = (function(userObject, firebaseDataBase){
       if(internalBalance){
         // console.log(internalBalance);
         var internalBalanceNumber = numberWithCommas(internalBalance.balance);
-        document.getElementById('internalBalance').innerHTML = internalBalanceNumber  + ' <i><b>PIES</b></i>';
+        document.getElementById('internalBalance').innerHTML = internalBalanceNumber  + ' <i style="color:white"><b>PIES</b></i>';
       }
     })
   }

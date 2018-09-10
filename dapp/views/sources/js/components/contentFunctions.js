@@ -1,6 +1,6 @@
 var contentFunctions = (function(userObject, firebaseDataBase){
   'use-strict';
-  //Load function takes all content and creates html canvas for each custome content request
+  //Load function takes all content and creates html canvas for each custom content request
   this.load = function load(){
     firebaseDataBase.ref('content/' + userObject.uid).on('value', function(snapshot){
       var data = snapshot.val();
@@ -22,7 +22,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
                   openContentLink.setAttribute('data-target', '#' + dataId + 'Modal');
 
                 })
-                openContentLink.innerHTML = contentData.val().title;
+                openContentLink.innerHTML = contentData.val().productInfo.title;
                 contentEle.appendChild(openContentLink);
                 document.getElementById('contentHolder').appendChild(contentEle);
               }

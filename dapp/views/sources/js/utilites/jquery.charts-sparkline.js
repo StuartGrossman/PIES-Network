@@ -219,7 +219,7 @@ $(document).ready(function() {
             barWidth: '4',
             resize: true,
             barSpacing: '5',
-            barColor: '#fb9678'
+            barColor: '#03a9f3'
         });
         
    

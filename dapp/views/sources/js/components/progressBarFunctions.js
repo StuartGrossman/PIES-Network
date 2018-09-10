@@ -52,28 +52,41 @@ var progressBar = (function(userObject, firebaseDataBase){
     });
     progressBarDataRef.on('value', function(snapshot) {
       var claimEle = document.getElementById('claimToken');
-      var claimedEle = document.getElementById('claimedToken');
+      var checkMark = document.getElementById('checkMark');
       if(snapshot.val()){
         progress = snapshot.val().progress;
-        progress = Math.round(progress * 100) / 100
+        progress = Math.round(progress * 100) / 100 //round progress
         var progressBarEle = document.getElementById('progressBar');
         var percentageCompleted = document.getElementById('percentageCompleted');
         percentageCompleted.innerHTML = progress + '%';
         progressBarEle.style.width = progress + '%';
+        console.log(progress)
         if(progress === 100 && snapshot.val().freeTokenClaimed === false){
-          claimEle.style.display = 'block'
-        }else if(progress === 100 && snapshot.val().freeTokenClaimed === true){
+          claimEle.style.display = 'inital';
+          checkMark.style.display = 'block';
+          percentageCompleted.style.display = 'none';
+        }
+        else if(progress === 100 && snapshot.val().freeTokenClaimed === true){
           claimEle.style.display = 'none';
-          // claimedToken.style.display = 'block';
-        }else if(progress < 100 && snapshot.val().freeTokenClaimed === false){
+          checkMark.style.display = 'block';
+          percentageCompleted.style.display = 'none';
+        }
+        else if(progress < 100 && snapshot.val().freeTokenClaimed === false){
           claimEle.style.display = 'none';
-        }else if(progress < 100 && snapshot.val().freeTokenClaimed === true){
+          checkMark.style.display = 'none';
+          percentageCompleted.style.display = 'block';
+
+
+        }
+        else if(progress < 100 && snapshot.val().freeTokenClaimed === true){
           claimEle.style.display = 'none';
-          // claimedToken.style.display = 'block';
+          checkMark.style.display = 'none';
+          percentageCompleted.style.display = 'block';
+
 
         }
         else{
-          claimEle.style.display = 'block';
+          claimEle.style.display = 'none';
         }
       }
     });

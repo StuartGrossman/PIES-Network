@@ -22,16 +22,11 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-//sends code
 var phoneRef = admin.database().ref('/queue/phone/');
 var withdrawPhoneCheckRef
-//checks code
 var checkPhoneCodeRef = admin.database().ref('/queue/confirmPhone/');
 var withdrawPhoneCheckRef = admin.database().ref('/queue/withdrawPhoneCheck/');
-//confirms code
-
 var confirmCodeRef = admin.database().ref('/queue/confirmCode/');
-
 
 var queue = new Queue(withdrawPhoneCheckRef, function(data, progress, resolve, reject) {
   db.ref('phone/' + data.userId).once('value', function(snapshot){
@@ -40,19 +35,10 @@ var queue = new Queue(withdrawPhoneCheckRef, function(data, progress, resolve, r
     if(phone){
       db.ref('/queue/phone/tasks').push({'userId': data.userId, 'phone': phone, 'message': 'Your PIES Token withdrawl code is '});
     }
-  })
-
-  .then(function(message){
+  }).then(function(message){
     resolve();
   });
 })
-
-
-
-
-
-
-
 
 var queue = new Queue(phoneRef, function(data, progress, resolve, reject) {
   var code = getRandomInt(10000, 99999)
@@ -229,9 +215,5 @@ var queue = new Queue(confirmCodeRef, function(data, progress, resolve, reject) 
     resolve();
   });
 })
-
-
-
-
 
 module.exports = router;
