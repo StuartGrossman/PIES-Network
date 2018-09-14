@@ -26,10 +26,10 @@ var defaultFunctions = (function(userObject, firebaseDataBase){
     });
   }
   this.dashboard = function dashboard(){
-    firebase.database().ref('/phone/' + userObj.uid).on('value', function(snapshot){
+    firebase.database().ref('/phone/' + userObj.uid).once('value', function(snapshot){
       if(snapshot.val()){
         if(snapshot.val().confirmed === true){
-          firebase.database().ref('/usertype/' + userObj.uid).on('value', function(snapshot2){
+          firebase.database().ref('/usertype/' + userObj.uid).once('value', function(snapshot2){
             if(snapshot2.val()){
               var usertype = snapshot2.val().type;
               if(usertype === 99){
@@ -60,7 +60,7 @@ var defaultFunctions = (function(userObject, firebaseDataBase){
           if(snapshot.val()){
             if(snapshot.val().confirmed){
                 firebase.database().ref('/usertype/' + userObj.uid).on('value', function(snapshot){
-                  console.log(snapshot.val().type)
+                  console.log(snapshot.val())
                   if(snapshot.val().type){
 
                     if(snapshot.val().type == "99"){

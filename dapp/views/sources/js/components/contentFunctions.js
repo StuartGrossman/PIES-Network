@@ -6,25 +6,26 @@ var contentFunctions = (function(userObject, firebaseDataBase){
       var data = snapshot.val();
       if(data){
         if(data.unwatched){
+          //sets Content Alerts Number
           document.getElementById('contentAlerts').innerHTML = data.unwatched;
+          //loops through unwatched content
           for(var i in data.contentList){
-            // console.log(data.contentList[i])
-
-            firebaseDataBase.ref('publishedContent/' + data.contentList[i]).once('value', function(contentData){
-              console.log(contentData.val())
+            var lookup = data.contentList[i].lookup
+            firebaseDataBase.ref('publishedContent/' + data.contentList[i].author).once('value', function(contentData){
               if(contentData.val()){
                 var contentEle = document.createElement('li');
-                var dataId = data.contentList[i];
+                var dataId = data.contentList[i].author;
                 var openContentLink = document.createElement('a');
+                //creates button for opening the modal -- /publishedData/userId/ lookup
                 openContentLink.addEventListener('click', function(){
-                  contentFunctions.createContentWindow(dataId)
                   openContentLink.setAttribute('data-toggle', 'modal');
-                  openContentLink.setAttribute('data-target', '#' + dataId + 'Modal');
-
+                  openContentLink.setAttribute('data-target', '#' + lookup + 'Modal');
                 })
-                openContentLink.innerHTML = contentData.val().productInfo.title;
+                openContentLink.innerHTML = contentData.val()[lookup].productInfo.title;
                 contentEle.appendChild(openContentLink);
                 document.getElementById('contentHolder').appendChild(contentEle);
+                //creates Modals for content
+                contentFunctions.createContentWindow(contentData.val()[lookup], lookup, data);
               }
             })
           }
@@ -33,15 +34,40 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     })
   }
 
-  this.createContentWindow = function createContentWindow(id){
+  this.createContentWindow = function createContentWindow(data, id, contentData){
     var blankModal = document.getElementById('blankModal').cloneNode(true);
     blankModal.id = id + 'Modal'
     document.getElementById('outerModalHolder').appendChild(blankModal);
 
-    console.log(blankModal.childNodes[1].childNodes[1].childNodes[1].innerHTML = "test")
+    var modalBody = blankModal.childNodes[1].childNodes[1]
+    //sets title
+    modalBody.childNodes[1].children[1].childNodes[1].innerHTML = data.productInfo.title + '  |  ' + '<span style="font-size:12px">' +  data.productInfo.info +'</span>';
+
+    //sets tags and userData
+    setDataTags(contentData.contentList[id].tags, modalBody);
+    setDataTags(contentData.contentList[id].userData, modalBody);
+
+
+    //sets image
+
+    modalBody.children[2].childNodes[1].setAttribute('src', data.source.capta);
+
+
+
+
+    console.log(modalBody.children[1]);
 
   }
 
+  function setDataTags(data, modalBody){
+    var tagEle = document.createElement('div');
+    tagEle.classList.add('btn', 'smallTag');
+    for(var i in data){
+      var tempTagEle = tagEle.cloneNode(true);
+      tempTagEle.innerHTML = data[i]
+      modalBody.children[1].appendChild(tempTagEle)
+    }
+  }
   // var contentData;
   // function loadContent(){
   //   console.log(userObject.uid)

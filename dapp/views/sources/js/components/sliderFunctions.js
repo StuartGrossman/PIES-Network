@@ -4,7 +4,7 @@ var sliderFunction = (function(userObject, firebaseDataBase){
     var idx = selectObj.selectedIndex;
     var indexedSelectedItem = selectObj.options[idx].value;
     document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].innerHTML = indexedSelectedItem;
-    document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].style.background = '#03a9f3';
+    document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].style.background = '#fb9678';
     document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].style.color= 'white';
 
 
@@ -26,7 +26,7 @@ var sliderFunction = (function(userObject, firebaseDataBase){
         if(document.getElementById(childSnapshot.key + 'Holder')){
           //logic to change title of each optionPicker
           document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].innerHTML = childSnapshot.val();
-          document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].style.background = '#03a9f3';
+          document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].style.background = '#fb9678';
           document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].style.color= 'white';
 
           //logic for chaning styles and generating title

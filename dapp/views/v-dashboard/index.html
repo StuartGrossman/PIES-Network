@@ -171,11 +171,11 @@
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="checkMark">
 
-                      <i style="color:#03a9f3;vertical-align: -webkit-baseline-middle; margin-top: 3px;" class="icon-check fa-fw"></i>
+                      <i style="color:#fb9678;vertical-align: -webkit-baseline-middle; margin-top: 3px;" class="icon-check fa-fw"></i>
 
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-                      <span id="percentageCompleted" style="margin-top: 7px; vertical-align: -webkit-baseline-middle;font-size: 12px; color:#03a9f3" >
+                      <span id="percentageCompleted" style="margin-top: 7px; vertical-align: -webkit-baseline-middle;font-size: 12px; color:#fb9678" >
 
                       </span>
 
@@ -191,7 +191,7 @@
 
                             <div class="row">
 
-                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                 <div class="btn-group bootstrap-select" style="margin-top: 15px; margin-left:5px;" id="raceHolder">
                                    <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunctions.personalData(this, 'race')">
                                      <option>What is your Race?</option>
@@ -219,7 +219,7 @@
                                   </div>
                               </div>
 
-                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 
                                  <div class="btn-group bootstrap-select" style="margin-top: 15px; margin-left:5px;" id="genderHolder" style="background: white;">
                                     <select class="selectpicker" data-style="form-control" tabindex="-98" id="gender" onchange="sliderFunctions.personalData(this, 'gender')">
@@ -249,7 +249,7 @@
                                  </div>
                               </div>
 
-                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                     <div class="btn-group bootstrap-select" style="margin-top: 15px; margin-left:5px;" id="professionHolder">
                                      <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunctions.personalData(this, 'profession')">
                                        <option>Whats your profession?</option>
@@ -294,7 +294,7 @@
                                       <span class="pickTitle">Relationship Status</span>
                                    </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 
                                    <div class="btn-group bootstrap-select" style="margin-top: 15px; margin-left:5px;" id="religionHolder">
                                       <select class="selectpicker" data-style="form-control" tabindex="-98" id="religion" onchange="sliderFunctions.personalData(this, 'religion')">
@@ -323,7 +323,7 @@
 
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 
                                    <div class="btn-group bootstrap-select" style="margin-top: 15px; margin-left:5px;" id="incomeHolder">
                                       <select class="selectpicker" data-style="form-control" tabindex="-98" id="income" onchange="sliderFunctions.personalData(this, 'income')">
@@ -358,7 +358,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                   <div class="btn-group bootstrap-select" style="margin-top: 15px; margin-left:5px;" id="politicalViewHolder">
                                      <select class="selectpicker" data-style="form-control" tabindex="-98" onchange="sliderFunctions.personalData(this, 'politicalView')">
                                        <option>Politcal Affiliation?</option>
@@ -645,14 +645,14 @@
 
                             <form class="form-material m-t-40">
 
-                              <!-- <h6 style="color:#03a9f3; opacity: .65;"></h6> -->
+                              <!-- <h6 style="color:#fb9678; opacity: .65;"></h6> -->
                               <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="customTagHolder">
                                 <input onchange="checkTagFunctions.addCustomTag(this)" class="form-control form-control-line" type="text" id="tags" placeholder="press enter to submit your tag">
                               </div>
                             </form>
                             <br />
                             <br />
-                            <h6 style="color:#03a9f3; opacity: .65;">Popular Interests</h6>
+                            <h6 style="color:#fb9678; opacity: .65;">Popular Interests</h6>
                             <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="tagHolder">
                               <button class="btn btn-unpressed" style="margin-left: 6px; margin-bottom:5px;" id="Books" onclick="checkTagFunctions.addTag('Books')">Books</button>
                               <button class="btn btn-unpressed" style="margin-left: 6px; margin-bottom:5px;" id="Technology" onclick="checkTagFunctions.addTag('Technology')">Technology</button>
@@ -809,41 +809,30 @@
                   <div class="modal-dialog" role="document">
                       <div class="modal-content">
                           <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                              <h4 class="modal-title" id="modalTitle"></h4> </div>
-                          <div class="modal-body">
-                            <h6 style="color: red">Please make sure all information is correct, once tokens are withdrawn we will be unable to issue refunds</h6>
-                               <div class="white-box">
-
-                                 <!-- <span style="font-size: 12px;">Ammount:</span>
-
-                                 <span style="font-size: 18px; color:orange;" id="ammountForWithdrawl"></span>
-                                 <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span>
-
-                                 <br /><hr />
-                                 <span style="font-size: 12px;">To:</span>
-
-                                 <span style="font-size: 18px; color:orange;" id="ethAddressForWithdrawl"></span>
-                                 <br /> <hr />
-
-                                 <span style="font-size: 12px;">Fee:</span>
-
-                                 <span style="font-size: 18px; color:orange;" id="fee"></span>
-                                 <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span>
-
-                                 <br /> <hr />
-
-                                 <span style="font-size: 12px;">Total:</span>
-
-                                 <span style="font-size: 18px; color:orange;" id="totalWithdrawlAmmount"></span>
-                                 <span style="font-size: 12px; font-weight:normal; color:gray;">PIES Tokens</span> -->
-
-                               </div>
-                               <!-- <input type="number" placeholder="Confirmation Code" id="confirmationCode" class="form-control"></input> -->
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            <div>
+                              <h4 class="modal-title" id="modalTitle">
+                                 <span>Title | <span>Info</span></span>
+                              </h4>
+                            </div>
+                          </div>
+                          <div class="modal-body" style="margin-bottom:3px; margin-top:3px;">
+                          </div>
+                          <div class="modal-imgHolder">
+                            <img id="modal-img" class="img-responsive"/>
                           </div>
                           <div class="modal-footer">
-                              <!-- <button type="button" class="btn btn-default" id="" onclick="">Send Code</button> -->
-                              <button type="button" class="btn btn-danger" onclick="" id="">Confirm</button>
+                              <div class="row">
+                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                  <span style="font-size: 10px;">By clicking this button you agree to give accurate feed back, and watch with engadment</span>
+                                  <span style="font-size: 10px;">Breaking these rules can result in an account suspension or ban.</span>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                  <button type="button" class="btn btn-danger" onclick="" id="">Ok</button>
+                                </div>
+                              </div>
                           </div>
                       </div>
                   </div>

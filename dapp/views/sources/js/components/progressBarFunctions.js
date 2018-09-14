@@ -60,7 +60,6 @@ var progressBar = (function(userObject, firebaseDataBase){
         var percentageCompleted = document.getElementById('percentageCompleted');
         percentageCompleted.innerHTML = progress + '%';
         progressBarEle.style.width = progress + '%';
-        console.log(progress)
         if(progress === 100 && snapshot.val().freeTokenClaimed === false){
           claimEle.style.display = 'inital';
           checkMark.style.display = 'block';

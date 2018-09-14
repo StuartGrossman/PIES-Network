@@ -141,7 +141,7 @@
 }
 .row-icon .pricing-icon.color3 .htfy,
 .row-icon .pricing-icon.color3 .fa{
-    color: #03a9f3;
+    color: #fb9678;
 }
 .ybtn{
     border: 0;
@@ -335,7 +335,7 @@ svg.logo text{
     position: relative;
     cursor: pointer;
     padding: 9px 30px;
-    background-color: #03a9f3;
+    background-color: #fb9678;
     border-radius: 4px;
     color: #ffffff;
     opacity: 1;
@@ -349,7 +349,7 @@ svg.logo text{
 }
 .support-button-holder a.support-button:hover,
 .support-button-holder a.support-button:focus{
-    background-color: #03a9f3 !important;
+    background-color: #fb9678 !important;
     color: #ffffff !important;
 }
 @media (min-width: 768px){
@@ -521,7 +521,7 @@ svg.logo text{
 #top-content .domain-search-holder input[type="submit"]{
     padding: 20px 30px;
     border-radius: 10px;
-    background-color: #03a9f3;
+    background-color: #fb9678;
     font-size: 18px;
     color: #ffffff;
     border: 0;
@@ -529,7 +529,7 @@ svg.logo text{
 }
 #top-content .domain-search-holder input[type="submit"]:hover,
 #top-content .domain-search-holder input[type="submit"]:focus{
-   background-color: #03a9f3;
+   background-color: #fb9678;
 }
 #top-content .domain-search-holder ::-webkit-input-placeholder {color: #87838e;}
 #top-content .domain-search-holder :-moz-placeholder {color: #87838e;}
@@ -549,7 +549,7 @@ svg.logo text{
     display: inline-block;
     width: 65px;
     height: 65px;
-    background-color: #03a9f3;
+    background-color: #fb9678;
     border-radius: 100px;
     -webkit-box-shadow: 0 9px 18px rgba(0,0,0,0.08);
     -moz-box-shadow: 0 9px 18px rgba(0,0,0,0.08);
@@ -876,7 +876,7 @@ svg.logo text{
     background-color: #5d9cec;
 }
 .pricing-box.pricing-color3 .pricing-content .pricing-icon{
-    background-color: #03a9f3;
+    background-color: #fb9678;
 }
 .pricing-box.pricing-box-simple .pricing-content .pricing-icon{
     border: 1px solid #e0e0e8;
@@ -964,7 +964,7 @@ svg.logo text{
     background-color: #5d9cec;
 }
 .pricing-box.featured.pricing-color3 .pricing-content:after{
-    background-color: #03a9f3;
+    background-color: #fb9678;
 }
 .pricing-box .pricing-content .pricing-title{
     font-size: 17px;
@@ -978,7 +978,7 @@ svg.logo text{
     color: #5d9cec;
 }
 .pricing-box.pricing-color3 .pricing-content .pricing-title{
-    color: #03a9f3;
+    color: #fb9678;
 }
 .pricing-box .pricing-content .pricing-price{
     font-size: 17px;
@@ -1040,7 +1040,7 @@ svg.logo text{
     box-shadow: 0 3px 8px rgba(93, 156, 236, 0.5);
 }
 .pricing-box.pricing-color3 .pricing-content .pricing-details ul li:before{
-    background-color: #03a9f3;
+    background-color: #fb9678;
     -webkit-box-shadow: 0 3px 8px rgba(101, 214, 146, 0.5);
     -moz-box-shadow: 0 3px 8px rgba(101, 214, 146, 0.5);
     box-shadow: 0 3px 8px rgba(101, 214, 146, 0.5);
@@ -1081,7 +1081,7 @@ svg.logo text{
 }
 .pricing-box.pricing-color3 .pricing-content .pricing-link a{
     color: #ffffff;
-    background-color: #03a9f3;
+    background-color: #fb9678;
 }
 .pricing-box.pricing-color3 .pricing-content .pricing-link a:hover,
 .pricing-box.pricing-color3 .pricing-content .pricing-link a:focus{
@@ -1123,7 +1123,7 @@ svg.logo text{
     background-color: #5d9cec;
 }
 #page-icon .pricing-icon.pricing-color3{
-    background-color: #03a9f3;
+    background-color: #fb9678;
 }
 /*------------------------------------------------------------------
 	8. Custom Plan Section Styles
@@ -2966,19 +2966,19 @@ svg.logo text{
     right: 0px;
     top: 3px;
     text-align: center;
-    border: 2px solid #03a9f3;
-    color: #03a9f3;
+    border: 2px solid #fb9678;
+    color: #fb9678;
     padding-top: 2px;
     font-size: 12px;
     font-weight: 600;
 }
 #post-content #sidebar #categories.widget .item a:hover,
 #post-content #sidebar #categories.widget .item a:focus{
-    color: #03a9f3;
+    color: #fb9678;
 }
 #post-content #sidebar #categories.widget .item a:hover span,
 #post-content #sidebar #categories.widget .item a:focus span{
-    background-color: #03a9f3;
+    background-color: #fb9678;
     color: #ffffff;
 }
 #post-content #sidebar #popular-posts.widget .item{

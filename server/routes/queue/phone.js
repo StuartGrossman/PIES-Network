@@ -216,4 +216,11 @@ var queue = new Queue(confirmCodeRef, function(data, progress, resolve, reject) 
   });
 })
 
+// db.ref('content/' + 'xJCG6uYAFoe5G3cANKqKSpjOjIs2').once('value', function(data){
+//   console.log(data.val().contentList['1314d34d'])
+//   var update = data.val().contentList['1314d34d']
+//   db.ref('content/' + 'xJCG6uYAFoe5G3cANKqKSpjOjIs2/contentList/' + '-LMLCICW3X-iM4xaekYL').set(update)
+// })
+
+
 module.exports = router;

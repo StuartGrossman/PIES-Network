@@ -4,6 +4,10 @@
 /*Normal Color*/
 /*Border radius*/
 /*Preloader*/
+.btn .smallTag {
+  font-size: 10px;
+  background-color: #fb9678;
+}
 .preloader {
   width: 100%;
   height: 100%;
@@ -65,11 +69,11 @@ body {
 }
 /*Right panel*/
 .right-sidebar .rpanel-title {
-  background: #03a9f3;
+  background: #fb9678;
 }
 /*Bread Crumb*/
 .bg-title .breadcrumb .active {
-  color: #03a9f3;
+  color: #fb9678;
 }
 /*Sidebar*/
 .sidebar {
@@ -77,7 +81,7 @@ body {
   box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
 }
 .sidebar .label-custom {
-  background: #03a9f3;
+  background: #fb9678;
 }
 #side-menu li a {
   color: #54667a;
@@ -90,66 +94,66 @@ body {
   background: rgba(0, 0, 0, 0.03);
 }
 #side-menu > li > a.active {
-  border-left: 3px solid #03a9f3;
+  border-left: 3px solid #fb9678;
   color: #2b2b2b;
   font-weight: 500;
 }
 #side-menu > li > a.active i {
-  color: #03a9f3;
+  color: #fb9678;
 }
 #side-menu ul > li > a:hover {
-  color: #03a9f3;
+  color: #fb9678;
 }
 #side-menu ul > li > a.active {
   color: #2b2b2b;
   font-weight: 500;
 }
 .sidebar #side-menu .user-pro .nav-second-level a:hover {
-  color: #03a9f3;
+  color: #fb9678;
 }
 .fix-sidebar .top-left-part {
   background: #4F5467;
 }
 /*themecolor*/
 .bg-theme {
-  background-color: #03a9f3 !important;
+  background-color: #fb9678 !important;
 }
 .bg-theme-dark {
   background-color: #01c0c8 !important;
 }
 /*Chat widget*/
 .chat-list .odd .chat-text {
-  background: #03a9f3;
+  background: #fb9678;
 }
 /*Button*/
 .btn-custom {
-  background: #03a9f3;
-  border: 1px solid #03a9f3;
+  background: #fb9678;
+  border: 1px solid #fb9678;
   color: #ffffff;
 }
 .btn-custom:hover {
-  background: #03a9f3;
+  background: #fb9678;
   opacity: 0.8;
   color: #ffffff;
-  border: 1px solid #03a9f3;
+  border: 1px solid #fb9678;
 }
 /*Custom tab*/
 .customtab li.active a,
 .customtab li.active a:hover,
 .customtab li.active a:focus {
-  border-bottom: 2px solid #03a9f3;
-  color: #03a9f3;
+  border-bottom: 2px solid #fb9678;
+  color: #fb9678;
 }
 .tabs-vertical li.active a,
 .tabs-vertical li.active a:hover,
 .tabs-vertical li.active a:focus {
-  background: #03a9f3;
-  border-right: 2px solid #03a9f3;
+  background: #fb9678;
+  border-right: 2px solid #fb9678;
 }
 /*Nav-pills*/
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:focus,
 .nav-pills > li.active > a:hover {
-  background: #03a9f3;
+  background: #fb9678;
   color: #ffffff;
 }

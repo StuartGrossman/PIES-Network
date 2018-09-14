@@ -261,7 +261,7 @@
           }
         }
       },
-      "ipfs": {
+      "freeTokens": {
        "tasks": {
          ".indexOn": ["_state"],
          "$task": {
