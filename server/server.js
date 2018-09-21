@@ -52,7 +52,7 @@ app.get('/', function(req, res){
 /// resources
 
 var linkUsers = require('./routes/tasks/linkUsers');
-var ipfs = require('./routes/ipfs/ipfs');
+// var ipfs = require('./routes/ipfs/ipfs');
 var phone = require('./routes/queue/phone');
 var contract = require('./routes/contract/contract');
 var upload = require('./routes/queue/upload');
@@ -60,18 +60,22 @@ var user = require('./routes/queue/user');
 var tags = require('./routes/queue/tags');
 var wallet = require('./routes/queue/wallet');
 var progressBar = require('./routes/queue/progressBar');
+var contentWindow = require('./routes/queue/contentWindow');
+
 
 // var stripe = require('./routes/stripe/stripe');
 
 app.use('/wallet', wallet);
 app.use('/linkUsers', linkUsers);
-app.use('/ipfs', ipfs);
+// app.use('/ipfs', ipfs);
 app.use('/deployContract', contract);
 app.use('/phone', phone);
 app.use('/upload', upload);
 app.use('/user', user);
 app.use('/tags', tags);
 app.use('/progressBar', progressBar);
+app.use('/contentWindow', contentWindow);
+
 
 // app.use('/stripe', stripe);
 

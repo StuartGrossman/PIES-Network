@@ -22,7 +22,7 @@ var queue = new Queue(progressBarRef, function(data, progress, resolve, reject) 
   if(userDataProgress >= 100){
     userDataProgress = 100;
   }
-  var total =  (userDataProgress + tagProgress)/2;
+  var total = (userDataProgress + tagProgress)/2;
   // console.log(total);
   if(total >= 100){
     // console.log('total is above 100');
@@ -31,7 +31,8 @@ var queue = new Queue(progressBarRef, function(data, progress, resolve, reject) 
         resolve();
       })
     })
-  }else{
+  }
+  else{
     db.ref('progressBar/' + data.userId).update({'progress': total}).then(function(){
       resolve();
     })
@@ -51,7 +52,8 @@ var queue = new Queue(freeTokenRef, function(data, progress, resolve, reject) {
           })
         })
       })
-    }else{
+    }
+    else{
       resolve();
     }
   })

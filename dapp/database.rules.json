@@ -109,6 +109,10 @@
         ".read": "$user_id === auth.uid"
       }
     },
+    "publishedContent": {
+      ".read": true,
+      ".write": false,
+    },
     "activecontent": {
       ".read": false,
       ".write": false
