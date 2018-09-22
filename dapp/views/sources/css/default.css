@@ -157,3 +157,6 @@ body {
   background: #fb9678;
   color: #ffffff;
 }
+.modalLoaderHidden {
+  display: none;
+}

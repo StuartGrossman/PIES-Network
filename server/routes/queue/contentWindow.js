@@ -10,30 +10,42 @@ var EthContract = require('ethjs-contract');
 var Queue = require('firebase-queue');
 var admin = require('firebase-admin');
 var db = admin.database();
-
+//function starts watching process, sets a timer in the database to compare to later
 var contentStartTask = admin.database().ref('/queue/contentStart/');
 var queue = new Queue(contentStartTask, function(data, progress, resolve, reject) {
-  console.log('content viewing of '+ data.contentId + '  starting')
+  // console.log('content viewing of '+ data.contentId + '  starting')
   var time = new Date().getTime();
   db.ref('content/' + data.userId + '/contentList/' + data.contentId + '/progress/video').update({'time': time}).then(function(){
     resolve();
   })
-
-  console.log(data);
-
 });
+
+//function cofirms that the content was watched
 var contentFinishedTask = admin.database().ref('/queue/contentFinished/');
 var queue = new Queue(contentFinishedTask, function(data, progress, resolve, reject) {
   var time = new Date().getTime();
-  db.ref('content/' + data.userId + '/contentList/' + data.contentId).once('value', function(data){
-    console.log(data.val().progress.video.time)
-    // if(time - data.val().time > )
-  }).then(function(){
-    resolve();
-  })
+  db.ref('content/' + data.userId + '/contentList/' + data.contentId)
+  .once('value', function(childData){
+    var timeElapsed = ((time - childData.val().progress.video.time) / 1000) //changes time into seconds
+    // console.log(timeElapsed, childData.val().videoLength)
 
-  console.log(data);
-  // db.ref
+    if(childData.val().videoLength - timeElapsed < 1){ //if the time difference is less than 1 second
+      db.ref('content/' + data.userId + '/contentList/' + data.contentId + '/progress/video/')
+      .update({'status' : true})
+      .then(function(){
+        // db.ref('content/' + data.userId + '/contentList/' + data.contentId + '/progress/loader/')
+        // .update({'show' : true}).then(function(){
+        //   resolve();
+        // })
+        resolve();
+
+      })
+
+    }else{
+      resolve();
+    }
+    // if(time - data.val().time > )
+  })
 });
 
 

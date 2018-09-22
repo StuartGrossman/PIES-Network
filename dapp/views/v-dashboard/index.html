@@ -821,6 +821,14 @@
                             <video width="598" height="240" controls style="display:none;">
                               <source src="" type="video/mp4">
                             </video>
+                            <div id="progressBox" class="modalLoaderHidden" style="height: 230px;">
+                              <section  class="loaderBox" >
+                                  <div class="loader" id="loader" style="margin-top:1px;">
+                                    <div class="box"></div>
+                                    <div class="hill"></div>
+                                  </div>
+                              </section>
+                            </div>
                           </div>
                           <div class="modal-footer">
                               <div class="row">
@@ -846,7 +854,7 @@
     <!-- Page Loading Icon -->
     <div>
       <section class="loaderSection" style="background: white">
-          <div class="loader" >
+          <div class="loader" id="pageLoader" >
             <div class="box"></div>
             <div class="hill"></div>
           </div>
@@ -882,11 +890,11 @@
 <script src="../sources/js/components/navBarFunctions.js"></script>
 <script src="../sources/js/components/contentFunctions.js"></script>
 <script src="../sources/js/components/loaderFunctions.js"></script>
-<script>
+<!-- <script>
 $(function() {
     $("form").submit(function() { return false; });
 });
-</script>
+</script> -->
 <script>
 var userObject;
 var sliderFunctions;

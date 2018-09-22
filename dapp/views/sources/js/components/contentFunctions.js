@@ -1,10 +1,20 @@
 var contentFunctions = (function(userObject, firebaseDataBase){
   'use-strict';
+  //NO idea why this wont work.
+  // function watchLoader(id){
+  //   firebaseDataBase.ref('/content/' + userObject.uid + '/contentList/' + id ).on('value', function(snapshot){
+  //     console.log(snapshot.val().progress.loader.show)
+  //     if(snapshot.val().progress.loader.show === true){
+  //         document.getElementById('progressBox').classList.remove('modalLoaderHidden');
+  //     }
+  //   })
+  // }
+
+  var exitScreen = false;
   var tagEle = document.createElement('div');
   tagEle.classList.add('btn', 'smallTag');
   //Load function takes all content and creates html canvas for each custom content request
   this.load = function load(){
-
     var alertCount = 0;
     setTimeout(function(){
       //waits for alert number to be populated from loop
@@ -13,55 +23,64 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     firebaseDataBase.ref('content/' + userObject.uid).on('value', function(snapshot){
       var data = snapshot.val();
       if(data){
-        // if(data.unwatched){
-          //sets Content Alerts Number
-          //loops through unfinished content
-          for(var i in data.contentList){
-            alertCount += 1;
-            console.log(alertCount)
-            var lookup = data.contentList[i].lookup
-            firebaseDataBase.ref('publishedContent/' + data.contentList[i].author).once('value', function(contentData){
-              if(contentData.val()){
-                var contentEle = document.createElement('li');
-                var dataId = data.contentList[i].author;
-                var openContentLink = document.createElement('a');
-                //creates button for opening the modal -- /publishedData/userId/ lookup
-                console.log('creating button')
-                openContentLink.addEventListener('click', function(){
-                  openContentLink.setAttribute('data-toggle', 'modal');
-                  openContentLink.setAttribute('data-target', '#' + lookup + 'Modal');
-                })
-                // console.log(contentData.val()[lookup], lookup, data)
-                openContentLink.innerHTML = contentData.val()[lookup].productInfo.title;
-                contentEle.appendChild(openContentLink);
-                document.getElementById('contentHolder').appendChild(contentEle);
-                //creates Modals for content
-                const currentContent = contentData.val()[lookup]
-                contentFunctions.createContentWindow(currentContent, lookup, data);
-              }
-            })
-          // }
+        //sets Content Alerts Number
+        //loops through unfinished content
+        for(var i in data.contentList){
+          //Adds to alertCount for ammount of content Objects exist
+          alertCount += 1;
+          var lookup = data.contentList[i].lookup
+          // watchLoader(lookup) //function to watch for loader and change styling
+          firebaseDataBase.ref('publishedContent/' + data.contentList[i].author).once('value', function(contentData){
+            if(contentData.val()){
+              var contentEle = document.createElement('li');
+              var dataId = data.contentList[i].author;
+              var openContentLink = document.createElement('a');
+              //creates button for opening the modal -- /publishedData/userId/ lookup
+              //Uses the $contentID as pointer in ID
+              openContentLink.addEventListener('click', function(){
+                openContentLink.setAttribute('data-toggle', 'modal');
+                openContentLink.setAttribute('data-target', '#' + lookup + 'Modal');
+              })
+              // console.log(contentData.val()[lookup], lookup, data)
+              openContentLink.innerHTML = contentData.val()[lookup].productInfo.title;
+              contentEle.appendChild(openContentLink);
+              document.getElementById('contentHolder').appendChild(contentEle);
+              //creates Modals for content
+              const currentContent = contentData.val()[lookup]
+              createContentWindow(currentContent, lookup, data);
+            }
+          })
         }
       }
     })
   }
 
-  this.createContentWindow = function createContentWindow(data, id, contentData){
+  function createContentWindow(data, id, contentData){
     var blankModal = document.getElementById('blankModal').cloneNode(true);
     blankModal.id = id + 'Modal'
     document.getElementById('outerModalHolder').appendChild(blankModal);
     var currentContent = contentData.contentList[id];
     var modalBody = blankModal.childNodes[1].childNodes[1]
     //sets title percentage and payment ammount
-    var modalHeaderContent = data.productInfo.title + '  |  ' + '<span style="font-size:12px">' +  data.productInfo.info +'</span>' +  ' | ' + '<span style="color:#fb9678; opacity: 0.8"> ' + currentContent.payout +'</span>' + '<span style="font-size:12px; color:#fb9678; opacity:0.75">' + ' PIES' + '</span>' ;
+    var modalHeaderContent = data.productInfo.title + '  |  '
+    + '<span style="font-size:12px">'
+    +  data.productInfo.info +'</span>' +  ' | '
+    + '<span style="color:#fb9678; opacity: 0.8"> '
+    + currentContent.payout +'</span>'
+    + '<span style="font-size:12px; color:#fb9678; opacity:0.75">'
+    + ' PIES' + '</span>';
 
     modalBody.childNodes[1].children[1].childNodes[1].innerHTML = modalHeaderContent;
-    //setting match
-    matchPercentage = '<span style="font-size:12px">' + currentContent["match%"] + '%' + ' Match' + '</span>'
+    //setting match percentage
     var tempTagEle = tagEle.cloneNode(true);
+
+    matchPercentage = '<span style="font-size:12px">'
+    + currentContent["match%"]
+    + '%' + ' Match' + '</span>';
+    tempTagEle.innerHTML = matchPercentage
+
     tempTagEle.classList.add('btn-danger')
 
-    tempTagEle.innerHTML = matchPercentage
     modalBody.children[1].appendChild(tempTagEle)
     //sets tags and userData
     setDataTags(currentContent.tags, modalBody);
@@ -73,16 +92,37 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     modalBody.children[2].childNodes[1].setAttribute('src', data.source.capta);
 
     //sets warning aginst false information
-    var warning = '<p style="font-size: 10px;">By clicking this button you agree to watch this content with engadment and to give accurate feed back. Intentionally breaking these rules can result in an account suspension or ban.</p>';
+    var warning = '<p style="font-size: 10px; text-align:justify;">By clicking this button you agree to watch this content with engadment and to give accurate feed back. Changing the volume, or skipping will restart this process. Intentionally breaking these rules can result in an account suspension or ban.</p>';
     modalBody.childNodes[7].children[0].children[0].innerHTML = warning
 
     //sets button event
 
     var modalButton = modalBody.childNodes[7].children[0].children[1].childNodes[1];
-    if(currentContent.progress.video.status){
+    if(currentContent.progress.video.status && (!currentContent.progress.link.status || !currentContent.progress.response.status)){
+      //hides inital elements
+      modalBody.childNodes[7].children[0].style.display = 'none';
+      modalBody.children[2].children[1].style.display = 'none';
+      modalBody.children[2].childNodes[1].style.display = 'none';
+      showReponseWindow(id, modalBody);
+
       //video completed
-    }else{
+      // if(currentContent.progress.link.status){
+      //   //link completed
+      //   if(currentContent.progress.response.status){
+      //     //response completed
+      //     if(!currentContent.progress.userAction.status){
+      //       // Checks last step if users has not submited
+      //       // This should always be false.
+      //     }
+      //   }
+      // }
+      // else{
+      //   //LINK LOGIC
+      // }
+    }
+    else{
       //PLAY BUTTON IS HIT
+      //FRONT END MEAT LOGIC
       modalButton.addEventListener('click', function(){
         // modalBody.setAttribute('data-dismiss', "modal")
         //function to populate window to watch content
@@ -94,8 +134,9 @@ var contentFunctions = (function(userObject, firebaseDataBase){
         contentStartQueue(id);
 
         //starts server request to watch content
-        let videoEle = modalBody.children[2].children[1];
-
+        var videoEle = modalBody.children[2].children[1];
+        const duration = currentContent.videoLength
+        console.log(duration)
         videoEle.setAttribute('src', data.source.link)
         //hides content banner
         modalBody.children[2].childNodes[1].style.display = 'none';
@@ -104,10 +145,29 @@ var contentFunctions = (function(userObject, firebaseDataBase){
         //starts fullscreen and requests play
         videoEle.webkitRequestFullScreen();
         videoEle.play();
+        setTimeout(function(){
+          //queue
+          var internalTime = true;
+
+          watchVideoTime(videoEle, internalTime, duration, id, modalBody);
+
+        }, (duration * 1000))
         //sets event listners on seeking and volume change, if either occurs reload page
-        volumeWatch(videoEle)
-        seekerWatch(videoEle)
+        volumeWatch(videoEle);
+        seekerWatch(videoEle);
+        //waits 1 second before looking for exit of full screen.
+        setTimeout(function(){
+          fullScreenWatcher(videoEle);
+        }, 1000)
       })
+    }
+  }
+  function watchVideoTime(videoEle, internalTime, duration, id, modalBody){
+    var currentTime = videoEle.currentTime;
+    // if the current time of the Video is greater than the duration, and interalTime is true.
+    // initiate server check.
+    if(currentTime + 1 > duration && internalTime){
+      contentFinishedQueue(id, modalBody)
     }
   }
   function contentStartQueue(id){
@@ -116,110 +176,48 @@ var contentFunctions = (function(userObject, firebaseDataBase){
       return;
     })
   }
-  function contentFinishedQueue(id){
+  function contentFinishedQueue(id, modalBody){
+    // turns off display of video and playButton div
+    modalBody.childNodes[7].children[0].style.display = 'none';
+    modalBody.children[2].children[1].style.display = 'none';
+
+    exitScreen = true; // prevents eventListener on fullScreen from invoking
+    exitFullScreenBrowser(); // exits fullscreen on all browsers
+    // this line is not working for some reason ..
+
+    //show loading window
     var queue = firebaseDataBase.ref('/queue/contentFinished/tasks');
      queue.push({'userId': userObject.uid, 'contentId': id}).then(function(){
        //starts server request to watch content
+       //check database for status of content if True
+       //hit function to build next modalBody
+       //stop loading window
        return;
      })
   }
   function seekerWatch(videoEle){
     videoEle.addEventListener('seeking', function(){
-      videoEle.exitFullScreen();
       location.reload();
       return;
     })
-
   }
   function volumeWatch(videoEle){
     videoEle.addEventListener('volumechange', function(){
-
-      exitFullScreenBrowser();
       location.reload();
       return;
-
     })
   }
-  function restartVideo(videoEle){
-    // videoEle.
-  }
-  function createViewModalWindow(data, id, contentData, modal){
-    //stage 1 watch video
-    //stage 2 click link
-    //stage 3 answer feedback
-    //stage 3 thumbs up or down
-    //payout -into completion
-    //screen fuctionality
-
-    let videoEle = modal.children[2].children[1];
-    var currentTime;
-    const duration = videoEle.duration;
-    var internalTime = false;
-    var screenExitCount = 0;
-    var vidVolume;
-    //sets src to video element and other elements needed to watch video
-    videoEle.setAttribute('src', data.source.link)
-    //hides content banner
-    modal.children[2].childNodes[1].style.display = 'none';
-    //show video
-    videoEle.style.display = 'block';
-    //play video and enter full screenOn
-    // videoEle.webkitRequestFullScreen();
-    // videoEle.play();
-
-    //starts server queue to track progress
-    var queue = firebaseDataBase.ref('/queue/contentStart/tasks');
-    queue.push({'userId': userObject.uid, 'contentId': id}).then(function(){
-      //starts server request to watch content
+  function fullScreenWatcher(videoEle){
+    document.onwebkitfullscreenchange = function(event){
+      if(!exitScreen){
+        location.reload();
+        return;
+      }
       return;
-    })
-    //watch for volume change
-    // console.log('inital volume', videoEle.volume)
-
-    // console.log('volume change occured', videoEle.volume);
-    //
-
-
-    // setTimeout(function(){
-    //   //queue
-    //   internalTime = true;
-    // }, (duration * 100))
-    // document.onwebkitfullscreenchange = function(event){
-    //   event.preventDefault();
-    //   screenExitCount += 1;
-    //   currentTime = videoEle.currentTime;
-    //
-    //   if((screenExitCount % 2 == 0) && currentTime < duration){
-    //     console.log(currentTime, duration)
-    //     screenOn = false;
-    //
-    //     console.log(screenOn, 'working')
-    //     videoEle.style.display = 'none';
-    //     videoEle.pause();
-    //     modal.children[2].childNodes[1].style.display = 'block';
-    //     // alert('Please do not exit full screen, restart from the beggining!')
-    //   }
-    //   else if((screenExitCount % 2 == 0) && currentTime === duration && internalTime){
-    //     event.preventDefault();
-    //     var queue = firebaseDataBase.ref('/queue/contentFinished/tasks');
-    //     queue.push({'userId': userObject.uid, 'contentId': id}).then(function(){
-    //       //starts server request to watch content
-    //       return;
-    //     })
-    //     console.log(currentTime, duration)
-    //     // alert('thanks for watching next step!')
-    //     videoEle.style.display = 'none';
-    //     //check to see what else is required for completion
-    //   }
-    // }
-    // videoEle.webkitOnFullScreenChange = function(){\
-    //   console.log('exit of full screen')
-    //   videoEle.pause();
-    // }
+    }
   }
 
   function setDataTags(data, modalBody){
-
     for(var i in data){
       var tempTagEle = tagEle.cloneNode(true);
       tempTagEle.innerHTML = data[i]
@@ -244,10 +242,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
       return;
     }
   }
-
-  function alertUser(action){
-    alert(
-      action
-    )
+  function showReponseWindow(id, modalBody){
+    
   }
 })

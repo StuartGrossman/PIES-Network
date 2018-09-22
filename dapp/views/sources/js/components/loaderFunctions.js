@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var loadTime = Math.floor((Math.random() * 3000) + 500);
   setTimeout(function(){
-    $('.loader').hide();
+    $('#pageLoader').hide();
     $('.loaderSection').hide();
     $('.main-container').css("display", "initial")
   }, loadTime);
@@ -15,4 +15,5 @@ $(document).ready(function() {
       hideAfter: loadTime,
       stack: 6
   })
+
 });
