@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="../sources/css/dropify.min.css">
     <link rel="stylesheet" href="../sources/css/bootstrap-select.min.css">
     <link rel="icon" href="../sources/images/darklogo.png">
+    <script src="../sources/js/utilites/jquery.min.js"></script>
+
 </head>
 <body>
     <div id="wrapper" class="main-container" style="display: none;">
@@ -106,7 +108,7 @@
                         </div>
                     </li>
                     <li>
-                      <a href="index.html" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i>
+                      <a id="contentContainer" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i>
                         <span class="hide-menu"> My Content
                           <span class="fa arrow"></span>
                           <span class="label label-rouded label-custom pull-right" id="contentAlerts">0</span>
@@ -647,12 +649,12 @@
 
                               <!-- <h6 style="color:#fb9678; opacity: .65;"></h6> -->
                               <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="customTagHolder">
-                                <input onchange="checkTagFunctions.addCustomTag(this)" class="form-control form-control-line" type="text" id="tags" placeholder="press enter to submit your tag">
+                                <input onchange="checkTagFunctions.addCustomTag(this)" class="form-control form-control-line" type="text" id="tags" placeholder="press enter to submit">
                               </div>
                             </form>
                             <br />
                             <br />
-                            <h6 style="color:#fb9678; opacity: .65;">Popular Interests</h6>
+                            <h6 style="color:#fb9678; opacity: .65;">Default Interests</h6>
                             <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="tagHolder">
                               <button class="btn btn-unpressed" style="margin-left: 6px; margin-bottom:5px;" id="Books" onclick="checkTagFunctions.addTag('Books')">Books</button>
                               <button class="btn btn-unpressed" style="margin-left: 6px; margin-bottom:5px;" id="Technology" onclick="checkTagFunctions.addTag('Technology')">Technology</button>
@@ -724,6 +726,7 @@
             </div>
 
             <div id="outerModalHolder">
+              <a display='hidden' id="loaderStart" data-toggle="modal" data-target="#modalLoader"></a>
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
                   <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -829,6 +832,31 @@
                                   </div>
                               </section>
                             </div>
+                            <div id="contentResponseHolder" style="display: none;">
+                              <div>
+                                  <a id="modalLink">
+                                    <button>
+                                      Link
+                                    </button>
+                                  </a>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12">
+
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+                                  <b id="questionHolder">Q: </b>
+                                </div>
+                                <div class="ccol-md-10 col-lg-10 col-sm-10 col-xs-10">
+                                  <span id="answer1"><input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked></span>
+                                  <span id="answer2"></span>
+                                  <span id="answer3"></span>
+                                  <span id="answer4"></span>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                           <div class="modal-footer">
                               <div class="row">
@@ -842,8 +870,25 @@
                       </div>
                   </div>
               </div>
+              <div class="modal fade" id="modalLoader" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label1">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                            <button id="closeLoaderModal" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <div class="modal-body">
+                              <div id="progressBox" style="height: 270px; margin-bottom:70px;">
+                                <section  class="loaderBox" >
+                                    <div class="loader" id="loader" style="margin-top:1px;">
+                                      <div class="box"></div>
+                                      <div class="hill"></div>
+                                    </div>
+                                </section>
+                              </div>
+                            </div>
+                      </div>
+                  </div>
+              </div>
             </div>
-
         </div>
         <!-- Page Footer -->
         <footer class="footer text-center" style="color:black">
@@ -863,7 +908,6 @@
 </body>
 
 <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
-<script src="../sources/js/utilites/jquery.min.js"></script>
 <script src="../sources/js/utilites/tether.min.js"></script>
 <script src="../sources/js/utilites/bootstrap.min.js"></script>
 <script src="../sources/js/utilites/sidebar-nav.min.js"></script>
@@ -890,11 +934,12 @@
 <script src="../sources/js/components/navBarFunctions.js"></script>
 <script src="../sources/js/components/contentFunctions.js"></script>
 <script src="../sources/js/components/loaderFunctions.js"></script>
-<!-- <script>
+<script>
+//prevents form submission!
 $(function() {
     $("form").submit(function() { return false; });
 });
-</script> -->
+</script>
 <script>
 var userObject;
 var sliderFunctions;
@@ -915,23 +960,23 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById('userImage').src = user.photoURL;
     document.getElementById('userName').innerHTML = user.displayName;
 
-    //set name Here!
     var firebaseDataBase = firebase.database(); // safe Firebase database ref
+    //Loads Component Structure
     sliderFunctions = new sliderFunction(userObject, firebaseDataBase);
     checkTagFunctions = new tagFunctions(userObject, firebaseDataBase);
     tokenFunctions = new tokenFunctionList(userObject, firebaseDataBase);
     progressBarFunctions = new progressBar(userObject, firebaseDataBase);
     navBarFunctions = new navBarWallet(userObject, firebaseDataBase);
     contentFunctions = new contentFunctions(userObject, firebaseDataBase);
-
-    contentFunctions.load();
-    tokenFunctions.loadBalance();
-    tokenFunctions.loadInternalBalance();
-    // checkTagFunctions.checkTags(); // gets Tag Data
-    sliderFunctions.displayPersonalData(); // gets Slider Data
-    progressBarFunctions.startDataCheck();
+    // loads all content
+    contentFunctions.watchForLoad();
+    tokenFunctions.loadBalance(); //gets externalBalance Data
+    tokenFunctions.loadInternalBalance(); // gets internalBalance Data
+    sliderFunctions.displayPersonalData(); // gets slider Data
+    progressBarFunctions.startDataCheck(); // gets progress Data
   }
-  else{ //if no Auth is found redirect to homePage
+  else{
+    //if no Auth is found redirect to homePage
     window.location = '/';
   }
 });

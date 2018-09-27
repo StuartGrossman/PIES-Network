@@ -1,26 +1,59 @@
 var contentFunctions = (function(userObject, firebaseDataBase){
   'use-strict';
-  //NO idea why this wont work.
-  // function watchLoader(id){
-  //   firebaseDataBase.ref('/content/' + userObject.uid + '/contentList/' + id ).on('value', function(snapshot){
-  //     console.log(snapshot.val().progress.loader.show)
-  //     if(snapshot.val().progress.loader.show === true){
-  //         document.getElementById('progressBox').classList.remove('modalLoaderHidden');
-  //     }
-  //   })
-  // }
+
+
+  //function evaluates progress and hits loader()
+  this.watchForLoad = function watchForLoad(){
+    firebaseDataBase.ref('progressBar/' + userObject.uid).on('value', function(progressData){
+      var progress = progressData.val().progress;
+      if(progress != 100){
+        //if progress is not 100 remove content viewing and child nodes
+        deleteChildNodes();
+      }
+      else{
+        document.getElementById('contentContainer').style.display = 'block';
+
+        contentFunctions.load();
+      }
+    })
+  }
+  function deleteChildNodes(){
+    document.getElementById('contentContainer').style.display = 'none';
+    var myNode = document.getElementById('contentHolder');
+    //removes all child element4s
+    while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+    }
+  }
+  //function watchs for loader
+  function watchLoader(id){
+    firebaseDataBase.ref('/content/' + userObject.uid + '/contentList/' + id ).on('value', function(snapshot){
+      console.log(snapshot.val())
+      if(snapshot.val().progress.loader.show === true){
+        //slight delay before bring up loader window .
+          setTimeout(function(){
+            document.getElementById('loaderStart').click()
+          },300)
+      }
+      else{
+          document.getElementById('closeLoaderModal').click();
+      }
+    })
+  }
 
   var exitScreen = false;
   var tagEle = document.createElement('div');
   tagEle.classList.add('btn', 'smallTag');
   //Load function takes all content and creates html canvas for each custom content request
   this.load = function load(){
+    // deleteChildNodes();
+
     var alertCount = 0;
     setTimeout(function(){
       //waits for alert number to be populated from loop
       document.getElementById('contentAlerts').innerHTML = alertCount;
     },1000)
-    firebaseDataBase.ref('content/' + userObject.uid).on('value', function(snapshot){
+    firebaseDataBase.ref('content/' + userObject.uid).once('value', function(snapshot){
       var data = snapshot.val();
       if(data){
         //sets Content Alerts Number
@@ -29,7 +62,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
           //Adds to alertCount for ammount of content Objects exist
           alertCount += 1;
           var lookup = data.contentList[i].lookup
-          // watchLoader(lookup) //function to watch for loader and change styling
+          watchLoader(lookup) //function to watch for loader and change styling
           firebaseDataBase.ref('publishedContent/' + data.contentList[i].author).once('value', function(contentData){
             if(contentData.val()){
               var contentEle = document.createElement('li');
@@ -40,13 +73,15 @@ var contentFunctions = (function(userObject, firebaseDataBase){
               openContentLink.addEventListener('click', function(){
                 openContentLink.setAttribute('data-toggle', 'modal');
                 openContentLink.setAttribute('data-target', '#' + lookup + 'Modal');
+                openContentLink.setAttribute('id', 'open' + lookup + 'Modal');
+
               })
               // console.log(contentData.val()[lookup], lookup, data)
               openContentLink.innerHTML = contentData.val()[lookup].productInfo.title;
               contentEle.appendChild(openContentLink);
               document.getElementById('contentHolder').appendChild(contentEle);
               //creates Modals for content
-              const currentContent = contentData.val()[lookup]
+              const currentContent = contentData.val()[lookup];
               createContentWindow(currentContent, lookup, data);
             }
           })
@@ -98,13 +133,16 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     //sets button event
 
     var modalButton = modalBody.childNodes[7].children[0].children[1].childNodes[1];
-    if(currentContent.progress.video.status && (!currentContent.progress.link.status || !currentContent.progress.response.status)){
+
+    //Logic is checking state of content/progress
+    if((currentContent.progress.video.status === true) && (!currentContent.progress.link.status || !currentContent.progress.response.status)){
       //hides inital elements
       modalBody.childNodes[7].children[0].style.display = 'none';
       modalBody.children[2].children[1].style.display = 'none';
       modalBody.children[2].childNodes[1].style.display = 'none';
+      document.getElementById('contentResponseHolder').style.display = 'inital';
       showReponseWindow(id, modalBody);
-
+      console.log('opening response')
       //video completed
       // if(currentContent.progress.link.status){
       //   //link completed
@@ -123,6 +161,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     else{
       //PLAY BUTTON IS HIT
       //FRONT END MEAT LOGIC
+
       modalButton.addEventListener('click', function(){
         // modalBody.setAttribute('data-dismiss', "modal")
         //function to populate window to watch content
@@ -162,6 +201,9 @@ var contentFunctions = (function(userObject, firebaseDataBase){
       })
     }
   }
+  function showReponseWindow(id, modalBody){
+
+  }
   function watchVideoTime(videoEle, internalTime, duration, id, modalBody){
     var currentTime = videoEle.currentTime;
     // if the current time of the Video is greater than the duration, and interalTime is true.
@@ -180,14 +222,25 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     // turns off display of video and playButton div
     modalBody.childNodes[7].children[0].style.display = 'none';
     modalBody.children[2].children[1].style.display = 'none';
+    exitFullScreenBrowser(); // exits fullscreen on all browsers
+
+    modalBody.childNodes[1].children[0].click();
+
 
     exitScreen = true; // prevents eventListener on fullScreen from invoking
-    exitFullScreenBrowser(); // exits fullscreen on all browsers
     // this line is not working for some reason ..
 
     //show loading window
     var queue = firebaseDataBase.ref('/queue/contentFinished/tasks');
      queue.push({'userId': userObject.uid, 'contentId': id}).then(function(){
+       setTimeout(function(){
+         //short wait for dom to update
+         // document.getElementById('open' + id + 'Modal').click();
+
+         //reopenModal
+       },500)
+
+
        //starts server request to watch content
        //check database for status of content if True
        //hit function to build next modalBody
@@ -242,7 +295,5 @@ var contentFunctions = (function(userObject, firebaseDataBase){
       return;
     }
   }
-  function showReponseWindow(id, modalBody){
-    
-  }
+
 })

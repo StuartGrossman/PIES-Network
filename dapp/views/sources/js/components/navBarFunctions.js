@@ -11,16 +11,21 @@ var navBarWallet = (function(userObject, firebaseDataBase){
 
   var internalBalanceText;
   this.changeInternalBalanceText = function changeInternalBalanceText(button){
-    if(button.innerHTML === 'Withdraw'){
-      return
-    }else{
-      internalBalanceText = button.innerHTML;
-      button.innerHTML = 'Withdraw'
-    }
+    //prevents button from being over switched
+    setTimeout(function(){
+      if(button.innerHTML === 'Withdraw'){
+        return
+      }else{
+        internalBalanceText = button.innerHTML;
+        button.innerHTML = 'Withdraw'
+      }
+    }, 800)
   }
 
   this.unChangeInternalBalanceText = function unChangeInternalBalanceText(button){
-    button.innerHTML = internalBalanceText;
+    setTimeout(function(){
+      button.innerHTML = internalBalanceText;
+    },900)
   }
 
   // var metaMaskText;
