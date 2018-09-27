@@ -1,9 +1,10 @@
 $(document).ready(function() {
+
   var loadTime = Math.floor((Math.random() * 3000) + 500);
   setTimeout(function(){
     $('#pageLoader').hide();
     $('.loaderSection').hide();
-    $('.main-container').css("display", "initial")
+    $('.main-container').css("display", "initial");
   }, loadTime);
 
   $.toast({

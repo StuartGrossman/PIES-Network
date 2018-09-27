@@ -140,9 +140,9 @@ var contentFunctions = (function(userObject, firebaseDataBase){
       modalBody.childNodes[7].children[0].style.display = 'none';
       modalBody.children[2].children[1].style.display = 'none';
       modalBody.children[2].childNodes[1].style.display = 'none';
-      document.getElementById('contentResponseHolder').style.display = 'inital';
+      // document.getElementById('contentResponseHolder').style.display = 'inital';
       showReponseWindow(id, modalBody);
-      console.log('opening response')
+      // console.log('opening response')
       //video completed
       // if(currentContent.progress.link.status){
       //   //link completed
