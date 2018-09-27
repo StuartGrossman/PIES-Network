@@ -28,7 +28,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
   //function watchs for loader
   function watchLoader(id){
     firebaseDataBase.ref('/content/' + userObject.uid + '/contentList/' + id ).on('value', function(snapshot){
-      console.log(snapshot.val())
+      // console.log(snapshot.val())
       if(snapshot.val().progress.loader.show === true){
         //slight delay before bring up loader window .
           setTimeout(function(){
@@ -140,8 +140,8 @@ var contentFunctions = (function(userObject, firebaseDataBase){
       modalBody.childNodes[7].children[0].style.display = 'none';
       modalBody.children[2].children[1].style.display = 'none';
       modalBody.children[2].childNodes[1].style.display = 'none';
-      // document.getElementById('contentResponseHolder').style.display = 'inital';
-      showReponseWindow(id, modalBody);
+      document.getElementById('contentResponseHolder').style.display = 'blocked';
+      // showReponseWindow(id, modalBody);
       // console.log('opening response')
       //video completed
       // if(currentContent.progress.link.status){
@@ -175,7 +175,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
         //starts server request to watch content
         var videoEle = modalBody.children[2].children[1];
         const duration = currentContent.videoLength
-        console.log(duration)
+        // console.log(duration)
         videoEle.setAttribute('src', data.source.link)
         //hides content banner
         modalBody.children[2].childNodes[1].style.display = 'none';
@@ -235,10 +235,12 @@ var contentFunctions = (function(userObject, firebaseDataBase){
      queue.push({'userId': userObject.uid, 'contentId': id}).then(function(){
        setTimeout(function(){
          //short wait for dom to update
-         // document.getElementById('open' + id + 'Modal').click();
+         console.log('updating dom')
+         document.getElementById('contentResponseHolder').style.display = 'block';
+         document.getElementById('open' + id + 'Modal').click();
 
          //reopenModal
-       },500)
+       },2500)
 
 
        //starts server request to watch content

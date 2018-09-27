@@ -45,7 +45,6 @@ var queue = new Queue(contentFinishedTask, function(data, progress, resolve, rej
     }else{
       resolve();
     }
-    // if(time - data.val().time > )
   })
 });
 

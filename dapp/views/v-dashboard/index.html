@@ -74,9 +74,10 @@
                    </a>
                   </li>
                 </ul>
-                <ul class="nav navbar-top-links navbar-right pull-right">
+                <ul class="nav navbar-top-links navbar-right pull-right" data-toggle="tooltip" data-placement="left" title="" data-original-title="Withdraw">
                   <li>
-                    <a data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" class="waves-effect" onmouseover="navBarFunctions.changeInternalBalanceText(this)" onmouseout="navBarFunctions.unChangeInternalBalanceText(this)">
+                     <!-- onmouseout="navBarFunctions.unChangeInternalBalanceText(this)" onmouseover="navBarFunctions.changeInternalBalanceText(this)"-->
+                    <a data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" class="waves-effect">
                       <!-- <i class="fa fa-circle-o text-info"></i> -->
                       <i style="color:black;" class="icon-wallet fa-fw"></i>
                       <span clasSs="hide-menu" id="internalBalance" style="color:black;">
@@ -159,6 +160,7 @@
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
+
                 <div class="row bg-title">
                     <div class="col-lg-2 col-md-1 col-sm-2 col-xs-6">
                     <button class="btn-sm btn-danger" onmouseover="navBarFunctions.changeClaimButtonText(this)" onmouseout="navBarFunctions.unChangeClaimButtonText(this)" style="display: none;" id="claimToken" onclick="navBarFunctions.freeTokens()">
@@ -182,7 +184,7 @@
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="checkMark">
 
-                      <i style="color:#fb9678;vertical-align: -webkit-baseline-middle; margin-top: 3px;" class="icon-check fa-fw"></i>
+                      <i style="color:#fb9678;vertical-align: -webkit-baseline-middle; margin-top: 3px;" class="icon-check fa-fw" data-toggle="tooltip" data-placement="right" title="" data-original-title="100% Complete"></i>
 
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
@@ -731,11 +733,11 @@
                   </div>
                 </div>
 
-
             </div>
 
             <div id="outerModalHolder">
               <a display='hidden' id="loaderStart" data-toggle="modal" data-target="#modalLoader"></a>
+
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
                   <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -771,6 +773,7 @@
                       </div>
                   </div>
               </div>
+
               <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label1">
                   <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -814,6 +817,7 @@
                       </div>
                   </div>
               </div>
+
               <div class="modal fade" id="blankModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label1">
                   <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -842,27 +846,55 @@
                               </section>
                             </div>
                             <div id="contentResponseHolder" style="display: none;">
-                              <div>
-                                  <a id="modalLink">
-                                    <button>
-                                      Link
-                                    </button>
-                                  </a>
-                              </div>
+                              <hr />
+
                               <div class="row">
-                                <div class="col-md-12">
+
+                                <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                                    <div>
+                                        <a id="modalLink">
+                                          <button class="btn btn-lg btn-default">
+                                            Link
+                                          </button>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                    <div style="margin-top:10px;">
+                                      <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
+                                    </div>
+                                </div>
+                              </div>
+                              <hr />
+                              <div class="row">
+                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                  <b id="questionHolder" style="font-size: 17px; color: #fb9678">What is your favorite genra of game?
+                                  </b>
+                                </div>
+                              </div>
+                              <br />
+                              <div class="row" style="padding-left:3px;">
+                                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+                                  <button class="btn btn-default" id="answer1">BR</button>
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+                                  <button class="btn btn-default" id="answer2">FPS</button>
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+                                  <button class="btn btn-default" id="answer3">RTS</button>
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+                                  <button class="btn btn-default" id="answer4">Simulator</button>
+                                </div>
+                              </div>
+                              <br />
+                              <div>
+                                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
 
                                 </div>
-                              </div>
-                              <div class="row">
                                 <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
-                                  <b id="questionHolder">Q: </b>
-                                </div>
-                                <div class="ccol-md-10 col-lg-10 col-sm-10 col-xs-10">
-                                  <span id="answer1"><input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked></span>
-                                  <span id="answer2"></span>
-                                  <span id="answer3"></span>
-                                  <span id="answer4"></span>
+                                  <br />
+                                  <button class="btn btn-danger" disabled>Next</button>
                                 </div>
                               </div>
                             </div>
@@ -879,6 +911,7 @@
                       </div>
                   </div>
               </div>
+
               <div class="modal fade" id="modalLoader" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label1">
                   <div class="modal-dialog" role="document">
                       <div class="modal-content">
