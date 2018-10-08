@@ -33,20 +33,20 @@ var defaultFunctions = (function(userObject, firebaseDataBase){
             if(snapshot2.val()){
               var usertype = snapshot2.val().type;
               if(usertype === 99){
-                window.location = "/p-dashboard";
+                window.location = "/v-dashboard";
               }
               if(usertype === 10){
                 window.location = "/v-dashboard";
 
               }
             }else{
-              window.location = "/usertype";
+              window.location = "/v-dashboard";
             }
           })
         }
       }
       else{
-        window.location = "/phone";
+        window.location = "/v-dashboard";
       }
     })
   }
@@ -64,7 +64,7 @@ var defaultFunctions = (function(userObject, firebaseDataBase){
                   if(snapshot.val().type){
 
                     if(snapshot.val().type == "99"){
-                      window.location = "/p-dashboard";
+                      window.location = "/v-dashboard";
                     }
 
                     if(snapshot.val().type == "10"){
@@ -72,11 +72,11 @@ var defaultFunctions = (function(userObject, firebaseDataBase){
                     }
 
                   }else{
-                    window.location = "/usertype";
+                    window.location = "/v-dashboard";
                   }
                 })
               }else{
-                window.location = "/phone"
+                window.location = "/v-dashboard"
               }
             }
          })
@@ -102,7 +102,7 @@ var defaultFunctions = (function(userObject, firebaseDataBase){
      email: email,
      profile_picture : imageUrl
    }).then(function(){
-     window.location = "/phone"
+     window.location = "/e"
    })
   }
 })
