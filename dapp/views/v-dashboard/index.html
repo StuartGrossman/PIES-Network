@@ -60,7 +60,7 @@
                   </li>
                 </ul>
 
-                <ul class="nav navbar-top-links navbar-right pull-right">
+                <ul class="nav navbar-top-links navbar-right pull-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="0xc9692******4431b">
                   <li>
                     <a class="waves-effect" >
                       <img src="../sources/images/metamask-icon-2.png"/>
@@ -737,6 +737,7 @@
 
             <div id="outerModalHolder">
               <a display='hidden' id="loaderStart" data-toggle="modal" data-target="#modalLoader"></a>
+              <a display='hidden' id="stageTwoStart" data-toggle="modal" data-target="#modalResponse"></a>
 
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
                   <div class="modal-dialog" role="document">
@@ -912,6 +913,83 @@
                   </div>
               </div>
 
+              <div class="modal fade" id="blankModalResponse" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label1">
+
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                          <div>
+                            <h4 class="modal-title" id="modalTitle">
+                            </h4>
+                          </div>
+                        </div>
+                        <div class="modal-body" style="margin-bottom:3px; margin-top:3px;">
+                        </div>
+                        <div class="modal-imgHolder">
+
+                          <div id="contentResponseHolder" style="">
+                            <hr />
+
+                            <div class="row">
+
+                              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                                  <div>
+                                      <a id="modalLink">
+                                        <button class="btn btn-lg btn-default">
+                                          Link
+                                        </button>
+                                      </a>
+                                  </div>
+                              </div>
+                              <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                  <div style="margin-top:10px;">
+                                    <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
+                                  </div>
+                              </div>
+                            </div>
+                            <hr />
+                            <div class="row">
+                              <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                <b id="questionHolder" style="font-size: 17px; color: #fb9678">
+                                </b>
+                              </div>
+                            </div>
+                            <br />
+                            <div class="row" style="padding-left:3px;">
+                              <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+                                <button class="btn btn-default" id="answer1"></button>
+                              </div>
+                              <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+                                <button class="btn btn-default" id="answer2"></button>
+                              </div>
+                              <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+                                <button class="btn btn-default" id="answer3"></button>
+                              </div>
+                              <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+                                <button class="btn btn-default" id="answer4"></button>
+                              </div>
+                            </div>
+
+
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row">
+                              <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                              </div>
+                              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-danger" disabled>Next</button>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
               <div class="modal fade" id="modalLoader" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label1">
                   <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -968,6 +1046,8 @@
 <script src="../sources/js/components/navBarFunctions.js"></script>
 <script src="../sources/js/components/contentFunctions.js"></script>
 <script src="../sources/js/components/loaderFunctions.js"></script>
+<script src="../sources/js/components/metaMaskFunctions.js"></script>
+
 <script>
 //prevents form submission!
 $(function() {
@@ -1002,7 +1082,9 @@ firebase.auth().onAuthStateChanged(function(user) {
     progressBarFunctions = new progressBar(userObject, firebaseDataBase);
     navBarFunctions = new navBarWallet(userObject, firebaseDataBase);
     contentFunctions = new contentFunctions(userObject, firebaseDataBase);
+    metaMaskFunctions = new metaMaskFunctions(userObject, firebaseDataBase);
     // loads all content
+    metaMaskFunctions.loadMetaMaskAuth(); // loads metaMask Auth
     contentFunctions.watchForLoad();
     tokenFunctions.loadBalance(); //gets externalBalance Data
     tokenFunctions.loadInternalBalance(); // gets internalBalance Data
