@@ -271,6 +271,28 @@
           }
         }
       },
+      "contentStart": {
+       "tasks": {
+         ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val()",
+           ".write": "auth.uid == newData.child('userId').val()"
+
+          }
+        }
+      },
+      "contentFinished": {
+       "tasks": {
+         ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val()",
+           ".write": "auth.uid == newData.child('userId').val()"
+
+          }
+        }
+      },
       "freeTokens": {
        "tasks": {
          ".indexOn": ["_state"],
