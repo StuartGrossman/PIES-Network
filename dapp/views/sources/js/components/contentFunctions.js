@@ -258,33 +258,33 @@ var contentFunctions = (function(userObject, firebaseDataBase){
      })
   }
   function secondStagePopulate(id){
-    var blankModal = document.getElementById('blankModalResponse').cloneNode(true);
-    blankModal.id = id + 'Modal'
-    var modalBody = blankModal.childNodes[1].childNodes[1]
-    //sets title percentage and payment ammount
-    var modalHeaderContent = data.productInfo.title + '  |  '
-    + '<span style="font-size:12px">'
-    +  data.productInfo.info +'</span>' +  ' | '
-    + '<span style="color:#fb9678; opacity: 0.8"> '
-    + currentContent.payout +'</span>'
-    + '<span style="font-size:12px; color:#fb9678; opacity:0.75">'
-    + ' PIES' + '</span>';
-
-    modalBody.childNodes[1].children[1].childNodes[1].innerHTML = modalHeaderContent;
-    //setting match percentage
-    var tempTagEle = tagEle.cloneNode(true);
-
-    matchPercentage = '<span style="font-size:12px">'
-    + currentContent["match%"]
-    + '%' + ' Match' + '</span>';
-    tempTagEle.innerHTML = matchPercentage
-
-    tempTagEle.classList.add('btn-danger')
-
-    modalBody.children[1].appendChild(tempTagEle)
-    //sets tags and userData
-    setDataTags(currentContent.tags, modalBody);
-    setDataTags(currentContent.userData, modalBody);
+    // var blankModal = document.getElementById('blankModalResponse').cloneNode(true);
+    // blankModal.id = id + 'Modal'
+    // var modalBody = blankModal.childNodes[1].childNodes[1]
+    // //sets title percentage and payment ammount
+    // var modalHeaderContent = data.productInfo.title + '  |  '
+    // + '<span style="font-size:12px">'
+    // +  data.productInfo.info +'</span>' +  ' | '
+    // + '<span style="color:#fb9678; opacity: 0.8"> '
+    // + currentContent.payout +'</span>'
+    // + '<span style="font-size:12px; color:#fb9678; opacity:0.75">'
+    // + ' PIES' + '</span>';
+    //
+    // modalBody.childNodes[1].children[1].childNodes[1].innerHTML = modalHeaderContent;
+    // //setting match percentage
+    // var tempTagEle = tagEle.cloneNode(true);
+    //
+    // matchPercentage = '<span style="font-size:12px">'
+    // + currentContent["match%"]
+    // + '%' + ' Match' + '</span>';
+    // tempTagEle.innerHTML = matchPercentage
+    //
+    // tempTagEle.classList.add('btn-danger')
+    //
+    // modalBody.children[1].appendChild(tempTagEle)
+    // //sets tags and userData
+    // setDataTags(currentContent.tags, modalBody);
+    // setDataTags(currentContent.userData, modalBody);
   }
 
   function seekerWatch(videoEle){
