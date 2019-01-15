@@ -1,6 +1,13 @@
 var contentFunctions = (function(userObject, firebaseDataBase){
   'use-strict';
 
+  //Content Functions sheet contains a majority of the front end logic for PIES NETWORK Viewer dashboard
+  //This Page takes all the content in a users database translates it into html
+  //It contains the functions that check the progress of the watching content
+  //Ideally this file will be refactored into several different files
+  //Complex frontend logic in vanilla javascript is amazing
+
+
 
   //Function evaluates progress and hits loader() removes content if progress is not completed
   this.watchForLoad = function watchForLoad(){
