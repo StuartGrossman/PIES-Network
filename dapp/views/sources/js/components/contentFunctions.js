@@ -2,12 +2,12 @@ var contentFunctions = (function(userObject, firebaseDataBase){
   'use-strict';
 
 
-  //function evaluates progress and hits loader()
+  //Function evaluates progress and hits loader() removes content if progress is not completed
   this.watchForLoad = function watchForLoad(){
     firebaseDataBase.ref('progressBar/' + userObject.uid).on('value', function(progressData){
       var progress = progressData.val().progress;
       if(progress != 100){
-        //if progress is not 100 remove content viewing and child nodes
+        //If progress is not 100 remove content viewing and child nodes
         deleteChildNodes();
       }
       else{
@@ -17,15 +17,17 @@ var contentFunctions = (function(userObject, firebaseDataBase){
       }
     })
   }
+  //Logic speration ; used above
   function deleteChildNodes(){
     document.getElementById('contentContainer').style.display = 'none';
     var myNode = document.getElementById('contentHolder');
-    //removes all child element4s
+    //removes all child elements of a node
     while (myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
     }
   }
-  //function watchs for loader
+
+  //function watchs for loader, if the watcher is true open loader modal, close when false
   function watchLoader(id){
     firebaseDataBase.ref('/content/' + userObject.uid + '/contentList/' + id ).on('value', function(snapshot){
       // console.log(snapshot.val())
@@ -44,7 +46,8 @@ var contentFunctions = (function(userObject, firebaseDataBase){
   var exitScreen = false;
   var tagEle = document.createElement('div');
   tagEle.classList.add('btn', 'smallTag');
-  //Load function takes all content and creates html canvas for each custom content request
+  //Load function takes all content and creates html canvas along with custom ids for each cntent item unwatched by user
+  //Watchs for state changes on content items
   this.load = function load(){
     // deleteChildNodes();
 
@@ -59,26 +62,34 @@ var contentFunctions = (function(userObject, firebaseDataBase){
         //sets Content Alerts Number
         //loops through unfinished content
         for(var i in data.contentList){
-          //Adds to alertCount for ammount of content Objects exist
-          alertCount += 1;
-          var lookup = data.contentList[i].lookup
-          watchLoader(lookup) //function to watch for loader and change styling
-          firebaseDataBase.ref('publishedContent/' + data.contentList[i].author).once('value', function(contentData){
-            if(contentData.val()){
-              var contentEle = document.createElement('li');
-              var dataId = data.contentList[i].author;
-              var openContentLink = document.createElement('a');
-              //creates button for opening the modal -- /publishedData/userId/ lookup
-              //Uses the $contentID as pointer in ID
-              openContentLink.addEventListener('click', function(){
-                openContentLink.setAttribute('data-toggle', 'modal');
-                openContentLink.setAttribute('data-target', '#' + lookup + 'Modal');
-                openContentLink.setAttribute('id', 'open' + lookup + 'Modal');
 
+          alertCount += 1; //alert count
+          var lookup = data.contentList[i].lookup
+          watchLoader(lookup) //calls watchLoader on the id of the content element, each item gets its own watcher
+          //opens Database looking for the the original published item through its authors UID and its Content UID
+          firebaseDataBase.ref('publishedContent/' + data.contentList[i].author)
+           .once('value', function(contentData){
+             //Opens all publishers content
+             //If any content is there proceed
+            if(contentData.val()){
+
+              var publishedItem = contentData.val()[lookup]; //current item being selected. lookup is the contents specific UID
+              var dataId = data.contentList[i].author;
+              var contentElementLink = document.createElement('a');
+              //creates button for opening the modal -- /publishedData/userId/ lookup
+              //Uses the published item ID as the pointer in the elements own id
+
+              contentElementLink.addEventListener('click', function(){
+                contentElementLink.setAttribute('data-toggle', 'modal');
+                contentElementLink.setAttribute('data-target', '#' + lookup + 'Modal');
+                contentElementLink.setAttribute('id', 'open' + lookup + 'Modal');
               })
               // console.log(contentData.val()[lookup], lookup, data)
-              openContentLink.innerHTML = contentData.val()[lookup].productInfo.title;
+              contentElementLink.innerHTML = publishedItem.productInfo.title;
+              //create new List item append contentElement
+              var contentEle = document.createElement('li');
               contentEle.appendChild(openContentLink);
+
               document.getElementById('contentHolder').appendChild(contentEle);
               //creates Modals for content
               const currentContent = contentData.val()[lookup];
@@ -96,8 +107,10 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     document.getElementById('outerModalHolder').appendChild(blankModal);
     var currentContent = contentData.contentList[id];
     var modalBody = blankModal.childNodes[1].childNodes[1]
-    //sets title percentage and payment ammount
-    var modalHeaderContent = data.productInfo.title + '  |  '
+    //sets header of the modal
+    // percentage of match, payment ammount
+    var modalHeaderContent =
+    data.productInfo.title + '  |  '
     + '<span style="font-size:12px">'
     +  data.productInfo.info +'</span>' +  ' | '
     + '<span style="color:#fb9678; opacity: 0.8"> '
@@ -120,18 +133,16 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     //sets tags and userData
     setDataTags(currentContent.tags, modalBody);
     setDataTags(currentContent.userData, modalBody);
-    //
 
     //sets image
-
     modalBody.children[2].childNodes[1].setAttribute('src', data.source.capta);
 
     //sets warning aginst false information
-    var warning = '<p style="font-size: 10px; text-align:justify;">By clicking this button you agree to watch this content with engadment and to give accurate feed back. Changing the volume, or skipping will restart this process. Intentionally breaking these rules can result in an account suspension or ban.</p>';
-    modalBody.childNodes[7].children[0].children[0].innerHTML = warning
+    modalBody.childNodes[7].children[0].children[0].innerHTML =
+    '<p style="font-size: 10px; text-align:justify;">By clicking this button you agree to watch this content with engadment and to give accurate feed back. Changing the volume, or skipping will restart this process. Intentionally breaking these rules can result in an account suspension or ban.</p>';
+
 
     //sets button event
-
     var modalButton = modalBody.childNodes[7].children[0].children[1].childNodes[1];
 
     //Logic is checking state of content/progress
@@ -174,6 +185,8 @@ var contentFunctions = (function(userObject, firebaseDataBase){
 
         //starts server request to watch content
         var videoEle = modalBody.children[2].children[1];
+        videoEle.volume = 0.1;
+
         const duration = currentContent.videoLength
         // console.log(duration)
         videoEle.setAttribute('src', data.source.link)
@@ -201,9 +214,11 @@ var contentFunctions = (function(userObject, firebaseDataBase){
       })
     }
   }
+
   function showReponseWindow(id, modalBody){
 
   }
+
   function watchVideoTime(videoEle, internalTime, duration, id, modalBody){
     var currentTime = videoEle.currentTime;
     // if the current time of the Video is greater than the duration, and interalTime is true.
@@ -212,12 +227,14 @@ var contentFunctions = (function(userObject, firebaseDataBase){
       contentFinishedQueue(id, modalBody)
     }
   }
+
   function contentStartQueue(id){
     var queue = firebaseDataBase.ref('/queue/contentStart/tasks');
     queue.push({'userId': userObject.uid, 'contentId': id}).then(function(){
       return;
     })
   }
+
   function contentFinishedQueue(id, modalBody){
     //sets up next window
     secondStagePopulate(id)
@@ -257,7 +274,9 @@ var contentFunctions = (function(userObject, firebaseDataBase){
        return;
      })
   }
+
   function secondStagePopulate(id){
+    console.log('second stage launch')
     // var blankModal = document.getElementById('blankModalResponse').cloneNode(true);
     // blankModal.id = id + 'Modal'
     // var modalBody = blankModal.childNodes[1].childNodes[1]
@@ -293,12 +312,14 @@ var contentFunctions = (function(userObject, firebaseDataBase){
       return;
     })
   }
+
   function volumeWatch(videoEle){
     videoEle.addEventListener('volumechange', function(){
       location.reload();
       return;
     })
   }
+
   function fullScreenWatcher(videoEle){
     document.onwebkitfullscreenchange = function(event){
       if(!exitScreen){
@@ -316,6 +337,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
       modalBody.children[1].appendChild(tempTagEle)
     }
   }
+
   function exitFullScreenBrowser(){
     if (document.exitFullscreen){
       document.exitFullscreen();

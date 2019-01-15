@@ -28,6 +28,17 @@ var db = admin.database();
 // var queue = new Queue(userTypeRef, function(data, progress, resolve, reject) {
 //
 // });
+var userDataRef = admin.database().ref('/queue/newUserData/');
+var queue = new Queue(userDataRef, function(data, progress, resolve, reject) {
+  console.log(data);
+  // if(data.signed){
+    var userDataObject = data.userData;
+    db.ref('user/' + data.userId).update(userDataObject).then(function(){
+      resolve();
+    });
+  // }
+});
+
 var termsRef = admin.database().ref('/queue/terms/');
 var queue = new Queue(termsRef, function(data, progress, resolve, reject) {
   console.log(data)

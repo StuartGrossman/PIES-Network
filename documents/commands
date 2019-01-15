@@ -1,0 +1,6 @@
+starts up eth GETH SERVER
+DAPP - cd views/ static-SERVER
+SERVER - cd server node server.js
+
+Start dev ENV with ETH Network and unlock base Account
+sudo geth --fast --rpc --datadir "/Volumes/stuarts drive/Ethereum/" --unlock 0x6A1b0e8fc122a8Ead171Bb1D8BB09DFE4FE9010c

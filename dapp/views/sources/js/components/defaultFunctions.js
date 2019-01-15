@@ -61,10 +61,10 @@ var defaultFunctions = (function(userObject, firebaseDataBase){
             if(snapshot.val().confirmed){
                 firebase.database().ref('/usertype/' + userObj.uid).on('value', function(snapshot){
                   console.log(snapshot.val())
-                  if(snapshot.val().type){
+                  if(snapshot.val()){
 
                     if(snapshot.val().type == "99"){
-                      window.location = "/v-dashboard";
+                      window.location = "/p-dashboard";
                     }
 
                     if(snapshot.val().type == "10"){
@@ -72,37 +72,38 @@ var defaultFunctions = (function(userObject, firebaseDataBase){
                     }
 
                   }else{
-                    window.location = "/v-dashboard";
+                    window.location = "/usertype";
                   }
                 })
               }else{
-                window.location = "/v-dashboard"
+                window.location = "/usertype"
               }
             }
          })
         }
         else{
-        console.log("First time user data saving")
+        // console.log("First time user data saving")
         var displayName = userObj.displayName;
         var email = userObj.email;
-        var emailVerified = userObj.emailVerified;
         var photoURL = userObj.photoURL;
-        var isAnonymous = userObj.isAnonymous;
         var uid = userObj.uid;
-        var providerData = userObj.providerData;
         writeUserData(uid, displayName, email, photoURL);
       }
     })
   }
-  function writeUserData(userId, name, email, imageUrl) {
+  function writeUserData(uid, name, email, imageUrl) {
+    var userDataObject = {
+      'username': name,
+      'email': email,
+      'profile_picture' : imageUrl
+    }
     // console.log(userId, "inside writeUserData");
     //ATTENTION, NEEDS TO BE QUEUE , SERVER ACTION REQUIRED!
-    firebase.database().ref('user/' + userId).set({
-     username: name,
-     email: email,
-     profile_picture : imageUrl
-   }).then(function(){
-     window.location = "/e"
-   })
+    var queue = firebaseDataBase.ref('/queue/newUserData/tasks');
+    queue.push({'userId': uid, 'userData': userDataObject}).then(function(){
+      window.location = "/phone"
+      return;
+    })
+
   }
 })
