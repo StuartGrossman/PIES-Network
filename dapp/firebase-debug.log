@@ -1,4 +1,29 @@
-{
+[debug] [2019-01-16T23:40:54.333Z] ----------------------------------------------------------------------
+[debug] [2019-01-16T23:40:54.335Z] Command:       /Users/Stu/.nvm/versions/node/v6.2.2/bin/node /Users/Stu/.nvm/versions/node/v6.2.2/bin/firebase deploy
+[debug] [2019-01-16T23:40:54.336Z] CLI Version:   6.3.0
+[debug] [2019-01-16T23:40:54.336Z] Platform:      darwin
+[debug] [2019-01-16T23:40:54.336Z] Node Version:  v6.2.2
+[debug] [2019-01-16T23:40:54.337Z] Time:          Wed Jan 16 2019 15:40:54 GMT-0800 (PST)
+[debug] [2019-01-16T23:40:54.337Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-01-16T23:40:54.355Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-01-16T23:40:54.355Z] > authorizing via signed-in user
+[debug] [2019-01-16T23:40:54.355Z] [iam] checking project adspace-9fe5c for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2019-01-16T23:40:54.357Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/adspace-9fe5c:testIamPermissions  
+
+[debug] [2019-01-16T23:40:54.903Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-16T23:40:54.905Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/adspace-9fe5c  
+ 
+[debug] [2019-01-16T23:40:55.259Z] <<< HTTP RESPONSE 200
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions.
+ Please upgrade using npm install --save firebase-functions@latest in your functions directory.
+[info] 
+[info] === Deploying to 'adspace-9fe5c'...
+[info] 
+[info] i  deploying database, functions, hosting
+[info] i  database: checking rules syntax...
+[debug] [2019-01-16T23:40:56.746Z] >>> HTTP REQUEST PUT https://adspace-9fe5c.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
   "rules": {
     ".read": false,
     ".write": false,
@@ -334,3 +359,46 @@
     }
   }
 }
+
+[debug] [2019-01-16T23:40:57.409Z] <<< HTTP RESPONSE 200
+[info] ✔  database: rules syntax for database adspace-9fe5c is valid
+[debug] [2019-01-16T23:40:57.411Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "dependencies": {
+    "firebase-admin": "~4.1.2",
+    "firebase-functions": "^0.5"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2019-01-16T23:40:57.412Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/adspace-9fe5c?view=CONSUMER_VIEW  
+ 
+[debug] [2019-01-16T23:40:57.413Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/adspace-9fe5c?view=CONSUMER_VIEW  
+ 
+[debug] [2019-01-16T23:40:58.237Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-16T23:40:58.331Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2019-01-16T23:40:58.332Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/adspace-9fe5c  
+ 
+[debug] [2019-01-16T23:40:58.985Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-16T23:40:58.986Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/129227170241:getServerAppConfig  
+ 
+[debug] [2019-01-16T23:40:59.314Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-16T23:40:59.317Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/adspace-9fe5c/versions  
+
+[debug] [2019-01-16T23:41:00.227Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2019-01-16T23:41:00.229Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/adspace-9fe5c/configs  
+ 
+[debug] [2019-01-16T23:41:00.614Z] <<< HTTP RESPONSE 200
+[info] i  hosting[adspace-9fe5c]: beginning deploy...
+[info] i  hosting[adspace-9fe5c]: found 641 files in views
+[debug] [2019-01-16T23:41:01.092Z] [hosting] hash cache [dmlld3M] load error: lines is not defined
+[debug] [2019-01-16T23:41:01.820Z] [hosting] hash cache [dmlld3M] stored for 641 files
+[debug] [2019-01-16T23:41:01.820Z] [hosting][hash queue][FINAL]
+[debug] [2019-01-16T23:41:01.821Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/adspace-9fe5c/versions/88fb445bcd8680d7:populateFiles  
+ <request body omitted>
+[debug] [2019-01-16T23:41:04.347Z] <<< HTTP RESPONSE 200
+[debug] [2019-01-16T23:41:04.351Z] [hosting][populate queue][FINAL]
+[debug] [2019-01-16T23:41:04.351Z] [hosting] uploads queued: 1
