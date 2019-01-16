@@ -237,11 +237,17 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     // if the current time of the Video is greater than the duration, and interalTime is true.
     // initiate server check.
     if(currentTime + 1 > duration && internalTime && !isMobile){
-      contentFinishedQueue(id, modalBody)
+      contentFinishedQueue(id, modalBody, false)
+      console.log('hitting normal browser way')
     }else if(currentTime + 5 > duration && internalTime && isMobile){
       var mobileIsTrue = isMobile
+      console.log('hitting mobile way ')
       contentFinishedQueue(id, modalBody, mobileIsTrue)
+    }else{
+      console.log('content watch failed', currentTime, duration, interalTime, isMobile)
+      return
     }
+
   }
 
   function contentStartQueue(id){
