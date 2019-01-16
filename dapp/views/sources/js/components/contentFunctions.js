@@ -210,7 +210,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
         //starts fullscreen and requests play
         if(!isMobile){
           videoEle.webkitRequestFullScreen();
-          
+
         }
         videoEle.play();
         setTimeout(function(){
@@ -239,16 +239,9 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     var currentTime = videoEle.currentTime;
     // if the current time of the Video is greater than the duration, and interalTime is true.
     // initiate server check.
-    if(currentTime + 1 > duration && internalTime && !isMobile){
+    if(currentTime + 1 > duration && internalTime){
       contentFinishedQueue(id, modalBody, false)
       console.log('hitting normal browser way')
-    }else if(currentTime + 5 > duration && internalTime && isMobile){
-      var mobileIsTrue = isMobile
-      console.log('hitting mobile way ')
-      contentFinishedQueue(id, modalBody, mobileIsTrue)
-    }else{
-      console.log('content watch failed', currentTime, duration, interalTime, isMobile)
-      return
     }
 
   }
@@ -260,7 +253,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     })
   }
 
-  function contentFinishedQueue(id, modalBody, isMobileTrue){
+  function contentFinishedQueue(id, modalBody){
     //sets up next window
     secondStagePopulate(id)
     //linksButton to newly populated window
@@ -274,13 +267,16 @@ var contentFunctions = (function(userObject, firebaseDataBase){
 
     modalBody.childNodes[1].children[0].click();
 
+    if(isMobile){
+      document.getElementById('id').click(); //closes window on mobile and opens it again
+    }
 
     exitScreen = true; // prevents eventListener on fullScreen from invoking
     // this line is not working for some reason ..
 
     //show loading window
     var queue = firebaseDataBase.ref('/queue/contentFinished/tasks');
-     queue.push({'userId': userObject.uid, 'contentId': id, 'mobile': isMobileTrue}).then(function(){
+     queue.push({'userId': userObject.uid, 'contentId': id}).then(function(){
        setTimeout(function(){
          //short wait for dom to update
          // console.log('updating dom')
