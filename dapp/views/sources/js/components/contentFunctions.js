@@ -208,7 +208,10 @@ var contentFunctions = (function(userObject, firebaseDataBase){
         //show video
         videoEle.style.display = 'block';
         //starts fullscreen and requests play
-        videoEle.webkitRequestFullScreen();
+        if(!isMobile){
+          videoEle.webkitRequestFullScreen();
+          
+        }
         videoEle.play();
         setTimeout(function(){
           //queue
