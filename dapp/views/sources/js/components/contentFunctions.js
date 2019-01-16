@@ -152,7 +152,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
 
     //sets warning aginst false information
     modalBody.childNodes[7].children[0].children[0].innerHTML =
-    '<p style="font-size: 10px; text-align:justify;">By clicking this button you agree to watch this content with engadment and to give accurate feed back. Changing the volume, or skipping will restart this process. Intentionally breaking these rules can result in an account suspension or ban.</p>';
+    '<p style="font-size: 10px; text-align:justify;"> By clicking this button you agree to watch this content with engadment and to give accurate feed back. Changing the volume, or skipping will restart this process. Intentionally trying to break these rules can result in an account suspension or ban.</p><br><p style="font-size: 10px; text-align:justify;">If you are on mobile you have 5 seconds to start the video from time of pressing this button</p>';
 
 
     //sets button event
