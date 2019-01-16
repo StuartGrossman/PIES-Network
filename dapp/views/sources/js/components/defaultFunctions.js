@@ -15,6 +15,7 @@ var defaultFunctions = (function(userObject, firebaseDataBase){
          var credential = error.credential;
     })
   }
+
   this.logout = function logout(){
     firebase.auth().signOut().then(function() {
       document.getElementById('login').style.display = 'block';
@@ -25,6 +26,7 @@ var defaultFunctions = (function(userObject, firebaseDataBase){
       return error;
     });
   }
+
   this.dashboard = function dashboard(){
     firebase.database().ref('/phone/' + userObj.uid).once('value', function(snapshot){
       if(snapshot.val()){
@@ -91,6 +93,7 @@ var defaultFunctions = (function(userObject, firebaseDataBase){
       }
     })
   }
+  
   function writeUserData(uid, name, email, imageUrl) {
     var userDataObject = {
       'username': name,

@@ -16,5 +16,4 @@ $(document).ready(function() {
       hideAfter: loadTime,
       stack: 6
   })
-
 });
