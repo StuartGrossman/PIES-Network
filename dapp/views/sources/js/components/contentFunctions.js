@@ -268,7 +268,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     modalBody.childNodes[1].children[0].click();
 
     if(isMobile){
-      document.getElementById('open-'+id+'Modal').click(); //closes window on mobile and opens it again
+      document.getElementById('open'+id+'Modal').click(); //closes window on mobile and opens it again
     }
 
     exitScreen = true; // prevents eventListener on fullScreen from invoking
