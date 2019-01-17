@@ -39,7 +39,12 @@ var contentFunctions = (function(userObject, firebaseDataBase){
         myNode.removeChild(myNode.firstChild);
     }
   }
-
+  //Function to delete element
+  function removeElement(elementId) {
+    // Removes an element from the document
+    var element = document.getElementById(elementId);
+    element.parentNode.removeChild(element);
+  }
   //function watchs for loader, if the watcher is true open loader modal, close when false
   function watchLoader(id){
     firebaseDataBase.ref('/content/' + userObject.uid + '/contentList/' + id ).on('value', function(snapshot){
@@ -78,6 +83,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
 
           alertCount += 1; //alert count
           var lookup = data.contentList[i].lookup
+          console.log(data.contentList[i].progress.video.status)
           watchLoader(lookup) //calls watchLoader on the id of the content element, each item gets its own watcher
           //opens Database looking for the the original published item through its authors UID and its Content UID
           firebaseDataBase.ref('publishedContent/' + data.contentList[i].author)
@@ -94,7 +100,14 @@ var contentFunctions = (function(userObject, firebaseDataBase){
 
               contentElementLink.addEventListener('click', function(){
                 contentElementLink.setAttribute('data-toggle', 'modal');
-                contentElementLink.setAttribute('data-target', '#' + lookup + 'Modal');
+                if(data.contentList[i].progress.video.status){
+                  //if user has already finished watching video content
+                  contentElementLink.setAttribute('data-target', '#' + lookup + 'ModalResponse');
+                }else{
+                  //if not set this button to open start modal of content
+                  contentElementLink.setAttribute('data-target', '#' + lookup + 'Modal');
+
+                }
                 contentElementLink.setAttribute('id', 'open' + lookup + 'Modal');
               })
               // console.log(contentData.val()[lookup], lookup, data)
@@ -106,7 +119,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
               document.getElementById('contentHolder').appendChild(contentEle);
               //creates Modals for content
               const currentContent = contentData.val()[lookup];
-              createContentWindow(currentContent, lookup, data);
+              createContentWindows(currentContent, lookup, data);
             }
           })
         }
@@ -114,7 +127,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     })
   }
 
-  function createContentWindow(data, id, contentData){
+  function createContentWindows(data, id, contentData){
     var blankModal = document.getElementById('blankModal').cloneNode(true);
     blankModal.id = id + 'Modal';
     document.getElementById('outerModalHolder').appendChild(blankModal);
@@ -152,7 +165,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
 
     //sets warning aginst false information
     modalBody.childNodes[7].children[0].children[0].innerHTML =
-    '<p style="font-size: 10px; text-align:justify;"> By clicking this button you agree to watch this content with engadment and to give accurate feed back. Changing the volume, or skipping will restart this process. Intentionally trying to break these rules can result in an account suspension or ban.</p><br><p style="font-size: 10px; text-align:justify;">If you are on mobile you have 5 seconds to start the video from time of pressing this button</p>';
+    '<p style="font-size: 10px; text-align:justify;"> By clicking this button you agree to watch this content with engadment and to give accurate feed back. Changing the volume, or skipping will restart this process. Intentionally trying to break these rules can result in an account suspension or ban.</p>';
 
 
     //sets button event
@@ -254,7 +267,6 @@ var contentFunctions = (function(userObject, firebaseDataBase){
   }
 
   function contentFinishedQueue(id, modalBody){
-    console.log('hittintg contentFinsihed Function')
     //sets up next window
     // secondStagePopulate(id)
     //linksButton to newly populated window
@@ -262,19 +274,21 @@ var contentFunctions = (function(userObject, firebaseDataBase){
 
     // data-target="#modalResponse"
     // turns off display of video and playButton div
-    modalBody.childNodes[7].children[0].style.display = 'none';
-    modalBody.children[2].children[1].style.display = 'none';
+    // modalBody.childNodes[7].children[0].style.display = 'none';
+    // modalBody.children[2].children[1].style.display = 'none';
     //TRUN ON DISPLAY OF STAGE TWO
     exitFullScreenBrowser(); // exits fullscreen on all browsers
-
+    //hits exit button on modal
     modalBody.childNodes[1].children[0].click();
+    //removes modal from the DOM
+    removeElement('open'+id+'Modal')
 
-    if(isMobile){
-      document.getElementById('open'+id+'Modal').click(); //closes window on mobile and opens it again
-    }
+
+    // if(isMobile){
+    //   document.getElementById('open'+id+'Modal').click(); //closes window on mobile and opens it again
+    // }
 
     exitScreen = true; // prevents eventListener on fullScreen from invoking
-    // this line is not working for some reason ..
 
     //show loading window
     var queue = firebaseDataBase.ref('/queue/contentFinished/tasks');
@@ -284,7 +298,8 @@ var contentFunctions = (function(userObject, firebaseDataBase){
          // console.log('updating dom')
          // document.getElementById('contentResponseHolder').style.display = 'block';
          // document.getElementById('open' + id + 'Modal').click();
-         document.getElementById('stageTwoStart').click();
+         // document.getElementById('stageTwoStart').click();
+         secondStagePopulate(id);
 
          //reopenModal
        },2500)

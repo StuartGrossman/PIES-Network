@@ -35,6 +35,7 @@ var queue = new Queue(contentFinishedTask, function(data, progress, resolve, rej
     }else{
       var timeDiffernce = 1;
     }
+    console.log('timediffernce, ', timeDiffernce)
     if(childData.val().videoLength - timeElapsed < timeDiffernce){ //if the time difference is less than 1 second
       db.ref('content/' + data.userId + '/contentList/' + data.contentId + '/progress/video/')
       .update({'status' : true}).then(function(){
