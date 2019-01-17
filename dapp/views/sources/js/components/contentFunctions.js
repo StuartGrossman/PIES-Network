@@ -233,9 +233,15 @@ var contentFunctions = (function(userObject, firebaseDataBase){
 
   function watchVideoTime(videoEle, internalTime, duration, id, modalBody){
     var currentTime = videoEle.currentTime;
+    if(isMobile === true){
+      var timeDiffernce = 3;
+    }else{
+      var timeDiffernce = 1;
+    }
     // if the current time of the Video is greater than the duration, and interalTime is true.
-    if(currentTime + 1 > duration && internalTime){
+    if(currentTime + timeDiffernce > duration && internalTime){
       // initiate server check.
+      console.log()
       contentFinishedQueue(id, modalBody)
     }
   }
@@ -272,7 +278,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
 
     //show loading window
     var queue = firebaseDataBase.ref('/queue/contentFinished/tasks');
-     queue.push({'userId': userObject.uid, 'contentId': id}).then(function(){
+     queue.push({'userId': userObject.uid, 'contentId': id, 'mobile': isMobile}).then(function(){
        setTimeout(function(){
          //short wait for dom to update
          // console.log('updating dom')

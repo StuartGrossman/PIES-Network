@@ -30,8 +30,12 @@ var queue = new Queue(contentFinishedTask, function(data, progress, resolve, rej
     var timeElapsed = ((time - childData.val().progress.video.time) / 1000) //changes time into seconds
     console.log(timeElapsed, childData.val().videoLength)
     console.log(childData.val().videoLength - timeElapsed)
-
-    if(childData.val().videoLength - timeElapsed < 1){ //if the time difference is less than 1 second
+    if(data.mobile === true){
+      var timeDiffernce = 3;
+    }else{
+      var timeDiffernce = 1;
+    }
+    if(childData.val().videoLength - timeElapsed < timeDiffernce){ //if the time difference is less than 1 second
       db.ref('content/' + data.userId + '/contentList/' + data.contentId + '/progress/video/')
       .update({'status' : true}).then(function(){
         db.ref('content/' + data.userId + '/contentList/' + data.contentId + '/progress/loader/')
