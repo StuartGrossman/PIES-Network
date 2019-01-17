@@ -231,19 +231,13 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     }
   }
 
-  function showReponseWindow(id, modalBody){
-
-  }
-
   function watchVideoTime(videoEle, internalTime, duration, id, modalBody){
     var currentTime = videoEle.currentTime;
     // if the current time of the Video is greater than the duration, and interalTime is true.
-    // initiate server check.
     if(currentTime + 1 > duration && internalTime){
-      contentFinishedQueue(id, modalBody, false)
-      console.log('hitting normal browser way')
+      // initiate server check.
+      contentFinishedQueue(id, modalBody)
     }
-
   }
 
   function contentStartQueue(id){
@@ -254,15 +248,17 @@ var contentFunctions = (function(userObject, firebaseDataBase){
   }
 
   function contentFinishedQueue(id, modalBody){
+    console.log('hittintg contentFinsihed Function')
     //sets up next window
-    secondStagePopulate(id)
+    // secondStagePopulate(id)
     //linksButton to newly populated window
-    document.getElementById('stageTwoStart').setAttribute('data-target', '#blankModalResponse' + id)
+    // document.getElementById('stageTwoStart').setAttribute('data-target', '#blankModalResponse' + id)
 
     // data-target="#modalResponse"
     // turns off display of video and playButton div
     modalBody.childNodes[7].children[0].style.display = 'none';
     modalBody.children[2].children[1].style.display = 'none';
+    //TRUN ON DISPLAY OF STAGE TWO
     exitFullScreenBrowser(); // exits fullscreen on all browsers
 
     modalBody.childNodes[1].children[0].click();
