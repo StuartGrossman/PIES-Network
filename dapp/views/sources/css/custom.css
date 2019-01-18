@@ -27,6 +27,7 @@
     border-radius: 10px;
   }
   .pickTitle {
+    margin-top: 2px;
     opacity: .7;
     float: right;
     color: black;
