@@ -737,7 +737,6 @@
 
             <div id="outerModalHolder">
               <a display='hidden' id="loaderStart" data-toggle="modal" data-target="#modalLoader"></a>
-              <a display='hidden' id="stageTwoStart" data-toggle="modal" data-target="#blankModalResponse"></a>
 
               <div class="modal fade" id="withdrawModal" tabindex="-1" role="dialog" >
                   <div class="modal-dialog" role="document">
@@ -873,15 +872,15 @@
                             </h4>
                           </div>
                         </div>
-                        <div class="modal-body" style="margin-bottom:3px; margin-top:3px;">
+                        <div class="modal-body" style=" margin-top:3px;">
                         </div>
+
                         <div class="modal-imgHolder">
 
                           <div id="contentResponseHolder" style="">
                             <br />
                             <div class="row">
-
-                              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                              <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8" style="margin-left:25px;">
                                   <div>
                                       <a id="modalLink" href="https://www.google.com" target="_blank">
                                         <button class="btn btn-lg btn-danger">
@@ -890,45 +889,75 @@
                                       </a>
                                   </div>
                               </div>
-                              <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto;">
+                                  <div style="margin-top:10px;">
+                                    <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
+                                  </div>
+                              </div>
+
+                            </div>
+                            <hr />
+                            <div class="row">
+                              <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                <b id="questionHolder" class="modal-title" style="font-size: 17px; color: black; margin-left:5px;">
+                                </b>
+                              </div>
+                            </div>
+                            <br />
+
+                            <div class="row" >
+                              <div style="margin-bottom:15px; margin-left:25px;" class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                <button onclick="save" class="btn btn-danger"></button>
+                              </div>
+                              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto">
                                   <div style="margin-top:10px;">
                                     <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
                                   </div>
                               </div>
                             </div>
-                            <hr />
-                            <div class="row">
-                              <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                                <b id="questionHolder" style="font-size: 17px; color: #fb9678">
-                                </b>
+                            <div class="row" >
+                              <div style="margin-bottom:15px; margin-left:25px;" class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                <button onclick="save" class="btn btn-danger"></button>
+                              </div>
+                              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto">
+                                  <div style="margin-top:10px;">
+                                    <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
+                                  </div>
                               </div>
                             </div>
-                            <br />
-                            <div class="row" style="padding-left:3px;">
-                              <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
-                                <button class="btn btn-primary btn-sm" id="answer1"></button>
+                            <div class="row" >
+                              <div style="margin-bottom:15px; margin-left:25px;" class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                <button onclick="save" class="btn btn-danger"></button>
                               </div>
-                              <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
-                                <button class="btn btn-primary btn-sm" id="answer2"></button>
-                              </div>
-                              <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
-                                <button class="btn btn-primary btn-sm" id="answer3"></button>
-                              </div>
-                              <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
-                                <button class="btn btn-primary btn-sm" id="answer4"></button>
+                              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto">
+                                  <div style="margin-top:10px;">
+                                    <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
+                                  </div>
                               </div>
                             </div>
-
-
-                          </div>
+                            <div class="row" >
+                              <div style="margin-bottom:15px; margin-left:25px;" class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                <button onclick="save" class="btn btn-danger"></button>
+                              </div>
+                              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto">
+                                  <div style="margin-top:10px;">
+                                    <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
+                                  </div>
+                              </div>
+                            </div>
                         </div>
+                        <br />
                         <div class="modal-footer">
                             <div class="row">
-                              <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <a data-toggle="modal" data-target="#reportModal">
+                                </a>
+                                <button class="btn btn-primary">Report</button>
+                              </div>
+                              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                               </div>
                               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                 <button class="btn btn-danger" disabled>Next</button>
-
                               </div>
                             </div>
                         </div>
@@ -954,6 +983,43 @@
                       </div>
                   </div>
               </div>
+
+              <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" >
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title" id="exampleModalLabel1">Start Withdrawl<span id="modalBalance"></span> </h4> </div>
+                          <div class="modal-body">
+                              <form>
+                                <div class="row">
+                                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">Ammount (PIES)</label>
+                                        <input type="number" class="form-control" id="ethAmmountWithdrawl" maxlength="40" id="name">
+                                        <h6 style="color: red; display: none;" id="ammountError">Required or too large</h6>
+
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">ETH Withdrawl Address</label>
+                                        <input type="text" class="form-control" id="ethWithdrawlAddress"  maxlength="42" >
+                                        <h6 style="color: red; display: none;" id="ethError">Required</h6>
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-danger" id="step2">Next</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
             </div>
         </div>
 
