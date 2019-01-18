@@ -385,6 +385,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
   }
 
   function exitFullScreenBrowser(){
+    console.log('exitFullScreen Called')
     if (document.exitFullscreen){
       document.exitFullscreen();
       return;
