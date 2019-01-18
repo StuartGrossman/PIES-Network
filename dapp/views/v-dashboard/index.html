@@ -834,7 +834,7 @@
                           </div>
                           <div class="modal-imgHolder">
                             <img id="modal-img" class="img-responsive"/>
-                            <video width="598" height="240" controls style="display:none;" width="auto">
+                            <video height="240" controls style="display:none;" width="100%">
                               <source src="" type="video/mp4">
                             </video>
                             <div id="progressBox" class="modalLoaderHidden" style="height: 230px;">
@@ -877,11 +877,11 @@
 
                         <div class="modal-imgHolder">
 
-                          <div id="contentResponseHolder" style="">
-                            <hr />
+                          <div id="contentResponseHolder">
+                            <span class="modal-title" style="margin-left:5px; font-size:17px; ">Please click your publishers link and review their content for - <b id="clock" style="font-size:17px;">00:60</b></span>
 
                             <div class="row">
-                              <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8" style="margin-left:25px;">
+                              <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8" style="margin-left:25px; margin-top:15px;">
                                   <div>
                                       <a id="modalLink" href="https://www.google.com" target="_blank">
                                         <button class="btn btn-lg btn-danger">
@@ -890,7 +890,7 @@
                                       </a>
                                   </div>
                               </div>
-                              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto;">
+                              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto; margin-top:15px;">
                                   <div style="margin-top:10px;">
                                     <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
                                   </div>
@@ -900,48 +900,47 @@
                             <hr />
                             <div class="row">
                               <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                                <b id="questionHolder" class="modal-title" style="font-size: 17px; color: black; margin-left:5px;">
-                                </b>
+                                <span class="modal-title" style="font-size: 17px; color: black; margin-left:5px;"></span>
                               </div>
                             </div>
                             <br />
 
                             <div class="row" >
                               <div style="margin-bottom:15px; margin-left:25px;" class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
-                                <button onclick="save" class="btn btn-danger"></button>
+                                <button onclick="contentFunctions.saveData(this)" class="btn btn-danger"></button>
                               </div>
                               <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto">
-                                  <div style="margin-top:10px;">
+                                  <div style="margin-top:10px; display:none;">
                                     <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
                                   </div>
                               </div>
                             </div>
                             <div class="row" >
                               <div style="margin-bottom:15px; margin-left:25px;" class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
-                                <button onclick="save" class="btn btn-danger"></button>
+                                <button onclick="contentFunctions.saveData(this)" class="btn btn-danger"></button>
                               </div>
                               <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto">
-                                  <div style="margin-top:10px;">
+                                  <div style="margin-top:10px; display:none;">
                                     <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
                                   </div>
                               </div>
                             </div>
                             <div class="row" >
                               <div style="margin-bottom:15px; margin-left:25px;" class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
-                                <button onclick="save" class="btn btn-danger"></button>
+                                <button onclick="contentFunctions.saveData(this)" class="btn btn-danger"></button>
                               </div>
                               <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto">
-                                  <div style="margin-top:10px;">
+                                  <div style="margin-top:10px; display:none;">
                                     <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
                                   </div>
                               </div>
                             </div>
                             <div class="row" >
                               <div style="margin-bottom:15px; margin-left:25px;" class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
-                                <button onclick="save" class="btn btn-danger"></button>
+                                <button onclick="contentFunctions.saveData(this)" class="btn btn-danger"></button>
                               </div>
                               <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto">
-                                  <div style="margin-top:10px;">
+                                  <div style="margin-top:10px; display:none;">
                                     <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
                                   </div>
                               </div>
@@ -965,8 +964,6 @@
                     </div>
                 </div>
               </div>
-
-
 
               <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" >
                   <div class="modal-dialog" role="document">
