@@ -60,12 +60,11 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     })
   }
   //seperates logic for linking event listener on button
-  function createEventListener(contentAddress, contentElementLink, lookup){
-    console.log('wtf')
+  function createEventListener(contentElementLink, lookup){
       contentElementLink.addEventListener('click', function(){
         firebaseDataBase.ref('content/' + userObject.uid + '/contentList/' + lookup).once('value', function(rawData){
           var videoStatus = rawData.val().progress.video.status
-          // console.log(videoStatus, rawData.val())
+          console.log(videoStatus, rawData.val())
           contentElementLink.setAttribute('data-toggle', 'modal');
           // console.log(videoStatus, 'happening again adding listener to ele')
           if(videoStatus){
@@ -117,10 +116,8 @@ var contentFunctions = (function(userObject, firebaseDataBase){
               var contentElementLink = document.createElement('a');
               //creates button for opening the modal -- /publishedData/userId/ lookup
               //Uses the published item ID as the pointer in the elements own id
-              var videoStatus = data.contentList[i].progress.video.status
-              // console.log('this is the video Stauts', videoStatus)
 
-              createEventListener(videoStatus, contentElementLink, lookup)
+              createEventListener(contentElementLink, lookup)
 
               //Sets title of element
               contentElementLink.innerHTML = publishedItem.productInfo.title;
@@ -131,13 +128,10 @@ var contentFunctions = (function(userObject, firebaseDataBase){
               document.getElementById('contentHolder').appendChild(contentEle);
               //creates Modals for content
               var currentContent = contentData.val()[lookup];
-              if(videoStatus){
-                createResponseContentWindows(currentContent, lookup, data)
-              }else{
-                //generate first window for each content
-                createContentWindows(currentContent, lookup, data);
+              createResponseContentWindows(currentContent, lookup, data)
+              createContentWindows(currentContent, lookup, data);
 
-              }
+
             }
           })
         }
