@@ -5,7 +5,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
   //This Page takes all the content in a users database translates it into html
   //It contains the functions that check the progress of the watching content
   //Ideally this file will be refactored into several different files
-  //Complex frontend logic in vanilla javascript is just as good as any framework
+  //Complex frontend logic in vanilla javascript is amazing
 
   var isMobile = false; //initiate as false
   // device detection
@@ -117,11 +117,11 @@ var contentFunctions = (function(userObject, firebaseDataBase){
               var contentElementLink = document.createElement('a');
               //creates button for opening the modal -- /publishedData/userId/ lookup
               //Uses the published item ID as the pointer in the elements own id
-
+              var videoStatus = data.contentList[i].progress.video.status
               // console.log('this is the video Stauts', videoStatus)
-              // console.log(data.contentList[i].lookup)
-              createEventListener(data.contentList[i].lookup, contentElementLink, lookup)
-              var videoStatus = data.contentList[i].progress.video.status;
+
+              createEventListener(videoStatus, contentElementLink, lookup)
+
               //Sets title of element
               contentElementLink.innerHTML = publishedItem.productInfo.title;
               //create new List item append contentElement
@@ -260,7 +260,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
           //queue
           var internalTime = true;
 
-          watchVideoTime(videoEle, internalTime, duration, id, modalBody, data, contentData);
+          watchVideoTime(videoEle, internalTime, duration, id, modalBody);
 
         }, (duration * 1000))
         //sets event listners on seeking and volume change, if either occurs reload page
@@ -274,7 +274,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
 
   }
 
-  function watchVideoTime(videoEle, internalTime, duration, id, modalBody, data, contentData){
+  function watchVideoTime(videoEle, internalTime, duration, id, modalBody){
     var currentTime = videoEle.currentTime;
     if(isMobile === true){
       var timeDiffernce = 3;
@@ -285,7 +285,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     if(currentTime + timeDiffernce > duration && internalTime){
       // initiate server check.
       console.log()
-      contentFinishedQueue(id, modalBody, data, contentData)
+      contentFinishedQueue(id, modalBody)
     }
   }
 
@@ -296,14 +296,13 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     })
   }
 
-  function contentFinishedQueue(id, modalBody, data, contentData){
-    console.log('exitFullScreen Called')
+  function contentFinishedQueue(id, modalBody){
 
     exitFullScreenBrowser(); // exits fullscreen on all browsers
     //hits exit button on modal
     modalBody.childNodes[1].children[0].click();
 
-    // document.exitFullScreen()
+
     exitScreen = true; // prevents eventListener on fullScreen from invoking
 
     //show loading window
@@ -311,23 +310,24 @@ var contentFunctions = (function(userObject, firebaseDataBase){
      queue.push({'userId': userObject.uid, 'contentId': id, 'mobile': isMobile}).then(function(){
        setTimeout(function(){
 
-         removeElement(id+'Modal')
          var contentElementLink = document.getElementById('open'+id+'Modal');
-         console.log(contentElementLink)
          contentElementLink.setAttribute('data-target', '#' + id + 'ModalResponse');
 
-         // Takes button that opens modal and gives it proper assignment to new modal showReponseWindow
-         createResponseContentWindows(data, id, contentData);
+         // secondStagePopulate(id);
+         openResponseModal(contentElementLink);
+
          //reopenModal
-         contentElementLink.click();
        },2500)
 
        return;
      })
   }
 
-  function openResponseModal(ele, id){
-    ele.click();
+  function openResponseModal(ele){
+    setTimeout(function(){
+      ele.click();
+
+    }, 500)
   }
 
   function seekerWatch(videoEle){
@@ -363,6 +363,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
   }
 
   function exitFullScreenBrowser(){
+    console.log('exitFullScreen Called')
     if (document.exitFullscreen){
       document.exitFullscreen();
       return;
