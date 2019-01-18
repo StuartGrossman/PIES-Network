@@ -61,9 +61,9 @@ var contentFunctions = (function(userObject, firebaseDataBase){
   }
   //seperates logic for linking event listener on button
   function createEventListener(contentAddress, contentElementLink, lookup){
-
+    console.log('wtf')
       contentElementLink.addEventListener('click', function(){
-        firebaseDataBase.ref('content/' + userObject.uid + '/contentList/' + contentAddress).once('value', function(rawData){
+        firebaseDataBase.ref('content/' + userObject.uid + '/contentList/' + lookup).once('value', function(rawData){
           var videoStatus = rawData.val().progress.video.status
           // console.log(videoStatus, rawData.val())
           contentElementLink.setAttribute('data-toggle', 'modal');
