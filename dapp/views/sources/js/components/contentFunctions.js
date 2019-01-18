@@ -174,7 +174,7 @@ var contentFunctions = (function(userObject, firebaseDataBase){
       modalBody.children[2].childNodes[1].childNodes[counter].childNodes[1].childNodes[1].innerHTML = data.feedback.answers[key];
       counter += 2
     }
-
+    //SET TIME VAR***********************
     // modalBody.children[2].childNodes[1].childNodes[11].childNodes[1].innerHTML =
 
   }
@@ -235,6 +235,8 @@ var contentFunctions = (function(userObject, firebaseDataBase){
 
         //starts server request to watch content
         var videoEle = modalBody.children[2].children[1];
+
+        //SET VOLUME VAR *******************
         videoEle.volume = 0.1;
 
         const duration = currentContent.videoLength
@@ -390,5 +392,10 @@ var contentFunctions = (function(userObject, firebaseDataBase){
     }else{
       thisEle.parentNode.parentNode.childNodes[3].childNodes[1].style.display = 'none'
     }
+  }
+  this.startTimer = function(thisEle){
+    var timeEle = document.getElementById('clock');
+    thisEle.parentNode.parentNode.parentNode.parentNode.childNodes[3].style.display = 'block';
+
   }
 })

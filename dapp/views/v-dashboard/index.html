@@ -878,19 +878,24 @@
                         <div class="modal-imgHolder">
 
                           <div id="contentResponseHolder">
-                            <span class="modal-title" style="margin-left:5px; font-size:17px; ">Please click your publishers link and review their content for - <b id="clock" style="font-size:17px;">00:60</b></span>
+                            <span class="modal-title" style="margin-left:5px; font-size:15px; ">
+                              Please click your publishers link and review their content for:
+                              <b id="clock" style="font-size:15px;">60
+                                <span style="font-size:12px;"> seconds</span>
+                              </b>
+                            </span>
 
                             <div class="row">
                               <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8" style="margin-left:25px; margin-top:15px;">
                                   <div>
                                       <a id="modalLink" href="https://www.google.com" target="_blank">
-                                        <button class="btn btn-lg btn-danger">
+                                        <button class="btn btn-lg btn-danger" onclick=contentFunctions.startTimer(this)>
                                           Link
                                         </button>
                                       </a>
                                   </div>
                               </div>
-                              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto; margin-top:15px;">
+                              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto; margin-top:15px; display:none;">
                                   <div style="margin-top:10px;">
                                     <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
                                   </div>
