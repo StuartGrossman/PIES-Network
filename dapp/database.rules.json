@@ -311,6 +311,16 @@
           }
         }
       },
+      "linkTimer": {
+       "tasks": {
+         ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val()",
+           ".write": "auth.uid == newData.child('userId').val()"
+          }
+        }
+      },
       "terms": {
        "tasks": {
          ".indexOn": ["_state"],
