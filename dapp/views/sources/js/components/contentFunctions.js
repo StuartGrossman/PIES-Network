@@ -285,10 +285,11 @@ let contentFunctions = (function(userObject, firebaseDataBase){
 
   function watchVideoTime(videoEle, internalTime, duration, id, modalBody){
     let currentTime = videoEle.currentTime;
+    let timeDiffernce;
     if(isMobile === true){
-      let timeDiffernce = 3;
+      timeDiffernce = 3;
     }else{
-      let timeDiffernce = 1;
+      timeDiffernce = 1;
     }
     // if the current time of the Video is greater than the duration, and interalTime is true.
     if(currentTime + timeDiffernce > duration && internalTime){
@@ -408,7 +409,6 @@ let contentFunctions = (function(userObject, firebaseDataBase){
       let choiceElementCheckMark = thisEle.parentNode.parentNode.childNodes[3].childNodes[1];
       choiceElementCheckMark.classList.add('animated', 'fadeIn');
       choiceElementCheckMark.style.display = 'block';
-
 
     }, 100)
 
