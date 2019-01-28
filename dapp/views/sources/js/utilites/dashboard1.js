@@ -46,13 +46,13 @@
 //         labels: ['iPhone', 'iPad', 'iPod Touch'],
 //         pointSize: 3,
 //         fillOpacity: 0,
-//         pointStrokeColors:['#00bfc7', '#fb9678', '#9675ce'],
+//         pointStrokeColors:['#00bfc7', '#03BBF0', '#9675ce'],
 //         behaveLikeLine: true,
 //         gridLineColor: 'rgba(255, 255, 255, 0.1)',
 //         lineWidth: 3,
 //         gridTextColor:'#96a2b4',
 //         hideHover: 'auto',
-//         lineColors: ['#00bfc7', '#fb9678', '#9675ce'],
+//         lineColors: ['#00bfc7', '#03BBF0', '#9675ce'],
 //         resize: true
 //
 //     });

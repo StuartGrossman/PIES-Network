@@ -55,6 +55,28 @@ var queue = new Queue(contentFinishedTask, function(data, progress, resolve, rej
   })
 });
 
+var contentFinishedTask = admin.database().ref('/queue/linkTimer/');
+var queue = new Queue(contentFinishedTask, function(data, progress, resolve, reject) {
+  //gets timer from server than waits before resolving
+  db.ref('content/' + data.userId + '/contentList/' + data.contentId + '/progress/link/')
+    .once('value', function(childData){
+      if(childData.val().linkTime){
+        var time = childData.val().linkTime * 1000;
+        setTimeout(function(){
+          db.ref('content/' + data.userId + '/contentList/' + data.contentId + '/progress/link/')
+          .update({'status': true}).then(function(){
+            resolve();
+          })
+        }, time)
+      }
+      else{
+        db.ref('content/' + data.userId + '/contentList/' + data.contentId + '/progress/link/')
+        .update({'status': true}).then(function(){
+          resolve();
+        })
+      }
+    })
+})
 
 
 module.exports = router;

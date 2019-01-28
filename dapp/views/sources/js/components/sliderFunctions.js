@@ -4,7 +4,7 @@ var sliderFunction = (function(userObject, firebaseDataBase){
     var idx = selectObj.selectedIndex;
     var indexedSelectedItem = selectObj.options[idx].value;
     document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].innerHTML = indexedSelectedItem;
-    document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].style.background = '#fb9678';
+    document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].style.background = '#03BBF0';
     document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].style.color= 'white';
 
 
@@ -19,15 +19,15 @@ var sliderFunction = (function(userObject, firebaseDataBase){
   }
 
   this.displayPersonalData = function displayPersonalData() {
-
     firebase.database().ref("/userData/" + userObject.uid).once("value", function(snapshot) {
+      var count = 0;
       snapshot.forEach(function(childSnapshot) {
-
+        count +=1;
         if(document.getElementById(childSnapshot.key + 'Holder')){
           //logic to change title of each optionPicker
           document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].innerHTML = childSnapshot.val();
-          document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].style.background = '#fb9678';
-          document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].style.color= 'white';
+          document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].style.background = '#03BBF0';
+          document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].style.color = 'white';
 
           //logic for chaning styles and generating title
           // var pickTitle = document.createElement("span");
@@ -36,9 +36,18 @@ var sliderFunction = (function(userObject, firebaseDataBase){
           // document.getElementById(childSnapshot.key + 'Holder').appendChild(pickTitle);
 
         }
+        //checks if data is completed
+        if(count == 12){
+           // document.getElementById('personalDataWrapper').style.display = 'none';
+          // var document.getElementById('personaDataCheckMark').style.display = 'inital';
+        }
       })
 
     })
   }
+  this.reOpenDisplayData = function(){
+    // var document.getElementById('personaDataCheckMark').style.display = 'inital';
 
+     document.getElementById('personalDataWrapper').style.display = 'inital';
+  }
 })

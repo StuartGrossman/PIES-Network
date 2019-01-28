@@ -184,25 +184,25 @@
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="checkMark">
 
-                      <i style="color:#fb9678;vertical-align: -webkit-baseline-middle; margin-top: 3px;" class="icon-check fa-fw" data-toggle="tooltip" data-placement="right" title="" data-original-title="100% Complete"></i>
+                      <i style="color:#03BBF0;vertical-align: -webkit-baseline-middle; margin-top: 3px;" class="icon-check fa-fw" data-toggle="tooltip" data-placement="right" title="" data-original-title="100% Complete"></i>
 
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-                      <span id="percentageCompleted" style="margin-top: 7px; vertical-align: -webkit-baseline-middle;font-size: 12px; color:#fb9678" >
+                      <span id="percentageCompleted" style="margin-top: 7px; vertical-align: -webkit-baseline-middle;font-size: 12px; color:#03BBF0" >
 
                       </span>
 
                     </div>
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-12" >
                   <div class=" m-b-15" >
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                             <h1 style="color: black; opacity: .55;">Your Data</h1>
                             <h4 style="color:black; opacity: .65;">Please fill in these importaint feilds accuratly</h4>
 
-                            <div class="row">
+                            <div class="row" id="personalDataWrapper">
 
                               <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                 <div class="btn-group bootstrap-select" style="margin-top: 15px; margin-left:5px;" id="raceHolder">
@@ -658,14 +658,14 @@
 
                             <form class="form-material m-t-40">
 
-                              <!-- <h6 style="color:#fb9678; opacity: .65;"></h6> -->
+                              <!-- <h6 style="color:#03BBF0; opacity: .65;"></h6> -->
                               <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="customTagHolder">
                                 <input onchange="checkTagFunctions.addCustomTag(this)" class="form-control form-control-line" type="text" id="tags" placeholder="press enter to submit">
                               </div>
                             </form>
                             <br />
                             <br />
-                            <h6 style="color:#fb9678; opacity: .65;">Default Interests</h6>
+                            <h6 style="color:#03BBF0; opacity: .65;">Default Interests</h6>
                             <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="tagHolder">
                               <button class="btn btn-unpressed" style="margin-left: 6px; margin-bottom:5px;" id="Books" onclick="checkTagFunctions.addTag('Books')">Books</button>
                               <button class="btn btn-unpressed" style="margin-left: 6px; margin-bottom:5px;" id="Technology" onclick="checkTagFunctions.addTag('Technology')">Technology</button>
@@ -878,18 +878,17 @@
                         <div class="modal-imgHolder">
 
                           <div id="contentResponseHolder">
-                            <span class="modal-title" style="margin-left:5px; font-size:15px; ">
-                              Please click your publishers link and review their content for:
-                              <b id="clock" style="font-size:15px;">60
-                                <span style="font-size:12px;"> seconds</span>
+                            <span class="modal-title" style="margin-left:35px; font-size:15px; ">
+                              Please click your publishers link and review their content for :
+                              <b id="clock" style="font-size:15px;">
                               </b>
                             </span>
 
                             <div class="row">
-                              <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8" style="margin-left:25px; margin-top:15px;">
+                              <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8" style="margin-left:35px; margin-top:15px;">
                                   <div>
                                       <a id="modalLink" href="https://www.google.com" target="_blank">
-                                        <button class="btn btn-lg btn-danger" onclick=contentFunctions.startTimer(this)>
+                                        <button class="btn btn-danger" onclick=contentFunctions.startTimer(this)>
                                           Link
                                         </button>
                                       </a>
@@ -897,7 +896,7 @@
                               </div>
                               <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto; margin-top:15px; display:none;">
                                   <div style="margin-top:10px;">
-                                    <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
+                                    <i style="color:#66CC36;" class="icon-check fa-fw fa-2x"></i>
                                   </div>
                               </div>
 
@@ -905,51 +904,52 @@
                             <hr />
                             <div class="row">
                               <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                                <span class="modal-title" style="font-size: 17px; color: black; margin-left:5px;"></span>
+                                <span class="modal-title" style="font-size: 17px; color: black; margin-left:35px;"></span>
                               </div>
                             </div>
                             <br />
 
-                            <div class="row" >
-                              <div style="margin-bottom:15px; margin-left:25px;" class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
-                                <button onclick="contentFunctions.saveData(this)" class="btn btn-danger"></button>
+                            <div class="row" style="display:none;">
+                              <div style="margin-bottom:20px; margin-left:35px;" class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                <button onclick="contentFunctions.saveData(this)" class="btn btn"></button>
                               </div>
                               <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto">
-                                  <div style="margin-top:10px; display:none;">
-                                    <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
+                                  <div style="margin-top:10px; display:none">
+                                    <i style="color:#66CC36;" class="icon-check fa-fw fa-2x" id="responseAnswerCheck"></i>
                                   </div>
                               </div>
                             </div>
-                            <div class="row" >
-                              <div style="margin-bottom:15px; margin-left:25px;" class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
-                                <button onclick="contentFunctions.saveData(this)" class="btn btn-danger"></button>
+                            <div class="row" style="display:none;">
+                              <div style="margin-bottom:20px; margin-left:35px;" class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                <button onclick="contentFunctions.saveData(this)" class="btn btn"></button>
                               </div>
                               <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto">
-                                  <div style="margin-top:10px; display:none;">
-                                    <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
+                                  <div style="margin-top:10px; display:none">
+                                    <i style="color:#66CC36;" class="icon-check fa-fw fa-2x" id="responseAnswerCheck"></i>
                                   </div>
                               </div>
                             </div>
-                            <div class="row" >
-                              <div style="margin-bottom:15px; margin-left:25px;" class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
-                                <button onclick="contentFunctions.saveData(this)" class="btn btn-danger"></button>
+                            <div class="row" style="display:none;">
+                              <div style="margin-bottom:20px; margin-left:35px;" class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                <button onclick="contentFunctions.saveData(this)" class="btn btn"></button>
                               </div>
                               <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto">
-                                  <div style="margin-top:10px; display:none;">
-                                    <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
+                                  <div style="margin-top:10px; display:none">
+                                    <i style="color:#66CC36;" class="icon-check fa-fw fa-2x" id="responseAnswerCheck"></i>
                                   </div>
                               </div>
                             </div>
-                            <div class="row" >
-                              <div style="margin-bottom:15px; margin-left:25px;" class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
-                                <button onclick="contentFunctions.saveData(this)" class="btn btn-danger"></button>
+                            <div class="row" style="display:none;">
+                              <div style="margin-bottom:20px; margin-left:35px;" class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                <button onclick="contentFunctions.saveData(this)" class="btn btn"></button>
                               </div>
                               <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" style="width:auto">
-                                  <div style="margin-top:10px; display:none;">
-                                    <i style="color:black;" class="icon-check fa-fw fa-2x"></i>
+                                  <div style="margin-top:10px; display:none">
+                                    <i style="color:#66CC36;" class="icon-check fa-fw fa-2x" id="responseAnswerCheck"></i>
                                   </div>
                               </div>
                             </div>
+
                         </div>
                         <br />
                         <div class="modal-footer">
@@ -957,12 +957,12 @@
                               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                 <a data-toggle="modal" data-target="#reportModal">
                                 </a>
-                                <button class="btn btn-primary">Report</button>
+                                <button class="btn btn-danger btn-sm">Report</button>
                               </div>
                               <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                               </div>
                               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                <button class="btn btn-danger" disabled>Next</button>
+                                <button class="btn btn-danger" style="margin-right:35px" disabled>Next</button>
                               </div>
                             </div>
                         </div>
