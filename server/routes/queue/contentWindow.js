@@ -28,14 +28,14 @@ var queue = new Queue(contentFinishedTask, function(data, progress, resolve, rej
   db.ref('content/' + data.userId + '/contentList/' + data.contentId)
   .once('value', function(childData){
     var timeElapsed = ((time - childData.val().progress.video.time) / 1000) //changes time into seconds
-    // console.log(timeElapsed, childData.val().videoLength)
-    // console.log(childData.val().videoLength - timeElapsed)
+    console.log(timeElapsed, childData.val().videoLength, 'is mobile ' + data.mobile)
+    console.log(childData.val().videoLength - timeElapsed)
     if(data.mobile === true){
       var timeDiffernce = 3;
     }else{
       var timeDiffernce = 1;
     }
-    // console.log('timediffernce, ', timeDiffernce)
+    console.log('timediffernce, ', timeDiffernce)
     if(childData.val().videoLength - timeElapsed < timeDiffernce){ //if the time difference is less than 1 second
       db.ref('content/' + data.userId + '/contentList/' + data.contentId + '/progress/video/')
       .update({'status' : true}).then(function(){
@@ -104,21 +104,24 @@ var queue = new Queue(contentFinishedTask, function(data, progress, resolve, rej
                 db.ref('publishedContent/' + childData.val().author + '/' + data.contentId + '/' + 'paymentInfo')
                 .update({'escrow': currentEscrowAmount - childData.val().payout})
                 .then(function(){
-                  db.ref('contentReceipts/' + childData.val().author + '/' + data.contentId)
-                  .push({
+                  db.ref('contentReceipts/' + childData.val().author + '/' + data.contentId + '/' + data.userId)
+                  .update({
                     'payout': childData.val().payout,
                     'data': childData.val().progress.answer.data,
                     'matchPercentage': childData.val()['match%']
                   })
                   .then(function(){
-                    db.ref('internalbalance/' + data.userId)
+                    console.log('recipt saved, next function active')
+                    db.ref('internalBalance/' + data.userId)
                     .once('value', function(balanceData){
                       var internalBalance = balanceData.val();
+                      console.log(internalBalance.balance, childData.val().payout)
+
                       db.ref('internalBalance/' + data.userId)
-                      .update({'balance': internalBalance + childData.val().payout})
-                      .then(function(){
-                        resolve();
-                      })
+                        .update({'balance': internalBalance.balance + childData.val().payout})
+                        .then(function(){
+                          resolve();
+                        })
                     })
                   })
                 })
