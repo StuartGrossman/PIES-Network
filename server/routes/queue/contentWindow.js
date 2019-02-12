@@ -23,19 +23,19 @@ var queue = new Queue(contentStartTask, function(data, progress, resolve, reject
 //function cofirms that the content was watched
 var contentFinishedTask = admin.database().ref('/queue/contentFinished/');
 var queue = new Queue(contentFinishedTask, function(data, progress, resolve, reject) {
-  console.log('checking time on video')
+  // console.log('checking time on video')
   var time = new Date().getTime();
   db.ref('content/' + data.userId + '/contentList/' + data.contentId)
   .once('value', function(childData){
     var timeElapsed = ((time - childData.val().progress.video.time) / 1000) //changes time into seconds
-    console.log(timeElapsed, childData.val().videoLength)
-    console.log(childData.val().videoLength - timeElapsed)
+    // console.log(timeElapsed, childData.val().videoLength)
+    // console.log(childData.val().videoLength - timeElapsed)
     if(data.mobile === true){
       var timeDiffernce = 3;
     }else{
       var timeDiffernce = 1;
     }
-    console.log('timediffernce, ', timeDiffernce)
+    // console.log('timediffernce, ', timeDiffernce)
     if(childData.val().videoLength - timeElapsed < timeDiffernce){ //if the time difference is less than 1 second
       db.ref('content/' + data.userId + '/contentList/' + data.contentId + '/progress/video/')
       .update({'status' : true}).then(function(){
@@ -77,6 +77,60 @@ var queue = new Queue(contentFinishedTask, function(data, progress, resolve, rej
       }
     })
 })
-
+var contentFinishedTask = admin.database().ref('/queue/answerClick/');
+var queue = new Queue(contentFinishedTask, function(data, progress, resolve, reject) {
+  db.ref('content/' + data.userId + '/contentList/' + data.contentId + '/progress/answer/')
+  .once('value', function(childData){
+    db.ref('content/' + data.userId + '/contentList/' + data.contentId + '/progress/answer/')
+    .update({'status': true, 'data': data.data}).then(function(){
+      resolve();
+    })
+  })
+})
+var contentFinishedTask = admin.database().ref('/queue/finishContent/');
+var queue = new Queue(contentFinishedTask, function(data, progress, resolve, reject) {
+  db.ref('content/' + data.userId + '/contentList/' + data.contentId)
+  .once('value', function(childData){
+    if(childData.val().progress.answer.status && childData.val().progress.link.status && childData.val().progress.video.status){
+      db.ref('content/' + data.userId + '/contentList/' + data.contentId + '/progress/loader/')
+      .update({'show': true}).then(function(){
+        setTimeout(function(){
+          db.ref('content/' + data.userId + '/contentList/' + data.contentId + '/progress/loader/')
+          .update({'show': false})
+            .then(function(){
+              db.ref('publishedContent/' + childData.val().author + '/' + data.contentId)
+              .once('value', function(snapshotData){
+                var currentEscrowAmount = snapshotData.val().paymentInfo.escrow;
+                db.ref('publishedContent/' + childData.val().author + '/' + data.contentId + '/' + 'paymentInfo')
+                .update({'escrow': currentEscrowAmount - childData.val().payout})
+                .then(function(){
+                  db.ref('contentReceipts/' + childData.val().author + '/' + data.contentId)
+                  .push({
+                    'payout': childData.val().payout,
+                    'data': childData.val().progress.answer.data,
+                    'matchPercentage': childData.val()['match%']
+                  })
+                  .then(function(){
+                    db.ref('internalbalance/' + data.userId)
+                    .once('value', function(balanceData){
+                      var internalBalance = balanceData.val();
+                      db.ref('internalBalance/' + data.userId)
+                      .update({'balance': internalBalance + childData.val().payout})
+                      .then(function(){
+                        resolve();
+                      })
+                    })
+                  })
+                })
+            })
+          })
+        }, Math.random() * (3000-1000) + 1000)
+      })
+    }
+    else{
+      reslove();
+    }
+  })
+})
 
 module.exports = router;

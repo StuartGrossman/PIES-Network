@@ -962,7 +962,7 @@
                               <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                               </div>
                               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                <button class="btn btn-danger" style="margin-right:35px" disabled>Next</button>
+                                <button class="btn btn-danger" style="margin-right:35px" disabled onclick="this.disabled=true;contentFunctions.finishContent(this)">Next</button>
                               </div>
                             </div>
                         </div>
@@ -1013,9 +1013,11 @@
               <div class="modal-dialog" role="document">
                   <div class="modal-content">
                       <div class="modal-header">
-                        <button id="closeLoaderModal" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button id="closeLoaderModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
                         <div class="modal-body">
-                          <div id="progressBox" style="height: 270px; margin-bottom:70px;">
+                          <div id="progressBox" style="height: 320px; margin-bottom:70px;">
                             <section  class="loaderBox" >
                                 <div class="loader" id="loader" style="margin-top:1px;">
                                   <div class="box"></div>

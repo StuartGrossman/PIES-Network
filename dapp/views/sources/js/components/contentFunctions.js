@@ -18,7 +18,8 @@ let contentFunctions = (function(userObject, firebaseDataBase){
   // console.log(isMobile)
   //Function evaluates progress and hits loader() removes content if progress is not completed
   this.watchForLoad = function watchForLoad(){
-    firebaseDataBase.ref('progressBar/' + userObject.uid).on('value', function(progressData){
+    firebaseDataBase.ref('progressBar/' + userObject.uid)
+    .on('value', function(progressData){
       let progress = progressData.val().progress;
       if(progress != 100){
         //If progress is not 100 remove content viewing and child nodes
@@ -48,7 +49,8 @@ let contentFunctions = (function(userObject, firebaseDataBase){
   }
   //function watchs for loader, if the watcher is true open loader modal, close when false
   function watchLoader(id){
-    firebaseDataBase.ref('/content/' + userObject.uid + '/contentList/' + id ).on('value', function(snapshot){
+    firebaseDataBase.ref('/content/' + userObject.uid + '/contentList/' + id )
+    .on('value', function(snapshot){
       // console.log(snapshot.val())
       if(snapshot.val().progress.loader.show === true){
         //slight delay before bring up loader window .
@@ -64,9 +66,10 @@ let contentFunctions = (function(userObject, firebaseDataBase){
   //seperates logic for linking event listener on button
   function createEventListener(contentElementLink, lookup){
     contentElementLink.addEventListener('click', function(){
-      firebaseDataBase.ref('content/' + userObject.uid + '/contentList/' + lookup).once('value', function(rawData){
+      firebaseDataBase.ref('content/' + userObject.uid + '/contentList/' + lookup)
+      .once('value', function(rawData){
         let videoStatus = rawData.val().progress.video.status
-        console.log(videoStatus, rawData.val())
+        // console.log(videoStatus, rawData.val())
         contentElementLink.setAttribute('data-toggle', 'modal');
         // console.log(videoStatus, 'happening again adding listener to ele')
         if(videoStatus){
@@ -94,7 +97,8 @@ let contentFunctions = (function(userObject, firebaseDataBase){
       //waits for alert number to be populated from loop
       document.getElementById('contentAlerts').innerHTML = alertCount;
     },1000)
-    firebaseDataBase.ref('content/' + userObject.uid).once('value', function(snapshot){
+    firebaseDataBase.ref('content/' + userObject.uid)
+    .once('value', function(snapshot){
       let data = snapshot.val();
       if(data){
         //sets Content Alerts Number
@@ -138,59 +142,7 @@ let contentFunctions = (function(userObject, firebaseDataBase){
       }
     })
   }
-  function createResponseContentWindows(data, id, contentData){
-    // console.log('hitting')
-    let blankModal = document.getElementById('blankModalResponse').cloneNode(true);
-    blankModal.id = id + 'ModalResponse';
-    document.getElementById('outerModalHolder').appendChild(blankModal);
-    let modalBody = blankModal.childNodes[1].childNodes[1]
-    let currentContent = contentData.contentList[id];
 
-    // console.log(modalBody, data)
-    let modalHeaderContent =
-    data.productInfo.title + '  |  '
-    + '<span style="font-size:12px">'
-    +  data.productInfo.info +'</span>' +  ' | '
-    + '<span style="color:#03BBF0; opacity: 0.8"> '
-    + currentContent.payout +'</span>'
-    + '<span style="font-size:12px; color:#03BBF0; opacity:0.75">'
-    + ' PIES' + '</span>';
-
-    modalBody.childNodes[1].children[1].childNodes[1].innerHTML = modalHeaderContent;
-
-
-    // console.log(modalBody.children[2].childNodes[1].childNodes[11], data)
-    let elementLink = modalBody.children[2].childNodes[1].childNodes[3].childNodes[1].childNodes[1].childNodes[1];
-    //setting href to button
-    elementLink.setAttribute('href', data.source.link);
-    elementLink.setAttribute('data-id', id)
-    elementLink.setAttribute('data-timer', data.source.linkTime)
-
-    //sets question
-    modalBody.children[2].childNodes[1].childNodes[7].childNodes[1].childNodes[1].innerHTML = data.feedback.question;
-    //sets id into div around answers
-    modalBody.children[2].childNodes[1].childNodes[7].setAttribute('data-id', id);
-    //sets answers
-    let counter = 11
-    for(key in data.feedback.answers){
-      // console.log(data.feedback.answers[key])
-      modalBody.children[2].childNodes[1].childNodes[counter].style.display = 'block';
-      modalBody.children[2].childNodes[1].childNodes[counter].childNodes[1].childNodes[1].innerHTML = data.feedback.answers[key];
-      counter += 2
-    }
-
-    //sets time let
-    if(data.source.linkTime){
-     modalBody.children[2].childNodes[1].childNodes[1].childNodes[1].innerHTML = data.source.linkTime;
-     modalBody.children[2].childNodes[1].childNodes[1].childNodes[1].id = 'clock' + id;
-     let secondsNode = document.createElement('span')
-     secondsNode.setAttribute('font-size', '12px');
-     secondsNode.innerHTML = 'seconds';
-     modalBody.children[2].childNodes[1].childNodes[1].appendChild(secondsNode);
-    }
-    // modalBody.children[2].childNodes[1].childNodes[11].childNodes[1].innerHTML =
-
-  }
   function createContentWindows(data, id, contentData){
     let blankModal = document.getElementById('blankModal').cloneNode(true);
     blankModal.id = id + 'Modal';
@@ -282,7 +234,62 @@ let contentFunctions = (function(userObject, firebaseDataBase){
       })
 
   }
+  function createResponseContentWindows(data, id, contentData){
+    // console.log('hitting')
+    let blankModal = document.getElementById('blankModalResponse').cloneNode(true);
+    blankModal.id = id + 'ModalResponse';
+    document.getElementById('outerModalHolder').appendChild(blankModal);
+    let modalBody = blankModal.childNodes[1].childNodes[1]
+    let currentContent = contentData.contentList[id];
 
+    // console.log(modalBody, data)
+    let modalHeaderContent =
+    data.productInfo.title + '  |  '
+    + '<span style="font-size:12px">'
+    +  data.productInfo.info +'</span>' +  ' | '
+    + '<span style="color:#03BBF0; opacity: 0.8"> '
+    + currentContent.payout +'</span>'
+    + '<span style="font-size:12px; color:#03BBF0; opacity:0.75">'
+    + ' PIES' + '</span>';
+
+    modalBody.childNodes[1].children[1].childNodes[1].innerHTML = modalHeaderContent;
+
+
+    // console.log(modalBody.children[2].childNodes[1].childNodes[11], data)
+    let elementLink = modalBody.children[2].childNodes[1].childNodes[3].childNodes[1].childNodes[1].childNodes[1];
+    //setting href to button
+    elementLink.setAttribute('href', data.source.link);
+    elementLink.setAttribute('data-id', id)
+    elementLink.setAttribute('data-timer', data.source.linkTime)
+
+    //sets question
+    modalBody.children[2].childNodes[1].childNodes[7].childNodes[1].childNodes[1].innerHTML = data.feedback.question;
+    //sets id into div around answers, along with footer
+    modalBody.children[2].childNodes[1].childNodes[7].setAttribute('data-id', id);
+    modalBody.children[2].childNodes[5].id = 'footer' + id;
+    modalBody.children[2].childNodes[5].setAttribute('data-id', id);
+
+    //sets answers
+    let counter = 11
+    for(key in data.feedback.answers){
+      // console.log(data.feedback.answers[key])
+      modalBody.children[2].childNodes[1].childNodes[counter].style.display = 'block';
+      modalBody.children[2].childNodes[1].childNodes[counter].childNodes[1].childNodes[1].innerHTML = data.feedback.answers[key];
+      counter += 2
+    }
+
+    //sets time let
+    if(data.source.linkTime){
+     modalBody.children[2].childNodes[1].childNodes[1].childNodes[1].innerHTML = data.source.linkTime;
+     modalBody.children[2].childNodes[1].childNodes[1].childNodes[1].id = 'clock' + id;
+     let secondsNode = document.createElement('span')
+     secondsNode.setAttribute('font-size', '12px');
+     secondsNode.innerHTML = 'seconds';
+     modalBody.children[2].childNodes[1].childNodes[1].appendChild(secondsNode);
+    }
+    //set watcher for completed data
+    watchSuccess(id);
+  }
   function watchVideoTime(videoEle, internalTime, duration, id, modalBody){
     let currentTime = videoEle.currentTime;
     let timeDiffernce;
@@ -396,41 +403,41 @@ let contentFunctions = (function(userObject, firebaseDataBase){
 
   this.saveData = function(thisEle){
     let id = thisEle.parentNode.parentNode.parentNode.childNodes[7].getAttribute('data-id');
-    console.log(id)
+    // console.log(id)
+    let queue = firebaseDataBase.ref('/queue/answerClick/tasks');
 
     let allChecks = document.querySelectorAll('#responseAnswerCheck');
     for(let i = 0; i < allChecks.length; i++ ){
-      console.log(allChecks[i])
+      // console.log(allChecks[i])
       allChecks[i].parentNode.classList.remove('fadeIn');
       allChecks[i].parentNode.style.display = 'none';
     }
     setTimeout(function(){
-      console.log('new check')
+      // console.log('new check')
       let choiceElementCheckMark = thisEle.parentNode.parentNode.childNodes[3].childNodes[1];
       choiceElementCheckMark.classList.add('animated', 'fadeIn');
       choiceElementCheckMark.style.display = 'block';
+      queue.push({'userId': userObject.uid, 'contentId': id, 'data': thisEle.innerHTML});
 
     }, 100)
-
   }
 
   this.startTimer = function(thisEle){
-     let timeEle = document.getElementById('clock');
-     let id = thisEle.parentNode.getAttribute('data-id');
-     let localTimer = thisEle.parentNode.getAttribute('data-timer');
-     let queue = firebaseDataBase.ref('/queue/linkTimer/tasks');
-      queue.push({'userId': userObject.uid, 'contentId': id})
-       .then(function(){
-         display = document.querySelector('#clock' + id);
-         console.log(display)
-         timer(localTimer, display);
-         setTimeout(function(){
-           thisEle.parentNode.parentNode.parentNode.parentNode.childNodes[3].style.display = 'block';
-         }, (localTimer * 1000) + 1000)
-       })
+   let timeEle = document.getElementById('clock');
+   let id = thisEle.parentNode.getAttribute('data-id');
+   let localTimer = thisEle.parentNode.getAttribute('data-timer');
+   let queue = firebaseDataBase.ref('/queue/linkTimer/tasks');
+    queue.push({'userId': userObject.uid, 'contentId': id})
+     .then(function(){
+       display = document.querySelector('#clock' + id);
+       console.log(display)
+       timer(localTimer, display);
+       setTimeout(function(){
+         thisEle.parentNode.parentNode.parentNode.parentNode.childNodes[3].style.display = 'block';
+       }, (localTimer * 1000) + 1000)
+     })
   }
-})
-function timer(duration, display) {
+  function timer(duration, display) {
     let timer = duration, minutes, seconds;
     setInterval(function () {
         minutes = parseInt(timer / 60, 10)
@@ -450,4 +457,31 @@ function timer(duration, display) {
 
         }
     }, 1000);
-}
+  }
+  function watchSuccess(id){
+    firebaseDataBase.ref('/content/' + userObject.uid + '/contentList/' + id).on('value', function(snapshot){
+      if(snapshot.val()){
+        let data = snapshot.val();
+        if(data.progress.answer.status && data.progress.link.status){
+          let footerEle = document.querySelector('#footer' + id);
+          footerEle.childNodes[1].childNodes[5].childNodes[1].removeAttribute('disabled');
+        }
+      }
+    })
+  }
+  this.finishContent = function(thisEle){
+    var id = thisEle.parentNode.parentNode.parentNode.getAttribute('data-id');
+    // console.log(id)
+    let queue = firebaseDataBase.ref('/queue/finishContent/tasks');
+    queue.push({'userId': userObject.uid, 'contentId': id}).then(function(){
+      //generate recipt and end contnet window
+      var closeResponseModalEle = document.querySelector('#open' + id + 'Modal');
+      closeResponseModalEle.click();
+      generateContentWindow(id)
+    })
+
+  }
+  function generateContentWindow(id){
+
+  }
+})
