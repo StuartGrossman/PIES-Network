@@ -118,9 +118,12 @@ var queue = new Queue(contentFinishedTask, function(data, progress, resolve, rej
                       console.log(internalBalance.balance, childData.val().payout)
 
                       db.ref('internalBalance/' + data.userId)
-                        .update({'balance': internalBalance.balance + childData.val().payout})
+                        .update({'balance': parseInt(internalBalance.balance) + parseInt(childData.val().payout)})
                         .then(function(){
-                          resolve();
+                          db.ref('content/' + data.userId + '/contentList/' + data.contentId + '/progress/receipt/').update({'status': 'true'})
+                          .then(function(){
+                            resolve();
+                          })
                         })
                     })
                   })

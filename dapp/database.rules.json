@@ -36,6 +36,10 @@
       ".read": false,
       ".write": false
     },
+    "exchangeRate": {
+      ".read": true,
+      ".write": false
+    },
     "tags": {
       ".read": false,
     	".write": false,

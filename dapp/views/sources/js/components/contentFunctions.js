@@ -6,7 +6,9 @@ let contentFunctions = (function(userObject, firebaseDataBase){
   //It contains the functions that check the progress of the watching content
   //Ideally this file will be refactored into several different files
   //Complex frontend logic in vanilla javascript is amazing
-
+  Array.prototype.insert = function ( index, item ) {
+    this.splice( index, 0, item );
+  };
   let isMobile = false; //initiate as false
   let exitScreen = false; //global needed to watch screen events
   let tagEle = document.createElement('div'); tagEle.classList.add('btn', 'smallTag'); //This element will be cloned
@@ -68,20 +70,28 @@ let contentFunctions = (function(userObject, firebaseDataBase){
     contentElementLink.addEventListener('click', function(){
       firebaseDataBase.ref('content/' + userObject.uid + '/contentList/' + lookup)
       .once('value', function(rawData){
-        let videoStatus = rawData.val().progress.video.status
+        let videoStatus = rawData.val().progress.video.status;
+        let receiptStatus = rawData.val().progress.receipt.status;
         // console.log(videoStatus, rawData.val())
         contentElementLink.setAttribute('data-toggle', 'modal');
         // console.log(videoStatus, 'happening again adding listener to ele')
-        if(videoStatus){
+        // console.log(videoStatus, receiptStatus)
+        if(videoStatus && !receiptStatus){
+
           // console.log('hitting videoStatus generate logic')
           //if user has already finished watching video content
           // let videoStatus = true;
           contentElementLink.setAttribute('data-target', '#' + lookup + 'ModalResponse');
-        }else{
+        }else if(receiptStatus){
+          // console.log('hitting correctly')
+          contentElementLink.setAttribute('data-target', '#' + lookup + 'ModalReceipt');
+        }
+        else{
           //if not set this button to open start modal of content
           contentElementLink.setAttribute('data-target', '#' + lookup + 'Modal');
 
         }
+        // setting Id for template lookup
         contentElementLink.setAttribute('id', 'open' + lookup + 'Modal');
       })
     })
@@ -134,7 +144,7 @@ let contentFunctions = (function(userObject, firebaseDataBase){
               let currentContent = contentData.val()[lookup];
               createResponseContentWindows(currentContent, lookup, data)
               createContentWindows(currentContent, lookup, data);
-
+              createContentReceiptWindow(currentContent, lookup, data);
 
             }
           })
@@ -234,6 +244,7 @@ let contentFunctions = (function(userObject, firebaseDataBase){
       })
 
   }
+
   function createResponseContentWindows(data, id, contentData){
     // console.log('hitting')
     let blankModal = document.getElementById('blankModalResponse').cloneNode(true);
@@ -290,6 +301,57 @@ let contentFunctions = (function(userObject, firebaseDataBase){
     //set watcher for completed data
     watchSuccess(id);
   }
+
+  function createContentReceiptWindow(data, id, contentData){
+    let blankModal = document.getElementById('blankModalReceipt').cloneNode(true);
+    blankModal.id = id + 'ModalReceipt';
+    document.getElementById('outerModalHolder').appendChild(blankModal);
+    let currentContent = contentData.contentList[id];
+    let modalBody = blankModal.childNodes[1].childNodes[1]
+    //sets header of the modal
+    // percentage of match, payment ammount
+    let modalHeaderContent =
+    data.productInfo.title + '  |  '
+    + '<span style="font-size:12px">'
+    +  data.productInfo.info +'</span>'
+    + '<span style="color:#03BBF0; opacity: 0.8"> '
+    +  ' | ' + 'Receipt'
+    + '</span>'
+    // + '<span style="font-size:12px; color:#03BBF0; opacity:0.75">'
+    // + ' PIES' + '</span>';
+    modalBody.childNodes[1].children[1].childNodes[1].innerHTML = modalHeaderContent;
+    let elementLink = modalBody
+
+    // .childNodes[3].childNodes[1].childNodes[1].childNodes[1];
+    elementLink.setAttribute('id', 'receipt' + id)
+    firebaseDataBase.ref('/exchangeRate').on('value', function(data){
+      console.log(data.val())
+      dollarEquiv = data.val().rate;
+      dollarPayout = dollarEquiv * currentContent.payout
+
+      dollarPayout = dollarPayout.toString().split('')
+      dollarPayout = dollarPayout.splice(data.val().decimalSpace, 0, '.')
+      console.log(dollarPayout)
+      let elementBody = modalBody.children[1].childNodes[1]
+      elementBody.innerHTML = 'Payout: <h4 style="font-size:18px; color:#03BBF0; opacity:0.75">'
+      + currentContent.payout + ' Pies tokens'
+      + '</h4>' + '<br>' + '<hr>'
+      + '<span style="font-size: 16px">' + 'USD Equivalent: $'
+      + dollarPayout
+      + '</span>'
+
+
+    })
+
+
+
+
+  }
+  function dollarCalc(payout){
+    payout = parseInt(payout)
+
+  }
+
   function watchVideoTime(videoEle, internalTime, duration, id, modalBody){
     let currentTime = videoEle.currentTime;
     let timeDiffernce;
@@ -470,18 +532,22 @@ let contentFunctions = (function(userObject, firebaseDataBase){
     })
   }
   this.finishContent = function(thisEle){
-    var id = thisEle.parentNode.parentNode.parentNode.getAttribute('data-id');
+    let id = thisEle.parentNode.parentNode.parentNode.getAttribute('data-id');
     // console.log(id)
     let queue = firebaseDataBase.ref('/queue/finishContent/tasks');
     queue.push({'userId': userObject.uid, 'contentId': id}).then(function(){
       //generate recipt and end contnet window
-      var closeResponseModalEle = document.querySelector('#open' + id + 'Modal');
+      let closeResponseModalEle = document.querySelector('#open' + id + 'Modal');
       closeResponseModalEle.click();
       generateContentWindow(id)
     })
 
   }
-  function generateContentWindow(id){
+  this.closeThisModal = function(thisEle){
+    let id = thisEle.parentNode.parentNode.parentNode.parentNode.getAttribute('id');
+    let modalTopEle = document.getElementById(id)
+
+    modalTopEle.children[0].childNodes[1].childNodes[1].click();
 
   }
 })
