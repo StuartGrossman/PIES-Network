@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>PIES Network -App Flow</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../sources/foundry/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../sources/foundry/css/themify-icons.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../sources/foundry/css/flexslider.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../sources/foundry/css/lightbox.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../sources/foundry/css/ytplayer.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../sources/foundry/css/theme.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../sources/foundry/css/custom.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../sources/css/animate.css" rel="stylesheet" type="text/css" media="all" />
+
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
+    </head>
+    <body class="scroll-assist">
+        <div class="nav-container">
+            <a id="top"></a>
+            <nav>
+                <div class="nav-utility">
+                    <div class="module left">
+                      <a href="/">
+                        <i class="ti-home">&nbsp;</i>
+                        <span class="sub">PIES</span>
+                      </a>
+
+                    </div>
+                    <div class="module left">
+                        <i class="ti-location-arrow">&nbsp;</i>
+                        <span class="sub">San Francisco, CA</span>
+                    </div>
+                    <div class="module left">
+                        <i class="ti-email">&nbsp;</i>
+                        <span class="sub">pies.network@gmail.com</span>
+                    </div>
+                    <div class="module right">
+                        <!-- <a class="btn btn-sm hidden-xs hidden-sm hidden-md" href="variant/builder.html">Test Network</a> -->
+                        <a onclick="login()" style="display:none;" class="btn btn-sm btn-filled" href="#" id="login">PIES network (beta)</a>
+                        <a onclick="dashboard()" style="display:none;" class="btn btn-sm btn-filled" href="#" id="dashboard">Dashboard</a>
+                    </div>
+                </div>
+
+                </div>
+            </nav>
+        </div>
+        <div class="main-container"  class="animated fadeInd" id="flowTop">
+            <section class="page-title page-title-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3 class="uppercase mb0" id="title">Publisher Flow</h3>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <ol class="breadcrumb breadcrumb-2">
+                                <li>
+                                    <a class="btn" href="#" onclick="changePublisher()" style="height:26px;margin-bottom:0px;">Publisher</a>
+                                </li>
+                                <li>
+                                    <a class="btn" href="#" onclick="changeViewer()" style="height:26px;margin-bottom:0px;">Viewer</a>
+                                </li>
+                                <!-- <li class="active">some text here maybe nah</li> -->
+                            </ol>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+        </div>
+
+        <div id="publisher" class="fadeInLeft animated">
+            <section class="pt0 pb0">
+                <img alt="Feature Image" class="col-xs-12 p0" src="../sources/foundry/img/dashboard.jpg" />
+            </section>
+            <section>
+                <div class="container">
+                    <div class="row mb64 mb-xs-24">
+                        <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                            <h2 class="uppercase mb16">Publishing Content</h2>
+                            <p class="lead mb48">Discover the simplicity of getting stuff out there.</p>
+                            <p>
+                                Use the publish panel to upload your digital content. Begin with the 'Publish Content' button, and fill out the requested fields the best you can. (We'll tell you what is necessary)
+                            </p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                    <div class="row mb80 mb-xs-40">
+                        <div class="col-sm-6 mb-xs-16">
+                            <img alt="Project Image" src="../sources/foundry/img/project-case-study-2.jpg" />
+                        </div>
+                        <div class="col-sm-6">
+                            <img alt="Project Image" src="../sources/foundry/img/project-case-study-3.jpg" />
+                        </div>
+                    </div>
+                    <!--end of row-->
+                    <div class="row mb80 mb-xs-40">
+                        <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                            <h6 class="uppercase">Publish from any flatform</h6>
+                            <p class="lead">
+                                Use just about any device to publish.
+                            </p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                    <div class="row mb80 mb-xs-24">
+                        <div class="col-sm-12 text-center">
+                            <img alt="Project Image" src="../sources/foundry/img/project-case-study-4.jpg" />
+                        </div>
+                    </div>
+                    <!--end of row-->
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                            <h2 class="uppercase mb16">Start a conversation</h2>
+                            <p class="lead mb48">Community ranked feedback platform to receive constructive criticism</p>
+                            <p>
+                            The network provides an opportunity to receive and respond to the community's comments, incentivized by offering more PIECES for top comments.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="viewer" class="fadeInLeft animated">
+              <section class="pt0 pb0">
+                  <img alt="Feature Image" class="col-xs-12 p0" src="../sources/foundry/img/dashboard.jpg" />
+              </section>
+              <section>
+                  <div class="container">
+                      <div class="row mb64 mb-xs-24">
+                          <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                              <h2 class="uppercase mb16">Viewer Stuff</h2>
+                              <p class="lead mb48">This is the viewer.</p>
+                              <p>
+                                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                              </p>
+                          </div>
+                      </div>
+                      <!--end of row-->
+                      <div class="row mb80 mb-xs-40">
+                          <div class="col-sm-6 mb-xs-16">
+                              <img alt="Project Image" src="../sources/foundry/img/project-case-study-2.jpg" />
+                          </div>
+                          <div class="col-sm-6">
+                              <img alt="Project Image" src="../sources/foundry/img/project-case-study-3.jpg" />
+                          </div>
+                      </div>
+                      <!--end of row-->
+                      <div class="row mb80 mb-xs-40">
+                          <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                              <h6 class="uppercase">An Additional Description</h6>
+                              <p class="lead">
+                                  Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
+                              </p>
+                          </div>
+                      </div>
+                      <!--end of row-->
+                      <div class="row mb80 mb-xs-24">
+                          <div class="col-sm-12 text-center">
+                              <img alt="Project Image" src="../sources/foundry/img/project-case-study-4.jpg" />
+                          </div>
+                      </div>
+                      <!--end of row-->
+                      <div class="row">
+                          <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                              <h2 class="uppercase mb16">The Result</h2>
+                              <p class="lead mb48">An 80% increase in sales for Medium Rare.</p>
+                              <p>
+                                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+                </section>
+        </div>
+    </body>
+    <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+    
+    <script>
+        var config = {
+          apiKey: "AIzaSyBNyW7vjQSK2Gbrh4Mzox6G-uAG4gK1rgE",
+          authDomain: "adspace-9fe5c.firebaseapp.com",
+          databaseURL: "https://adspace-9fe5c.firebaseio.com",
+          projectId: "adspace-9fe5c",
+          storageBucket: "",
+          messagingSenderId: "129227170241"
+        };
+        firebase.initializeApp(config);
+        var provider = new firebase.auth.GoogleAuthProvider();
+        var userObj;
+
+        firebase.auth().onAuthStateChanged(function(user) {
+          if(user){
+           console.log("you are logged in!")
+           userObj = user;
+           if(userObj.uid){
+             console.log("user object found")
+             document.getElementById('dashboard').style.display = 'block';
+             document.getElementById('dashboard').style["margin-top"] = '7px';
+           }
+          }
+          else{
+            document.getElementById('login').style.display = 'block';
+            document.getElementById('login').style["margin-top"] = '7px';
+          }
+        })
+
+    </script>
+</html>

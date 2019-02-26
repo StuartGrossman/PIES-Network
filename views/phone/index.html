@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>PIES Network</title>
+  <link rel="stylesheet" type="text/css" href="../sources/css/bootstrap.min.css">
+  <!-- <link href="../sources/css/bootstrap-extension.css" rel="stylesheet"> -->
+  <link href="../sources/css/jquery.toast.css" rel="stylesheet">
+  <!-- morris CSS -->
+  <link href="../sources/css/morris.css" rel="stylesheet">
+  <!-- animation CSS -->
+  <link href="../sources/css/animate.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="../sources/css/admin-style.css" rel="stylesheet">
+  <!-- color CSS -->
+  <link href="../sources/css/default-dark.css" id="theme" rel="stylesheet">
+  <link href="../sources/css/spinners.css" />
+  <link href="../sources/css/custom.css" rel="stylesheet" />
+  <!-- animation CSS -->
+  <link href="../sources/css/animate.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="../sources/css/style.css" rel="stylesheet">
+  <!-- color CSS -->
+  <link href="../sources/css/default-dark.css" id="theme" rel="stylesheet">
+  <link rel="icon" href="../sources/images/darklogo.png">
+
+</head>
+<body>
+  <!-- <div class="preloader">
+      <div class="cssload-speeding-wheel"></div>
+  </div> -->
+  <div id="main-container" style="display:none;">
+    <section id="wrapper" class="login-register" >
+        <div class="login-box">
+            <div class="white-box" id="box" style="height: 180px;">
+                  <div>
+                    <span style="display: inline; color:white;">+1 UNITED STATES ONLY</span>
+                    <br />
+                    <br />
+                    <input class="form-control data-mask" placeholder="(xxx) - xxx - xxxx" id="number"/>
+                    <span id="warning" style="display: none"><h6 style="color: red;">Please enter a valid 10 digit phone number</h6></span>
+                    <br />
+                  </div>
+                  <button class="btn btn-success" id="submit" onclick="phone()">Submit</button> <hr />
+                  <div id="code-box" style="display: none;">
+
+                    <input class="form-control" placeholder="code" id="code" /><br />
+                    <span id="code-warning" style="display: none"><h6 style="color: red;">Incorrect code! please try again</h6></span>
+
+                    <button id="confirm" class="btn btn-primary" onclick="confirm()">Confirm</button>
+                  </div>
+            </div>
+        </div>
+    </section>
+  </div>
+  <!-- Loader -->
+  <div>
+    <section class="loaderSection" style="background: white">
+        <div class="loader" >
+          <div class="box"></div>
+          <div class="hill"></div>
+        </div>
+    </section>
+  </div>
+
+
+</body>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+
+<script src="../sources/js/utilites/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../sources/js/utilites/tether.min.js"></script>
+<script src="../sources/js/utilites/bootstrap.min.js"></script>
+<script src="../sources/js/utilites/bootstrap-extension.min.js"></script>
+<!-- Menu Plugin JavaScript -->
+<script src="../sources/js/utilites/sidebar-nav.min.js"></script>
+<!--slimscroll JavaScript -->
+<script src="../sources/js/utilites/jquery.slimscroll.js"></script>
+<!--Wave Effects -->
+<script src="../sources/js/utilites/waves.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="../sources/js/utilites/custom.min.js"></script>
+<!--Style Switcher -->
+<script src="../sources/js/utilites/jQuery.style.switcher.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  var loadTime = Math.floor((Math.random() * 3000) + 500);
+  //////loader
+  // $('#successMessage').hide();
+  setTimeout(function(){
+    $('.loader').hide();
+    $('.loaderSection').hide();
+    $('#main-container').css("display", "block")
+  }, loadTime);
+
+
+
+});
+</script>
+
+
+<script>
+var config = {
+  apiKey: "AIzaSyBNyW7vjQSK2Gbrh4Mzox6G-uAG4gK1rgE",
+  authDomain: "adspace-9fe5c.firebaseapp.com",
+  databaseURL: "https://adspace-9fe5c.firebaseio.com",
+  projectId: "adspace-9fe5c",
+  storageBucket: "",
+  messagingSenderId: "129227170241"
+};
+
+firebase.initializeApp(config);
+var userId;
+var userRef;
+firebase.auth().onAuthStateChanged(function(user) {
+  if(user){
+    console.log(user)
+    // writeUserData(u)
+    userId = user.uid;
+    userRef = firebase.database().ref('/user/' + userId);
+    phoneRef = firebase.database().ref('/phone/' + userId);
+    userTypeRef = firebase.database().ref('/usertype/' + userId);
+    phoneRef.once('value', function(snapshot){
+      if(snapshot.val()){
+        if(snapshot.val().confirmed === true){
+          // window.location = "/";
+          userTypeRef.once('value', function(snapshot){
+            if(snapshot.val()){
+              if(snapshot.val().type === 10){
+                //content viewer
+                window.location = "/v-dashboard";
+              }
+              if(snapshot.val().type === 99){
+                //content publisher
+                window.location = "/a-dashboard";
+              }
+            }else{
+              window.location = "/usertype";
+            }
+          })
+        }
+      }
+    })
+    // firebase.database().ref()
+  }else{
+    window.location = "/";
+  }
+})
+function phone(){
+  document.getElementById('submit').setAttribute('disabled', 'true');
+
+  setTimeout(function(){
+    document.getElementById('submit').removeAttribute('disabled');
+  }, 3000)
+  var number = document.getElementById('number').value;
+  console.log(number, number.length);
+  if(number.length === 10){
+    firebase.database().ref('/queue/phone/tasks').push({'phone': number, 'userId': userId}).then(function(){
+      document.getElementById('box').style.height = '340px';
+      document.getElementById('code-box').style.display = "block";
+      document.getElementById('warning').style.display = 'none';
+
+      // document.getElementById('resend').style.display = "block";
+
+    })
+  }else{
+    document.getElementById('warning').style.display = 'block';
+
+    document.getElementById('code-box').style.display = 'none';
+    document.getElementById('box').style.height = '208px';
+
+  }
+}
+
+function confirm(){
+  var code = document.getElementById('code').value;
+  var queue = firebase.database().ref('/queue/confirmPhone/tasks');
+
+  queue.push({'code': code, 'userId': userId})
+
+  setTimeout(function(){
+    firebase.database().ref('/phone/' + userId).once('value', function(snapshot){
+
+        if(snapshot.val().confirmed === true){
+          // setTimeout(function(){})
+          console.log(snapshot.val())
+          window.location = "/usertype";
+
+        }
+     });
+
+    }, 3500);
+
+  // firebase.database().ref('/user/' + userId + '/phone/').on('value', function(snapshot){
+  //   // console.log(snapshot.val(), code, code.toString(), snapshot.val().code.toString())
+  //
+  //   if(snapshot.val().code.toString() == code.toString()){
+  //
+  //   }else{
+  //     document.getElementById('code-warning').style.display = 'block';
+  //
+  //   }
+  // })
+}
+
+</script>
+
+</html>

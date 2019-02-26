@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>PIES Network - A Settings</title>
+  <link rel="stylesheet" type="text/css" href="../sources/css/bootstrap.min.css">
+  <!-- Bootstrap Core CSS -->
+    <!-- <link href="../sources/css/bootstrap-extension.css" rel="stylesheet"> -->
+    <!-- Menu CSS -->
+    <link href="../sources/css/sidebar-nav.min.css" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="../sources/css/jquery.toast.css" rel="stylesheet">
+    <!-- morris CSS -->
+    <link href="../sources/css/morris.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="../sources/css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../sources/css/admin-style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="../sources/css/default-dark.css" id="theme" rel="stylesheet">
+    <link href="../sources/css/spinners.css" />
+    <link href="../sources/css/custom.css" rel="stylesheet" />
+    <link href="../sources/css/bootstrap-tagsinput.css" rel="stylesheet" />
+
+    <link rel="icon" href="./sources/images/darklogo.png">
+
+
+</head>
+
+
+
+
+<body>
+  <div id="wrapper" class="main-container" style="display:none;">
+      <!-- Navigation -->
+      <nav class="navbar navbar-default navbar-static-top m-b-0">
+          <div class="navbar-header">
+               <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse">
+                 <i class="ti-menu"></i>
+               </a>
+               <a class="logo" href="/">
+                 <b>
+                   <img src="../sources/images/content-logo.png" style="width:150%" />
+                 </b>
+               </a>
+
+              <ul class="nav navbar-top-links navbar-left hidden-xs">
+                  <li>
+                    <a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light">
+                      <i class="icon-arrow-left-circle ti-menu"></i>
+                    </a>
+                </li>
+              </ul>
+              <ul class="nav navbar-top-links navbar-right pull-right">
+                <li>
+                  <a href="/a-transactions" class="waves-effect">
+                    <!-- <i class="fa fa-circle-o text-info"> -->
+                      <img src="../sources/images/metamask-icon.png"/>
+                    <!-- </i> -->
+                    <span class="hide-menu" id="balance" style="vertical-align:middle;">
+                      <i>0</i>
+                    </span>
+                    <div class="notify"><span class="heartbit">
+                      </span><span class="point"></span>
+                    </div>
+                  </a>
+                </li>
+                  <!-- /.dropdown -->
+                <li class="" >
+                  <a class=" waves-light" href="/a-upload">
+
+                    <i class="icon-note"></i>
+
+                    <div class="notify">
+                      <span class="heartbit"></span>
+                      <span class="point"></span>
+                    </div>
+                  </a>
+                </li>
+
+          </div>
+
+      </nav>
+      <!-- Left navbar-header -->
+      <div class="navbar-default sidebar" role="navigation">
+          <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+              <div class="user-profile">
+                  <div class="dropdown user-pro-body">
+                      <div><img id="userImage" alt="user-img" class="img-circle"></div> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="userName"><span class="caret"></span></a>
+
+                  </div>
+              </div>
+              <ul class="nav" id="side-menu">
+                  <li>
+                      <ul class="nav nav-second-level">
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="/a-upload" class="waves-effect"><i data-icon="&#xe004;" class="linea-icon linea-basic fa-fw"></i>
+                      <span class="hide-menu">Publish</span>
+                    </a>
+                  </li>
+                  <!-- <li>
+                    <a href="/content" class="waves-effect"><i data-icon="&#xe006;" class="linea-icon linea-basic fa-fw"></i>
+                      <span class="hide-menu">Analytics</span>
+                    </a>
+                  </li> -->
+                  <li>
+                    <a href="/transactions" class="waves-effect"><i data-icon="&#xe011;" class="linea-icon linea-basic fa-fw"></i>
+                      <span class="hide-menu">Transactions</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/a-settings" class="waves-effect"><i data-icon="P" class="linea-icon linea-basic fa-fw"></i>
+                      <span class="hide-menu">Settings</span>
+                    </a>
+                  </li>
+                  <!-- <li> <a href="#" class="waves-effect"><i data-icon="7" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Icons<span class="fa arrow"></span></span></a> -->
+                      <!-- <ul class="nav nav-second-level">
+
+                      </ul>
+                  </li> -->
+                  <li>
+                    <a onclick="logout()" href="/" class="waves-effect"><i class="icon-logout fa-fw"></i>
+                      <span class="hide-menu">Logout</span>
+                    </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      <!-- Page Content -->
+      <div>
+
+      <div id="page-wrapper">
+
+          <div class="container-fluid">
+
+              <div class="row bg-title">
+                  <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                      <ol class="breadcrumb" style="float: left;">
+                          <!-- <li><a href="#">Dashboard</a></li> -->
+                          <li class="active">Publisher</li>
+
+                          <li class="active">Settings</li>
+
+                      </ol>
+                  </div>
+              </div>
+
+              <div class="col-md-12">
+
+                <div class="col-md-12" id="metaMaskFound" style="display: none;">
+                  <div class="bg-theme m-b-15">
+                      <div class="row weather p-20">
+                          <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
+                              <!-- <h3>&nbsp;</h3> -->
+                              <h1>My Ethereum Address </h1>
+                              <h6>MetaMask is connected!</h6>
+                              <div class="hidden-sm hidden-xs">
+                                <h2 id="myAddress"></h2>
+
+                              </div>
+                              <div class="visible-sm visible-xs">
+                                <h6 id="mySmallAddress"></h6>
+
+                              </div>
+                              <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
+
+
+                          </div>
+
+
+                      </div>
+                      <!-- <div class="row weather p-20" id="editEth">
+                        <div class="col-md-12 col-xs-6 col-lg-12 col-sm-6">
+                          <p class="text-white">
+                             Please double check address before submission
+                          </p></p>
+                          <input class="form-control" placeholder="My Ethereum Address" id="myEthAddress"/> -->
+                          <!-- <button onclick="submitEthAddress()" class="btn btn-warning">Submit</button> -->
+                        <!-- </div>
+                      </div> -->
+
+                  </div>
+
+
+
+
+                </div>
+
+                <div class="col-md-12" id="noMetaMaskFound" style="display: none;">
+                  <div class="bg-themem-b-15">
+                      <div class="row weather p-20">
+                          <div class="col-md-6 col-xs-12 col-lg-6 col-sm-12">
+                              <!-- <h1>Not using Google Chrome? Do you have MetaMask?</h1> -->
+
+                              <h1>PIES Network </h1>
+                              <h3>requires both</h3>
+                              <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
+
+
+                          </div>
+                          <div class="col-md-6 col-xs-12 col-lg-6 col-sm-12">
+                              <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
+                              <h4>Download:</h4>
+                              <a target="_blank" href="https://www.google.com/chrome/browser/desktop/index.html"><button class="btn btn btn-danger">Google Chrome</button></a>
+                              <br />
+                              <br />
+                              <a target="_blank" href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en"><button class="btn btn btn-danger">MetaMask</button></a>
+
+
+                          </div>
+                          <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
+                            <h3> MetaMask is a google chrome exstension for your browser that allows you to interact with our token </h3>
+                            <h3>Once installed refresh the page </h3>
+
+                          </div>
+
+                      </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-12" id="metaMaskNotLoggedIn" style="display: none;">
+                  <div class="bg-theme-dark m-b-15">
+                      <div class="row weather p-20">
+                          <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
+                              <h3>MetaMask is found please make sure you are logged in!</h3>
+                              <!-- <button class="btn btn-sm btn-primary" onclick="editEthAddress()">edit</button> -->
+
+
+                          </div>
+
+
+
+                      </div>
+
+                  </div>
+                </div>
+
+
+                <!-- <div class="col-md-12" id="tagsHolder" style="display: contents;">
+                      <div class="bg-theme-dark m-b-15">
+                          <div class="row weather p-20">
+                              <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
+                                  <h1>Default Tags</h1>
+                                  <h6>Limited to 5 default tags</h6>
+                                  <div class="row" id="">
+                                    <div class="col-md-12">
+                                      <div class="bs-example">
+                                        <br />
+                                          <input onchange="addTags()" type="text" id="tags" value="" data-role="tagsinput" style="display: none;">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <h4>These tags will be automatically applied to any content you publish</h4>
+
+
+                              </div>
+
+
+
+                          </div>
+
+                      </div>
+                </div> -->
+
+
+                <!-- <div class="col-md-12">
+                    <div class="bg-theme-dark m-b-15">
+                        <div class="row weather p-20">
+                            <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
+                                <h3>MetaMask is found please make sure you are logged in!</h3>
+
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </div> -->
+
+
+              </div>
+
+
+
+              <footer class="footer text-center" style="color:white">
+                 &copy; PIES NETWORK
+              </footer>
+
+          </div>
+
+      </div>
+
+
+  </div>
+
+<!-- Loader -->
+<section class="loaderSection" style="background: white">
+    <div class="loader" >
+      <div class="box"></div>
+      <div class="hill"></div>
+    </div>
+</section>
+
+
+</body>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+
+<!-- jQuery -->
+    <script src="../sources/js/utilites/jquery.min.js"></script>
+    <script src="../sources/js/utilites/tether.min.js"></script>
+    <script src="../sources/js/utilites/bootstrap.min.js"></script>
+    <script src="../sources/js/utilites/bootstrap-extension.min.js"></script>
+    <script src="../sources/js/utilites/sidebar-nav.min.js"></script>
+    <script src="../sources/js/utilites/jquery.slimscroll.js"></script>
+    <script src="../sources/js/utilites/waves.js"></script>
+    <script src="../sources/js/utilites/jquery.waypoints.min.js"></script>
+    <script src="../sources/js/utilites/jquery.counterup.min.js"></script>
+    <script src="../sources/js/utilites/raphael-min.js"></script>
+    <script src="../sources/js/utilites/morris.js"></script>
+    <script src="../sources/js/utilites/custom.min.js"></script>
+    <script src="../sources/js/utilites/jquery.sparkline.min.js"></script>
+    <script src="../sources/js/utilites/dashboard1.js"></script>
+    <script src="../sources/js/utilites/jquery.charts-sparkline.js"></script>
+    <script src="../sources/js/utilites/jquery.toast.js"></script>
+    <script src="../sources/js/utilites/jQuery.style.switcher.js"></script>
+    <script src="../sources/js/utilites/bootstrap-tagsinput.min.js"></script>
+
+
+
+
+
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    // console.log("js script online")
+    var loadTime = Math.floor((Math.random() * 3000) + 500);
+    //////loader
+    // $('.main-container').css("display", "none");
+    // $('#successMessage').hide();
+    $.toast({
+        heading: 'Welcome back!',
+        text: 'PIES Network is loading',
+        position: 'top-right',
+        loaderBg: '#ff6849',
+        icon: 'info',
+        hideAfter: loadTime,
+        stack: 6
+    })
+    setTimeout(function(){
+      $('.loader').hide();
+      $('.loaderSection').hide();
+
+
+      $('.main-container').css("display", "initial")
+      // checkAgain()
+    }, loadTime);
+    // function checkAgain(){
+    //   if(  $('.loader').hide() ){
+    //     console.log("all good")
+    //   }else{
+    //     location.reload();
+    //   }
+    // }
+    setTimeout(function(){
+      // console.log(DefaultTagData)
+      // $('#tags').tagsinput({
+      //   maxTags: 3,
+      //   maxChars: 15,
+      //   trimValue: true
+      // });
+      // for(var i = 0 ; i < DefaultTagData.length ; i++){
+      //   $('#tags').tagsinput('add', DefaultTagData[i])
+      // }
+      $('#tags').on('beforeItemRemove', function(event) {
+        // event.item: contains the item
+        // event.cancel: set to true to prevent the item getting removed
+      });
+      // $("#tags").tagsinput(DefaultTagData[0].data);
+      $('#tagsHolder').css("display", "contents")
+
+    }, 3000);
+
+  });
+</script>
+
+
+<script>
+
+window.addEventListener('load', function() {
+
+  // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+  if (typeof web3 !== 'undefined') {
+
+    // Use the browser's ethereum provider
+    var provider = web3.currentProvider
+
+    web3.eth.defaultAccount = web3.eth.accounts[0]
+    // console.log(web3.eth.accounts[0])
+
+    setTimeout(function(){
+      if(!web3.eth.accounts[0]){
+        document.getElementById('metaMaskNotLoggedIn').style.display = 'block';
+
+
+      }
+      if(web3.eth.accounts[0]){
+        loadBalance(web3.eth.accounts[0]);
+        // document.getElementById('noMetaMaskFound').style.display ='none';
+        document.getElementById('metaMaskNotLoggedIn').style.display = 'none';
+
+        document.getElementById('metaMaskFound').style.display = 'contents';
+        // document.getElementById('metaMaskFound').style.display = 'block';
+
+
+
+      }else{
+
+      }
+    }, 2000)
+
+
+    // console.log(provider)
+  } else {
+
+    setTimeout(function(){
+      document.getElementById('noMetaMaskFound').style.display = 'contents';
+
+
+    }, 1000)
+
+  }
+
+})
+
+var config = {
+  apiKey: "AIzaSyBNyW7vjQSK2Gbrh4Mzox6G-uAG4gK1rgE",
+  authDomain: "adspace-9fe5c.firebaseapp.com",
+  databaseURL: "https://adspace-9fe5c.firebaseio.com",
+  projectId: "adspace-9fe5c",
+  storageBucket: "",
+  messagingSenderId: "129227170241"
+};
+
+firebase.initializeApp(config);
+var ref = firebase.database().ref('queue/tasks');
+var userObject, tagBox;
+
+var tagAmmount = document.getElementById('tagAmmount');
+var tagProgress = document.getElementById('tagProgress');
+// var statusState = true;
+firebase.auth().onAuthStateChanged(function(user) {
+  if(user){
+    userObject = user;
+    timeout();
+    checkState(userObject);
+
+    // asyncWait();
+    // console.log(user)
+    document.getElementById('userImage').src = user.photoURL;
+    document.getElementById('userName').innerHTML = user.displayName;
+    getDefaultTags(userObject);
+    // writeUserData(u)
+
+  }else{
+    window.location = '/';
+
+  }
+})
+
+function timeout(){
+  var ele = document.getElementById('page-wrapper');
+    setTimeout(function(){
+      ele.style['min-heigh'] = 'none';
+    }, 3000)
+}
+
+function checkState(user){
+  // console.log('checking State', user)
+  var userRef = firebase.database().ref('usertype/' + user.uid);
+  userRef.on('value', function(snapshot){
+    // console.log(snapshot.val())
+    var userStatus = snapshot.val().type;
+    if(userStatus){
+      // console.log(userStatus)
+      if(userStatus == '99'){
+        return;
+      }else if(userStatus == '10'){
+        window.location = '/v-settings';
+        userRef.off();
+
+      }else{
+        window.location = '/';
+        userRef.off();
+
+      }
+    }else if(!statusState && userStatus){
+      // window.location = '/';
+      // userRef.off();
+      return;
+
+    }else {
+      window.location = '/';
+      userRef.off();
+    }
+  })
+}
+
+
+
+function Onload(){
+  document.getElementById('editEth').style.display = "none";
+
+  loadTags();
+  setTimeout(function(){
+    loadBalance();
+
+  }, 1000)
+  tagBox = document.getElementById('tagsBox');
+  document.getElementById("tag").addEventListener("keyup", function(event) {
+      event.preventDefault();
+      if (event.keyCode == 13) {
+          addTag();
+
+      }
+
+  });
+  document.getElementById("myEthAddress").addEventListener("keyup", function(event) {
+      event.preventDefault();
+      if (event.keyCode == 13) {
+          submitEthAddress();
+
+      }
+
+  });
+
+}
+
+
+function removeItem(k){
+  var dataRef =  firebase.database().ref('user/' + userObject.uid + '/tags/' + k );
+  dataRef.set({"data": null}).then(function(err, res){
+    dataRef.off
+    loadTags();
+
+  });
+
+}
+
+// function submitEthAddress(){
+//   var ethAddress = document.getElementById('myEthAddress');
+//   // var testAccount = '0x541E8E0b0F25f799F941932dDcB93bB83d254E64'
+//   // testAccount = testAccount.split('');
+//   console.log(ethAddress.value.length)
+//   if(ethAddress.value.length > 41 && ethAddress.value.length < 43){
+//     // console.log(ethAddress.value)
+//     firebase.database().ref('queue/myEthAddress/tasks').push({"ethAddress": ethAddress.value, "userId": userObject.uid});
+//   }
+// }
+
+function loadBalance(ethAddress){
+  document.getElementById('myAddress').innerHTML = ethAddress;
+  document.getElementById('mySmallAddress').innerHTML = ethAddress;
+
+
+  // console.log('hitting function', userObject)
+  var userRef = firebase.database().ref('user/' + userObject.uid);
+  var data;
+  // userRef.on('value', function(snapshot){
+  //   data = snapshot.val();
+  //   if(data.ethAddress){
+  var balanceObject = {"ethAddress": ethAddress, "userId": userObject.uid};
+  // console.log('success', balanceObject);
+  firebase.database().ref('queue/myEthBalance/tasks').push(balanceObject).then(function(res){
+    // console.log(res);
+    firebase.database().ref('balance/' + userObject.uid).on('value', function(snapshot){
+      var data = snapshot.val();
+      if(data){
+        if(data.balance){
+          var balance = numberWithCommas(data.balance);
+          document.getElementById('balance').innerHTML = 'Balance: ' + balance + ' <i><b>PIES</b></i>';
+
+        }
+      }
+    })
+  });
+}
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
+var DefaultTagData;
+function getDefaultTags(user){
+
+  var tagsRef = firebase.database().ref('/tag/' + user.uid);
+  tagsRef.once('value', function(snapshot){
+    // console.log(snapshot.val())
+    var data = [];
+    for(var i  in snapshot.val()){
+
+      data.push(snapshot.val()[i])
+    }
+
+    DefaultTagData = data;
+
+
+  })
+
+}
+var tagAmmoun = 0;
+function addTags(){
+  var tagArray = [];
+  var input = document.getElementById('tags')
+
+  var data = input.value;
+  data = data.split(',');
+  for(var i = 0; i < data.length ; i++){
+    tagArray.push(data[i].toLowerCase());
+    var tempData = data[i].toLowerCase();
+  }
+  // console.log(tagArray)
+  saveTags(tempData, tagArray);
+
+
+  return;
+}
+
+function saveTags(data, array){
+  // firebase.database().ref('/tag/' + userObject.uid).update(array)
+  if(userObject){
+    firebase.database().ref('/queue/addTags/tasks').push({'data': array, 'userId': userObject.uid})
+
+  }
+  // .then(function(res){
+  //   console.log(res);
+  // })
+}
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
+function logout(){
+  firebase.auth().signOut().then(function() {
+    // console.log('you are logged out!')
+    window.location = "/"
+  }).catch(function(error) {
+    // An error happened.
+  });
+}
+
+
+
+
+</script>
+
+</html>
