@@ -499,6 +499,7 @@ let contentFunctions = (function(userObject, firebaseDataBase){
        }, (localTimer * 1000) + 1000)
      })
   }
+
   function timer(duration, display) {
     let timer = duration, minutes, seconds;
     setInterval(function () {
@@ -520,6 +521,7 @@ let contentFunctions = (function(userObject, firebaseDataBase){
         }
     }, 1000);
   }
+
   function watchSuccess(id){
     firebaseDataBase.ref('/content/' + userObject.uid + '/contentList/' + id).on('value', function(snapshot){
       if(snapshot.val()){
@@ -531,6 +533,7 @@ let contentFunctions = (function(userObject, firebaseDataBase){
       }
     })
   }
+
   this.finishContent = function(thisEle){
     let id = thisEle.parentNode.parentNode.parentNode.getAttribute('data-id');
     // console.log(id)
@@ -541,13 +544,12 @@ let contentFunctions = (function(userObject, firebaseDataBase){
       closeResponseModalEle.click();
       generateContentWindow(id)
     })
-
   }
+
   this.closeThisModal = function(thisEle){
     let id = thisEle.parentNode.parentNode.parentNode.parentNode.getAttribute('id');
     let modalTopEle = document.getElementById(id)
-
     modalTopEle.children[0].childNodes[1].childNodes[1].click();
-
   }
+
 })
