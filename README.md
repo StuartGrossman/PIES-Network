@@ -1,2 +1,2 @@
 # PIES-Network
-A decentralized information exchange - built on Ethereum.
+A decentralized information exchange
