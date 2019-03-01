@@ -28,9 +28,9 @@
   }
   .pickTitle {
     margin-top: 2px;
-    opacity: .7;
+    /* opacity: .7; */
     float: right;
-    color: black;
+    color: white;
     font-size: 8px;
   }
 

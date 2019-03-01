@@ -35,7 +35,7 @@
                                   <li class="support-button-holder support-dropdown animated bounceIn" id="login">
                                     <a onclick="defaultFunction.login()" class="support-button">
                                       <i class="fa fa-google-plus fa-lg" style="margin-right: 5px;"></i>
-                                       Sign In
+                                       Beta Sign In
                                     </a>
                                   </li>
                                   <!-- <li>
@@ -48,7 +48,7 @@
                                     <a href="/flow">App Flow</a>
                                   </li> -->
                                   <li class="support-button-holder support-dropdown animated bounceIn">
-                                      <a class="support-button" onclick="defaultFunction.dashboard()" style="display: none;" id="dashboard">Dashboard</a>
+                                      <a class="support-button" onclick="defaultFunction.dashboard()" style="display: none;" id="dashboard">Beta Dashboard</a>
                                   </li>
                                   <li>
                                     <a onclick="defaultFunction.logout()" class="login-button" id="logout" style="display: none;">
@@ -73,7 +73,7 @@
                         </span>
                       </div>
                       <div id="smallTitle">
-                        <span style="font-size: 18px; color: #ededed;">
+                        <span style="font-size: 18px; color: #ededed;" id="typeWriterTitle">
                           Low fees. Fair exchange. Curated information.
 
                         </span>
@@ -192,7 +192,7 @@
           </div>
       </div>
   </div> -->
-  <div id="pricing" class="container-fluid">
+  <div  class="container-fluid">
       <div class="bg-color"></div>
       <div class="container">
           <div class="row">
@@ -200,10 +200,10 @@
                   <div class="row-title">Key Features</div>
               </div>
           </div>
-          <div class="row">
+          <div class="row" id="pricing" >
               <div class="col-sm-6 col-md-6">
                   <div class="pricing-box pricing-color1">
-                      <div class="pricing-content">
+                      <div class="pricing-content" >
                           <div class="pricing-icon">
                               <div class="special-gradiant"></div>
                               <i class="htfy htfy-technology"></i>
@@ -252,7 +252,7 @@
       <div class="container">
           <div class="row">
               <div class="col-sm-12 col-md-6">
-                  <div class="text-purple-light">Ready? Join now, complete your registration, get $5 worth of PIECES (PCS) today</div>
+                  <div class="text-purple-light">Join PIES beta now! Help provide us with valuable feedback for the upcoming launch!</div>
               </div>
               <div class="col-sm-12 col-md-6">
                   <div class="buttons-holder">
@@ -300,6 +300,10 @@
 <script src="./sources/js/utilites/bootstrap-slider.min.js"></script>
 <script src="./sources/js/utilites/slick.min.js"></script>
 <script src="./sources/js/components/defaultFunctions.js"></script>
+<script src="./sources/js/components/typeWriterFunctions.js"></script>
+<script src="./sources/js/utilites/typeWriter.js"></script>
+
+
 
 <!-- <script src="./sources/js/main.js"></script> -->
 <script>
@@ -323,6 +327,7 @@ firebase.auth().onAuthStateChanged(function(user) {
      document.getElementById('dashboard').style.display = 'block';
      document.getElementById('logout').style.display = 'block';
      defaultFunction = new defaultFunctions(userObj, firebaseDataBase);
+     typeWriterFunctions = new typeWriterFunctions();
   }else{
     defaultFunction = new defaultFunctions(userObj, firebaseDataBase);
 
