@@ -51,7 +51,7 @@
                                       <a class="support-button" onclick="defaultFunction.dashboard()" style="display: none;" id="dashboard">Beta Dashboard</a>
                                   </li>
                                   <li>
-                                    <a onclick="defaultFunction.logout()" class="login-button" id="logout" style="display: none;">
+                                    <a href="" onclick="defaultFunction.logout()" class="login-button" id="logout" style="display: none;">
                                       Logout
                                     </a>
                                   </li>
@@ -66,16 +66,15 @@
           <div class="container">
               <div class="row">
                   <div class="col-md-12">
-                      <div class="big-title" id="title" style="margin-bottom: 25px;">
+                      <div class="big-title animated fadeIn" id="title" style="margin-bottom: 25px;">
                         PIES
                         <span style="font-size: 28px; color: #ffffff; font-weight: 700; line-height: 62px; margin-bottom: 20px;">
-                          NETWORK
+                          Network
                         </span>
                       </div>
                       <div id="smallTitle">
                         <span style="font-size: 18px; color: #ededed;" id="typeWriterTitle">
                           Low fees. Fair exchange. Curated information.
-
                         </span>
                         <br />
                         <br />
@@ -107,12 +106,12 @@
           <div class="row">
               <div class="col-md-12">
                   <div class="row-title">
-                    PIES NETWORK
+                    What is PIES Network?
                   </div>
                   <center>
                     <span style="color:gray; ">
                       <b>
-                        The worlds first decentralized information exchange built on Ethereum
+                        <!-- The worlds first decentralized information exchange built on Ethereum -->
                       </b>
                     </span>
                   </center>
@@ -315,6 +314,8 @@ var config = {
   storageBucket: "",
   messagingSenderId: "129227170241"
 };
+typeWriterFunctions = new typeWriterFunctions();
+
 firebase.initializeApp(config);
 var provider = new firebase.auth.GoogleAuthProvider();
 var userObj;
@@ -327,7 +328,6 @@ firebase.auth().onAuthStateChanged(function(user) {
      document.getElementById('dashboard').style.display = 'block';
      document.getElementById('logout').style.display = 'block';
      defaultFunction = new defaultFunctions(userObj, firebaseDataBase);
-     typeWriterFunctions = new typeWriterFunctions();
   }else{
     defaultFunction = new defaultFunctions(userObj, firebaseDataBase);
 

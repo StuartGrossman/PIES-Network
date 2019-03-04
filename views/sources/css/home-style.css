@@ -89,7 +89,7 @@
     font-weight: 300;
     color: #6400FF;
     position: relative;
-    margin-top: 30px;
+    margin-top: 92px;
     margin-bottom: 30px;
 }
 .row-title:after{
@@ -716,9 +716,9 @@ svg.logo text{
     position: relative;
 }
 .message-area.normal-bg{
-    background-color: #f9f9fd;
+    background-color: white;
     padding-top: 80px;
-    padding-bottom: 80px;
+    padding-bottom: 94px;
 }
 .message-area .bg-color{
     background-color: #f6f9fc;
@@ -753,8 +753,8 @@ svg.logo text{
 	7. Pricing Section Styles
 -------------------------------------------------------------------*/
 #pricing{
-    padding-top: 60px;
-    padding-bottom: 60px;
+    /* padding-top: 60px; */
+    padding-bottom: -15px;
     position: relative;
 }
 #pricing .bg-color{
@@ -1601,7 +1601,7 @@ svg.logo text{
 #footer{
     background-color: #756de7;
     padding-top: 90px;
-    padding-bottom: 70px;
+    padding-bottom: 46px;
     text-align: center;
 }
 #footer .footer-menu-holder{

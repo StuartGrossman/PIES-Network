@@ -1,5 +1,7 @@
 
-
+.border_Rad {
+  border-radius: 17px;
+}
 .delTag {
   margin-left: 50px;
   background-color: #ab8ce4;
