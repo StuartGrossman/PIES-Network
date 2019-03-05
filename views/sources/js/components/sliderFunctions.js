@@ -4,11 +4,13 @@ var sliderFunction = (function(userObject, firebaseDataBase){
     var idx = selectObj.selectedIndex;
     var indexedSelectedItem = selectObj.options[idx].value;
     var currentItem = document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0];
-    currentItem.innerHTML = indexedSelectedItem;
-    currentItem.style.background = 'white';
-    currentItem.style.color= 'black';
+    // document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].innerHTML = indexedSelectedItem;
+    // document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].style.background = 'white';
+    // document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].style.color= 'black';
 
-
+    document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].innerHTML = indexedSelectedItem;
+    document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].style.background = 'white';
+    document.getElementById(dataName + 'Holder').childNodes[1].childNodes[0].style.color= 'black';
     personalDataQueue(indexedSelectedItem, dataName);
   };
 
@@ -27,9 +29,9 @@ var sliderFunction = (function(userObject, firebaseDataBase){
         if(document.getElementById(childSnapshot.key + 'Holder')){
           //logic to change title of each optionPicker
           var currentItem = document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0];
-          currentItem.innerHTML = childSnapshot.val();
-          currentItem.style.background = 'white';
-          currentItem.style.color = 'black';
+          document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].innerHTML = childSnapshot.val();
+          document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].style.background = 'white';
+          document.getElementById(childSnapshot.key + 'Holder').childNodes[1].childNodes[0].style.color = 'black';
 
           //logic for chaning styles and generating title
           // var pickTitle = document.createElement("span");

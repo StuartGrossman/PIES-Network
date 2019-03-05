@@ -17,11 +17,13 @@ var defaultFunctions = (function(userObject, firebaseDataBase){
   }
 
   this.logout = function logout(){
+    console.log('hitting function')
     firebase.auth().signOut().then(function() {
       document.getElementById('login').style.display = 'block';
       document.getElementById('dashboard').style.display = 'none';
       document.getElementById('logout').style.display = 'none';
       console.log('you are logged out!')
+      window.location = "/"
     }).catch(function(error) {
       return error;
     });
@@ -93,7 +95,7 @@ var defaultFunctions = (function(userObject, firebaseDataBase){
       }
     })
   }
-  
+
   function writeUserData(uid, name, email, imageUrl) {
     var userDataObject = {
       'username': name,

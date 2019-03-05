@@ -47,7 +47,7 @@
                 <ul class="nav navbar-top-links navbar-left hidden-xs">
                   <li>
                       <a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light">
-                        <i class="icon-arrow-left-circle ti-menu">
+                        <i class="icon-arrow-left-circle ti-menu" style="color:white;">
                         </i>
                       </a>
 
@@ -63,10 +63,10 @@
 
                 <ul class="nav navbar-top-links navbar-right pull-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="0xc9692******4431b">
                   <li>
-                    <a class="waves-effect" >
+                    <a class="waves-effect" style="padding-bottom: 30px; padding-right:18px;" >
                       <img src="../sources/images/metamask-icon-2.png"/>
 
-                      <span class="hide-menu" id="balance" style="color:black;">
+                      <span class="hide-menu" id="balance" style="color:white;">
                         <i>0</i>
                       </span>
                       <div class="notify"><span class="heartbit">
@@ -78,10 +78,10 @@
                 <ul class="nav navbar-top-links navbar-right pull-right" data-toggle="tooltip" data-placement="left" title="" data-original-title="Withdraw">
                   <li>
                      <!-- onmouseout="navBarFunctions.unChangeInternalBalanceText(this)" onmouseover="navBarFunctions.changeInternalBalanceText(this)"-->
-                    <a data-toggle="modal" data-target="#withdrawModal" data-whatever="@mdo" class="waves-effect">
+                    <a data-toggle="modal" data-target="#withdrawModal" data-whatever="@mdo" class="waves-effect" style="padding-bottom: 30px; padding-right:18px;">
                       <!-- <i class="fa fa-circle-o text-info"></i> -->
-                      <i style="color:black;" class="icon-wallet fa-fw"></i>
-                      <span clasSs="hide-menu" id="internalBalance" style="color:black;">
+                      <i style="color:white;" class="icon-wallet fa-fw"></i>
+                      <span clasSs="hide-menu" id="internalBalance" style="color:white;">
                         <i>0</i>
                       </span>
                       <div class="notify"><span class="heartbit">
@@ -148,7 +148,7 @@
                         </ul>
                     </li> -->
                     <li>
-                      <a href="login.html" class="waves-effect"><i class="icon-logout fa-fw"></i>
+                      <a class="waves-effect"><i class="icon-logout fa-fw" onclick="defaultFunctionList.logout()"></i>
                         <span class="hide-menu">
                           Logout
                         </span>
@@ -200,8 +200,8 @@
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                             <h3>&nbsp;</h3>
-                            <h1 style="color: white; ">My Maximum Value $ <span></span></h1>
-                            <h4 style="color: white; ">The highest ammount I can make for viewing any content</h4>
+                            <h1 style="color: white; ">Maximum Potential Value $ <span></span></h1>
+                            <h4 style="color: white; ">The highest amount I can make for viewing any content</h4>
 
                             <!-- <form class="form-material m-t-40">
 
@@ -221,7 +221,7 @@
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                             <h3>&nbsp;</h3>
-                            <h1 style="color: black; opacity: .55;">Your Phone</h1>
+                            <h1 style="color: black; opacity: .55;">My Phone</h1>
                             <h4 style="color: black; opacity: .65;">Verify your phone number to add to your potential value</h4>
 
                             <!-- <form class="form-material m-t-40">
@@ -241,7 +241,7 @@
                   <div class="border_Rad m-b-15" style="background: rgb(3, 167, 240)" >
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
-                            <h1 style="color: white; ">Your Personal Data</h1>
+                            <h1 style="color: white; ">My Personal Data</h1>
                             <h4 style="color:white; ">Please fill in these importaint feilds accuratly</h4>
 
                             <div class="row" id="personalDataWrapper">
@@ -695,7 +695,7 @@
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                             <h3>&nbsp;</h3>
-                            <h1 style="color: black; opacity: .55;">Your Interests</h1>
+                            <h1 style="color: black; opacity: .55;">My Interests</h1>
                             <h4 style="color: black; opacity: .65;">Add hobbies, people, places, anything that matters to you</h4>
 
                             <form class="form-material m-t-40">
@@ -779,7 +779,7 @@
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                             <h3>&nbsp;</h3>
-                            <h1 style="color: black; opacity: .55;">Your Brands</h1>
+                            <h1 style="color: black; opacity: .55;">My Brands</h1>
                             <h4 style="color: black; opacity: .65;">Add Brands that matter to you</h4>
 
                             <form class="form-material m-t-40">
@@ -793,64 +793,26 @@
                             <br />
                             <!-- <h6 style="color:#03BBF0; opacity: .65;">Default Interests</h6> -->
                             <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="tagHolder">
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Books" onclick="checkTagFunctions.addTag('Books')">Books</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Technology" onclick="checkTagFunctions.addTag('Technology')">Technology</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Videogames" onclick="checkTagFunctions.addTag('Videogames')">Videogames</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Movies & Tv" onclick="checkTagFunctions.addTag('Movies & Tv')">Movies & Tv</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Eletronics" onclick="checkTagFunctions.addTag('Eletronics')">Eletronics</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Cooking" onclick="checkTagFunctions.addTag('Cooking')">Cooking</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Photography" onclick="checkTagFunctions.addTag('Photography')">Photography</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Fashion" onclick="checkTagFunctions.addTag('Fashion')">Fashion</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Exercise" onclick="checkTagFunctions.addTag('Exercise')">Exercise</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Music" onclick="checkTagFunctions.addTag('Music')">Music</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Humor" onclick="checkTagFunctions.addTag('Humor')">Humor</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Religion" onclick="checkTagFunctions.addTag('Religion')">Religion</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Education" onclick="checkTagFunctions.addTag('Education')">Education</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Cars" onclick="checkTagFunctions.addTag('Cars')">Cars</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Gifts" onclick="checkTagFunctions.addTag('Gifts')">Gifts</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Board Games" onclick="checkTagFunctions.addTag('Board Games')">Board Games</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Basketball" onclick="checkTagFunctions.addTag('Basketball')">Basketball</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Hiking" onclick="checkTagFunctions.addTag('Hiking')">Hiking</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Skin Care" onclick="checkTagFunctions.addTag('Skin Care')">Skin Care</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Pet Care" onclick="checkTagFunctions.addTag('Pet Care')">Pet Care</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Art & Design" onclick="checkTagFunctions.addTag('Art & Design')">Art & Design</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Makeup" onclick="checkTagFunctions.addTag('Makeup')">Makeup</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Weddings" onclick="checkTagFunctions.addTag('Weddings')">Weddings</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Climbing" onclick="checkTagFunctions.addTag('Climbing')">Climbing</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="FPS Games" onclick="checkTagFunctions.addTag('FPS Games')">FPS Games</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Gardening" onclick="checkTagFunctions.addTag('Gardening')">Gardening</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Summer" onclick="checkTagFunctions.addTag('Summer')">Summer</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Drugs" onclick="checkTagFunctions.addTag('Drugs')">Drugs</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="SnowBoarding" onclick="checkTagFunctions.addTag('SnowBoarding')">SnowBoarding</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Coffee" onclick="checkTagFunctions.addTag('Coffee')">Coffee</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Winter" onclick="checkTagFunctions.addTag('Winter')">Winter</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Creative Design" onclick="checkTagFunctions.addTag('Creative Design')">Creative Design</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Music Production" onclick="checkTagFunctions.addTag('Music Production')">Music Production</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Surfing" onclick="checkTagFunctions.addTag('Surfing')">Surfing</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Yoga/Mediation" onclick="checkTagFunctions.addTag('Yoga/Mediation')">Yoga/Mediation</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Martial Arts" onclick="checkTagFunctions.addTag('Martial Arts')">Martial Arts</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Beer/Wine" onclick="checkTagFunctions.addTag('Beer/Wine')">Beer/Wine</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Sailing" onclick="checkTagFunctions.addTag('Sailing')">Sailing</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Landscaping" onclick="checkTagFunctions.addTag('Landscaping')">Landscaping</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Traveling" onclick="checkTagFunctions.addTag('Traveling')">Traveling</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Social Networking" onclick="checkTagFunctions.addTag('Social Networking')">Social Networking</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Graphic Design" onclick="checkTagFunctions.addTag('Graphic Design')">Graphic Design</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Science" onclick="checkTagFunctions.addTag('Science')">Science</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Arts & Crafts" onclick="checkTagFunctions.addTag('Arts & Crafts')">Arts & Crafts</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Software" onclick="checkTagFunctions.addTag('Software')">Software</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Theater" onclick="checkTagFunctions.addTag('Theater')">Theater</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Dance/Performance" onclick="checkTagFunctions.addTag('Dance/Performance')">Dance/Performance</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Virtual Reality" onclick="checkTagFunctions.addTag('Virtual Reality')">Virtual Reality</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Acting" onclick="checkTagFunctions.addTag('Acting')">Acting</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Guns" onclick="checkTagFunctions.addTag('Guns')">Guns</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Magic" onclick="checkTagFunctions.addTag('Magic')">Magic</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Concerts" onclick="checkTagFunctions.addTag('Concerts')">Concerts</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Comedy Shows" onclick="checkTagFunctions.addTag('Comedy Shows')">Comedy Shows</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Weed" onclick="checkTagFunctions.addTag('Weed')">Weed</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Creative Writing" onclick="checkTagFunctions.addTag('Creative Writing')">Creative Writing</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Robotics" onclick="checkTagFunctions.addTag('Robotics')">Robotics</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Blogging" onclick="checkTagFunctions.addTag('Blogging')">Blogging</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Space" onclick="checkTagFunctions.addTag('Space')">Space</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Nike" onclick="checkTagFunctions.addBrandTag('Nike')">Nike</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Coca Cola" onclick="checkTagFunctions.addBrandTag('Coca Cola')">Coca Cola</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="North Face" onclick="checkTagFunctions.addBrandTag('North Face')">North Face</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Guchi" onclick="checkTagFunctions.addBrandTag('Guchi')">Guchi</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Supreme" onclick="checkTagFunctions.addBrandTag('Supreme')">Supreme</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Luis Vuitton" onclick="checkTagFunctions.addBrandTag('Luis Vuitton')">Luis Vuitton</button>
+                              <!-- <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Fashion" onclick="checkTagFunctions.addBrandTag('Fashion')">Fashion</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Exercise" onclick="checkTagFunctions.addBrandTag('Exercise')">Exercise</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Music" onclick="checkTagFunctions.addBrandTag('Music')">Music</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Humor" onclick="checkTagFunctions.addBrandTag('Humor')">Humor</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Religion" onclick="checkTagFunctions.addBrandTag('Religion')">Religion</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Education" onclick="checkTagFunctions.addBrandTag('Education')">Education</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Cars" onclick="checkTagFunctions.addBrandTag('Cars')">Cars</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Gifts" onclick="checkTagFunctions.addBrandTag('Gifts')">Gifts</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Board Games" onclick="checkTagFunctions.addBrandTag('Board Games')">Board Games</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Basketball" onclick="checkTagFunctions.addBrandTag('Basketball')">Basketball</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Hiking" onclick="checkTagFunctions.addBrandTag('Hiking')">Hiking</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Skin Care" onclick="checkTagFunctions.addBrandTag('Skin Care')">Skin Care</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Pet Care" onclick="checkTagFunctions.addBrandTag('Pet Care')">Pet Care</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Art & Design" onclick="checkTagFunctions.addBrandTag('Art & Design')">Art & Design</button> -->
 
                             </div>
                               <h3>&nbsp;</h3>
@@ -863,8 +825,8 @@
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                             <h3>&nbsp;</h3>
-                            <h1 style="color: black; opacity: .55;">Your Technology</h1>
-                            <h4 style="color: black; opacity: .65;">Add any technology you own or love</h4>
+                            <h1 style="color: black; opacity: .55;">My Technology</h1>
+                            <h4 style="color: black; opacity: .65;">Add any technology brands you own, use, love, or want</h4>
 
                             <form class="form-material m-t-40">
 
@@ -877,64 +839,15 @@
                             <br />
                             <!-- <h6 style="color:#03BBF0; opacity: .65;">Default Interests</h6> -->
                             <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="tagHolder">
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Books" onclick="checkTagFunctions.addTag('Books')">Books</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Technology" onclick="checkTagFunctions.addTag('Technology')">Technology</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Videogames" onclick="checkTagFunctions.addTag('Videogames')">Videogames</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Movies & Tv" onclick="checkTagFunctions.addTag('Movies & Tv')">Movies & Tv</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Eletronics" onclick="checkTagFunctions.addTag('Eletronics')">Eletronics</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Cooking" onclick="checkTagFunctions.addTag('Cooking')">Cooking</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Photography" onclick="checkTagFunctions.addTag('Photography')">Photography</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Fashion" onclick="checkTagFunctions.addTag('Fashion')">Fashion</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Exercise" onclick="checkTagFunctions.addTag('Exercise')">Exercise</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Music" onclick="checkTagFunctions.addTag('Music')">Music</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Humor" onclick="checkTagFunctions.addTag('Humor')">Humor</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Religion" onclick="checkTagFunctions.addTag('Religion')">Religion</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Education" onclick="checkTagFunctions.addTag('Education')">Education</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Cars" onclick="checkTagFunctions.addTag('Cars')">Cars</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Gifts" onclick="checkTagFunctions.addTag('Gifts')">Gifts</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Board Games" onclick="checkTagFunctions.addTag('Board Games')">Board Games</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Basketball" onclick="checkTagFunctions.addTag('Basketball')">Basketball</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Hiking" onclick="checkTagFunctions.addTag('Hiking')">Hiking</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Skin Care" onclick="checkTagFunctions.addTag('Skin Care')">Skin Care</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Pet Care" onclick="checkTagFunctions.addTag('Pet Care')">Pet Care</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Art & Design" onclick="checkTagFunctions.addTag('Art & Design')">Art & Design</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Makeup" onclick="checkTagFunctions.addTag('Makeup')">Makeup</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Weddings" onclick="checkTagFunctions.addTag('Weddings')">Weddings</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Climbing" onclick="checkTagFunctions.addTag('Climbing')">Climbing</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="FPS Games" onclick="checkTagFunctions.addTag('FPS Games')">FPS Games</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Gardening" onclick="checkTagFunctions.addTag('Gardening')">Gardening</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Summer" onclick="checkTagFunctions.addTag('Summer')">Summer</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Drugs" onclick="checkTagFunctions.addTag('Drugs')">Drugs</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="SnowBoarding" onclick="checkTagFunctions.addTag('SnowBoarding')">SnowBoarding</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Coffee" onclick="checkTagFunctions.addTag('Coffee')">Coffee</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Winter" onclick="checkTagFunctions.addTag('Winter')">Winter</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Creative Design" onclick="checkTagFunctions.addTag('Creative Design')">Creative Design</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Music Production" onclick="checkTagFunctions.addTag('Music Production')">Music Production</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Surfing" onclick="checkTagFunctions.addTag('Surfing')">Surfing</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Yoga/Mediation" onclick="checkTagFunctions.addTag('Yoga/Mediation')">Yoga/Mediation</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Martial Arts" onclick="checkTagFunctions.addTag('Martial Arts')">Martial Arts</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Beer/Wine" onclick="checkTagFunctions.addTag('Beer/Wine')">Beer/Wine</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Sailing" onclick="checkTagFunctions.addTag('Sailing')">Sailing</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Landscaping" onclick="checkTagFunctions.addTag('Landscaping')">Landscaping</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Traveling" onclick="checkTagFunctions.addTag('Traveling')">Traveling</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Social Networking" onclick="checkTagFunctions.addTag('Social Networking')">Social Networking</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Graphic Design" onclick="checkTagFunctions.addTag('Graphic Design')">Graphic Design</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Science" onclick="checkTagFunctions.addTag('Science')">Science</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Arts & Crafts" onclick="checkTagFunctions.addTag('Arts & Crafts')">Arts & Crafts</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Software" onclick="checkTagFunctions.addTag('Software')">Software</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Theater" onclick="checkTagFunctions.addTag('Theater')">Theater</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Dance/Performance" onclick="checkTagFunctions.addTag('Dance/Performance')">Dance/Performance</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Virtual Reality" onclick="checkTagFunctions.addTag('Virtual Reality')">Virtual Reality</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Acting" onclick="checkTagFunctions.addTag('Acting')">Acting</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Guns" onclick="checkTagFunctions.addTag('Guns')">Guns</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Magic" onclick="checkTagFunctions.addTag('Magic')">Magic</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Concerts" onclick="checkTagFunctions.addTag('Concerts')">Concerts</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Comedy Shows" onclick="checkTagFunctions.addTag('Comedy Shows')">Comedy Shows</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Weed" onclick="checkTagFunctions.addTag('Weed')">Weed</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Creative Writing" onclick="checkTagFunctions.addTag('Creative Writing')">Creative Writing</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Robotics" onclick="checkTagFunctions.addTag('Robotics')">Robotics</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Blogging" onclick="checkTagFunctions.addTag('Blogging')">Blogging</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Space" onclick="checkTagFunctions.addTag('Space')">Space</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Apple" onclick="checkTagFunctions.addTechnologyTag('Apple')">Apple</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Android" onclick="checkTagFunctions.addTechnologyTag('Android')">Android</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Google" onclick="checkTagFunctions.addTag('Google')">Google</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Microsoft" onclick="checkTagFunctions.addTechnologyTag('Microsoft')">Microsoft</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Tesla" onclick="checkTagFunctions.addTechnologyTag('Tesla')">Tesla</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Amazon" onclick="checkTagFunctions.addTechnologyTag('Amazon')">Amazon</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Samsung" onclick="checkTagFunctions.addTechnologyTag('Samsung')">Samsung</button>
+                              <!-- <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Fashion" onclick="checkTagFunctions.addTechnologyTag('Fashion')">Fashion</button> -->
+
 
                             </div>
                               <h3>&nbsp;</h3>
@@ -1214,10 +1127,12 @@
                           </div>
                           <div class="modal-footer">
                               <div class="row">
-                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                   <button type="button" onclick="contentFunctions.closeThisModal(this)" class="btn btn-default">Done</button>
+                                </div>
+                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
                                 </div>
                               </div>
                           </div>
@@ -1323,6 +1238,8 @@
 <script src="../sources/js/components/contentFunctions.js"></script>
 <script src="../sources/js/components/loaderFunctions.js"></script>
 <script src="../sources/js/components/metaMaskFunctions.js"></script>
+<script src="../sources/js/components/defaultFunctions.js"></script>
+
 
 <script>
 //prevents form submission!
@@ -1359,6 +1276,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     navBarFunctions = new navBarWallet(userObject, firebaseDataBase);
     contentFunctions = new contentFunctions(userObject, firebaseDataBase);
     metaMaskFunctions = new metaMaskFunctions(userObject, firebaseDataBase);
+    defaultFunctionList = new defaultFunctions(userObject, firebaseDataBase);
+
     // loads all content
     metaMaskFunctions.loadMetaMaskAuth(); // loads metaMask Auth
     contentFunctions.watchForLoad();

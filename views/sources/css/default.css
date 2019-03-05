@@ -58,7 +58,7 @@ body {
 }
 .navbar-header {
   /* opacity: .75; */
-  background: #DEE2E5;
+  background: rgb(3, 167, 240);
   /* filter: brightness(95%); */
 }
 .navbar-header.hover {

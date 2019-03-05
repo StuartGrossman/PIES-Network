@@ -335,10 +335,11 @@ let contentFunctions = (function(userObject, firebaseDataBase){
       let elementBody = modalBody.children[1].childNodes[1]
       elementBody.innerHTML = 'Payout: <h4 style="font-size:18px; color:#03BBF0; opacity:0.75">'
       + currentContent.payout + ' Pies tokens'
-      + '</h4>' + '<hr>'
-      + '<span style="font-size: 16px">' + 'USD Equivalent: $'
-      + dollarPayout
-      + '</span>'
+      + '</h4>'
+      // + '<hr>'
+      // + '<span style="font-size: 16px">' + 'USD Equivalent: $'
+      // + dollarPayout
+      // + '</span>'
 
 
     })
