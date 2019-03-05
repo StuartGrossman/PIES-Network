@@ -222,6 +222,26 @@
           }
         }
       },
+      "addBrandTags": {
+       "tasks": {
+       ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val()",
+           ".write": "auth.uid == newData.child('userId').val()"
+          }
+        }
+      },
+      "addTechTags": {
+       "tasks": {
+       ".indexOn": ["_state"],
+         "$task": {
+           ".indexOn": ["_state"],
+           ".validate": "auth.uid == newData.child('userId').val()",
+           ".write": "auth.uid == newData.child('userId').val()"
+          }
+        }
+      },
       "stripe": {
        "tasks": {
        ".indexOn": ["_state"],
