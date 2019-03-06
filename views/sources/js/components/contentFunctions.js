@@ -128,6 +128,9 @@ let contentFunctions = (function(userObject, firebaseDataBase){
               let publishedItem = contentData.val()[lookup]; //current item being selected. lookup is the contents specific UID
               let dataId = data.contentList[i].author;
               let contentElementLink = document.createElement('a');
+              contentElementLink.setAttribute('href', '')
+              contentElementLink.style.color = 'white';
+
               //creates button for opening the modal -- /publishedData/userId/ lookup
               //Uses the published item ID as the pointer in the elements own id
 
@@ -325,13 +328,13 @@ let contentFunctions = (function(userObject, firebaseDataBase){
     // .childNodes[3].childNodes[1].childNodes[1].childNodes[1];
     elementLink.setAttribute('id', 'receipt' + id)
     firebaseDataBase.ref('/exchangeRate').on('value', function(data){
-      console.log(data.val())
+      // console.log(data.val())
       dollarEquiv = data.val().rate;
       dollarPayout = dollarEquiv * currentContent.payout
 
       dollarPayout = dollarPayout.toString().split('')
       dollarPayout = dollarPayout.splice(data.val().decimalSpace, 0, '.')
-      console.log(dollarPayout)
+      // console.log(dollarPayout)
       let elementBody = modalBody.children[1].childNodes[1]
       elementBody.innerHTML = 'Payout: <h4 style="font-size:18px; color:#03BBF0; opacity:0.75">'
       + currentContent.payout + ' Pies tokens'

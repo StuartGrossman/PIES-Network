@@ -58,7 +58,7 @@ body {
 }
 .navbar-header {
   /* opacity: .75; */
-  background: rgb(3, 167, 240);
+  background: #756de7;
   /* filter: brightness(95%); */
 }
 .navbar-header.hover {
@@ -73,15 +73,15 @@ body {
 }
 /*Bread Crumb*/
 .bg-title .breadcrumb .active {
-  color: #03BBF0;
+  color: black;
 }
 /*Sidebar*/
 .sidebar {
-  background: #fff;
+  background: #19171c;
   box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
 }
 .sidebar .label-custom {
-  background: #03BBF0;
+  background: #756de7;
 }
 #side-menu li a {
   color: #54667a;

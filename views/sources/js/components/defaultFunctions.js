@@ -1,5 +1,12 @@
 var defaultFunctions = (function(userObject, firebaseDataBase){
-  'use strict'
+  'use strict';
+
+  setTimeout(function(){
+    if(document.getElementById('nav')){
+      document.getElementById('nav').style.display = 'block';
+    }
+  }, 300)
+
   this.login = function login(){
     firebase.auth().signInWithPopup(provider).then(function(result) {
       // This gives you a Google Access Token. You can use it to access the Google API.
@@ -30,29 +37,31 @@ var defaultFunctions = (function(userObject, firebaseDataBase){
   }
 
   this.dashboard = function dashboard(){
-    firebase.database().ref('/phone/' + userObj.uid).once('value', function(snapshot){
-      if(snapshot.val()){
-        if(snapshot.val().confirmed === true){
-          firebase.database().ref('/usertype/' + userObj.uid).once('value', function(snapshot2){
-            if(snapshot2.val()){
-              var usertype = snapshot2.val().type;
-              if(usertype === 99){
-                window.location = "/v-dashboard";
-              }
-              if(usertype === 10){
-                window.location = "/v-dashboard";
-
-              }
-            }else{
-              window.location = "/v-dashboard";
-            }
-          })
-        }
-      }
-      else{
         window.location = "/v-dashboard";
-      }
-    })
+
+    // firebase.database().ref('/phone/' + userObj.uid).once('value', function(snapshot){
+    //   if(snapshot.val()){
+    //     if(snapshot.val().confirmed === true){
+    //       firebase.database().ref('/usertype/' + userObj.uid).once('value', function(snapshot2){
+    //         if(snapshot2.val()){
+    //           var usertype = snapshot2.val().type;
+    //           if(usertype === 99){
+    //             window.location = "/v-dashboard";
+    //           }
+    //           if(usertype === 10){
+    //             window.location = "/v-dashboard";
+    //
+    //           }
+    //         }else{
+    //           window.location = "/v-dashboard";
+    //         }
+    //       })
+    //     }
+    //   }
+    //   else{
+    //     window.location = "/v-dashboard";
+    //   }
+    // })
   }
 
   function checkUserInfo(){
@@ -60,30 +69,31 @@ var defaultFunctions = (function(userObject, firebaseDataBase){
     firebase.database().ref('user/' + userObj.uid).on('value', function(snapshot) {
       var data = snapshot.val();
       if(data){
-        firebase.database().ref('/phone/' + userObj.uid).on('value', function(snapshot){
-          if(snapshot.val()){
-            if(snapshot.val().confirmed){
-                firebase.database().ref('/usertype/' + userObj.uid).on('value', function(snapshot){
-                  console.log(snapshot.val())
-                  if(snapshot.val()){
-
-                    if(snapshot.val().type == "99"){
-                      window.location = "/p-dashboard";
-                    }
-
-                    if(snapshot.val().type == "10"){
-                      window.location = "/v-dashboard";
-                    }
-
-                  }else{
-                    window.location = "/usertype";
-                  }
-                })
-              }else{
-                window.location = "/usertype"
-              }
-            }
-         })
+        window.location = '/v-dashboard'
+        // firebase.database().ref('/phone/' + userObj.uid).on('value', function(snapshot){
+        //   if(snapshot.val()){
+        //     if(snapshot.val().confirmed){
+        //         firebase.database().ref('/usertype/' + userObj.uid).on('value', function(snapshot){
+        //           console.log(snapshot.val())
+        //           if(snapshot.val()){
+        //
+        //             if(snapshot.val().type == "99"){
+        //               window.location = "/p-dashboard";
+        //             }
+        //
+        //             if(snapshot.val().type == "10"){
+        //               window.location = "/v-dashboard";
+        //             }
+        //
+        //           }else{
+        //             window.location = "/usertype";
+        //           }
+        //         })
+        //       }else{
+        //         window.location = "/usertype"
+        //       }
+        //     }
+        //  })
         }
         else{
         // console.log("First time user data saving")

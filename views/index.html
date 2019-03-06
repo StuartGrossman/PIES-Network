@@ -18,7 +18,7 @@
 <body>
   <div id="header-holder">
       <div class="bg-animation"></div>
-      <nav id="nav" class="navbar navbar-default navbar-full">
+      <nav id="nav" class="navbar navbar-default navbar-full" style="display:none;">
           <div class="container-fluid">
               <div class="container container-nav">
                   <div class="row">
@@ -30,6 +30,7 @@
                                   <span class="icon-bar"></span>
                               </button>
                           </div>
+                          <!-- fix display props -->
                           <div style="height: 1px;" role="main" aria-expanded="false" class="navbar-collapse collapse" id="bs">
                               <ul class="nav navbar-nav navbar-right">
                                   <li class="support-button-holder support-dropdown animated bounceIn" id="login">
@@ -262,6 +263,21 @@
           </div>
       </div>
   </div>
+  <div id="message3" class="container-fluid message-area normal-bg" style="display:none;">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12 col-md-6">
+                  <div class="text-purple-light">Thanks for creating your account with PIES, go check out your dashboard!</div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                  <div class="buttons-holder">
+                      <a href="/v-dashboard" class="ybtn ybtn-purple">Beta Dashboard</a>
+                      <!-- <a onclick="flow()" class="ybtn ybtn-white ybtn-shadow">Application Flow</a> -->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
   <div id="footer" class="container-fluid">
       <div class="container">
           <div class="row">
@@ -327,6 +343,8 @@ firebase.auth().onAuthStateChanged(function(user) {
      document.getElementById('login').style.display = 'none';
      document.getElementById('dashboard').style.display = 'block';
      document.getElementById('logout').style.display = 'block';
+     document.getElementById('message2').style.display = 'none';
+     document.getElementById('message3').style.display = 'block';
      defaultFunction = new defaultFunctions(userObj, firebaseDataBase);
   }else{
     defaultFunction = new defaultFunctions(userObj, firebaseDataBase);

@@ -43,17 +43,16 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
-            <div class="navbar-header">
+            <div class="navbar-header" style="box-shadow: 0 1px 41px 0 rgba(0,0,0,.2);">
               <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse" style="padding-bottom: 2px;">
                 <i class="ti-menu" ></i>
               </a>
                 <ul class="nav navbar-top-links navbar-left hidden-xs">
                   <li>
-                      <a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light">
-                        <i class="icon-arrow-left-circle ti-menu" style="color:white;">
-                        </i>
-                      </a>
-
+                    <a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light">
+                      <i class="icon-arrow-left-circle ti-menu" style="color:white;">
+                      </i>
+                    </a>
                   </li>
                   <li>
                     <a class="logo" href="/" style="padding-right:40px;">
@@ -97,11 +96,10 @@
         </nav>
 
         <!-- Left navbar-header -->
-        <div class="navbar-default sidebar" role="navigation">
+        <div class="navbar-default sidebar" role="navigation" style="box-shadow: 0 1px 41px 0 rgba(0,0,0,.2); background: #19171c;">
             <div class="sidebar-nav navbar-collapse">
                 <div class="user-profile">
                     <div class="dropdown user-pro-body">
-
                       <div>
                         <img id="userImage" alt="user-img" class="img-circle"></div>
                         <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="userName">
@@ -123,7 +121,7 @@
                     </li>
                     <li>
                       <a id="contentContainer" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i>
-                        <span class="hide-menu"> My Content
+                        <span class="hide-menu" style="color:white;"> My Content
                           <span class="fa arrow"></span>
                           <span class="label label-rouded label-custom pull-right" id="contentAlerts">0</span>
                         </span>
@@ -135,7 +133,7 @@
                     <li>
                       <a data-toggle="modal" data-target="#withdrawModal" data-whatever="@mdo" class="waves-effect">
                         <i class="icon-wallet fa-fw"></i>
-                        <span class="hide-menu">
+                        <span class="hide-menu"style="color:white;">
                           Withdraw
                         </span>
                       </a>
@@ -152,7 +150,7 @@
                     </li> -->
                     <li>
                       <a class="waves-effect"><i class="icon-logout fa-fw" onclick="defaultFunctionList.logout()"></i>
-                        <span class="hide-menu">
+                        <span class="hide-menu"style="color:white;">
                           Logout
                         </span>
                       </a>
@@ -199,7 +197,7 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                  <div class="border_Rad m-b-15" class="" style="background:rgb(3, 167, 240)">
+                  <div class="border_Rad m-b-15" class="" style="background:#756de7">
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                             <h3>&nbsp;</h3>
@@ -240,8 +238,8 @@
                       </div>
                   </div>
                 </div>
-                <div class="col-md-12" >
-                  <div class="border_Rad m-b-15" style="background: rgb(3, 167, 240)" >
+                <div class="col-md-12">
+                  <div class="border_Rad m-b-15" style="background: #756de7" >
                       <div class="row weather p-20">
                           <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                             <h1 style="color: white; ">My Personal Data</h1>
@@ -692,7 +690,6 @@
                       </div>
                     </div>
                 </div>
-
                 <div class="col-md-12">
                   <div class="border_Rad m-b-15" class="" style="background:#F7FCFF;">
                       <div class="row weather p-20">
@@ -795,7 +792,7 @@
                             <br />
                             <br />
                             <!-- <h6 style="color:#03BBF0; opacity: .65;">Default Interests</h6> -->
-                            <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="tagHolder">
+                            <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="brandTagHolder">
                               <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Nike" onclick="checkTagFunctions.addBrandTag('Nike')">Nike</button>
                               <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Coca Cola" onclick="checkTagFunctions.addBrandTag('Coca Cola')">Coca Cola</button>
                               <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="North Face" onclick="checkTagFunctions.addBrandTag('North Face')">North Face</button>
@@ -841,14 +838,14 @@
                             <br />
                             <br />
                             <!-- <h6 style="color:#03BBF0; opacity: .65;">Default Interests</h6> -->
-                            <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="tagHolder">
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Apple" onclick="checkTagFunctions.addTechnologyTag('Apple')">Apple</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Android" onclick="checkTagFunctions.addTechnologyTag('Android')">Android</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Google" onclick="checkTagFunctions.addTag('Google')">Google</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Microsoft" onclick="checkTagFunctions.addTechnologyTag('Microsoft')">Microsoft</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Tesla" onclick="checkTagFunctions.addTechnologyTag('Tesla')">Tesla</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Amazon" onclick="checkTagFunctions.addTechnologyTag('Amazon')">Amazon</button>
-                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Samsung" onclick="checkTagFunctions.addTechnologyTag('Samsung')">Samsung</button>
+                            <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="techTagHolder">
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Apple" onclick="checkTagFunctions.addTechTag('Apple')">Apple</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Android" onclick="checkTagFunctions.addTechTag('Android')">Android</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Google" onclick="checkTagFunctions.addTechTag('Google')">Google</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Microsoft" onclick="checkTagFunctions.addTechTag('Microsoft')">Microsoft</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Tesla" onclick="checkTagFunctions.addTechTag('Tesla')">Tesla</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Amazon" onclick="checkTagFunctions.addTechTag('Amazon')">Amazon</button>
+                              <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Samsung" onclick="checkTagFunctions.addTechTag('Samsung')">Samsung</button>
                               <!-- <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Fashion" onclick="checkTagFunctions.addTechnologyTag('Fashion')">Fashion</button> -->
 
 
