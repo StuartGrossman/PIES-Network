@@ -1,6 +1,6 @@
 var defaultFunctions = (function(userObject, firebaseDataBase){
   'use strict';
-
+  
   setTimeout(function(){
     if(document.getElementById('nav')){
       document.getElementById('nav').style.display = 'block';

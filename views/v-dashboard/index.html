@@ -96,7 +96,7 @@
         </nav>
 
         <!-- Left navbar-header -->
-        <div class="navbar-default sidebar" role="navigation" style="box-shadow: 0 1px 41px 0 rgba(0,0,0,.2); background: #19171c;">
+        <div class="navbar-default sidebar" role="navigation" style="box-shadow: 0 1px 41px 0 rgba(0,0,0,.2); background: #19171c; opacity:.97;">
             <div class="sidebar-nav navbar-collapse">
                 <div class="user-profile">
                     <div class="dropdown user-pro-body">
@@ -149,7 +149,7 @@
                         </ul>
                     </li> -->
                     <li>
-                      <a class="waves-effect"><i class="icon-logout fa-fw" onclick="defaultFunctionList.logout()"></i>
+                      <a class="waves-effect" onclick="defaultFunctions.logout()"><i class="icon-logout fa-fw" ></i>
                         <span class="hide-menu"style="color:white;">
                           Logout
                         </span>
@@ -186,11 +186,11 @@
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="checkMark">
 
-                      <i style="color:#03BBF0;vertical-align: -webkit-baseline-middle; margin-top: 3px;" class="icon-check fa-fw" data-toggle="tooltip" data-placement="right" title="" data-original-title="100% Complete"></i>
+                      <i style="color:#756de7;vertical-align: -webkit-baseline-middle; margin-top: 3px;" class="icon-check fa-fw" data-toggle="tooltip" data-placement="right" title="" data-original-title="100% Complete"></i>
 
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-                      <span id="percentageCompleted" style="margin-top: 7px; vertical-align: -webkit-baseline-middle;font-size: 12px; color:#03BBF0" >
+                      <span id="percentageCompleted" style="margin-top: 7px; vertical-align: -webkit-baseline-middle;font-size: 12px; color:#756de7" >
 
                       </span>
 
@@ -700,14 +700,14 @@
 
                             <form class="form-material m-t-40">
 
-                              <!-- <h6 style="color:#03BBF0; opacity: .65;"></h6> -->
+                              <!-- <h6 style="color:#756de7; opacity: .65;"></h6> -->
                               <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="customTagHolder">
                                 <input  onchange="checkTagFunctions.addCustomTag(this)" class="form-control form-control-line" type="text" id="tags" placeholder=" press enter to submit">
                               </div>
                             </form>
                             <br />
                             <br />
-                            <!-- <h6 style="color:#03BBF0; opacity: .65;">Default Interests</h6> -->
+                            <!-- <h6 style="color:#756de7; opacity: .65;">Default Interests</h6> -->
                             <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="tagHolder">
                               <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Books" onclick="checkTagFunctions.addTag('Books')">Books</button>
                               <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Technology" onclick="checkTagFunctions.addTag('Technology')">Technology</button>
@@ -784,14 +784,14 @@
 
                             <form class="form-material m-t-40">
 
-                              <!-- <h6 style="color:#03BBF0; opacity: .65;"></h6> -->
+                              <!-- <h6 style="color:#756de7; opacity: .65;"></h6> -->
                               <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="customTagHolder">
-                                <input  onchange="checkTagFunctions.addCustomTag(this)" class="form-control form-control-line" type="text" id="tags" placeholder=" press enter to submit">
+                                <input  onchange="checkTagFunctions.addCustomBrandTag(this)" class="form-control form-control-line" type="text" id="tags" placeholder=" press enter to submit">
                               </div>
                             </form>
                             <br />
                             <br />
-                            <!-- <h6 style="color:#03BBF0; opacity: .65;">Default Interests</h6> -->
+                            <!-- <h6 style="color:#756de7; opacity: .65;">Default Interests</h6> -->
                             <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="brandTagHolder">
                               <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Nike" onclick="checkTagFunctions.addBrandTag('Nike')">Nike</button>
                               <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Coca Cola" onclick="checkTagFunctions.addBrandTag('Coca Cola')">Coca Cola</button>
@@ -830,14 +830,14 @@
 
                             <form class="form-material m-t-40">
 
-                              <!-- <h6 style="color:#03BBF0; opacity: .65;"></h6> -->
+                              <!-- <h6 style="color:#756de7; opacity: .65;"></h6> -->
                               <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="customTagHolder">
-                                <input  onchange="checkTagFunctions.addCustomTag(this)" class="form-control form-control-line" type="text" id="tags" placeholder=" press enter to submit">
+                                <input  onchange="checkTagFunctions.addCustomTechTag(this)" class="form-control form-control-line" type="text" id="tags" placeholder=" press enter to submit">
                               </div>
                             </form>
                             <br />
                             <br />
-                            <!-- <h6 style="color:#03BBF0; opacity: .65;">Default Interests</h6> -->
+                            <!-- <h6 style="color:#756de7; opacity: .65;">Default Interests</h6> -->
                             <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" id="techTagHolder">
                               <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Apple" onclick="checkTagFunctions.addTechTag('Apple')">Apple</button>
                               <button class="btn btn-unpressed" style="border-radius: 6px;margin-left: 6px; margin-bottom:5px;" id="Android" onclick="checkTagFunctions.addTechTag('Android')">Android</button>
@@ -855,6 +855,7 @@
                       </div>
                   </div>
                 </div>
+
             </div>
 
             <div id="outerModalHolder">
@@ -1276,7 +1277,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     navBarFunctions = new navBarWallet(userObject, firebaseDataBase);
     contentFunctions = new contentFunctions(userObject, firebaseDataBase);
     metaMaskFunctions = new metaMaskFunctions(userObject, firebaseDataBase);
-    defaultFunctionList = new defaultFunctions(userObject, firebaseDataBase);
+    defaultFunctions = new defaultFunctions(userObject, firebaseDataBase);
 
     // loads all content
     metaMaskFunctions.loadMetaMaskAuth(); // loads metaMask Auth

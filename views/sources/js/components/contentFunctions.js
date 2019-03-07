@@ -168,9 +168,9 @@ let contentFunctions = (function(userObject, firebaseDataBase){
     data.productInfo.title + '  |  '
     + '<span style="font-size:12px">'
     +  data.productInfo.info +'</span>' +  ' | '
-    + '<span style="color:#03BBF0; opacity: 0.8"> '
+    + '<span style="color:#756de7; opacity: 0.8"> '
     + currentContent.payout +'</span>'
-    + '<span style="font-size:12px; color:#03BBF0; opacity:0.75">'
+    + '<span style="font-size:12px; color:#756de7; opacity:0.75">'
     + ' PIES' + '</span>';
 
     modalBody.childNodes[1].children[1].childNodes[1].innerHTML = modalHeaderContent;
@@ -261,9 +261,9 @@ let contentFunctions = (function(userObject, firebaseDataBase){
     data.productInfo.title + '  |  '
     + '<span style="font-size:12px">'
     +  data.productInfo.info +'</span>' +  ' | '
-    + '<span style="color:#03BBF0; opacity: 0.8"> '
+    + '<span style="color:#756de7; opacity: 0.8"> '
     + currentContent.payout +'</span>'
-    + '<span style="font-size:12px; color:#03BBF0; opacity:0.75">'
+    + '<span style="font-size:12px; color:#756de7; opacity:0.75">'
     + ' PIES' + '</span>';
 
     modalBody.childNodes[1].children[1].childNodes[1].innerHTML = modalHeaderContent;
@@ -317,10 +317,10 @@ let contentFunctions = (function(userObject, firebaseDataBase){
     data.productInfo.title + '  |  '
     + '<span style="font-size:12px">'
     +  data.productInfo.info +'</span>'
-    + '<span style="color:#03BBF0; opacity: 0.8"> '
+    + '<span style="color:#756de7; opacity: 0.8"> '
     +  ' | ' + 'Receipt'
     + '</span>'
-    // + '<span style="font-size:12px; color:#03BBF0; opacity:0.75">'
+    // + '<span style="font-size:12px; color:#756de7; opacity:0.75">'
     // + ' PIES' + '</span>';
     modalBody.childNodes[1].children[1].childNodes[1].innerHTML = modalHeaderContent;
     let elementLink = modalBody
@@ -336,7 +336,7 @@ let contentFunctions = (function(userObject, firebaseDataBase){
       dollarPayout = dollarPayout.splice(data.val().decimalSpace, 0, '.')
       // console.log(dollarPayout)
       let elementBody = modalBody.children[1].childNodes[1]
-      elementBody.innerHTML = 'Payout: <h4 style="font-size:18px; color:#03BBF0; opacity:0.75">'
+      elementBody.innerHTML = 'Payout: <h4 style="font-size:18px; color:#756de7; opacity:0.75">'
       + currentContent.payout + ' Pies tokens'
       + '</h4>'
       // + '<hr>'
